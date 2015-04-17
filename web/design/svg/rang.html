@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">    
+<html>    
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="svg.js"></script>
+<script type="text/javascript">    
+window.onload = function() {    
+   
+    var container = document.getElementById('container');    
+    var svg = document.getElementById('svg'); 
+    svg.setAttribute('width', '300px');    
+    svg.setAttribute('height', '300px'); 
+	var style={};
+	style.stroke='red'; 
+	style.fill='green'
+	var arc1=arc(200,50,50,0,120,true,false,true,style);
+	svg.appendChild(arc1);
+	var arc2=arc(350,50,50,0,320,true,false,true,style);
+	svg.appendChild(arc2);
+	var arc3=arc(500,50,50,0,120,false,false,true,style);
+	svg.appendChild(arc3);
+	var arc4=arc(650,50,50,0,320,false,false,true,style);
+	svg.appendChild(arc4);
+	var style1={};
+	style1.stroke='red'; 
+	style1.fill='blue'
+    var ring1=ring(200,200,50,0,140,20,true,style1);
+	svg.appendChild(ring1);
+	ring2=ring(350,200,50,0,240,20,true,style1);
+	svg.appendChild(ring2);
+	ring3=ring(500,200,50,0,140,20,false,style1);
+	svg.appendChild(ring3);
+	ring4=ring(650,200,50,0,240,20,false,style1);
+	svg.appendChild(ring4);
+	var style2={};
+	var arc11=arc(200,350,50,0,120,true,false,false,style2);
+	svg.appendChild(arc11);
+	var arc22=arc(350,350,50,0,320,true,false,false,style2);
+	svg.appendChild(arc22);
+	var arc33=arc(500,350,50,0,120,false,false,false,style2);
+	svg.appendChild(arc33);
+	var arc44=arc(650,350,50,0,320,false,false,false,style2);
+	svg.appendChild(arc44);
+	var style3={};
+	style3.stroke='blue'; 
+	style3.fill='yellow'
+	var arc11=arc(200,500,50,0,90,true,true,false,style3);
+	svg.appendChild(arc11);
+	var arc22=arc(350,500,50,0,260,true,true,false,style3);
+	svg.appendChild(arc22);
+	var arc33=arc(500,500,50,0,90,false,true,false,style3);
+	svg.appendChild(arc33);
+	var arc44=arc(650,500,50,0,260,false,true,false,style3);
+	svg.appendChild(arc44);
+	
+	var style4={};
+	style4['stroke-width']=5;
+	style4.stroke='red'; 
+    var line1=line(200,650,350,650,style4);
+	svg.appendChild(line1);
+	var style5={};
+	style5['stroke-width']=10;
+	style5.stroke='green'; 
+    var line2=line(400,650,550,650,style5);
+	svg.appendChild(line2);
+    container.appendChild(svg); 
+};    
+    
+</script>    
+    
+<body>    
+    <div id="container">    
+        <svg  id='svg'width="100%" height="100%" version="1.1">
+		</svg> 
+    </div>    
+</body>    
+</html>    

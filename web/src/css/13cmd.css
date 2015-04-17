@@ -1,0 +1,233 @@
+.cmdbar {
+	height: 38px;
+	border-bottom: 1px solid #333;
+	background-color: #E3E6E8;
+}
+.cmdbar .cmd {
+	height: 30px;
+	right: 0px;
+	z-index: 870;
+	overflow: hidden;
+	padding-right: 12px;
+	cursor: default;
+	background-color: #E3E6E8;
+	font-size: 12px;
+	position: relative;
+	float: right;
+	margin-top: 6px;
+}
+.cmdbar .cmd div {
+	padding-left: 15px;
+	margin-left: 6px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 28px;
+	line-height: 24px;
+	background-size: 24px 24px;
+	float: left;
+	border: 1px solid #e3e6e9;
+	border-radius: 5px;
+	margin-right: 6px;
+	padding-right: 15px;
+}
+.cmdbar .cmd div:hover {
+	color: #00F;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+.cmdbar .cmd .btn{
+	font-size:12px;
+	display:inline-block;
+	color:#000000;
+	padding:0 5px 0 5px;
+	cursor: default;
+	text-align: center;
+	height: 25px;
+	border: 1px solid #ababab;
+	border-radius: 4px;
+	line-height: 25px;
+	text-align: center;
+	margin: 1px 6px 0 6px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-image: url(../../images/button/btn_silver.png);
+	background-repeat: repeat-x;
+}
+.cmdbar .cmd .btn:hover {
+	font-size:12px;
+	display:inline-block;
+	color:#000000;
+	padding:0 5px 0 5px;
+	cursor: default;
+	text-align: center;
+	height: 25px;
+	border: 1px solid #4e9beb;
+	border-radius: 4px;
+	line-height: 25px;
+	text-align: center;
+	margin: 1px 6px 0 6px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-image: url(../../images/button/btn_active_bg2.png);
+	background-repeat: repeat-x;
+}
+.cmdbar .cmd  .btn.gray:hover {
+	background-image: url(../../images/button/btn_silver.png);
+	border: 1px solid #ababab;
+}
+.cmdbar .cmd .upload{
+	background-image: url(../../images/file/up.png);
+	overflow: hidden;
+	position: relative;
+}
+.cmdbar .cmd .upload input {
+	height:25px;
+	cursor:default;
+	right: 0px;
+	position: absolute;
+	width: 20px;
+	opacity: 0;
+	margin: 0;
+	padding: 0;
+}
+.cmdbar .cmd .rmDoc{
+	background-image: url(../../images/win_cmd/delete_red.png);
+}
+.cmdbar .cmd .viewDoc{
+	background-image: url(../../images/file/view.png);
+}
+.cmdbar .cmd .download{
+	background-image: url(../../images/file/download.png);
+}
+.cmdbar .cmd .btn.gray{
+	color:#999999;
+}
+.cmdbar .cmd .add {
+	background-image: url(../../images/win_cmd/add24.png);
+}
+.cmdbar .cmd .nav {
+	background-image: url(../../images/win_cmd/nav_green3.png);
+}
+.cmdbar .cmd .edit {
+	background-image: url(../../images/win_cmd/modify.png);
+}
+.cmdbar .cmd .delete {
+	background-image: url(../../images/win_cmd/delete_red.png);
+}
+.cmdbar .cmd .folder {
+	background-image: url(../../images/win_cmd/folder.png);
+	background-size: 24px 24px;
+}
+.cmdbar .cmd .search {
+	background-image: url(../../images/win_cmd/search.png);
+}
+.cmdbar .cmd .filterData {
+	background-image: url(../../images/win_cmd/search.png);
+}
+.cmdbar .cmd .refresh {
+	background-image: url(../../images/win_cmd/refresh.png);
+}
+.cmdbar .cmd .import {
+	background-image: url(../../images/win_cmd/import.png);
+}
+.cmdbar .cmd .export {
+	background-image: url(../../images/win_cmd/export.png);
+}
+.cmdbar .cmd .pre {
+	background-image: url(../../images/win_cmd/pre1.png);
+}
+.cmdbar .cmd .next {
+	background-image: url(../../images/win_cmd/next1.png);
+}
+.cmdbar .cmd .save {
+	background-image: url(../../images/win_cmd/save.png);
+}
+.cmdbar .cmd .update {
+	background-image: url(../../images/win_cmd/update.png);
+}
+.cmdbar .cmd .cancel {
+	background-image: url(../../images/win_cmd/exit.png);
+}
+.cmdbar .cmd .addItem {
+	background-image: url(../../images/win_cmd/addItem.png);
+	background-size: 22px 22px;
+}
+.cmdbar .cmd .rmItem {
+	background-image: url(../../images/win_cmd/rmItem.png);
+	background-size: 22px 22px;
+}
+.cmdbar .cmd .commit {
+	background-image: url(../../images/win_cmd/commit.png);
+}
+.cmdbar .cmd .lock {
+	background-image: url(../../images/win_cmd/lock.png);
+}
+.cmdbar .cmd .unlock {
+	background-image: url(../../images/win_cmd/unlock.png);
+}
+.cmdbar .cmd .gray {
+	-webkit-filter: grayscale(100%);
+}
+.cmdbar .cmd .hide {
+	display:none;
+}
+.cmdbar .cmd .add.gray{
+	background-image: url(../../images_gray/win_cmd/add24.png);
+}
+.cmdbar .cmd .edit.gray{
+	background-image: url(../../images_gray/win_cmd/modify.png);
+}
+.cmdbar .cmd .delete.gray{
+	background-image: url(../../images_gray/win_cmd/delete_red.png);
+}
+.cmdbar .cmd .folder.gray{
+	background-image: url(../../images_gray/win_cmd/folder.png);
+	background-size: 24px 24px;
+}
+.cmdbar .cmd .search.gray{
+	background-image: url(../../images_gray/win_cmd/search.png);
+}
+.cmdbar .cmd .filterData.gray{
+	background-image: url(../../images_gray/win_cmd/search.png);
+}
+.cmdbar .cmd .refresh.gray{
+	background-image: url(../../images_gray/win_cmd/refresh.png);
+}
+.cmdbar .cmd .import.gray{
+	background-image: url(../../images_gray/win_cmd/import.png);
+}
+.cmdbar .cmd .export.gray{
+	background-image: url(../../images_gray/win_cmd/export.png);
+}
+.cmdbar .cmd .pre.gray{
+	background-image: url(../../images_gray/win_cmd/pre1.png);
+}
+.cmdbar .cmd .next.gray{
+	background-image: url(../../images_gray/win_cmd/next1.png);
+}
+.cmdbar .cmd .save.gray{
+	background-image: url(../../images_gray/win_cmd/save.png);
+}
+.cmdbar .cmd .update.gray{
+	background-image: url(../../images_gray/win_cmd/update.png);
+}
+.cmdbar .cmd .cancel.gray{
+	background-image: url(../../images_gray/win_cmd/exit.png);
+}
+.cmdbar .cmd .addItem.gray{
+	background-image: url(../../images_gray/win_cmd/addItem.png);
+	background-size: 22px 22px;
+}
+.cmdbar .cmd .rmItem.gray{
+	background-image: url(../../images_gray/win_cmd/rmItem.png);
+	background-size: 22px 22px;
+}
+.cmdbar .cmd .commit.gray{
+	background-image: url(../../images_gray/win_cmd/commit.png);
+}
+.cmdbar .cmd .lock.gray{
+	background-image: url(../../images_gray/win_cmd/lock.png);
+}
+.cmdbar .cmd .unlock.gray{
+	background-image: url(../../images_gray/win_cmd/unlock.png);
+}

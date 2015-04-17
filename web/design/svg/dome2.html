@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">    
+<html>    
+<script type="text/javascript" src="../ichart/release/base.js"></script>
+<script type="text/javascript">    
+window.onload = function() {    
+        
+    var container = document.getElementById('container');    
+    var svgns = 'http://www.w3.org/2000/svg';    
+    var svg = document.createElementNS(svgns, 'svg');    
+    svg.setAttribute('width', '300px');    
+    svg.setAttribute('height', '300px');    
+        
+    // our linearGradient    
+    var defs = document.createElementNS(svgns, 'defs');    
+    var gradient = document.createElementNS(svgns, 'linearGradient');    
+    gradient.setAttribute('id', 'myGradient');    
+    gradient.setAttribute('x1', '0%');    
+    gradient.setAttribute('y1', '100%');    
+    gradient.setAttribute('x2', '100%');    
+    gradient.setAttribute('y2', '0%');    
+    var stop = document.createElementNS(svgns, 'stop');    
+    stop.setAttribute('offset', '5%');    
+    stop.setAttribute('stop-color', 'blue');    
+    gradient.appendChild(stop);    
+    stop = document.createElementNS(svgns, 'stop');    
+    stop.setAttribute('offset', '95%');    
+    stop.setAttribute('stop-color', 'blue');    
+    stop.setAttribute('stop-opacity', '0.5');    
+    gradient.appendChild(stop);    
+    defs.appendChild(gradient);    
+    svg.appendChild(defs);    
+        
+    // our example circle    
+    var circle = document.createElementNS(svgns, 'circle');    
+    circle.setAttribute('cx', '50%');    
+    circle.setAttribute('cy', '50%');    
+    circle.setAttribute('r', 120);    
+    circle.setAttribute('fill', 'url(#myGradient)');    
+    circle.setAttribute('stroke-color', 'red');    
+    circle.addEventListener('mousedown', function(evt) { 
+		var obj1=circle.attributes;
+		for(var i=0;i<5;i++){
+			var obj=obj1[i];
+			//out("nodeName",obj["nodeName"]);
+			for(var p in obj){
+				//out(p,"["+obj[p]+"]");
+			}
+		}
+				//alert(circle.getAttribute("stroke-color"));
+
+		alert(stop.getAttribute("stop-color"));
+		 circle.setAttribute('r', 160);    
+	  //svg.setAttribute('width', '900px');    
+	  // svg.setAttribute('height', '900px');    
+      //alert('hello svg');    
+    }, false);    
+    svg.appendChild(circle);    
+    container.appendChild(svg); 
+	//svg.onclick=function(){alert(1)};   
+        
+};    
+    
+</script>    
+    
+<body>    
+    <div id="container">    
+            
+    </div>    
+</body>    
+</html>    

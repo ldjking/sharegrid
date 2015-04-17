@@ -1,0 +1,63 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+.info {
+	position: relative;
+	top: 100px;
+	left: 200px;
+	width: 100px;
+	height: 60px;
+	overflow: hidden;
+}
+.text {
+	line-height: 24px;
+	border: 1px solid #333;
+	font-size: 12px;
+	padding: 5px;
+	height: 24px;
+	overflow: hidden;
+}
+.border1 {
+	width:0;
+	height:0;
+	position: absolute;
+	bottom: 4px;
+	left: 20px;
+	z-index: 13;
+	border-top-width: 10px;
+	border-right-width: 10px;
+	border-bottom-width: 10px;
+	border-left-width: 10px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #000;
+	border-right-color: #F00;
+	border-bottom-color: #000;
+	border-left-color: #F00;
+}
+.border2 {
+	width:0;
+	height:0px;
+	border-bottom:10px #fff solid;
+	border-top:10px #ccc solid;
+	border-left:10px #fff solid;
+	border-right:10px #fff solid;
+	position: absolute;
+	bottom: 5px;
+	left: 20px;
+	z-index: 15;
+}
+</style>
+</head>
+<body>
+<div class="info">
+  <div class="text">输入内容不允许为空</div>
+  <div class="border1"></div>
+  <div class="border2"></div>
+</div>
+</body>
+</html>

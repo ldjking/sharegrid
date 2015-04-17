@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">    
+<html>    
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="svg.js"></script>
+<script type="text/javascript">    
+window.onload = function() {    
+   
+    var svg = document.getElementById('svg'); 
+	var cfg={
+				x1:100,
+				y1:100,
+				x2:200,
+				y2:200,
+				style:{
+					strokeWidth:200,
+					stroke:'red'
+				}
+			}
+    var l=new gfx.Line(cfg);
+	l.draw(svg);
+};    
+    
+</script>    
+    
+<body>    
+    <div id="container">    
+          <svg  id='svg'width="700px" height="700px" version="1.1" fill="#999999">
+		  		<rect id="painter" width="700" height="700"style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+		  		<circle id="moverotate"cx="300" cy="200" r="5" stroke="black" stroke-width="2" fill="red"/>
+				<circle id="scale"cx="250" cy="200" r="5" stroke="black" stroke-width="2" fill="red"/>
+				<circle id="rotate" cx="200" cy="200" r="5" stroke="black" stroke-width="2" fill="green"/>
+				<circle id="move" cx="150" cy="200" r="5" stroke="black" stroke-width="2" fill="red"/>
+		</svg> 
+    </div>    
+</body>    
+</html>    

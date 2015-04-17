@@ -1,0 +1,31 @@
+e0_onduty
+第一步创建该表最基本的增删查改方法
+ 1、在c2_method表中新增增删查改方法
+ 2、在c3_param表中注册方法参数
+第二步创建该表的业务方法
+ 1、在c2_method表中新增业务方法
+第三步创建业务校验方法[按钮的校验]
+
+增加字段<e0_class>,e0_class</e0_class>，字段e0_class 不是必输字段，插入时可以不插入
+insert into e0_onduty
+(   e0_id
+    <e0_class>,e0_class</e0_class>
+    <e0_status>,e0_status</e0_status>
+    <e0_type>,e0_type</e0_type>
+    <e0_person1>,e0_person1</e0_person1>
+    <e0_person2>,e0_person2</e0_person2>
+    <e0_person3>,e0_person3</e0_person3>
+    <e0_where>,e0_where</e0_where>
+)
+values
+(   sid('duty')
+    <e0_class>,'@e0_class'</e0_class>
+    <e0_status>,'@e0_status'</e0_status>
+    <e0_type>,'@e0_type'</e0_type>
+    <e0_person1>,'@e0_person1'</e0_person1>
+    <e0_person2>,'@e0_person2'</e0_person2>
+    <e0_person3>,'@e0_person3'</e0_person3>
+    <e0_where>,'@e0_where'</e0_where>
+)
+
+

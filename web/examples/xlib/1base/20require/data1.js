@@ -1,0 +1,1 @@
+define("data1",null,{a:10,b:100})

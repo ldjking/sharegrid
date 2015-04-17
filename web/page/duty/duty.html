@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>运行日志管理</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+</head>
+<body>
+<div class="app" id="app1" style="z-index:20">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">运行日志</div>
+    <div class="tab hide"   id="tab_add">新建运行日志</div>
+    <div class="tab normal" id="jyjc_tab_list">设备绝缘检测列表</div>
+    <div class="tab normal" id="jyjc_tab_edit">设备绝缘检测记录</div>
+    <div class="tab hide"   id="jyjc_tab_add">新建设备绝缘监测记录</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+    <div class="content normal"  id="c4"></div>
+    <div class="content normal"  id="c5"></div>
+    <div class="content normal"  id="c6"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script>
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+(function(){
+	var	grid		        =$("#c1");
+	var editForm	        =$("#c2");
+	var addForm			    =$("#c3");
+	var	jyjcgrid		    =$("#c4");
+	var jyjceditForm	    =$("#c5");
+	var jyjcaddForm			=$("#c6");
+	var tabList			    =$("#tab_list");
+	var tabEdit			    =$("#tab_edit");
+	var tabAdd			    =$("#tab_add");
+	var jyjctabList			=$("#jyjc_tab_list");
+	var jyjctabEdit			=$("#jyjc_tab_edit");
+	var jyjctabAdd			=$("#jyjc_tab_add");
+
+	var fn_showList =function(evt){
+		activeTab(tabList);
+	}
+	var fn_jyjc_showNext =function(evt){
+		selectGridRow(jyjcgrid,1);
+		refreshJyjcEditForm();/*重绘内容*/
+	}
+	var fn_showNext  =function(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_jyjc_showPre  =function(evt){
+		selectGridRow(jyjcgrid,-1);
+		refreshJyjcEditForm();/*重绘内容*/
+	}
+	var fn_showPre  =function(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_cancel =function(evt){
+		genGridContent(grid);
+		activeTab(tabList);
+	}
+	var fn_showEditForm      =function(evt){
+		activeTab(tabEdit);
+	}
+	var fn_showAddForm       =function(evt){/*要把新增表单显示出来*/
+		activeTab(tabAdd);
+	}
+	var fn_showJyjcAddForm       =function(evt){/*要把新增表单显示出来*/
+		activeTab(jyjctabAdd);
+	}
+	var e_refushEdit =function(target){
+		genGridCmd(grid);
+		genGridContent(grid);
+		activeTab(tabEdit);
+	}
+	var e_refushAdd =function(target){
+		genGridContent(grid);/*重绘内容*/
+		activeTab(tabList);
+	}
+	var e_refushJyjcAdd=function(target){
+		var param={};
+		$$("accountInfoGet",null,null,
+		function(result){
+			param.per_insert=result.data.c0_id;
+		});
+		param.duty_tb='ae_dutyjyjc_z';
+		var formdata=genFormData(jyjcaddForm)
+		param.duty_id=formdata.ae_dutyjyjc_zid;
+		param.ae_ondutyid=formdata.ae_ondutyid;
+		param.stepnum=1;
+		$$("getOnDutyAccountStepNum",{ondutyid:formdata.ae_ondutyid},null,
+			function(result){
+				if(result.flag){
+					if(result.data.num!=null) param.stepnum=result.data.num;
+					param.note_content='设备绝缘检测记录：设备名称为：'+formdata.assetnum+'于XXX时间进行了测量，检测部位为：'+formdata.check_part+'，测量条件为：天气'+formdata.weather+'温度：'+formdata.temperature+'湿度'+formdata.humidity+'绝缘阻值'+formdata.value_r+'电压等级'+formdata.value_v;
+					param.recordtype='设备绝缘检测';
+					$$('dutyaccountzAdd',param,null,
+						function(r){
+							if(r){
+								cssReplace(jyjctabAdd,"active","hide");
+								cssReplace(jyjctabAdd,"normal","hide");
+								genGridContent(jyjcgrid);
+								activeTab(jyjctabList);
+							}
+					});
+		
+				}
+		});
+	}
+	var tabChange=function(target,p){
+		if(p==1){
+			refreshEditForm();
+		}
+		else if(p==2){
+			refreshAddForm();
+		}
+		else if(p==3){
+			activeTab(jyjctabList);
+		}
+		else if(p==4){
+			refreshJyjcEditForm();
+		}
+		else if(p==5){
+			refreshJyjcAddForm();
+		}
+	}
+	var refreshJyjcAddForm=function(){
+		var personresult,stepnum=1,getstepnum,getondutyid;
+	    $$("accountInfoGet",null,null,function(r1){
+			if(r1){
+				personresult=r1;
+				$$("getDutyStepNum",{tablename:'ae_dutyjyjc_z'},null,function(r2){
+					if(r2){
+						getstepnum=r2;
+						$$("getOndutyingId",null,null,function(r3){
+							if(r3){
+								getondutyid=r3;
+								if(getstepnum.data.num!=null) stepnum=getstepnum.data.num
+								jyjcaddForm.formCfg.data={per_check_name:personresult.data.c0_name,per_check:personresult.data.c0_id,stepnum:stepnum,ae_ondutyid:getondutyid.data.ae_ondutyid}
+								genFormContent(jyjcaddForm);
+							}
+						});
+					}
+				});
+			}
+		});
+	}
+	var refreshAddForm =function(){
+		$$("accountInfoGet",null,null,function(result){
+			if(result){
+				addForm.formCfg.data={per_zz_zb_name:result.data.c0_name,per_zz_zb:result.data.c0_id};
+				genFormContent(addForm);/*重绘内容*/
+			}else{
+				alert("请登录");
+			}
+		});
+		
+	}
+	var refreshEditForm =function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);/*如果没有激活对象，激活第一条*/
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.data==obj){return;}
+		else{
+			editForm.formCfg.param={ae_ondutyid:obj.ae_ondutyid,per_zz_zb:obj.per_zz_zb,status:obj.status};
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");/*控制上一条 下一条  变灰*/
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");/**/
+			cssRm(preCmd,"gray");
+			cssRm(nextCmd,"gray");
+			if(obj.rownum==1){
+				cssAdd(preCmd,"gray");
+			}
+			else if(obj.rownum==cfg.totalNum){
+				cssAdd(nextCmd,"gray");
+			}
+			//genFormCmd(editForm);
+			genFormContent(editForm);/*重绘内容*/
+		}
+		//alert(test.outerHTML);
+	}
+	
+	var refreshJyjcEditForm =function(){
+		var obj=null;
+		var cfg=jyjcgrid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(jyjcgrid,1);/*如果没有激活对象，激活第一条*/
+		obj=cfg.activeRow.obj;
+		if(jyjceditForm.formCfg.data==obj){return;}
+		else{
+			jyjceditForm.formCfg.param={ae_dutyjyjc_zid:obj.ae_dutyjyjc_zid};
+			var preCmd=$("#"+jyjceditForm.formCfg.id+"_cmdPre");/*控制上一条 下一条  变灰*/
+			var nextCmd=$("#"+jyjceditForm.formCfg.id+"_cmdNext");/**/
+			cssRm(preCmd,"gray");
+			cssRm(nextCmd,"gray");
+			if(obj.rownum==1){
+				cssAdd(preCmd,"gray");
+			}
+			else if(obj.rownum==cfg.totalNum){
+				cssAdd(nextCmd,"gray");
+			}
+			//genFormCmd(editForm);
+			genFormContent(jyjceditForm);/*重绘内容*/
+		}
+	}
+	
+	
+	var zhibie_change=function(target,data){
+		var form=editForm;
+		var text=$("#"+form.formCfg.id+"_zbry");
+		$$("dutyPersonsGets",{d2_id:data.value},null,function(result){
+			var personstr="";
+			if(result.flag){
+				for(var i=0;i<result.data.length;i++){
+					personstr+=result.data[i].c0_name+" ";
+				}
+			}
+			text.value=personstr;
+		});
+	}
+	
+	var e_cmdJiaoBan_handler=function(evt){
+		var b=editForm;
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		////out("jiaoBanCmd:",obj)
+		var isjiaoban=confirm("是否交班吗？");
+		if(isjiaoban){
+			$("#form_1_cmdUpdate").click();
+			$$("jiaoBan_Cmd",obj,null,function(result){
+				if(result.flag){
+					genGridContent(grid);/*重绘主列表  运行日志发生变化*/
+					activeTab(tabList);/*选项卡切换到主列表  */
+				}
+			});
+			
+		}
+		
+	}
+	var e_cmdJiaoBanc_handler=function(evt){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		var isjiaobanc=confirm("是否撤销交班？");
+		if(isjiaobanc){
+			$$("jiaoBanc_Cmd",obj,null,function(result){
+				if(result.flag){
+				genGridContent(grid);
+				activeTab(tabList);
+				}
+			});
+		}
+	}
+	
+	var e_cmdJieBan_handler=function(evt){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		$$("jieBan_Cmd",obj,null,function(result){
+			if(result.flag){
+			genGridContent(grid);
+			activeTab(tabList);
+			}
+		});
+		
+	}
+	
+	var init=function(){
+		uiApp({dom:$("#app1"),fn:tabChange});
+		var  cfg={multiMode:0,toolbar:1,filterMode:0,data_method:"aeondutyGets",pageFlag:true,pageSize:5,pagenum:2,pkAttr:"ae_ondutyid"};
+		cfg.columns=[
+				{text:"状态",attr:"status_name",align:"center",width:60,frozen:1,notEdit:1,type:"str",asc:1},
+				{text:"班次",attr:"class_name",align:"center",frozen:1,type:"str",width:80,asc:1},
+				{text:"接班时间",attr:"tm_zz_jieban",align:"left",width:160,type:"str",asc:1},
+				{text:"交班时间",attr:"tm_zz_jiaoban",align:"left",width:160,type:"str",notEdit:0,asc:1},
+				{text:"值别",attr:"dutytype_name",align:"left",width:60,type:"str",notEdit:0,asc:1},
+				{text:"值长",attr:"per_zz_zb_name",align:"left",width:60,type:"str",notEdit:0,asc:1},
+				{text:"地点",attr:"site",align:"center",frozen:0,width:160,type:"str",asc:1}];
+		cfg.cmds=[
+				{cmd:"cmdAdd"	,fn:fn_showAddForm,checkMethod:"showAdd_Check",checkFalse:"hide"},
+				{cmd:"cmdEdit",fn:fn_showEditForm},
+				{cmd:"cmdFilter"},
+				{cmd:"cmdRefresh"}
+			];/*按钮定义*/
+		genGrid(grid,cfg);
+		// ae_ondutyid  description  status  dutytype  class  per_zz_jiaoban  per_zz_jieban  tm_zz_jiaoban  tm_zz_jieban  per_zz_zb	zbry	org	site	workplan	workfinish	remark	weather	wind
+		var cfg2={title:"运行日志详细信息",bigPaper:1,formType:"update",dataMethod:"aeondutyGet",updateMethod:"aeondutyUpdate"};
+		cfg2.tables=[	
+							{type:0,rows:1,cells:[/*隐藏字段  在提交时方获得值，该值可能对子表产生影响*/
+									{type:"sid",attr:"ae_ondutyid",sidType:"method",width:120,align:"left",row:1}/*txt代表单行元素*/
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"当前状态",width:120,align:"center",row:1},
+									{type:"txt",attr:"status_name",attr2:"status",width:190,align:"left",row:1},/*txt代表单行元素*/
+									{type:"lbl",text:"地点",width:120,align:"center",row:1},
+									{type:"txt",attr:"site",width:190,align:"center",row:1},
+									{type:"lbl",text:"值长",width:120,align:"center",row:1},
+									{type:"txt",attr:"per_zz_zb_name",attr2:"per_zz_zb",width:190,align:"center",row:1,lov:"stuff"}
+									
+								]
+							},
+							{type:2,rows:1,cells:[
+									
+									{type:"lbl",text:"班次",width:120,align:"center",row:1},
+									{type:"txt",attr:"class_name",attr2:"class",lov:"workClass",width:190,align:"left",row:1},
+									{type:"lbl",text:"接班时间",width:120,align:"center",row:1},
+									{type:"txt",attr:"tm_zz_jieban",width:500,align:"left",row:1,lov:"datetime"}								
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"值别",width:120,align:"center",row:1},
+									{type:"txt",attr:"dutytype_name",attr2:"dutytype",width:190,align:"left",row:1,lov:"dutyType",onchange:zhibie_change},
+									{type:"lbl",text:"交班时间",width:120,align:"center",row:1},
+									{type:"txt",attr:"tm_zz_jiaoban",width:500,align:"left",row:1,lov:"datetime"}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"值班人员",width:120,align:"center",row:1},
+									{type:"txt",attr:"zbry",width:810,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"运行日志内容",width:910,align:"left",left:20,row:1}							]
+							},
+							{type:3,rows:3,refAttr:[{name:"ae_ondutyid",name2:"ae_ondutyid"}],rmMethod:'dutyaccountzRm',updateMethod:"dutyaccountzUpdate",addMethod:"dutyaccountzAdd",dataMethod:"dutyaccountzGets",
+								columns:[
+									{type:"txt",attr:"stepnum",name:"序号",width:60,align:"center"},
+									{type:"txt",attr:"tm_insert",name:"记录时间",width:140,align:"center",lov:"datetime"},/*txt单行*/
+									{type:"txt",attr:"note_content",name:"记录内容",width:610,align:"left"},
+									{type:"txt",attr:"recordtype",name:"记录类型",width:120,align:"center",lov:"dutyItemType"}
+								]
+							}
+						];
+						//ae_dutyaccountid  stepnum  ae_ondutyid  duty_tb  duty_id  note_content  per_insert  tm_insert  site  recordtype	org	rowid
+			cfg2.cmds=[
+						{cmd:"jiaoban",  text:"交班"     ,checkMethod:"cmd_JiaoBanCheck", checkFalse:"hide",fn:e_cmdJiaoBan_handler},
+						{cmd:"jiaoban_c",text:"撤销交班" ,checkMethod:"cmd_JiaoBancCheck",checkFalse:"hide",fn:e_cmdJiaoBanc_handler},
+						{cmd:"jieban" ,  text:"接班"     ,checkMethod:"cmd_JieBanCheck",checkFalse:"hide",fn:e_cmdJieBan_handler},
+						{cmd:"addItem",  checkMethod:"cmd_EditCheck",checkFalse:"hide"},
+						{cmd:"rmItem",   checkMethod:"cmd_EditCheck",checkFalse:"hide"},
+						{cmd:"update",   checkMethod:"cmd_EditCheck",checkFalse:"hide",fn:e_refushEdit},/*在新系统中，我打算干掉复杂方法，一个复杂表单的提交，将分步骤实施，主id如果需要，提供一个getsid*/
+						{cmd:"pre",fn:fn_showPre},
+						{cmd:"next",fn:fn_showNext},
+						
+					];
+			genForm(editForm,cfg2);
+			var cfg3={title:"添加运行日志",formType:"add",addMethod:"aeondutyAdd"};
+			cfg3.tables=[	
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"当前状态",width:80,align:"center",row:1},
+									{type:"lbl",text:"正在值班",width:120,align:"left",row:1},/*txt代表单行元素*/
+									{type:"lbl",text:"地点",width:80,align:"center",row:1},
+									{type:"lbl",text:"化德风电",width:120,align:"center",row:1},
+									{type:"lbl",text:"值长",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_zz_zb_name",attr2:"per_zz_zb",width:120,align:"center",row:1,lov:"stuff"}
+									
+								]
+							},
+							{type:2,rows:1,cells:[
+									
+									{type:"lbl",text:"班次",width:80,align:"center",row:1},
+									{type:"txt",attr:"class_name",attr2:"class",width:520,align:"left",row:1,lov:"workClass"}							
+								]
+							}
+						];
+			cfg3.cmds=[
+						{cmd:"save",fn:e_refushAdd},/*在新系统中，我打算干掉复杂方法，一个复杂表单的提交*/
+						{cmd:"cancel"}
+					];
+			genForm(addForm,cfg3);
+			
+			var jyjccfg={multiMode:0,toolbar:1,filterMode:0,data_method:"dutyjyjczGets",pageFlag:true,pageSize:5,pagenum:2,pkAttr:"ae_dutyjyjc_zid"};
+			jyjccfg.columns=[{text:"设备名称",attr:"assetnum_name",align:"center",width:180,frozen:1,notEdit:1,type:"str",asc:1},
+							 {text:"检测部位",attr:"check_part",align:"center",width:120,frozen:1,notEdit:1,type:"str",asc:1},
+							 {text:"绝缘阻值（MΩ）",attr:"value_r",align:"center",width:60,notEdit:1,type:"str",asc:1},
+							 {text:"摇表电压等级（KV）",attr:"value_v",align:"center",width:60,notEdit:1,type:"str",asc:1},
+							 {text:"天气",attr:"weather",align:"center",width:60,notEdit:1,type:"str",asc:1},
+							 {text:"环境温度",attr:"temperature",align:"center",width:60,notEdit:1,type:"str",asc:1},
+							 {text:"湿度",attr:"humidity",align:"center",width:60,notEdit:1,type:"str",asc:1},
+							 {text:"测量时间",attr:"tm_check",align:"left",width:150,type:"str",asc:1},
+							 {text:"测量人",attr:"per_check_name",align:"left",width:80,type:"str",asc:1},
+							 {text:"备注",attr:"remark",align:"left",width:160,type:"str",asc:1}]
+			jyjccfg.cmds=[
+					{cmd:"cmdAdd",fn:fn_showJyjcAddForm},
+					{cmd:"cmdEdit"},
+					{cmd:"cmdFilter"},
+					{cmd:"cmdRefresh"}
+				];
+			genGrid(jyjcgrid,jyjccfg);
+			//ae_dutyjyjc_zid	ae_ondutyid	stepnum	assetnum	check_part	value_r	value_v	weather	temperature	humidity	tm_check	per_check	remark	site	org
+			var cfg4={title:"设备绝缘检测记录",formType:"update",dataMethod:"dutyjyjczGet",updateMethod:"dutyjyjczUpdate"};
+			var jyjctables=[	
+							{type:0,rows:1,cells:[/*隐藏字段  在提交时方获得值，该值可能对子表产生影响*/
+									{type:"sid",attr:"ae_dutyjyjc_zid",sidType:"method",width:120,align:"left",row:1},/*txt代表单行元素*/
+									{type:"txt",attr:"ae_ondutyid",width:120,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"设备编号",width:80,align:"center",row:1},
+									{type:"txt",attr:"assetnum",width:120,align:"left",row:1},/*txt代表单行元素*/
+									{type:"lbl",text:"设备部位",width:80,align:"center",row:1},
+									{type:"txt",attr:"check_part",width:120,align:"center",row:1},
+									{type:"lbl",text:"检测人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_check_name",attr2:"per_check",width:120,align:"center",row:1,lov:"stuff"}
+									
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"天气",width:80,align:"center",row:1},
+									{type:"txt",attr:"weather",width:120,align:"left",row:1},/*txt代表单行元素*/
+									{type:"lbl",text:"环境温度",width:80,align:"center",row:1},
+									{type:"txt",attr:"temperature",width:120,align:"center",row:1},
+									{type:"lbl",text:"湿度",width:80,align:"center",row:1},
+									{type:"txt",attr:"humidity",width:120,align:"center",row:1}
+									
+								]
+							},
+							{type:2,rows:1,cells:[
+									
+									{type:"lbl",text:"绝缘阻值",width:80,align:"center",row:1},
+									{type:"txt",attr:"value_r",width:120,align:"left",row:1},
+									{type:"lbl",text:"摇表电压等级",width:80,align:"center",row:1},
+									{type:"txt",attr:"value_v",width:120,align:"left",row:1},
+									{type:"lbl",text:"记录序号",width:80,align:"center",row:1},
+									{type:"txt",attr:"stepnum",width:120,align:"left",row:1}							
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注",width:600,align:"left",row:1}						
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"txt",attr:"remark",width:600,height:200,align:"left",row:1}						
+								]
+							}
+						];
+			cfg4.tables=jyjctables;
+						//ae_dutyaccountid  stepnum  ae_ondutyid  duty_tb  duty_id  note_content  per_insert  tm_insert  site  recordtype	org	rowid
+			cfg4.cmds=[
+						{cmd:"update"},/*在新系统中，我打算干掉复杂方法，一个复杂表单的提交，将分步骤实施，主id如果需要，提供一个getsid*/
+						{cmd:"pre",fn:fn_jyjc_showPre},
+						{cmd:"next",fn:fn_jyjc_showNext}
+					];
+			genForm(jyjceditForm,cfg4);
+			
+			
+			var cfg5={title:"添加设备绝缘检测记录",formType:"add",addMethod:"dutyjyjczAdd"};
+			cfg5.tables=jyjctables;
+			cfg5.cmds=[
+						{cmd:"save",fn:e_refushJyjcAdd}
+					];
+			genForm(jyjcaddForm,cfg5);
+	}
+	window.onload=init;	
+	
+})();
+</script>
+</body>
+</html>

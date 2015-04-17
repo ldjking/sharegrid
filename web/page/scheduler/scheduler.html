@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>调度测试</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+</head>
+
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript">
+
+(function(){
+	var grid		    =$("#c1");
+	var tabList			=$("#tab_list");
+	var tabChange=function(target,p){
+	}
+	var fn_showList=	function(evt){
+		genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	var e_qidong_task_handler=function(evt){
+		var obj=grid.gridCfg.activeRow.obj;
+		if(obj!=null){
+			var r=$$("startTask",{name:obj.b2_name});
+			if(r.flag)
+			{
+				fn_showList();
+			}
+		}
+	}
+	var e_guanbi_task_handler=function(evt){
+		var obj=grid.gridCfg.activeRow.obj;
+		if(obj!=null){
+			var r=$$("stopTask",{name:obj.b2_name});
+			if(r.flag)
+			{
+				fn_showList();
+			}
+		}
+	}
+	var init=function(){
+		uiApp({dom:$("#app1"),fn:tabChange});
+		var cfg={multiMode:0,toolbar:1,filterMode:0,data_method:"taskGets",pageFlag:false,pageSize:6,pkAttr:"b2_name"};
+		cfg.columns=[	{text:"任务名",attr:"b2_name",align:"center",width:80,frozen:1,type:"num",notEdit:0,asc:1},
+						{text:"任务描述",attr:"b2_cname",align:"center",width:120,type:"str",asc:1},
+						{text:"执行方法",attr:"b2_method",align:"center",width:160,type:"str",asc:1},
+						{text:"第一次执行时间",attr:"b2_first",align:"center",width:160,type:"str",asc:1},
+						{text:"执行方式",attr:"b2_type",align:"center",width:160,type:"str",asc:1},
+						{text:"周期",attr:"b2_size",align:"center",type:"str",width:80,asc:1},
+						{text:"参数",attr:"b2_param",align:"center",type:"str",width:280,asc:1},
+						{text:"是否关闭",attr:"b2_shutdown",align:"center",type:"str",width:80,asc:1}];
+		cfg.cmds=[
+						{cmd:"qidong"	,text:"启动",fn:e_qidong_task_handler},
+						{cmd:"guanbi"	,text:"关闭",fn:e_guanbi_task_handler},
+						{cmd:"cmdRefresh"}
+					]
+		
+		genGrid(grid,cfg);/*主列表*/
+	}
+	window.onload=init;
+})();
+</script> 
+</body>
+</html>

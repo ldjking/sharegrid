@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>测试浏览器</title>
+</head>
+
+<body>
+<div id="container"></div>
+<script type="text/javascript" src="../../../../src/1base/11basis.js"></script>
+<script type="text/javascript">
+	window.onload=init();
+	function init(){
+		var attrs=["isChrome","isWebKit","isSafari","isGecko","isFF","isIE"];
+		var dom=document.getElementById("container");
+		test(dom,window,attrs);
+	}
+	
+	function test(dom,obj,attrs){
+		for(var i=0;i<attrs.length;i++){
+			dom.innerHTML+="属性："+attrs[i]+"\t\t 值："+obj[attrs[i]];
+			dom.innerHTML+="<br/>";
+		}
+	}
+</script>
+</body>
+</html>

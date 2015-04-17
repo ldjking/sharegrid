@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>温度测量管理</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<!--link rel="stylesheet" type="text/css" href="../../src/css/23form.css"/-->
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">温度测量记录</div>
+    <div class="tab hide" id="tab_add">新建温度测量登记</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script>
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+(function(){
+	var grid		    =$("#c1");
+	var editForm	    =$("#c2");
+	var addForm			=$("#c3");
+	var tabList			=$("#tab_list");
+	var tabEdit			=$("#tab_edit");
+	var tabAdd			=$("#tab_add");
+	
+		
+	var fn_showList     =function(evt){
+		//genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	var fn_showkeyList  =function(evt){
+		activeTab(keyList);
+	}
+	var fn_showNext=	function(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showPre=		function(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showEditForm=function(evt){
+		activeTab(tabEdit);
+	}
+	var fn_showAddForm=function(evt){/*要把新增表单显示出来*/
+		activeTab(tabAdd);
+	}
+	var e_refushEdit =function(target){
+		genGridCmd(grid);
+		genGridContent(grid);
+		activeTab(tabList);
+	}
+	var e_refushAdd =function(target){
+		genGridCmd(grid);
+		genGridContent(grid);/*重绘内容*/
+		activeTab(tabList);
+	}
+	var tabChange=function(target,p){
+		if(p==0)		fn_showList();
+		else if(p==1)	refreshEditForm();
+		else if(p==2)	refreshAddGrid();
+	}
+	var refreshAddGrid=function(){
+		$$("getOndutyingId",null,null,function(r3){
+			if(r3){
+				addForm.formCfg.data={type:2,ae_ondutyid:r3.data.ae_ondutyid}
+		 		genFormContent(addForm);
+			}
+		});
+	}
+	var refreshEditForm =function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.param==obj)	return;
+		else{
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			cssRm([preCmd,nextCmd],"gray");
+			if(obj.rownum==1)						cssAdd(preCmd,"gray");
+			else if(obj.rownum==cfg.totalNum)		cssAdd(nextCmd,"gray");
+			genFormContent(editForm);
+		}
+	}
+	var init=function(){
+		uiApp({dom:$("#app1"),fn:tabChange});
+		   	//ae_testwdid	description	tm_test	per_test	test_fw	test_part	isload	parta	partb	partc	powerload	temperature	status	remark	site	org
+		cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"testwdGets",pageFlag:false,pageSize:6,autoWidth:1,pkAttr:"ae_testwdid"};
+		cfg.columns=[	
+						{text:"测温日期",attr:"tm_test",align:"left",type:"str",width:150,asc:1},
+						{text:"测温人",attr:"per_test",align:"left",width:80,type:"str",asc:1},
+						{text:"测温范围",attr:"test_fw",align:"left",width:150,type:"str",asc:1},
+						{text:"接头发热部位",attr:"test_part",align:"left",width:150,type:"str",asc:1},
+						{text:"A项接头温度",attr:"parta",align:"left",width:70,type:"str",asc:1},
+						{text:"B项接头温度",attr:"partb",align:"left",width:70,type:"str",asc:1},
+						{text:"C项接头温度",attr:"partc",align:"left",width:70,type:"str",asc:1},
+						{text:"负荷",attr:"powerload",align:"left",width:60,type:"str",asc:1},
+						{text:"环境温度",attr:"temperature",align:"left",width:60,type:"str",asc:1},
+						{text:"是否插入日志",attr:"isloadname",attr2:"isload",align:"left",width:80,type:"str",asc:1}
+					];
+		cfg.cmds=[
+						{cmd:"cmdAdd"	,fn:fn_showAddForm},
+						{cmd:"cmdEdit"	,fn:fn_showEditForm},
+						{cmd:"cmdFilter"},
+						{cmd:"cmdRefresh"}
+					]
+		genGrid(grid,cfg);		
+	 	//ae_testwdid	description	tm_test	per_test	test_fw	test_part	isload	parta	partb	partc	powerload	temperature	status	remark	site	org
+		var cfg2={title:"温度测量记录",formType:"update",dataMethod:"testwdGet",updateMethod:"testwdUpdate"};
+		cfg2.tables=[	
+							{type:0,rows:1,cells:[
+									{type:"sid",attr:"ae_testwdid",sidType:"method",width:120,align:"left",row:1},
+									{type:"txt",attr:"ae_ondutyid",width:250,align:"left",row:1},
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"测量日期",width:80,align:"center",row:1},
+									{type:"txt",attr:"tm_test",width:250,align:"left",row:1,lov:'datetime'},
+									{type:"lbl",text:"测试部位",width:80,align:"center",row:1},
+									{type:"txt",attr:"test_part",width:250,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"测温人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_test_name",attr2:'per_test',width:250,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"测温范围",width:80,align:"center",row:1},
+									{type:"txt",attr:"test_fw",attr2:'status',width:250,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"A项接头温度",width:80,align:"center",row:1},
+									{type:"txt",attr:"parta",attr2:'per_test',width:250,align:"left",row:1},
+									{type:"lbl",text:"负荷",width:80,align:"center",row:1},
+									{type:"txt",attr:"powerload",width:250,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"B项接头温度",width:80,align:"center",row:1},
+									{type:"txt",attr:"partb",width:250,align:"left",row:1},
+									{type:"lbl",text:"环境温度",width:80,align:"center",row:1},
+									{type:"txt",attr:"temperature",width:250,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"C项接头温度",width:80,align:"center",row:1},
+									{type:"txt",attr:"partc",width:250,align:"left",row:1},
+									{type:"lbl",text:"是否启用日志",width:80,align:"center",row:1},
+									{type:"txt",attr:"isload_name",attr2:'isload',width:250,align:"left",row:1,lov:'is'}
+								]
+							}
+						];
+		cfg2.cmds=[
+					{cmd:"update",fn:e_refushEdit},
+					{cmd:"pre",fn:fn_showPre},
+					{cmd:"next",fn:fn_showNext},
+				];
+		genForm(editForm,cfg2);
+		var cfg3={title:"新建温度测量记录",formType:"add",addMethod:"testwdDoAdd"};
+		cfg3.tables=cfg2.tables;
+		cfg3.cmds=[
+			{cmd:"save",fn:e_refushAdd}
+		];
+	    genForm(addForm,cfg3);
+	}
+	
+	window.onload=init;
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+@-webkit-keyframes 
+	100%{
+		opacity:1;				/*透明度为1*/
+	}
+}
+.edit:hover {
+	background-color: #dbeafc;
+}
+.childs .header {
+	background-color: #efefef;
+	color: #666;
+}
+.childs .header div{
+	color: #666;
+}
+.childs tr:hover {
+	background-color: #dbeafc;
+}
+.childs .header:hover {
+	background-color: #efefef;
+}
+.active {
+	background-color: #b9d8fe;
+}
+.edit.active{
+	background-color: #b9d8fe;
+}
+.edit.active :hover{
+	background-color: #b9d8fe;
+}
+.focus{
+	position:absolute;
+	z-index:41;
+	width:1px;
+	height:1px;
+	line-height:1px;
+	background-color: #000000;
+}
+.focus_1 {
+
+}
+.focus_2 {
+
+}
+.focus_3 {
+
+}
+.focus_4 {
+
+}
+.noEdit {
+	color: #666;
+	background-color: #efefef;
+}
+.noEdit .text{
+	color: #666;
+	background-color: #efefef;
+}
+.childForm {
+	background:rgba(100,100,100,0.8);
+	position: fixed;
+	z-index: 60;
+	left: 30%;
+	top: 30%;
+	line-height: 32px;
+	padding: 8px;
+	border-radius: 5px;
+}
+.childForm .title{
+	background:rgba(100,100,100,0.6);
+	color: #FFF;
+	font-weight: bold;
+
+}
+.childForm .childTable{
+	background:rgba(255,255,255,1);
+	border: 1px solid #CCC;
+	background-color: #FFF;
+	opacity: 1;
+}
+.childForm .childTable span{
+	display: block;
+	float: left;
+	width: 80px;
+
+}
+
+.edit {
+
+}
+.error {
+	background-color: #F00;
+}
+.error2 {
+	background-color: #ffeb91;
+	text-decoration:line-through;
+}
+.error .text{
+	color: #F00;
+}

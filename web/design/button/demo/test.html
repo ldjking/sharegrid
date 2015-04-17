@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+.button {
+	cursor: pointer;
+	text-align: center;
+	padding:3px;
+	text-decoration:none;
+	outline:none;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		text-shadow: 0 1px 1px rgba(0,0,0,.3);
+
+}
+.button:hover {
+	text-decoration: none;
+}
+.button:active {
+	position: relative;
+	top: 1px;
+}
+.orange {
+	cursor: pointer;
+	text-align: center;
+	padding:3px;
+	text-decoration:none;
+	outline:none;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		text-shadow: 0 1px 1px rgba(0,0,0,.3);
+		display:inline-block;
+		border-radius:5px;
+	color: #31658c;
+	border: solid 1px #7f919f;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#0091d2', endColorstr = #09415b, GradientType = 0); /* IE6-9 */
+}
+.orange:hover {
+	background: #f47c20;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+	background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+}
+.orange:active {
+	color: #fcd3a5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+	background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
+}
+
+.wrapper {
+    width:300px;
+
+    border-radius: 5em;
+    border:3px solid red;   
+
+    overflow:hidden; /* Key */
+}
+
+.gradient-bg {
+    height:300px;
+
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#0091d2', endColorstr = #09415b, GradientType = 0); /* IE6-9 */
+
+    background: -webkit-linear-gradient(top, #0091d2, #09415b); /* Chrome */
+    background: linear-gradient(top, #0091d2 0%, #09415b 100%); /* W3C */
+}​
+</style>
+</head>
+
+<body>
+<div class="wrapper"><a href="#" class="orange">fsdafs</a></div>
+<div class="wrapper"><div class="gradient-bg"></div></div>​
+</body>
+</html>

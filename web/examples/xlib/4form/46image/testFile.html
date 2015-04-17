@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/23form.css"/>
+
+</head>
+<body>
+  <form id="f1">
+  	<input type="file" id="f2" onchange="ajaxFileUpload()">
+  </form>
+  <iframe id="f3" name="f3"></iframe>
+<script type="text/javascript">
+	
+	var ajaxFileUpload = function(cfg) {
+		if(cfg==null)	cfg={url:"http://10.68.105.166/eam/upload"};
+		var id = new Date().getTime();
+		var iframe =document.getElementById("f3");
+
+		var form =document.getElementById("f1");
+		form.action="";
+		form.method="post";
+		form.enctype="multipart/form-data";
+		//var iframe = createUploadIframe();
+		if (window.attachEvent) {
+			iframe.attachEvent('onload', function(){uploadCallback(cfg)});
+		} else {
+			iframe.addEventListener('load',function(){uploadCallback(cfg)}, false);
+		}
+		try {
+						alert("form submit");
+
+			form.setAttribute("action",cfg.url);
+			form.setAttribute('target', "f3");
+			if (form.encoding) {
+				form.encoding = 'multipart/form-data';
+			} else {
+				form.enctype = 'multipart/form-data';
+			}
+			form.submit();
+		} catch (e) {
+			alert("error");
+		}
+		//x.bind(iframe,"load",uploadCallback(cfg));
+	}
+	var seed1=0;
+	var uploadCallback = function(cfg) {
+		if(seed1==0){
+			seed1++;
+			var data = {} ;
+			var iframe=document.getElementById("f3");
+			try 
+			{				
+				//if(iframe.contentWindow)
+//				{
+//					data = iframe.contentWindow.document.body?iframe.contentWindow.document.body.innerHTML:null;
+//					
+//				}else if(iframe.contentDocument)
+//				{
+//					data = iframe.contentDocument.document.body?iframe.contentDocument.document.body.innerHTML:null;
+//					
+//				}						
+			}catch(e)
+			{
+				out("error:",e);
+				
+				/*没有权限的情况下 如何处理*/
+				//alert(window.frames[0].location);
+			}
+			//out("set location","test2.html");
+			//iframe.contentWindow.location="test2.html";
+			//out("提交数据完成",data);
+			//if(cfg.fn)	cfg.fn(cfg,data);
+//			setTimeout(function() {
+//							try
+//							{
+//								iframe.parentNode.removeChild(iframe);//删除，不然会回调多次
+//							} catch (e) {
+//								out("error:",e);
+//							}
+//						}, 100);
+		}
+		else{
+			out("seed1",seed1);
+			var iframe=document.getElementById("jUploadFrame");
+			//alert(iframe.contentWindow.name);
+		}
+	}
+	
+</script>
+</body>
+</html>

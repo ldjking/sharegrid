@@ -1,0 +1,13 @@
+word格式模版结构
+
+doc
+——paperIndex		首页		文档标题 编写记录
+——paperCatolog		目录		文档的目录结构
+——paper				正文页
+————content			页面内容
+——————p1			一级段落
+——————p2			二级段落
+——————part			段落
+——————table			表格
+——————thead			表格标题行
+——————indent		缩进

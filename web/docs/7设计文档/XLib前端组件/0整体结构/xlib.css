@@ -1,0 +1,38 @@
+body {
+	background-color: #333;
+	color: #CCC;
+	font-size: 14px;
+	height: 100%;
+}
+.main {
+	position: fixed;
+	left: 0px;
+	right: 240px;
+	height: 100%;
+	top: 0px;
+	bottom: 0px;
+}
+.right {
+	position: fixed;
+	right: 0px;
+	height: 100%;
+	top: 0px;
+	bottom: 0px;
+	width: 240px;
+	background-color: #FFF;
+	color: #000;
+}
+.top {
+	line-height: 48px;
+	height: 48px;
+	font-weight: bold;
+	color: #F00;
+	font-size: 24px;
+	text-align: center;
+	background-color: #036;
+}
+.nav {
+	height: 600px;
+	overflow: auto;
+
+}

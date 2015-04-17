@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>单独grid全表编辑展示</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/31grid.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/32tree.css"/>
+</head>
+<body>
+<div id="c1" style="position:absolute; z-index:30; background-color:#FFFFFF"></div>
+
+<script type="text/javascript" src="../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../release/ui.js"></script> 
+<script type="text/javascript" src="../../../../release/lovdef.js"></script> 
+<script type="text/javascript" src="../../../../src/3grid/31grid.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/32cmd.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/33header.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/34content.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/35page.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/36scroll.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/37fix.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/38ui.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/39op.js"></script>
+<script type="text/javascript">
+	window.onload=init;
+	function init(){/*需要有一些自定义动画效果*/	
+		var grid=$("#c1");
+		uiLayout({dom:grid,container:document.body,dx:0,dy:0,xdoms:[]});	
+		
+		var cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"orgGets",
+			rmMethod:'personRm',addMethod:"personAdd",updateMethod:"personUpdate",pageFlag:false,pageSize:6};
+		cfg.treeCfg={idAttr:"d1_id",pidAttr:"d1_pid"};
+		cfg.columns=[	{text:"主键",attr:"d1_id",align:"center",width:80,frozen:0,type:"num",notEdit:0,asc:1},
+						{text:"组织机构名称",attr:"d1_name",align:"left",frozen:1,width:260,type:"str",asc:1,treeStyle:1},
+						{text:"简称",attr:"d1_shortname",align:"left",type:"str",width:80,notEdit:1,asc:1},
+						{text:"类别",attr:"d1_type",align:"center",width:80,type:"str",asc:1},
+						{text:"上级主键",attr:"d1_pid",align:"center",width:100,type:"str",notEdit:0,asc:1},
+						{text:"状态",attr:"d1_state",align:"center",width:100,type:"str",asc:1}
+					];
+		cfg.cmds=[/*grid 默认有10个左右按钮*/
+					{cmd:"cmdLock",		check:"personCheck"},
+					{cmd:"cmdAddItem"},
+					{cmd:"cmdRmItem"},
+				  	{cmd:"cmdCommit"},
+				  	{cmd:"cmdFilter"},
+				  	{cmd:"cmdRefresh"}					
+				]
+		genGrid(grid,cfg);	
+	}
+</script>
+</body>
+</html>

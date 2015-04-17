@@ -1,0 +1,159 @@
+@charset "utf-8";
+/* CSS Document Author:snow*/
+body{
+	background:#f1f2f2;
+	font-size:12px;
+	margin: auto;
+    max-width: 640px;
+ 	overflow: hidden;	
+    position: relative;
+} 
+fieldset{
+	border:none;
+}
+legend{
+	display:none;
+}
+.input_box{
+	border:1px solid #d0d5d3;
+	border-radius:5px;
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	background:#fff;
+	height:50px;
+	margin:10px 0 0;
+	font-size:16px;
+}
+.btn{
+	margin:30px 0 10px;
+	cursor:pointer;
+	overflow:hidden;
+	cursor:pointer;
+}
+.btn_wap{
+	float:left;
+	width:100%;
+	cursor:pointer;
+}
+.btn_lc{
+	background:url(../images/btn_lc.png) no-repeat;
+	height:50px;
+	width:6px;
+	float:left;
+	margin-left:-100%;
+}
+.btn_cc{
+	background:url(../images/btn_cc.png) repeat-x;
+	height:50px;
+	font-size:18px;
+	color:#fff;
+	line-height:45px;
+	text-align:center;
+	margin:0 12px 0 6px;
+}
+.btn_rc{
+	background: url(../images/btn_rc.png) no-repeat;
+	height:50px;
+	width:12px;
+	float:left;
+	margin-left:-12px;
+}
+.btn_l{
+	background:url(../images/btn_l.png) no-repeat;
+	height:50px;
+	width:6px;
+	float:left;
+	margin-left:-100%;
+}
+.btn_c{
+	background:url(../images/btn_c.png) repeat-x;
+	height:50px;
+	font-size:18px;
+	color:#ab6f00;
+	line-height:45px;
+	text-align:center;
+	margin:0 12px 0 6px;
+}
+.btn_r{
+	background: url(../images/btn_r.png) no-repeat;
+	height:50px;
+	width:12px;
+	float:left;
+	margin-left:-12px;
+}
+.w100{
+	width:100%;
+}
+.w90{
+	width:90%;
+}
+.w85{
+	width:85%;
+}
+.w40{
+	width:40%;
+}
+.w45{
+	width:45%;
+}
+.wpx140{
+	width:140px;
+}
+.w50{
+	width:50%;
+}
+.w60{
+	width:60%;
+}
+.w30{
+	width:30%;
+}
+.w5{
+	width:5%;
+}
+.f12{
+	font-size:12px;
+	color:#888;
+}
+.fw14{
+	font-size:14px !important;
+	color:#fff !important;
+}
+.f16{
+	font-size:16px;
+	color:#666;
+}
+.f18{
+	font-size:18px;
+	color:#666;
+}
+.fc18{
+	font-size:18px;
+	color:#af8319;
+}
+.f20{
+	font-size:20px;
+	color:#333;
+}
+.strong{
+	font-weight:bold;
+}
+.border_r{
+	border-right:2px solid #fff;
+}
+.apointer{
+	cursor:pointer;
+}
+
+.PCstyle{
+	position:relative;
+	width:100%;
+	text-align:center;
+}
+.PCstyle span{
+	padding:10px;
+	display:block;
+	color:#666;
+	font-size:12px;
+}
+

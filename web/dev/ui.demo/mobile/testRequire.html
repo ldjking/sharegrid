@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+.a {
+}
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="src/xlib.js"></script>
+<script type="text/javascript" src="src/pageLoader.js"></script>
+<script type="text/javascript">
+	function callback(){
+		//alert("load back");
+		
+		//apps.login.init();
+		//apps.login2.init();
+		loadPageDom(apps.login);
+	}
+	function loadPageDom(page){
+		/*  container  panel*/
+		/*新建一个panel,默认zIndex=1,最后设为active 最前面*/
+		/*panel所在层 如果已存在，则激活这个panel  调用该page的render方法*/
+		/*如果不存在，则*/
+		
+		page.loadFlag=true;
+		/*引用资源文件 css 额外的js文件*/
+		document.body.innerHTML=page.dom;
+		//alert(page.dom);
+	}
+	function init(){
+		require(["src/login2.js"],callback);
+	}
+	window.onload=init;
+</script>
+</body>
+</html>

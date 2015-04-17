@@ -1,0 +1,35 @@
+<!--jsp--<%@ page language="java" pageEncoding="UTF-8"%>-->
+<!--jsp--<%@include file="/include/taglib.jsp"%>-->
+<!documentTYPE html>
+<html>
+<head>
+<title>小牛在线</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="css/wx_common.css">
+<link rel="stylesheet" type="text/css" href="css/wx_list.css">
+</head>
+<body>
+<div class='wx_top'> <a class="wx_top_logo" href="index.do"> </a> <span class="wx_top_gap"></span> <span class='wx_top_title'>我要投资</span> </div>
+<div class="wx_list_tab" id="wx_listTab"> <a href="/weChat/financeTendering.do#axn" class="select" id="wx_tab_axn"><span><em>安心牛</em><i>11</i></span></a><a href="/weChat/financeTendering.do#sanbiao" id="wx_tab_sanbiao"><span><em>散标列表</em><i>5</i></span></a> </div>
+<div class="wx_list wx_pdb50">
+  <ul id="wx_investList">
+  	<div class="wx_loading"></div>
+  </ul>
+</div>
+<div class="foot">
+  <div class="foot_nav_list"> <span class="foot_nav"><a href="http://www.xiaoniu88.com/weChat/index.do" class="foot_nav nav_index">首页</a></span> <span class="foot_nav"><a href="http://www.xiaoniu88.com/weChat/financeTendering.do#axn" class="foot_nav nav_invest nav_invest_cur">我要投资</a></span> <span class="foot_nav"><a href="http://www.xiaoniu88.com/weChat/wx_accountIndex.do" class="foot_nav nav_account">我的账户</a></span> <span class="foot_nav"><a href="http://www.xiaoniu88.com/weChat/company-profile.jsp" class="foot_nav nav_about">关于小牛</a></span> </div>
+</div>
+<script type="text/javascript" src="js/lib/zepto.min.js"></script>
+<!--build:js /js/lib/wx_list_aio.js-->
+<script type="text/javascript" src="js/lib/pwd/security.js?v=0.0.1"></script>
+<script type="text/javascript" src="js/lib/countdown/countdown.js"></script>
+<script type="text/javascript" src="js/lib/doT/doT.min.js"></script>
+<script type="text/javascript" src="js/wx_common.js"></script>
+<script type="text/javascript" src="js/wx_list.js"></script>
+<!--buid end-->
+</body>
+</html>

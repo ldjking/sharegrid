@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WORD编辑器</title>
+<link rel="stylesheet" type="text/css" href="rs/css/word/cmd.css"/>
+<link rel="stylesheet" type="text/css" href="rs/css/word/wordpage.css"/>
+</head>
+<!--在线的word编辑器  布局方面  由三方面组成  指示栏  操作栏  导航栏  编辑栏  状态栏-->
+<body>
+<input type="hidden" name="t1_id" id="t1_id" value="" />
+<div class="container">
+  <div class="top">
+    <div class="topRight"><table cellpadding="0" cellspacing="0">
+        <tr>
+          <td><div id="docName" class="docName"> 在线文档编辑器说明书.docx </div></td>
+          <td><div class="moreFile"></div></td>
+          <td><div id="lock" class="lock"></div></td>
+          <td><div id="save" class="save"></div></td>
+          <td><div id="refresh" class="refresh"></div></td>
+          <td><div id="close" class="close"></div></td>
+        </tr>
+      </table> </div>
+    <div id="tabContainer" class="tabContainer">
+      <div id="tab0" class="tab tab_start active"> 开始 </div>
+      <div class="tab tab_insert"> 插入 </div>
+      <!--<div class="tab tab_layout"> 页面布局 </div>
+      <div class="tab tab_paragraph"> 段落样式 </div>
+      <div class="tab tab_header"> 页眉页脚 </div> -->
+      <div class="tab tab_table"> 表格 </div>
+      <!--<div class="tab tab_img"> 图像 </div>
+      <div class="tab tab_view"> 视图 </div> -->
+    </div>
+  </div>
+  <div id="cmds" class="cmds">
+      <div class="cmd_group cmd_start" style="display:block">
+      <div class="group group1">
+        <div class="cmd paste"> </div>
+        <div class="cmd cut"> </div>
+        <div class="cmd copy"> </div>
+        <div class="cmd brush"> </div>
+        <div class="cmd shearplate">剪切板</div>
+      </div>
+      <div class="group group2">
+        <div class="cmd fontfamily">宋体 </div>
+        <div class="cmd fontsize">五号</div>
+        <div class="cmd bigger"> </div>
+        <div class="cmd smaller"> </div>
+        <div class="cmd clearformat"> </div>
+        <div class="cmd bold"> </div>
+        <div class="cmd italic"> </div>
+        <div class="cmd4 underline"> </div>
+        <div class="cmd4 underlineselect"></div>
+        <div class="cmd deleteline"> </div>
+        <div class="cmd4 fontcolorprominent"><div id="fontcolorprominent_cover" style="position:absolute; top:16px; left:4px;right:3px; height:4px;"></div></div>
+        <div class="cmd4 fontcolorprominentselect"></div>
+        <div class="cmd4 fontcolor"><div id="fontcolor_cover" style="position:absolute; top:16px; left:4px;right:3px; height:4px;"></div></div>
+        <div class="cmd4 fontcolorselecet"></div>
+        <div class="cmd charbackShade"></div>
+        <div class="cmd font">字体
+        	<div class="cmd fontstyle"></div>
+        </div>
+      </div>
+      <div class="group group3">
+        <div class="cmd alignleft"> </div>
+        <div class="cmd aligncenter"> </div>
+        <div class="cmd alignright"> </div>
+        <!-- 
+        <div class="cmd alignjustify"> </div>
+        <div class="cmd algindispersed"></div> -->
+        <div class="cmd rowspace"></div>
+         <!-- 
+        <div class="cmd4 backcolor"></div>
+        <div class="cmd4 backcolorselect"></div> 
+        <div class="cmd4 border"> </div>
+        <div class="cmd4 borderselect"></div>-->
+        <!-- 
+        <div class="cmd4 projectsing"></div>
+        <div class="cmd4 projectsing_selecet"></div>
+        <div class="cmd4 number"></div>
+        <div class="cmd4 number_select"></div>
+        <div class="cmd manylevellist"></div> -->
+        <div class="cmd reductindent"></div>
+        <div class="cmd addindent"></div>
+         <!-- 
+        <div class="cmd chinesestyle"></div>
+        <div class="cmd sort"></div>
+        <div class="cmd shwoandhidedeitsign"></div> -->
+        <div class="cmd paragraph">段落
+        <div class="cmd paragraphstyle"></div>
+        </div>
+      </div>
+    </div>
+    <div class="cmd_group cmd_insert" style="display:none"> 
+    	<div class="group insert_group1">
+        	<div class="cmd insert_cover"></div>
+            <div class="cmd insert_blankpage"></div>
+            <div class="cmd insert_paging"></div>
+           
+        </div>
+        <div class="group insert_group2">
+        	<div class="cmd insert_deleteBlankpage"></div>
+            <div class="cmd insert_deletePaging"></div>
+        </div>
+        <div class="group insert_group3">
+        	<div class="cmd insert_table"></div>
+        </div>
+        <div class="group insert_group4">
+        	<div class="cmd insert_image"><input type="file" name="filename"  onchange="word.insert.imageUpload(this)" /></div>
+        </div>
+    </div>
+    <div class="cmd_group cmd_layout"> </div>
+    <div class="cmd_group cmd_paragraph"> </div>
+    <div class="cmd_group cmd_header"> </div>
+    <div id="cmd_table" class="cmd_group cmd_table" style="display:none">
+    	<div class="group table_group1">
+        	<div class="cmd table_select"></div>
+            <div class="cmd table_gridding"></div>
+            <div class="cmd table_property"></div>
+        </div>
+        <div class="group table_group2">
+        	<div class="cmd table_delete"></div>
+            <div class="cmd table_upInsert"></div>
+            <div class="cmd table_downInsert"></div>
+            <div class="cmd table_leftInsert"></div>
+            <div class="cmd table_rightInsert"></div>
+        </div>
+        <div class="group table_group3">
+        	<div class="cmd table_mergeCells"></div>
+            <div class="cmd table_splitCells"></div>
+            <div class="cmd table_splitTable"></div>
+        </div>
+        <!-- 
+        <div class="group table_group4">
+        	<div class="cmd table_cellHeight"></div>
+            <div class="cmd table_cellHeightValue">
+            	<input type="text" value="2 厘米" style="height:22px;border:0px; width:70px;"/>
+                <div class="cmd table_cellHeightUp"></div>
+          		<div class="cmd table_cellHeightDown"></div>
+             </div>
+            
+            <div class="cmd table_cellWidth"></div>
+            <div class="cmd table_cellWidthVaule">
+            	<input type="text" value="12.15 厘米" style="height:22px;border:0px; width:70px;"/>
+                <div class="cmd table_cellWidthUp"></div>
+                <div class="cmd table_cellWidthDown"></div>	
+            </div>
+        </div>
+        <div class="group table_group5">
+        	<div class="cmd table_topJustify"></div>
+            <div class="cmd table_topCenter"></div>
+            <div class="cmd table_topRight"></div>
+            <div class="cmd table_middleJustify"></div>
+            <div class="cmd table_middleCenter"></div>
+            <div class="cmd table_middleRight"></div>
+            <div class="cmd table_bottomJustify"></div>
+            <div class="cmd table_bottomCenter"></div>
+            <div class="cmd table_bottomRight"></div>
+            <div class="cmd table_cellMargin"></div>
+        </div> -->
+    </div>
+    <div class="cmd_group cmd_img"> </div>
+    <div class="cmd_group cmd_view"> </div>
+  </div>
+</div>
+<div class="main">
+  <div class="left"></div>
+  <div id="content" class="content"></div>
+</div>
+<div class="foot">
+  <div class="pageInfo">页面: 1/1</div>
+  <div class="wordInfo">字数: 9</div>
+</div>
+<table cellpadding="0" cellspacing="0" class="resizeBar">
+  <tr>
+    <td><div class="rate">100%</div></td>
+    <td><div class="minus"></div></td>
+    <td><div class="bar">
+        <div class="cursor"></div>
+      </div></td>
+    <td><div class="plus"></div></td>
+  </tr>
+</table>
+<script type="text/javascript" src="rs/js/server.js"></script>
+<script type="text/javascript" src="rs/js/word/word.js"></script>
+<script type="text/javascript" src="rs/js/word/word_edit.js"></script>
+<script type="text/javascript" src="rs/js/word/word_write.js"></script>
+<script type="text/javascript" src="rs/js/word/word_write2.js"></script>
+<script type="text/javascript" src="rs/js/word/word_write3.js"></script>
+<script type="text/javascript" src="rs/js/word/word_write4.js"></script>
+<script type="text/javascript" src="rs/js/word/word_write5.js"></script>
+<script type="text/javascript" src="rs/js/word/word_write6.js"></script>
+<script type="text/javascript" src="rs/js/word/word_write7.js"></script>
+<script type="text/javascript" src="rs/js/word/word_select1.js"></script>
+<script type="text/javascript" src="rs/js/word/word_select2.js"></script>
+<script type="text/javascript" src="rs/js/word/word_select3.js"></script>
+<script type="text/javascript" src="rs/js/word/word_font.js"></script>
+<script type="text/javascript" src="rs/js/word/word_paragraph.js"></script>
+<script type="text/javascript" src="rs/js/word/word_select_keyHandler.js"></script>
+<script type="text/javascript" src="rs/js/word/word_table.js"></script>
+<script type="text/javascript" src="rs/js/word/word_insert.js"></script>
+<script type="text/javascript" src="rs/js/word/word_utils.js"></script>
+<script type="text/javascript" src="rs/js/word/word_dialog.js"></script>
+<script type="text/javascript" src="rs/js/word/word_consts.js"></script>
+<script type="text/javascript" src="rs/js/word/Map.js"></script>
+<script type="text/javascript">
+var getParam=function(name){
+	var url=document.URL;
+	////out("url",url);
+	if(url!=null&&url.indexOf("?")>0){
+		var paramStr=url.substr(url.indexOf("?")+1);
+		////out("paramStr",paramStr);
+		if(paramStr!=null){
+			var params=paramStr.split(/\&/g);
+			for(var i=0;i<params.length;i++){
+				if(params[i].indexOf(name)==0){
+					return params[i].substr(params[i].indexOf("=")+1);
+				}
+			}
+		}
+	}
+	return null;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css">
+<link rel="stylesheet" type="text/css" href="../../../../src/css/13cmd.css">
+<link rel="stylesheet" type="text/css" href="../../../../src/css/29tree.css">
+</head>
+
+<body>
+<div id="container" class="container" style="background-color:#999999; height:100%">
+	<div id="c1"> </div>
+	<div id="c2" style="width:240px; height:100%; float:right"> </div>
+</div>
+<script type="text/javascript" src="../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../release/ui.js"></script> 
+<script type="text/javascript" src="../../../../release/lovdef.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/51tree.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/52cmd.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/53content.js"></script>
+<script type="text/javascript" src="../../../../src/5tree/54data.js"></script>
+<script type="text/javascript" src="../../../../src/5tree/55edit.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/56scroll.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/58ui.js"></script> 
+<script type="text/javascript">	
+	window.onload=init;
+	function init(){/*需要有一些自定义动画效果*/	
+		var dom=$("#c2");
+		//uiLayout({dom:});
+		var cfg={clickHandler:fn_tree_click,dblHandler:fn_tree_dbl,exclusive:0,formatType:2,openAll:1,
+				idAttr:"",pidAttr:"",groupAttrs:"person,when",nameAttr:"name",allowDrag:1,allowEdit:1};
+		/*排他设置exclusive  formatFlag是否需要格式化数据	idAttr主键	pidAttr父键	nameAttr名称属性*/
+		cfg.data=[
+				{person:"刘东杰",when:"2012-4-3",plan:"a",done:"b",num:1},
+				{person:"刘东杰",when:"2012-4-3",plan:"a",done:"b",num:2},
+				{person:"刘东杰",when:"2012-4-4",plan:"a",done:"b",num:3},
+				{person:"刘东杰",when:"2012-4-4",plan:"a",done:"b",num:4},
+				{person:"王智华",when:"2012-4-4",plan:"a",done:"b",num:1},
+				{person:"王智华",when:"2012-4-4",plan:"a",done:"b",num:2},
+				{person:"王智华",when:"2012-4-4",plan:"a",done:"b",num:3},
+				{person:"王智华",when:"2012-4-4",plan:"a",done:"b",num:4},
+				{person:"王智华",when:"2012-4-4",plan:"a",done:"b",num:1},
+				];
+		
+		cfg.cmds=[	{cmd:"nodeOpen"},
+					{cmd:"nodeClose"},
+					{cmd:"nodeRefresh"},
+					{cmd:"nodeAdd"},
+					{cmd:"nodeEdit"},
+					{cmd:"nodeRm"}
+				 ];
+		var formCfg=[
+					];/*表单的配置，包含各个属性  相当于是目录的管理*/
+		cfg.map={	folder:{
+						
+					},/*对于类型是folder的对象  使用的表单  和下属节点允许新增的元素类型  这套体系太复杂  适用于使用较复杂的对象  简单的场景下不应该这样*/
+					id:{name:"主键",hide:0,num:1},/*树的编辑器映射  应该说是比较复杂的*/
+				  	pid:{name:"父键",hide:0,num:2},
+				 	name:{name:"名称",num:3},
+				 	type:{name:"类型",lov:"type",num:4},
+				 	rootFlag:{hide:1},
+				 	flag:{hide:1},
+				 	child:{hide:1}
+				};
+		
+		genTree(dom,cfg);
+	}
+	
+	function fn_tree_click(sender,evt){
+		//out("tree fn");
+	}
+	function fn_tree_dbl(sender,evt){
+		//alert("tree fn dbl");
+	}
+</script>
+</body>
+</html>

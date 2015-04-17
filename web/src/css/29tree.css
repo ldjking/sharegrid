@@ -1,0 +1,341 @@
+@charset "utf-8";
+.tree  {
+	line-height: 24px;
+	cursor: default;
+	padding: 0px;
+	background-color: #FFF;
+}
+.tree  .cmds{
+	background-color: #d6d6d6;
+	height: 26px;
+	border-bottom: 1px solid #a0a0a0;
+}
+.tree .cmds .cmd{
+	height: 24px;
+	right: 0px;
+	overflow: hidden;
+	cursor: default;
+	background-color: transparent;
+	font-size: 12px;
+	float: right;
+	font-family: FontAwesome;
+	padding-top: 2px;
+}
+.tree .cmds .cmd div{
+	float: left;
+	width: 32px;
+	height: 24px;
+	font-family: FontAwesome;
+	color: #036;
+	line-height: 24px;
+	font-size: 14px;
+	text-align: center;
+}
+.tree .cmds .cmd div:hover{
+	color: #C33;
+}
+.tree .cmd .nodeAdd:before{
+	content: "\f067";
+}
+.tree .cmd .nodeEdit:before{
+	content: "\f040";
+}
+.tree .cmd .nodeRm:before{
+	content: "\f00d";
+}
+.tree .cmd .nodeOpen:before{
+	content: "\f07c";
+}
+.tree .cmd .nodeClose:before{
+	content: "\f07b";
+}
+.tree .cmd .nodeRefresh:before{
+	content: "\f021";
+}
+.treeContainer  {
+	position: relative;
+	z-index: 12;
+	overflow: hidden;
+}
+.treeContainer  .content{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 13;
+	padding-left: 12px;
+	background-color: #FFF;
+	white-space: nowrap;
+	word-break: keep-all;
+}
+.treeContainer .scroll_v{
+	position: absolute;
+	width: 7px;
+	z-index: 27;
+	display: none;
+	right: 0px;
+	background-color: #e7e7e7;
+	opacity: 1;
+	top: 0px;
+	height: 100%;
+	bottom: 0px;
+}
+.treeContainer .scroll_h{
+	position: absolute;
+	z-index: 29;
+	height: 7px;
+	display: none;
+	bottom: 0px;
+	background-color: #e7e7e7;
+	right: 7px;
+	left: 0px;
+}
+.treeContainer .scrollbar_v{
+	position: absolute;
+	width: 7px;
+	z-index: 28;
+	top: 69px;
+	display: none;
+	right: 0px;
+	height: 200px;
+	background-color: #666;
+	border: 0px solid #c3c3c3;
+	border-radius: 4px;
+	opacity: 0.6;
+}
+.treeContainer .scrollbar_h {
+	position: absolute;
+	z-index: 30;
+	height: 7px;
+	display: none;
+	bottom: 0px;
+	width: 100px;
+	background-color: #666;
+	border: 0px solid #7d7d7d;
+	border-radius: 4px;
+	left: 0px;
+	opacity: 0.6;
+}
+.treeContainer  .moveobj{
+	position: absolute;
+	height: 22px;
+	z-index: 30;
+	background-color: #e5e5f0;
+	background: -webkit-linear-gradient(top,#fff,#e4e5f0);
+	background: -moz-linear-gradient(top,#fff,#e4e5f0);
+	background: linear-gradient(to bottom,#fff,#e4e5f0);
+	line-height: 22px;
+	overflow: hidden;
+	top: 10px;
+	left: 10px;
+	border: 1px solid #767676;
+	border-radius: 5px;
+	width: auto;
+	padding: 0 12px 0 6px;
+	color: #000080;
+	font-family: FontAwesome;
+}
+.treeContainer  .moveobj:before{
+	content: "\f061 移动 ";
+	color: #369bf1;
+}
+.treeEdit  {
+	display: none;
+	border-top: 1px solid #a0a0a0;
+}
+.tree  .editTitle{
+	background-color: #C4C4C4;
+	background: -webkit-linear-gradient(top,#c0c0c0,#d4d4d4);
+	background: -moz-linear-gradient(top,#c0c0c0,#d4d4d4);
+	background: linear-gradient(to bottom,#c0c0c0,#d4d4d4);
+	height: 28px;
+	border-top:1px solid #fff;
+	line-height: 28px;
+}
+.tree  .moveobj{
+	display: none;
+
+}
+.tree  .editObj{
+	line-height: 26px;
+	float: left;
+	width: 80%;
+	text-align: left;
+	padding-left: 6px;
+}
+.tree  .editSave{
+	line-height: 26px;
+	float: right;
+	width: 26px;
+	margin-right: 4px;
+	font-size: 16px;
+	color: #063;
+	font-family: 'FontAwesome';
+}
+.tree  .editSave:hover{
+	color: #390;
+}
+.tree  .editContainer{
+	position: relative;
+	z-index: 20;
+	overflow: hidden;
+	background-color: #FFF;
+}
+.tree  .editor table{
+	line-height: 24px;
+	width: 100%;
+	border: 0px;
+}
+.tree  .editor tr{
+	color: #0000c0;
+}
+.tree  .editor td{
+	line-height: 24px;
+	border-bottom: 1px solid #d6d6d6;
+	vertical-align: middle;
+	padding-left: 2px;
+	padding-right: 2px;
+	font-size: 12px;
+}
+.tree  .editor tr:hover{
+	color: #FFFFFF;
+	background-color: #39F;
+}
+.tree  .editor tr:hover input{
+	color: #FFFFFF;
+	background-color: transparent;
+}
+.tree  .editor tr input{
+	border: 0px;
+	padding: 0;
+	margin: 0;
+	outline: none;
+	color: #0000c0;
+	font-size: 12px;
+	background-color: transparent;
+	appearance: field;
+	
+}
+.tree  .editor tr input::-ms-clear{
+	display:none;
+}
+.tree  .editor tr td:first-child{
+	border-right: 1px solid #d6d6d6;
+	text-align: left;
+	padding-left: 12px;
+	padding-right: 12px;
+	width: 80px;
+}
+.tree  .editor tr td:last-child{
+	width: 140px;
+}
+.tree  .childs{
+	padding-left: 16px;
+	background-image: url(../../images/tree/1.0/vline.png);
+	background-repeat: repeat-y;
+	background-position: left;
+}
+.tree  .root >.childs{
+	padding-left: 16px;
+	background-image: url(none);
+	background-repeat: repeat-y;
+	background-position: left;
+}
+.tree  .last>.childs{
+	padding-left: 16px;
+	background-image: url(none);
+	background-repeat: repeat-y;
+	background-position: left;
+}
+.tree  .close>.childs{
+	display: none;
+
+
+}
+.tree  .tag{
+	padding-left: 18px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	height: 24px;
+	line-height: 24px;
+
+}
+.tree  .icon{
+	padding-left: 20px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	white-space: nowrap;
+	word-break: keep-all;
+}
+.tree  .icon:hover{
+	background-color: #CCCCCC;
+}
+.tree  .icon.active{
+	background-color: #666666;
+	color: #FFF;
+}
+.tree  .icon.active:hover{
+	background-color: #666666;
+	color: #FFF;
+}
+.tree  .root.open >.tag{
+	background-image: url(../../images/tree/1.0/root_open.png);
+
+}
+
+.tree  .root.close >.tag{
+	background-image: url(../../images/tree/1.0/root_close.png);
+
+}
+.tree  .node.open >.tag{
+	background-image: url(../../images/tree/1.0/node_open.png);
+
+}
+.tree  .node.close >.tag{
+	background-image: url(../../images/tree/1.0/node_close.png);
+
+}
+.tree  .node.open.first > .tag{
+	background-image: url(../../images/tree/1.0/node_first_open.png);
+
+}
+.tree  .node.close.first > .tag{
+	background-image: url(../../images/tree/1.0/node_first_close.png);
+
+}
+.tree  .node.open.last > .tag{
+	background-image: url(../../images/tree/1.0/node_last_open.png);
+
+}
+.tree  .node.close.last > .tag{
+	background-image: url(../../images/tree/1.0/node_last_close.png);
+
+}
+.tree  .leaf.last > .tag {
+	background-image: url(../../images/tree/1.0/leaf_last.png);
+
+}
+.tree  .leaf > .tag{
+	background-image: url(../../images/tree/1.0/leaf.png);
+	height: 24px;
+
+}
+.tree  .folder.open > .tag>.icon{
+	background-image: url(../../images/tree/1.0/folder_open.png);
+
+}
+.tree  .folder> .tag >.icon{
+	background-image: url(../../images/tree/1.0/folder.png);
+
+}
+.tree  .txt> .tag >.icon{
+	background-image: url(../../images/tree/1.0/file.png);
+
+}
+
+.tree  .file> .tag >.icon{
+	background-image: url(../../images/tree/1.0/file.png);
+
+}

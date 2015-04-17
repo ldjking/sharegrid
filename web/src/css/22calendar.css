@@ -1,0 +1,224 @@
+@charset "utf-8";
+#lov_calendar {
+	background-color: #B9D1EA;
+	border: 1px solid #b1b5ba;
+	text-align: center;
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	z-index: 9999;
+	font-size: 12px;
+	padding-top: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 249px;
+	padding-bottom: 6px;
+}
+#lov_calendar_content {
+	height: 150px;
+	clear: left;
+	width: 221px;
+	padding-left: 14px;
+	padding-right: 14px;
+	padding-top: 4px;
+}
+#lov_calendar p{
+	padding: 0px;
+	margin:0px;
+	margin: 0px;
+	cursor: default;
+}
+#lov_calendar_curr {
+	color: #000;
+	display: block;
+	height: 24px;
+	font-size: 16px;
+	cursor: default;
+	background-image: url(../../images/calendar/calendar.png);
+	background-repeat: no-repeat;
+	background-position: 12px top;
+	line-height: 20px;
+	padding-left: 16px;
+}
+#lov_calendar_curr a{
+	height: 20px;
+	font-size: 16px;
+	cursor: default;
+	line-height: 20px;
+	font-weight: bold;
+	display: inline-block;
+	padding: 0 2px 0 2px;
+}
+#lov_calendar_time {
+	padding-left: 8px;
+
+}
+#lov_calendar_year {
+	text-align: center;
+	font-weight: bold;
+	cursor: default;
+	display: inline-block;
+}
+#lov_calendar_ok {
+	background-color: #B9D1EA;
+	font-weight: bold;
+
+}
+#lov_calendar_month {
+	font-weight: bold;
+	cursor: default;
+	display: inline-block;
+}
+#lov_calendar_day {
+	font-weight: bold;
+	cursor: default;
+	display: inline-block;
+}
+#lov_calendar_hour {
+	font-weight: bold;
+	cursor: default;
+	display: inline-block;
+}
+#lov_calendar_min {
+	font-weight: bold;
+	cursor: default;
+	display: inline-block;
+}
+#lov_calendar_sec {
+	font-weight: bold;
+	cursor: default;
+	display: inline-block;
+	width: 28px;
+}
+#lov_calendar a {
+	cursor: default;
+}
+#lov_calendar a:hover {
+	background-color: #99CC66;
+	color: #000000;
+}
+#lov_calendar a.active {
+	background-color: #0000CC;
+	color: #FFFFFF;
+}
+#lov_calendar_years {
+	border-right: 1px solid #666;
+	border-bottom: 1px solid #666;
+	display:none;
+	height: 140px;
+}
+#lov_calendar_years a{
+	height: 27px;
+	border-top: 1px solid #666;
+	border-left: 1px solid #666;
+	width: 43px;
+	line-height: 27px;
+	font-size: 14px;
+	float: left;
+}
+#lov_calendar_years a#lov_calendar_yearCurr{
+	background-color: #FFF;
+	font-weight: bold;
+	font-size: 16px;
+	width: 87px;
+	display: block;
+}
+#lov_calendar_months {
+	border-right: 1px solid #666;
+	border-bottom: 1px solid #666;
+	display:none;
+	height: 140px;
+	width: 219px;
+}
+#lov_calendar_months a{
+	width: 72px;
+	border-top: 1px solid #666;
+	border-left: 1px solid #666;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	font-size: 14px;
+	float: left;
+}
+#lov_calendar_header {
+	cursor: default;
+}
+#lov_calendar_header {
+	border-right: 1px solid #666;
+	overflow: hidden;
+	width: 217px;
+}
+#lov_calendar_header a {
+	float: left;
+	width: 30px;
+	height: 24px;
+	line-height: 24px;
+	background-color: #B9D1EA;
+	border-top: 1px solid #666;
+	border-left: 1px solid #666;
+}
+#lov_calendar_days {
+	border-bottom: 1px solid #666;
+	border-right: 1px solid #666;
+	overflow: hidden;
+	height: 114px;
+	width: 217px;
+}
+#lov_calendar_days a {
+	float: left;
+	width: 30px;
+	height: 18px;
+	line-height: 18px;
+	background-color: #B9D1EA;
+	border-top: 1px solid #666;
+	border-left: 1px solid #666;
+	color: #000000;
+}
+
+#lov_calendar_hours {
+	border-bottom: 1px solid #666;
+	border-right: 1px solid #666;
+	overflow: hidden;
+	height: 144px;
+	width: 216px;
+	display: none;
+}
+#lov_calendar_hours a {
+	float: left;
+	width: 35px;
+	height: 36px;
+	line-height: 36px;
+	border-top: 1px solid #666;
+	border-left: 1px solid #666;
+}
+#lov_calendar_mins {
+	border-bottom: 1px solid #666;
+	border-right: 1px solid #666;
+	overflow: hidden;
+	height: 144px;
+	width: 220px;
+	display: none;
+}
+#lov_calendar_mins a {
+	float: left;
+	width: 21px;
+	height: 23px;
+	line-height: 23px;
+	border-top: 1px solid #666;
+	border-left: 1px solid #666;
+}
+#lov_calendar_secs {
+	border-bottom: 1px solid #B9D1EA;
+	border-right: 1px solid #B9D1EA;
+	overflow: hidden;
+	height: 144px;
+	width: 220px;
+	display: none;
+}
+#lov_calendar_secs a {
+	float: left;
+	width: 21px;
+	height: 23px;
+	line-height: 23px;
+	border-top: 1px solid #B9D1EA;
+	border-left: 1px solid #B9D1EA;
+}

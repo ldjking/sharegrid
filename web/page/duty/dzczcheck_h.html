@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>倒闸操作后检测记录管理</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<!--link rel="stylesheet" type="text/css" href="../../src/css/23form.css"/-->
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">倒闸操作后检测记录</div>
+    <div class="tab hide" id="tab_add">新建倒闸操作后检测记录</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script>
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+(function(){
+	var grid		    =$("#c1");
+	var editForm	    =$("#c2");
+	var addForm			=$("#c3");
+	var tabList			=$("#tab_list");
+	var tabEdit			=$("#tab_edit");
+	var tabAdd			=$("#tab_add");
+	
+		
+	var fn_showList     =function(evt){
+		//genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	var fn_showkeyList  =function(evt){
+		activeTab(keyList);
+	}
+	var fn_showNext=	function(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showPre=		function(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showEditForm=function(evt){
+		activeTab(tabEdit);
+	}
+	var fn_showAddForm=function(evt){/*要把新增表单显示出来*/
+		activeTab(tabAdd);
+	}
+	var e_refushEdit =function(target){
+		genGridCmd(grid);
+		genGridContent(grid);
+		activeTab(tabList);
+	}
+	var e_refushAdd =function(target){
+		cssReplace(tabAdd,"active","hide");
+		cssReplace(tabAdd,"normal","hide");
+		genGridCmd(grid);
+		genGridContent(grid);/*重绘内容*/
+		activeTab(tabList);
+	}
+	var tabChange=function(target,p){
+		if(p==0)		fn_showList();
+		else if(p==1)	refreshEditForm();
+		else if(p==2)	refreshAddGrid();
+	}
+	var refreshAddGrid=function(){
+		 addForm.formCfg.data={type:2}
+		 genFormContent(addForm);
+	}
+	var refreshEditForm =function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.param==obj)	return;
+		else{
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			cssRm([preCmd,nextCmd],"gray");
+			if(obj.rownum==1)						cssAdd(preCmd,"gray");
+			else if(obj.rownum==cfg.totalNum)		cssAdd(nextCmd,"gray");
+			genFormContent(editForm);
+		}
+	}
+	var init=function(){
+		uiApp({dom:$("#app1"),fn:tabChange});
+		//ae_dzczcheckid	code	per_czr	per_jhr	tm_czr	tm_jhr	type
+		cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"dzczcheckGets",rmMethod:'dzczcheckRm',pageFlag:false,pageSize:6,autoWidth:1,pkAttr:"ae_dzczpid"};
+		cfg.param={type:2}
+		cfg.columns=[	
+						{text:"倒闸操作票号",attr:"code",align:"left",type:"str",width:80,asc:1},
+						{text:"操作人",attr:"per_czr_name",align:"left",width:80,type:"str",asc:1},
+						{text:"监护人",attr:"per_jhr_name",align:"left",width:80,type:"str",asc:1},
+						{text:"操作时间",attr:"tm_czr",align:"left",width:150,type:"str",asc:1},
+						{text:"监护时间",attr:"tm_jhr",align:"left",width:150,type:"str",asc:1}
+					];
+		cfg.cmds=[
+						{cmd:"cmdAdd"	,fn:fn_showAddForm},
+						{cmd:"cmdEdit"	,fn:fn_showEditForm},
+						{cmd:"cmdDelete"},
+						{cmd:"cmdFilter"},
+						{cmd:"cmdRefresh"}
+					]
+		genGrid(grid,cfg);
+		//ae_dzczcheckid	code	per_czr	per_jhr	tm_czr	tm_jhr	type		
+	 	var cfg2={title:"倒闸操作后检测记录",bigPaper:1,formType:"update",dataMethod:"dzczcheckGet",updateMethod:"dzczcheckUpdate"};
+		cfg2.tables=[	
+							{type:0,rows:1,cells:[
+									{type:"sid",attr:"ae_dzczcheckid",sidType:"method",width:120,align:"left",row:1},
+									{type:"txt",attr:"type",width:840,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"倒闸操作票号",width:120,align:"center",row:1},
+									{type:"txt",attr:"code",width:840,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"操作人",width:120,align:"center",row:1},
+									{type:"txt",attr:"per_czr_name",attr2:'per_czr',width:360,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"操作时间",width:120,align:"center",row:1},
+									{type:"txt",attr:"tm_czr",width:360,align:"left",row:1,lov:'datetime'}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"监护人",width:120,align:"center",row:1},
+									{type:"txt",attr:"per_jhr_name",attr2:'per_jhr',width:360,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"监护时间",width:120,align:"center",row:1},
+									{type:"txt",attr:"tm_jhr",width:360,align:"left",row:1,lov:'datetime'}
+								]
+							},
+							{type:3,rows:3,refAttr:[{name:"ae_dzczcheckid",name2:"ae_dzczcheckid"}],rmMethod:'dzczcheckzRm',updateMethod:"dzczcheckzUpdate",addMethod:"dzczcheckzAdd",dataMethod:"dzczcheckzGets",
+								columns:[
+									{type:"txt",attr:"stepnum",name:"序号",width:60,align:"center"},
+									{type:"txt",attr:"content",name:"检测内容",width:350,align:"center"},/*txt单行*/
+									{type:"txt",attr:"hsqk",name:"核实情况",width:200,align:"left"},
+									{type:"txt",attr:"remark",name:"备注",width:350,align:"left"}
+								]
+							}
+						];
+							//ae_dzczitem_zid	ae_dzczpid	stepnum	iszx	content	tm_task	remark
+		cfg2.cmds=[
+					{cmd:"addItem"},
+					{cmd:"rmItem"},
+					{cmd:"update",fn:e_refushEdit},
+					{cmd:"pre",fn:fn_showPre},
+					{cmd:"next",fn:fn_showNext},
+					{cmd:"cancel",fn:fn_showList}
+				];
+		genForm(editForm,cfg2);
+		var cfg3={title:"新建倒闸操作后检测记录",formType:"add",addMethod:"dzczcheckAdd"};
+		cfg3.tables=[	
+							{type:0,rows:1,cells:[
+									{type:"sid",attr:"ae_dzczcheckid",sidType:"method",width:120,align:"left",row:1},
+									{type:"txt",attr:"type",width:400,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"倒闸操作票号",width:120,align:"center",row:1},
+									{type:"txt",attr:"code",width:560,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"操作人",width:120,align:"center",row:1},
+									{type:"txt",attr:"per_czr_name",attr2:'per_czr',width:240,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"操作时间",width:80,align:"center",row:1},
+									{type:"txt",attr:"tm_czr",width:240,align:"left",row:1,lov:'datetime'}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"监护人",width:120,align:"center",row:1},
+									{type:"txt",attr:"per_jhr_name",attr2:'per_jhr',width:240,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"监护时间",width:80,align:"center",row:1},
+									{type:"txt",attr:"tm_jhr",width:240,align:"left",row:1,lov:'datetime'}
+								]
+							}
+						];
+		cfg3.cmds=[
+				{cmd:"save",fn:e_refushAdd},
+				{cmd:"cancel",fn:fn_showList}
+		];
+		genForm(addForm,cfg3);
+	}
+	
+	window.onload=init;
+})();
+</script>
+</body>
+</html>

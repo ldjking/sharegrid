@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<iframe src="http://10.68.105.166/eam/web/test/test.html" id="c1"></iframe>
+<input type="button" id="btn1" value="提交"/>
+<div id="c2"></div>
+<script type="text/javascript">
+	var btn1=document.getElementById("btn1");
+	var iframe1=document.getElementById("c1");
+	var c2=document.getElementById("c2");
+	var i=0;
+	iframe1.onload=function(){
+		c2.innerHTML+="load";
+		if(i>0){
+			var data = iframe1.contentWindow.name;    // 读取数据
+			alert(data);    //弹出'I was there!'
+		}
+		i++;
+	}
+	btn1.onclick=function(){
+		iframe1.contentWindow.location="test2.html";
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<button id="btn1" name="btn1">按钮</button>
+<script type="text/javascript" src="../../../../src/1base/11basis.js"></script>
+<script type="text/javascript" src="../../../../src/1base/12extend.js"></script>
+<script type="text/javascript" src="../../../../src/1base/13core.js"></script>
+<script type="text/javascript" src="../../../../src/1base/14out.js"></script>
+<script type="text/javascript" src="../../../../src/1base/14dom.js"></script>
+<script type="text/javascript" src="../../../../src/1base/16evt.js"></script>
+<script type="text/javascript">
+	window.onload=init();
+	function init(){
+		/*form.cfg*/
+		bind($("#btn1"),"click",e_btn_click,{cfg:{a:10},a:100,dom:$("#btn1")});
+	
+	}
+	function e_btn_click(evt){
+		out("this",this);
+		
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+.resizeC1 {
+	cursor: se-resize;/*此光标指示矩形框的边缘可被向下及向右移动（南/东）*/
+}
+.resizeC2 {
+	cursor: ne-resize;
+}
+.resizeL1 {
+	cursor: ns-resize;
+}
+.resizeL2 {
+	cursor: ew-resize;
+}
+.resizeL11 {
+	cursor: ns-resize;
+}
+.resizeL12 {
+	cursor: ew-resize;
+}
+.moveable {
+	cursor: move;
+}
+.scroll {
+	position:relative;
+}
+.scroll .scroll_content{
+	position: relative;
+}
+.scroll .scroll_v{
+	position: absolute;
+	width: 15px;
+	z-index: 998;
+	top: 0px;
+	background-image: url(../../test/images/scroll/scroll_y.png);
+	background-repeat: repeat-y;
+	display: none;
+	right: 0px;
+}
+.scroll .scrollbar_v{
+	position: absolute;
+	width: 7px;
+	z-index: 999;
+	background-color: #c3c3c3;
+	border-radius: 4px;
+	top: 0px;
+	display: none;
+	right: 1px;
+}
+.scroll .scroll_h{
+	position: absolute;
+	z-index: 998;
+	height: 15px;
+	background-image: url(../../test/images/scroll/scroll_x.png);
+	background-repeat: repeat-x;
+	left: 0px;
+	display: none;
+	bottom: 0px;
+}
+.scroll .scrollbar_h{
+	position: absolute;
+	z-index: 999;
+	height: 7px;
+	left: 0px;
+	background-color: #c3c3c3;
+	border-radius: 4px;
+	display: none;
+	bottom: 1px;
+}
+.scroll .scroll_fix1{
+	position: absolute;
+	z-index: 900;
+	height: 15px;
+	background-color: transparent;
+	width: 16px;
+	bottom: 0px;
+	right: 0px;
+	display: none;
+}
+.scroll .scroll_fix2{
+	position: absolute;
+	z-index: 900;
+	height: 16px;
+	background-color: transparent;
+	width: 15px;
+	bottom: 0px;
+	right: 0px;
+	display: none;
+}

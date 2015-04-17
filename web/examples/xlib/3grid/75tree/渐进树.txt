@@ -1,0 +1,12 @@
+渐进树的特点，
+需要提供两个方法  1 getRoot
+               2  getChild
+最先只加载root数据，并加载root数据下的所有数据
+展开后，isleaf==true	则不再加载
+					其他情况，加载子节点并设置hasChild属性
+
+这个方法应该放在addNode里实现
+如果实现完毕，应该怎么做？
+
+渐进加载已经不适合使用grid了吗？  渐进加载会将子数据插入到grid中，而不是完全绘制grid的内容
+还要继续改进grid_content

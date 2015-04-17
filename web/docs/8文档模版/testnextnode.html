@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>文档格式模版</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../release/css/doc.css"/>
+
+<br />
+</head>
+<body>
+<div class="container"  id="doc" style="background-color:#000" >
+<div class="doc">
+ <div id=p1>node1</div>
+ <div id=p1>node2</div>
+ </div>
+</div>
+</body>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../src/9other/53doc.js"></script>
+<script type="text/javascript">
+	window.onload=function(){
+		out("nextnode",$('#p1'));
+		var nextnode=getNextNode($('#p1'))
+		out("nextnode",nextnode);
+
+	}
+</script>
+</html>

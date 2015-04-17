@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>小牛在线</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+	<link type="text/css" href="http://www.xiaoniu88.com/weChat/css/base.css" rel="stylesheet"/>
+    <link type="text/css" href="http://www.xiaoniu88.com/weChat/css/global.css?v=20141030a" rel="stylesheet"/>
+    <link type="text/css" href="http://www.xiaoniu88.com/weChat/css/element.css" rel="stylesheet"/>
+    <script type="text/javascript" src="http://www.xiaoniu88.com/weChat/js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="http://www.xiaoniu88.com/weChat/js/swipe.js"></script>
+</head>
+<body>
+	<!--顶部 -->
+	<link type="text/css" href="http://www.xiaoniu88.com/weChat/css/include.css?v=20141022" rel="stylesheet"/>
+<div class='top'>
+	<span class='top_con'>
+		<a class="we_logo" href="http://www.xiaoniu88.com/weChat/index.do"></a>
+		<!-- 登陆前 -->
+		<!-- 登陆后 -->
+		<!-- 首页 -->
+			<a class='index_top_btn top_btn' href='#'>余额：&nbsp;0.0元</a>
+			<!-- 我的账户 -->
+			<a class='account_top_btn top_btn' href='http://www.xiaoniu88.com/weChat/wx_logout.do'>安全退出</a>
+			<!-- 其他页面 -->
+			<span class='top_title top_btn'></span>
+		</span>
+</div><input type="hidden" id="idStr" value="3045" />
+	<div class="tender_box">
+    	<div class="tender_top"></div>
+        <div class="tender_main">
+        	<span style="position:relative;display: block;width: 100%;height: 27px;"><h2>安居宝D20141201-562<img src="http://www.xiaoniu88.com/images/isCustom.png" style='position:absolute;margin-left:5px;top:3px;'></h2></span>
+        		<div class="deline"></div>
+	        <form id="form" action="wx_ainvest.do" target="_self">
+	        		<input type="hidden" name="paramMap.repayDate"value="" />
+				    <input type="hidden" name="paramMap.borrowWay"value="5" />
+					<input type="hidden" name="paramMap.id" value="3045" />
+					<input type="hidden" name="paramMap.borrowTitle" value="安居宝D20141201-562" />
+					<input type="hidden" name="paramMap.accrualTime" value="" />
+					<input type="hidden" id="typeCode" value="0" />
+					<input type="hidden" name="paramMap.minTenderedSum" value="100.00" />
+		            <div class="invest_box list_dl">
+		            	<dl class="clearfix">
+		                    <dt>剩余金额：</dt>
+		                    <dd class="strong">472,077元</dd>
+		                </dl>
+		                <dl class="clearfix">
+			                    <dt>账户金额：</dt>
+								<dd>
+									0.00元
+								</dd>
+							</dl>
+						<div class="input_box mgt-5">
+		                	<div class="input_wap">
+		                		<input type="text" id="amount" maxLength=20 name="paramMap.amount" placeholder="购买金额" style="line-height:normal;" onkeyup="if(this.value==''){this.value2='';return;} if(this.value==this.value2) return;if(this.value.search(/^[1-9]\d*$/)==-1)this.value=(this.value2)?this.value2:'';else this.value2=this.value;"  class="input_text invest_input_mgr" />
+		                    </div>
+		                    <div class="invest_r">元</div>
+		                </div>
+		                <div>
+			
+		                    <input type="text" placeholder="请输入验证码" id="code" name="paramMap.code" class="input_box" style="width:50%;"/>
+		                    <span class="vcode">
+		                    	<img width="77px" height="30px" onclick="javascript:switchCode()"
+								id="codeNum" style="cursor: pointer;margin-bottom:-10px;" title="点击更换验证码"
+								src="images/imageCode.do">
+							</span>
+		                </div>
+		                <div class="btn w100 mgc-10">
+		                    <div class="btn_wap">
+		                    	<a href="javascript:tender()" sytle="display:block;"><div class="btn_cc">购买</div></a>
+											</div>
+		                    <div class="btn_lc"></div>
+		                    <div class="btn_rc"></div>
+		                </div>
+		           </div>
+		           <input type="hidden" name="struts.token.name" value="token" />
+<input type="hidden" name="token" value="8WYBLSLLSR93B3MRCSGTEFOLOH31AZSF" /></form>
+			</div>
+        <div class="deline"></div>
+        <div class="tender_main">
+        	<h2>项目介绍</h2>
+            <div class="tender_intro">
+            	<p>本项借款属于银行赎楼交易，借款总金额327万元。借款人袁先生的个人信息已经通过审核，其经济状况良好，个人征信无不良；赎楼的房产位于南山区创业路南浪琴屿花园。该房产已获得平安银行新增授信，还款来源安全可靠。当前为第5期，额度50万元。</p></div>
+        </div>
+  </div>
+  <div class="PCstyle"><a href="javascript:gotoPC()"><span>切换到电脑版</span></a></div>
+  <div class='foot_blank'></div>
+	<!--底部 -->
+<link type="text/css" href="http://www.xiaoniu88.com/weChat/css/include.css?2" rel="stylesheet"/>
+
+<div class='foot'>
+ 		<div class='foot_nav_list'>
+ 			<span class='foot_nav'><a href='http://www.xiaoniu88.com/weChat/index.do' class='foot_nav nav_index'>首页</a></span>
+ 			<span class='foot_nav'><a href='http://www.xiaoniu88.com/weChat/financeTendering.do' class='foot_nav nav_invest'>我要投资</a></span>
+ 			<span class='foot_nav'><a href='http://www.xiaoniu88.com/weChat/wx_accountIndex.do' class='foot_nav nav_account'>我的账户</a></span>
+ 			<span class='foot_nav'><a href='http://www.xiaoniu88.com/weChat/company-profile.jsp' class='foot_nav nav_about'>关于小牛</a></span>
+ 		</div>
+</div>
+<script type=text/javascript src="http://www.xiaoniu88.com/js/lhgdialog/lhgdialog.js"></script>
+<script type="text/javascript">
+if(!!navigator.appVersion.match(/MicroMessenger/i)){
+	$(".PCstyle").hide();
+}
+function gotoPC(){
+	window.sessionStorage.setItem("platformType", "pc");
+	window.location.href="http://www.xiaoniu88.com/index.do";
+}
+$(function(){
+	$('.top_btn').hide();
+	$('.top_title').html('我要投资').show();
+	$('.nav_invest').addClass('nav_invest_cur');
+});
+
+switchCode();
+
+function switchCode(){
+   	var timenow = new Date();
+   	$('#codeNum').attr('src','http://www.xiaoniu88.com/admin/imageCode.do?pageId=invest&d='+timenow);
+};
+function clearstr(){
+	if($("#amount").val() == '请输入购买金额'){
+		$("#amount").val("");
+	}
+}
+function tender(){
+	if('com.xntz.entity.User@40aa758e' == 'undefined' || 'com.xntz.entity.User@40aa758e' == null || 'com.xntz.entity.User@40aa758e' == ''){
+
+		window.location.href='wx_login.do';
+		return;
+	}
+	//个人标 且当前用户为非指定用户
+	if('0' == '1' && '-1' != '29538'){
+		$.dialog.warnTips("您无法投资该笔借款！");
+		return;
+	}
+	// 购买金额
+	var input_amount = $("#amount").val();
+	// 验证码
+	var input_code = $("#code").val();
+	// 购买金额判断
+	if(input_amount == ''){
+		$.dialog.warnTips("请输入购买金额！");
+		return ;
+	}
+	if(parseInt(input_amount) != input_amount || parseInt(input_amount) <= 0){
+		$.dialog.warnTips("购买金额必须为整数，且必须大于0 ！");
+		return ;
+	}
+	if(parseInt(input_amount) < parseInt('100.00') && parseInt('472,077'.replace(",","")) >= parseInt('100.00')){
+		$.dialog.warnTips("购买金额不能低于该标的最小购买金额！");
+		return ;
+	}
+	if(parseInt(input_amount) > parseInt('10000.00')){
+		$.dialog.warnTips("购买金额不能高于该标的最大购买金额！");
+		return ;
+	}
+	var typeCode =$("#typeCode").val();
+	if(typeCode != null && typeCode == 3){
+		if (parseInt(input_amount)%1000!=0) {
+			$.dialog.warnTips("购买金额需为1000元的整数倍！");
+			return ;
+		}
+	}
+	if(parseInt(input_amount) > parseInt('0.00')){
+		$.dialog.warnTips("余额不足,请先充值！");
+		return ;
+	}
+	// 验证码输入判断
+	if(input_code == ''){
+		$.dialog.warnTips("请输入验证码！");
+		return ;
+	}
+	if(input_code.length != 4){
+		$.dialog.warnTips("验证码错误！");
+		return ;
+	}
+	if(5 != 8 && typeCode != 3 ){
+		$("#form").attr({ action: "wx_newainvest.do" });
+	}
+	$("#form").submit();
+	
+	// window.location.reload();
+	
+	// 提交投标请求
+	// $("#form").submit();
+}			
+</script>
+</body></html>

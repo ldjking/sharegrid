@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<iframe src="http://10.68.105.166/eam/web/test/test.html" id="c1" name="c1"></iframe>
+<input type="button" id="btn1" value="提交"/>
+<div id="c2"></div>
+<script type="text/javascript">
+	var onmessage = function(e) {    
+	  var data = e.data;    
+	  var origin = e.origin;    
+	  document.getElementById('c2').innerHTML = "内页接受信息"+data;    
+	};    
+  
+	if (typeof window.addEventListener != 'undefined') {    
+	  window.addEventListener('message', onmessage, false);    
+	} else if (typeof window.attachEvent != 'undefined') {    
+	  window.attachEvent('onmessage', onmessage);    
+	}   
+</script>
+</body>
+</html>

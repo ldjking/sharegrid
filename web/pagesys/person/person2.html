@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>人员管理[使用测试数据]</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+</head>
+<body>
+<div class="app" id="app1" style="z-index:20">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">人员</div>
+    <div class="tab normal" id="tab_role">人员角色</div>
+    <div class="tab hide" id="tab_add">新增人员</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c4"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script> 
+<script type="text/javascript" src="../../release/ui.js"></script> 
+<script type="text/javascript" src="../../release/grid.js"></script> 
+<script type="text/javascript" src="../../release/lovdef.js"></script>
+<script type="text/javascript">
+(function(){/*在闭包的空间内执行代码*/
+	var grid		=$("#c1");
+	var editForm	=$("#c2");
+	var addForm		=$("#c3");
+	var roleGrid	=$("#c4");
+	var tabList		=$("#tab_list");
+	var tabEdit		=$("#tab_edit");
+	var tabAdd		=$("#tab_add");
+	var tabRole		=$("#tab_role");
+	var fn_showList =function(evt){
+		genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	var fn_showNext =function(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showPre  =function(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	
+	var fn_showEditForm      =function(evt){
+		activeTab(tabEdit);
+	}
+	var fn_showAddForm       =function(evt){/*要把新增表单显示出来*/
+		////out("showAddForm");
+		activeTab(tabAdd);
+	}
+	var e_cmdAddItem_handler =function(target){
+		//msg(target.cmd.cmd+"用户自定义事件");
+	}
+	var cmds=[
+		{cmd:"cmdAdd"	,fn:fn_showAddForm},
+		{cmd:"cmdEdit"	,fn:fn_showEditForm},
+		{cmd:"cmdDelete",fn:e_cmdAddItem_handler},
+		{cmd:"cmdFilter",fn:e_cmdAddItem_handler},
+		{cmd:"cmdRefresh",fn:e_cmdAddItem_handler}
+	]
+	var tabChange=function(target,p){
+		if(p==1){
+			refreshEditForm();
+		}
+		else if(p==2){/*刷新子对象内容*/
+			refreshRoleGrid();
+		}
+	}
+	var refreshEditForm =function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.data==obj){return;}
+		else{
+			editForm.formCfg.data=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+			//;//out(obj.rownum);
+			cssRm(preCmd,"gray");
+			cssRm(nextCmd,"gray");
+
+			if(obj.rownum==1){
+				cssAdd(preCmd,"gray");
+			}
+			else if(obj.rownum==cfg.totalNum){
+				cssAdd(nextCmd,"gray");
+			}
+			genFormContent(editForm);/*重绘内容*/
+		}
+	}
+	var refreshRoleGrid=function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		////out("main obj",obj);
+		if(roleGrid.gridCfg.param==obj){return;}
+		else{
+			roleGrid.gridCfg.param=obj;
+			genGridContent(roleGrid);/*重绘内容*/
+		}
+	}
+	var init=function(){
+		uiApp({dom:$("#app1"),fn:tabChange});
+		grid=$("#c1");
+		//c0_id	c0_name	c0_sex	c0_birthday	c0_account	c0_pw	c0_state	c0_displayname	c0_code	c0_dep	sexname
+		cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,pageFlag:true,pageSize:10,pkAttr:"c0_id"};
+		cfg.datas=[	{c0_id:"100021",c0_name:"刘东杰"},
+					{c0_id:"100022",c0_name:"王智华"}];
+		columns=[{text:"主键",attr:"c0_id",align:"center",width:80,frozen:1,type:"num",notEdit:0,asc:1},
+		{text:"用户名",attr:"c0_name",align:"center",frozen:0,width:160,type:"str",asc:1},
+		{text:"性别",attr:"sexname",align:"center",width:60,frozen:1,notEdit:1,type:"str",asc:1},
+		{text:"生日",attr:"c0_birthday",align:"center",type:"str",width:80,asc:1},
+		{text:"账号",attr:"c0_account",align:"left",width:160,type:"str",asc:1},
+		{text:"状态",attr:"c0_state",align:"left",width:60,type:"str",notEdit:0,asc:1},
+		{text:"别名",attr:"c0_displayname",align:"left",width:60,type:"str",notEdit:0,asc:1},
+		{text:"用户编码",attr:"c0_code",align:"left",width:60,type:"str",notEdit:0,asc:1}];
+		genGrid(cfg,columns,cmds,[]);
+		
+		var tables=[	{type:0,cells:[
+									{type:"text",attr:"c0_id"}
+								]
+							},
+							{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"用户名",width:80,align:"center",row:1},
+									{type:"txt",attr:"c0_name",width:120,align:"left",row:1},
+									{type:"lbl",text:"性别",width:80,align:"center",row:1},
+									{type:"txt",attr:"sexname",attr2:"c0_sex",width:120,align:"left",row:1},/*txt代表单行元素*/
+									{type:"lbl",text:"生日",width:80,align:"center",row:1},
+									{type:"txt",attr:"c0_birthday",width:120,align:"left",row:1,lov:"date"}
+								]
+							},
+							{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"别名",width:80,align:"center",row:1},
+									{type:"txt",attr:"c0_displayname",width:120,align:"left",row:1},/*txt代表单行元素*/
+									{type:"lbl",text:"账号",width:80,align:"center",row:1},
+									{type:"txt",attr:"c0_account",width:120,align:"left",row:1},
+									{type:"lbl",text:"密码",width:80,align:"center",row:1},
+									{type:"txt",attr:"c0_pw",width:120,align:"left",row:1}
+									
+								]
+							}
+							
+							
+						];
+			var cmdsAdd=[
+						{cmd:"update",method:"personUpdate",fn:fn_showList},/*表示该操作按钮式定te=1的对象上*/								
+						{cmd:"pre",fn:fn_showPre},
+						{cmd:"next",fn:fn_showNext}
+					];
+			var cfgAdd={dom:editForm,title:"人员信息",formType:"add",addMethod:"personAdd",updateMethod:"personUpdate"};
+			genForm(cfgAdd,tables,cmdsAdd);
+			cmdsEdit=[
+						{cmd:"save",method:"personAdd",fn:fn_showList},/*表示该操作按钮式定te=1的对象上*/								
+						{cmd:"pre",fn:fn_showPre},
+						{cmd:"next",fn:fn_showNext}
+					];
+			cfgEdit={dom:addForm,title:"人员信息录入",formType:"add",addMethod:"personAdd",updateMethod:"personUpdate"};
+			genForm(cfgEdit,tables,cmdsEdit);
+			
+			cfgGrid2={dom:roleGrid,multiMode:0,toolbar:1,filterMode:0,data_method:"personRoleGets",pkAttr:"c4_id",
+				rmMethod:'personRoleRm',addMethod:"personRoleAdd",updateMethod:"personRoleUpdate",pageFlag:false,pageSize:10}
+			var columnsGrid2=[{text:"主键",attr:"c4_id",align:"left",width:80,frozen:1,type:"num",notEdit:0},
+							{text:"员工",attr:"person_name",align:"center",frozen:0,type:"str",notEdit:1},
+							{text:"角色",attr:"role_name",attr2:"c4_role",align:"center",width:120,type:"str",lov:"role"}
+						];
+			var cmdsGrid2=[
+						{cmd:"cmdLock"		},
+						{cmd:"cmdAddItem"	},
+						{cmd:"cmdRmItem"	},
+						{cmd:"cmdCommit"	},
+						{cmd:"cmdFilter"	},
+						{cmd:"cmdRefresh"	}
+					]
+			genGrid(cfgGrid2,columnsGrid2,cmdsGrid2,[]);
+	}
+	
+	window.onload=init;	
+
+})();
+</script> 
+</body>
+</html>

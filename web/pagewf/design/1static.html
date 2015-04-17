@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工作流应用</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="css/wf.css"/>
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">流程中心</div>
+    <div class="tab normal" id="tab_edit">我的任务</div>
+    <div class="tab normal" id="tab_form">工作流表单</div>
+    <div class="tab normal" id="tab_form">任务处理</div>
+    <div class="tab normal" id="tab_form">流程图示意图</div>
+  </div>
+  <div class="appContent">
+    <div class="content active form wfList"  id="c1" style="width: 1366px; height: 673px;">
+      <div class="cmdbar">
+        <div class="cmd">
+          <div class="btn">流程图</div>
+          <div class="btn">发起流程</div>
+        </div>
+      </div>
+      <div class="container" style="width: 1366px; height: 634px;">
+        <div class="paper">
+          <div class="content"><div class="form_title">三峡高科公司工作流程</div>
+            <table cellpadding="0" cellspacing="0" border="1">
+              <tr>
+                <td class="wf"><div>101. 立项审批流程</div></td>
+                <td class="wf"><div>102. 合同审批流程</div></td>
+                <td class="wf"><div>103. 采购审批流程</div></td>
+              </tr>
+              <tr>
+                <td class="wf"><div>201. 费用审批流程</div></td>
+                <td class="wf"><div>202. 休假审批流程</div></td>
+                <td class="wf"><div>203. 固定资产领用审批流程</div></td>
+              </tr>
+              <tr>
+                <td class="wf"><div>301. 预算审批流程</div></td>
+                <td class="wf"><div>302. 员工管理审批流程</div></td>
+                <td class="wf"><div>303. 职称申报流程</div></td>
+              </tr>
+              <tr>
+                <td class="wf"><div>401. 账号申请流程</div></td>
+                <td class="wf"><div>402. 工作票流程</div></td>
+                <td class="wf"><div>403. 操作票流程</div></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content normal grid " id="c2" style="width: 1366px; height: 673px;">
+      <div class="cmdbar" id="grid_0_cmdbar">
+        <div class="cmd" id="grid_0_cmd">
+          <div class="btn" id="grid_0_cmdDelete">待办事项</div>
+          <div class="btn" id="grid_0_cmdFilter">已办事项</div>
+            <div class="btn" id="grid_0_cmdFilter">草稿箱</div>
+
+          <div class="btn" id="grid_0_cmdAdd">查看流转记录</div>
+          <div class="btn" id="grid_0_cmdEdit">工作处理</div>
+          <div class="search" id="grid_0_cmdSearch"></div>
+          <div class="refresh" id="grid_0_cmdRefresh"></div>
+        </div>
+      </div>
+      <div class="gridContainer" id="grid_0_container" style="width: 1366px; height: 634px;">
+        <div class="top_left" id="grid_0_1">
+          <table id="grid_0_1table" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td class="w01"><div class="w01">
+                    <input class="checkbox" id="grid_0_selectAll" type="checkbox">
+                  </div></td>
+                <td class="w02"><div class="w02">序号</div></td>
+                <td class="asc"><div class="cell" style="width: 80px;">收件时间</div></td>
+              </tr>
+              <tr class="filter">
+                <td class="w01"></td>
+                <td class="w02"><div class="w02"></div></td>
+                <td><input class=" query cell" style="width: 80px;" type="text"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="top_right" id="grid_0_2" style="left: 178px;">
+          <table id="grid_0_2table" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td class="asc"><div class="cell" style="width: 260px;">任务标题</div></td>
+                <td class="asc"><div class="cell" style="width: 80px;">流程类别</div></td>
+                <td class="asc"><div class="cell" style="width: 80px;">发起人</div></td>
+                <td class="asc"><div class="cell" style="width: 80px;">发起时间</div></td>
+                <td class="asc"><div class="cell" style="width: 80px;">当前环节</div></td>
+              </tr>
+              <tr class="filter">
+                <td><input class=" query cell" style="width: 260px;" type="text"></td>
+                <td><input class=" query cell" style="width: 80px;" type="text"></td>
+                <td><input class=" query cell" style="width: 80px;" type="text"></td>
+                <td><input class=" query cell" style="width: 80px;" type="text"></td>
+                <td><input class=" query cell" style="width: 80px;" type="text"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="center_left" id="grid_0_3"></div>
+        <div class="center_right" id="grid_0_4" style="left: 258px;"></div>
+        <div class="header_bg" id="grid_0_header"></div>
+        <div class="header_bg2" id="grid_0_header"></div>
+        <div class="pager" id="grid_0_pager">
+          <table class="pageInfo" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td class="rowNum" id="grid_0_rowNum"></td>
+                <td class="pageNum" id="grid_0_pageNum"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="pageTable" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td class="pagebtn" id="grid_0_firstPage">首页</td>
+                <td class="pagebtn" id="grid_0_prePage">上一页</td>
+                <td class="pagebtn" id="grid_0_nextPage">下一页</td>
+                <td class="pagebtn" id="grid_0_lastPage">尾页</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="footer_bg" id="grid_0_footer"></div>
+        <div class="scroll_h" id="grid_0_scroll_h"></div>
+        <div class="scrollbar_h" id="grid_0_scrollbar_h"></div>
+        <div class="scroll_v" id="grid_0_scroll_v"></div>
+        <div class="scrollbar_v" id="grid_0_scrollbar_v"></div>
+      </div>
+    </div>
+    <div class="content normal form"  id="c3" style="width: 1366px; height: 635px;">
+      <div class="cmdbar">
+        <div class="cmd">
+          <div class="btn">保存草稿</div>
+          <div class="btn">启动</div>
+        </div>
+      </div>
+      <div class="formContainer"  style="width: 1366px; height: 634px;">
+        <div class="paper">
+        <div class="form_title">账户申请流程</div><table class="formTable" cellspacing="0" cellpadding="0"><tbody><tr><td style="display: none;"><table class="hidden" cellspacing="0" cellpadding="0"><tbody><tr><td><input type="text"></td></tr></tbody></table></td></tr><tr><td><table class="rows" cellspacing="0" cellpadding="0"><tbody><tr class="row"><td class="lbl"><div style="width: 80px; text-align: center;">用户名</div></td><td class="attr"><textarea class="text" id="form_2_c0_name" style="width: 100px; text-align: left;" rows="1"></textarea></td><td class="lbl"><div style="width: 80px; text-align: center;">性别</div></td><td class="attr"><textarea class="text" id="form_2_c0_sex" style="width: 100px; text-align: left;" rows="1"></textarea></td><td class="lbl"><div style="width: 80px; text-align: center;">生日</div></td><td class="attr"><textarea class="text" id="form_2_c0_birthday" style="width: 100px; text-align: left;" rows="1"></textarea></td></tr></tbody></table></td></tr><tr><td><table class="rows" cellspacing="0" cellpadding="0"><tbody><tr class="row"><td class="lbl"><div style="width: 80px; text-align: center;">账号</div></td><td class="attr"><textarea class="text" id="form_2_c0_account" style="width: 200px; text-align: left;" rows="1"></textarea></td><td class="lbl"><div style="width: 80px; text-align: center;">密码</div></td><td class="attr"><textarea class="text" id="form_2_c0_pw" style="width: 200px; text-align: left;" rows="1"></textarea></td></tr></tbody></table></td></tr><tr><td><table class="rows" cellspacing="0" cellpadding="0"><tbody><tr class="row"><td class="lbl"><div style="width: 80px; text-align: center;">状态</div></td><td class="attr"><textarea class="text" id="form_2_c0_state" style="width: 100px; text-align: left;" rows="1"></textarea></td><td class="lbl"><div style="width: 80px; text-align: center;">别名</div></td><td class="attr"><textarea class="text" id="form_2_c0_displayname" style="width: 100px; text-align: left;" rows="1"></textarea></td><td class="lbl"><div style="width: 80px; text-align: center;">用户编码</div></td><td class="attr"><textarea class="text" id="form_2_c0_code" style="width: 100px; text-align: left;" rows="1"></textarea></td></tr></tbody></table></td></tr><tr><td><table class="rows" cellspacing="0" cellpadding="0"><tbody><tr class="row"><td class="lbl"><div style="width: 80px; text-align: center;">部门</div></td><td class="attr"><textarea class="text" id="form_2_c0_dep" style="width: 500px; text-align: left;" rows="1"></textarea></td></tr></tbody></table></td></tr></tbody></table>
+		</div>           
+      </div>
+    </div>
+    <div class="content normal form"  id="c3" style="width: 1366px; height: 635px;">
+      <div class="cmdbar">
+        <div class="cmd">
+          <div class="btn">批准</div>
+          <div class="btn">驳回</div>
+        </div>
+      </div>
+      <div class="formContainer"  style="width: 1366px; height: 634px;">
+        <div class="paper">
+        <div class="form_title">账户申请流程</div><table class="formTable" cellspacing="0" cellpadding="0"><tbody><tr><td style="display: none;"><table class="hidden" cellspacing="0" cellpadding="0"><tbody><tr><td><input type="text"></td></tr></tbody></table></td></tr><tr><td><table class="rows" cellspacing="0" cellpadding="0"><tbody><tr class="row"><td class="lbl"><div style="width: 80px; text-align: center;">用户名</div></td><td class="attr"><textarea class="text" id="form_2_c0_name" style="width: 100px; text-align: left;" rows="1"></textarea></td><td class="lbl"><div style="width: 80px; text-align: center;">性别</div></td><td class="attr"><textarea class="text" id="form_2_c0_sex" style="width: 100px; text-align: left;" rows="1"></textarea></td><td class="lbl"><div style="width: 80px; text-align: center;">生日</div></td><td class="attr"><textarea class="text" id="form_2_c0_birthday" style="width: 100px; text-align: left;" rows="1"></textarea></td></tr></tbody></table></td></tr><tr><td><table class="rows" cellspacing="0" cellpadding="0"><tbody><tr class="row"><td class="lbl"><div style="width: 80px; text-align: center;">账号</div></td><td class="attr"><textarea class="text" id="form_2_c0_account" style="width: 200px; text-align: left;" rows="1"></textarea></td><td class="lbl"><div style="width: 80px; text-align: center;">密码</div></td><td class="attr"><textarea class="text" id="form_2_c0_pw" style="width: 200px; text-align: left;" rows="1"></textarea></td></tr></tbody></table></td></tr><tr><td><table class="rows" cellspacing="0" cellpadding="0"><tbody><tr class="row"><td class="lbl"><div style="width: 80px; text-align: center;">状态</div></td><td class="attr"><textarea class="text" id="form_2_c0_state" style="width: 100px; text-align: left;" rows="1"></textarea></td><td class="lbl"><div style="width: 80px; text-align: center;">别名</div></td><td class="attr"><textarea class="text" id="form_2_c0_displayname" style="width: 100px; text-align: left;" rows="1"></textarea></td><td class="lbl"><div style="width: 80px; text-align: center;">用户编码</div></td><td class="attr"><textarea class="text" id="form_2_c0_code" style="width: 100px; text-align: left;" rows="1"></textarea></td></tr></tbody></table></td></tr><tr><td><table class="rows" cellspacing="0" cellpadding="0"><tbody><tr class="row"><td class="lbl"><div style="width: 80px; text-align: center;">部门</div></td><td class="attr"><textarea class="text" id="form_2_c0_dep" style="width: 500px; text-align: left;" rows="1"></textarea></td></tr></tbody></table></td></tr></tbody></table>
+		</div>           
+      </div>
+    </div>
+     <div class="content normal form"  id="c3" style="width: 1366px; height: 635px;">
+      <div class="cmdbar">
+        <div class="cmd">
+          <div class="btn">编辑</div>
+        </div>
+      </div>
+      <div class="formContainer"  style="width: 1366px; height: 634px;">
+        <div class="paper">
+        <div class="form_title">账户申请流程图</div><table class="formTable" cellspacing="0" cellpadding="0"><tbody><tr><td style="display: none;"><table class="hidden" cellspacing="0" cellpadding="0"><tbody><tr><td><input type="text"></td></tr></tbody></table></td></tr><tr><td><table class="rows" cellspacing="0" cellpadding="0"><tbody><tr class="row"><td class="lbl"><div style="width: 80px; text-align: center;">用户名</div></td><td class="attr"><textarea class="text" id="form_2_c0_name" style="width: 100px; text-align: left;" rows="1"></textarea></td><td class="lbl"><div style="width: 80px; text-align: center;">性别</div></td><td class="attr"><textarea class="text" id="form_2_c0_sex" style="width: 100px; text-align: left;" rows="1"></textarea></td><td class="lbl"><div style="width: 80px; text-align: center;">生日</div></td><td class="attr"><textarea class="text" id="form_2_c0_birthday" style="width: 100px; text-align: left;" rows="1"></textarea></td></tr></tbody></table></td></tr><tr><td><table class="rows" cellspacing="0" cellpadding="0"><tbody><tr class="row"><td class="lbl"><div style="width: 80px; text-align: center;">账号</div></td><td class="attr"><textarea class="text" id="form_2_c0_account" style="width: 200px; text-align: left;" rows="1"></textarea></td><td class="lbl"><div style="width: 80px; text-align: center;">密码</div></td><td class="attr"><textarea class="text" id="form_2_c0_pw" style="width: 200px; text-align: left;" rows="1"></textarea></td></tr></tbody></table></td></tr><tr><td><table class="rows" cellspacing="0" cellpadding="0"><tbody><tr class="row"><td class="lbl"><div style="width: 80px; text-align: center;">状态</div></td><td class="attr"><textarea class="text" id="form_2_c0_state" style="width: 100px; text-align: left;" rows="1"></textarea></td><td class="lbl"><div style="width: 80px; text-align: center;">别名</div></td><td class="attr"><textarea class="text" id="form_2_c0_displayname" style="width: 100px; text-align: left;" rows="1"></textarea></td><td class="lbl"><div style="width: 80px; text-align: center;">用户编码</div></td><td class="attr"><textarea class="text" id="form_2_c0_code" style="width: 100px; text-align: left;" rows="1"></textarea></td></tr></tbody></table></td></tr><tr><td><table class="rows" cellspacing="0" cellpadding="0"><tbody><tr class="row"><td class="lbl"><div style="width: 80px; text-align: center;">部门</div></td><td class="attr"><textarea class="text" id="form_2_c0_dep" style="width: 500px; text-align: left;" rows="1"></textarea></td></tr></tbody></table></td></tr></tbody></table>
+		</div>           
+      </div>
+    </div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script> 
+<script type="text/javascript" src="../../release/ui.js"></script> 
+<script type="text/javascript" src="../../release/grid.js"></script> 
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+	function init(){
+		uiApp({dom:$("#app1")});
+		//wf.init();
+		//alert(1);
+	}
+	window.onload=init;
+</script> 
+</body>
+</html>

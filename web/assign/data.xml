@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <folder name="工作任务" class="base">
+    <folder name="数据库设计" class="js">
+      <file name="变量的动态绑定"/>
+    </folder>
+    <folder name="XLib开发" class="js">
+      <folder name="表单" class="js">
+        <file name="变量的动态绑定"/>
+      </folder>
+      <folder name="列表" class="js">
+        <file name="变量的动态绑定"/>
+      </folder>
+    </folder>
+    <folder name="开发辅助开发" class="js">
+      <file name="方法管理"/>
+      <file name="方法快速生成"/>
+    </folder>
+    <folder name="业务模块开发" class="js">
+      <folder name="运行模块" class="js">
+        <file name="方法管理"/>
+        <file name="方法快速生成"/>
+      </folder>
+      <folder name="设备管理模块" class="js">
+        <file name="方法管理"/>
+        <file name="方法快速生成"/>
+      </folder>
+      <folder name="物资模块" class="js">
+        <file name="方法管理"/>
+        <file name="方法快速生成"/>
+      </folder>
+      <folder name="工作流模块" class="js">
+        <file name="方法管理"/>
+        <file name="方法快速生成"/>
+      </folder>
+    </folder>
+  </folder>
+  <folder name="工作安排" class="base">
+    <folder name="刘东杰" class="js">
+      <file name="0305表单校验与提示功能"/>
+      <file name="0305工作任务安排"/>
+    </folder>
+    <folder name="张进" class="js">
+      <file name="2013-3-5运行模块数据库设计"/>
+    </folder>
+    <folder name="王智华" class="js">
+      <file name="2013-3-5运行日志开发"/>
+    </folder>
+    <folder name="陈赟" class="js">
+      <file name="0305方法管理"/>
+      <file name="0306物资公司管理"/>
+      <file name="0306物资编码管理"/>
+      <file name="0306物资台账"/>
+      <file name="0307文件上传例子"/>
+	  	  <file name="0308form组件图像上传"/>
+
+    </folder>
+    <folder name="陈利林" class="js">
+      <file name="0304表单组件说明书"/>
+      <file name="0305方法快速生成"/>
+      <file name="0306方法生成服务"/>
+      <file name="0307引擎增量更新机制"/>
+	  <file name="0308正则表达式校验"/>
+	  <file name="0308可编辑树"/>
+    </folder>
+  </folder>
+</root>

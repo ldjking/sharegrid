@@ -1,0 +1,29 @@
+.grid.tree {
+	font-size: 12px;
+	line-height: 24px;
+	padding-left: 0px;
+	margin-left: 0px;
+}
+.grid.tree .w02{
+	display: none;
+
+}
+.grid.tree .text{
+	background-repeat: no-repeat;
+	background-position: left center;
+	cursor: default;
+	line-height: 20px;
+	height: 20px;
+}
+.grid.tree .open .node .text{
+	background-image: url(../../images/tree/basic/open.png);
+	padding-left: 16px;
+}
+.grid.tree .close .node .text{
+	background-image: url(../../images/tree/basic/close.png);
+	padding-left: 16px;
+}
+.grid.tree .leaf .node .text{
+	background-image: url(../../images/tree/basic/leaf.png);
+	padding-left: 16px;
+}

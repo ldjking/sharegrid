@@ -1,0 +1,149 @@
+.xn_head_top {
+	width: 100%;
+	min-width: 980px;
+	height: 39px;
+	background: #e2e2e2;
+	border-bottom: #dbdbdb 2px solid;
+	z-index: 100;
+	position: relative;
+}
+.xn_head_top .xn_head_top_content {
+	width: 980px;
+	margin: 0 auto;
+}
+.xn_head_top .xn_head_top_content .xn_contact li {
+	height: 39px;
+	line-height: 39px;
+	color: #5c5c5c;
+	font-size: 12px;
+	float: left;
+	position: relative;
+}
+.xn_head_top .xn_hotline_icon {
+	position: absolute;
+	top: 9px;
+*top:11px;
+	margin-left: 6px;
+	width: 18px;
+	height: 20px;
+	display: inline-block;
+*display:inline;
+	zoom: 1;
+	margin-right: 6px;
+	background: url(img/top_tel.png) no-repeat -1px 4px;
+}
+.xn_head_top .xn_hotline {
+	border-left: none;
+	width: 255px;
+}
+.xn_head_top .xn_concerns {
+	width: 122px;
+	padding-top: 1px;
+	padding-left: 38px;
+}
+.xn_head_top .xn_concerns a {
+	width: 28px;
+	height: 28px;
+	display: inline-block;
+*display:inline;
+	zoom: 1;
+	margin-left: 8px;
+}
+.xn_head_top .xn_concerns .xn_sinaWeibo {
+	position: absolute;
+	top: 5px;
+	margin-left: 30px;
+	background: url(img/weibo_weixin.png) no-repeat -3px 0px;
+}
+.xn_head_top .xn_concerns .xn_sinaWeibo_lighten {
+	background: url(img/weibo_weixin.png) no-repeat -3px -30px;
+}
+.xn_head_top .xn_concerns .xn_top_weixin {
+	position: absolute;
+	top: 6px;
+	margin-left: 60px;
+	cursor: pointer;
+	background: url(img/weibo_weixin.png) no-repeat -38px -1px;
+}
+.xn_head_top .xn_concerns .xn_top_weixin_lighten {
+	background: url(img/weibo_weixin.png) no-repeat -38px -31px;
+}
+.xn_head_top .xn_concerns .xn_top_weixin_pic {
+	position: absolute;
+	width: 185px;
+	height: 200px;
+	top: 20px;
+	left: -80px;
+	background: url(img/top_weixin.png) no-repeat 0px 0px;
+	z-index: 10000;
+	display: none;
+}
+.xn_head_top .xn_login_bar {
+	float: right;
+	margin-right: 10px;
+}
+.xn_head_top .xn_login_bar li {
+	float: left;
+	height: 39px;
+	line-height: 39px;
+}
+.xn_head_top .xn_login_bar li a {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	color: #ffffff;
+	font-size: 14px;
+}
+.xn_head_top .xn_login_bar li a:hover {
+	text-decoration: none;
+}
+.xn_login_bar .xn_login_bar_login {
+	width: 62px;
+}
+.xn_login_grey {
+	background: url(img/top_btn.png) no-repeat 2px 7px;
+}
+.xn_login_lighten {
+	background: url(img/top_btn2.png) no-repeat 3px 9px;
+}
+.xn_login_bar .xn_login_bar_reg {
+	width: 62px;
+}
+.xn_reg_grey {
+	background: url(img/top_btn.png) no-repeat -58px 7px;
+}
+.xn_reg_lighten {
+	width: 62px;
+	background: url(img/top_btn2.png) no-repeat -57px 9px;
+}
+.xn_head_top .xn_login_bar .xn_login_bar_last a {
+	font-size: 12px;
+	color: #5c5c5c;
+	height: 12px;
+	line-height: 12px;
+	border-left: 1px #888888 solid;
+	margin-left: 10px;
+	padding-left: 6px;
+	display: inline-block;
+ *display:inline;
+	zoom: 1;
+	margin-top: 14px;
+*margin-top:0px;
+}
+.xn_head_top .xn_login_bar .xn_login_bar_last a:hover {
+	color: #ff0000;
+	text-decoration: underline;
+}
+.xn_head_center .xn_head_center_content .xn_logo {
+	display: inline-block;
+	zoom: 1;
+	width: 386px;
+	height: 60px;
+	margin-top: 12px;
+	background: url(../../../temp/images/indexNew/logo.png) no-repeat center left;
+}
+
+.xn_head_center_content{
+	width:980px;
+	margin:auto;
+}

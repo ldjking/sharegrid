@@ -1,0 +1,45 @@
+.formNav {
+}
+.forms_cmd {
+	background-color: #d6d6d6;
+	height: 34px;
+	line-height: 34px;
+	background-image: url(../../images/dw/file_cmd_bg.png);
+	background-repeat: no-repeat;
+	background-position: 12px bottom;
+	border-bottom: 1px solid #333;
+
+}
+.forms_list {
+	overflow: auto;
+	height: 300px;
+}
+.forms_edit {
+	border-top: 1px solid #a0a0a0;
+}
+.form_propertys {
+	border: 1px solid #d6d6d6;
+	border-collapse: collapse;
+	width: 100%;
+	color: #0000c0;
+}
+.form_propertys td{
+	border: 1px solid #d6d6d6;
+	border-collapse: collapse;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 22px;
+}
+.form_propertys tr:hover{
+	background-color: #bdbdbd;
+	color: #000000;
+}
+.form_propertys tr td:first-child{
+	width: 70px;
+}
+.forms_edit .title{
+	border-top: 1px solid #fff;
+	background-color: #cdcdcd;
+	line-height: 26px;
+	padding-left: 10px;
+}

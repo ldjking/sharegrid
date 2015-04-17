@@ -1,0 +1,137 @@
+body {
+	background-color: #171a25;
+}
+.container {
+	height: 100%;
+	width: 100%;
+	vertical-align: middle;
+	text-align: center;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -260px;
+	margin-top: -140px;
+	background-color: transparent;
+	height: 280px;
+	width: 500px;
+}
+
+.loginDiv {
+	width: 500px;
+	border-radius: 8px;
+	background-color: #ededed;
+	border: 0px solid #ccc;
+	height: 280px;
+	text-align: center;
+}
+.title {
+	background-color: #c9c9c9;
+	height: 56px;
+	font-size: 24px;
+	line-height: 56px;
+	text-align: center;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border-bottom:1px solid #727272;
+	background-repeat: no-repeat;
+	background-position: 32px center;
+	background-size: 48px 48px;
+}
+.loginDiv td{
+	line-height: 42px;
+	font-size: 14px;
+}
+.td1 {
+	padding-left: 18px;
+	padding-right: 18px;
+	text-align: justify;
+	text-justify:distribute;
+	text-align-last:justify;
+	width: 60px;
+}
+.td2 {
+	padding-left: 12px;
+	padding-right: 12px;
+	text-align: left;
+	width: 220px;
+}
+.td21 {
+	padding-left: 12px;
+	padding-right: 2px;
+	text-align: left;
+	width: 60px;
+}
+.td22 {
+	padding-left: 2px;
+	padding-right: 12px;
+	text-align: center;
+	width: 50px;
+}
+.td23 {
+	padding-left: 0px;
+	padding-right: 12px;
+	text-align: left;
+	width: 60px;
+}
+.left {
+	text-align: left;
+
+}
+.center {
+	text-align: center;
+
+}
+.right {
+	text-align: right;
+
+}
+.msg {
+	display: none;
+}
+.txt {
+	border: 1px solid #9b9b9b;
+	margin: 0;
+	padding: 0;
+	background-color: #ffffff;
+	width: 220px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 14px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.txt1 {
+	border: 1px solid #9b9b9b;
+	margin: 0;
+	padding: 0;
+	background-color: #ffffff;
+	width: 60px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 14px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.submit {
+	width: 80px;
+	height: 25px;
+	background-color: #f3f3f3;
+	border: 1px solid #9a9a9a;
+	border-radius: 4px;
+	line-height: 25px;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+.submit:hover {
+	background-color: #7bb6f3;
+	background-image: url(../img/btn_active_bg_25.png);
+	background-repeat: repeat-x;
+}
+
+.loginForm {
+	margin-top: 24px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}

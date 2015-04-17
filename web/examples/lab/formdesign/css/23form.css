@@ -1,0 +1,118 @@
+.form {
+	width: 100%;
+	font-size: 12px;
+}
+.form .formContainer {
+	background-color: #bec2c6;
+	text-align: left;
+	overflow: auto;
+	overflow-y: scroll;
+}
+.form .paper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+	border: 1px solid #666;
+	padding-top: 32px;
+	padding-bottom: 64px;
+	background-color: #FFF;
+	margin-top: 32px;
+	margin-bottom: 32px;
+	text-align: center;
+}
+.form.big .paper{
+	width: 1122px;
+}
+.form .title {
+	line-height: 32px;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: #C5C5C5;
+	margin-bottom: 16px;
+}
+
+.form .form_title {
+	line-height: 48px;
+	font-size: 24px;
+	padding-bottom: 12px;
+	font-weight: bold;
+
+
+}
+.form .formTable {
+	border-left: 1px solid #999;
+	border-top: 1px solid #999;
+	margin-left: auto;
+	margin-right: auto;
+}
+.form .hidden {
+	display: none;
+
+}
+.form .lbl {
+	color: #333;
+}
+.form .blank {
+	background-color: #CCC;
+	color: #333;
+}
+.form .attr {
+
+}
+.form .attr td{
+	text-align: left;
+}
+.form .row {
+	border-bottom: 0px solid #999;
+}
+.form .activeTr {
+	background-color: #CCC;
+}
+.form .rows td{
+	border-bottom: 0px solid #999;
+}
+.form .rows .lbl{
+	background-color: #efefef;
+	color: #666;
+}
+.form .row td{
+	background-image: url(../../../../images/form/form_td_border_right_bg_999.png);
+	background-repeat: repeat-y;
+	background-position: right;
+	vertical-align: middle;
+	line-height: 24px;
+	border-bottom: 1px solid #999;
+
+}
+
+.form .childs td{
+	border-bottom: 1px solid #999;
+}
+.form .row td div{
+	line-height: 24px;
+	font-size: 12px;
+	-moz-user-focus: ignore !important;
+	outline:none;
+	word-break: break-all;
+	overflow: hidden;
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+.form .row td textarea{
+	line-height: 20px;
+	font-size: 12px;
+	-moz-user-focus: ignore !important;
+	outline:none;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	border: 0px none #FFF;
+	vertical-align: middle;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	margin-left: 10px;
+	margin-right: 10px;
+	background-color: transparent;
+	height: 20px;
+	resize: none;
+}

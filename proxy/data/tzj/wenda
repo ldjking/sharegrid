@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><title>全部分类 - 投之家-投资问答</title><meta name="description" content="投资问答 –理财投资问答社区，投之家投资问答最全面的网贷用户交流平台,提供最专业、及时的理财咨询p2p网贷平台沟通, 专业为投资者解答理财困惑。 " /><meta name="keywords" content="p2p理财问答，在线理财问答，投资问答平台" />
+<!--
+<link rel="stylesheet" type="text/css" href="http://www.touzhijia.com/wenda/css/default/main.css" />
+<script src="http://www.touzhijia.com/wenda/js/jquery.js" type="text/javascript"></script>
+-->
+        <link rel="stylesheet" type="text/css" href="http://www.touzhijia.com/wenda/js/jquery-ui/jquery-ui.css" />
+<link href="http://www.touzhijia.com/wenda/css/default/cn/css/css.css?20150209" type="text/css" rel="stylesheet" />
+<link href="http://www.touzhijia.com/wenda/css/default/cn/css/main.css?20150204" type="text/css" rel="stylesheet" />
+
+<script src="http://www.touzhijia.com/wenda/css/default/cn/js/lib/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <script src="http://www.touzhijia.com/wenda/css/default/cn/js/jquery.login.js" type="text/javascript"></script>
+        <script src="http://www.touzhijia.com/wenda/css/default/cn/js/jQueryRotate.js" type="text/javascript"></script>
+
+<script type="text/javascript">var g_site_url = "http://www.touzhijia.com/wenda/";
+var g_site_name = "投之家-投资问答";
+var g_prefix = "";
+var g_suffix = ".html";
+var g_uid = 0;
+</script>
+
+        <script type="text/javascript" src = "http://www.touzhijia.com/wenda/js/base64encode.js"></script>
+</head>
+<body>
+        <div class="top_main">
+            <div class="ovf" style="background:#003550;height:40px; line-height:40px; color:#fff;">
+                <div class="top tit">
+                    <div class="fl"><span style="float:left;">全国统一电话：400-883-1803 </span><span><h1 style="font-size:13px;float:left;font-weight:100;">P2P理财</h1>交流群：186760784</span></div>
+                    <div class="fr">
+                                                    <a class="reg" href="/user/register">免费注册</a>
+                            <a class= "" href="/user/signin">立即登录</a>
+                                            </div>
+                </div>
+            </div>
+            <div class="top prel">
+                <a class="logo" href="/"><img src="http://www.touzhijia.com/wenda/css/default/cn/images/logo.png" /></a>
+                <img src="http://www.touzhijia.com/wenda/css/default/cn/images/purl_txt.png" alt="" />
+                <ul class="menu">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/platform">选平台</a></li>
+                    <li><a href="/project">选标中心</a></li>
+<li><a href = "/debt/guide">二级市场</a></li>
+                    <li><a class="cur" href="/wenda/">投资问答</a></li>
+                    <li><a href="/about/consultant">关于我们</a></li>
+                </ul>
+            </div>
+        </div>
+
+<script type = "text/javascript">
+function _logout()
+{
+$.ajax({
+'url' : '/user/logout',
+'type' : 'get',
+'async' : false,
+'success' : function ()
+{
+window.location.reload();
+}
+});
+}
+</script>
+<div class="wrapper clearfix">
+    <div class="content-left">
+        <!-- 面包屑 -->
+        <div class="w_crumb"></div>
+        <!-- 面包屑结束 -->
+        <!-- 搜索框开始 -->
+        <div class="searchbox">
+            <form name="searchform"  action="http://www.touzhijia.com/wenda/question/search.html" method="post">
+                <span class="round"><input autocomplete="off" maxlength="100" placeholder="请输入您的问题" class="js-sh-ipt input_key" tabindex="1" name="word" id="search-kw" value="" /></span>
+                <span class="button"><input type="button" id="search_btn" class="js-search-bt s_btn" value="搜索答案" /></span>
+                <span class="button"><input type="button" id="ask_btn" class="js-ask-bt s_btn" value="我要提问" /></span>
+            </form>
+        </div>
+        <!-- 搜索框结束 -->
+
+        <div class="modbox classifymod">
+            <div class="title mt10">
+                                全部分类
+                            </div>
+            <ul class="classifymod-list clearfix">
+                
+                                <!--<li><a href="http://www.touzhijia.com/wenda/c-12.html">投之家使用</a><em>(202)</em></li>-->
+                <li><a href="http://www.touzhijia.com/wenda/c-12.html">投之家使用答疑</a></li>
+                                
+                                <!--<li><a href="http://www.touzhijia.com/wenda/c-16.html">投之家项目</a><em>(6)</em></li>-->
+                <li><a href="http://www.touzhijia.com/wenda/c-16.html">投之家项目进度</a></li>
+                                
+                                <!--<li><a href="http://www.touzhijia.com/wenda/c-13.html">平台业务咨</a><em>(181)</em></li>-->
+                <li><a href="http://www.touzhijia.com/wenda/c-13.html">平台业务咨询</a></li>
+                                
+                                <!--<li><a href="http://www.touzhijia.com/wenda/c-14.html">理财投资交</a><em>(543)</em></li>-->
+                <li><a href="http://www.touzhijia.com/wenda/c-14.html">理财投资交流</a></li>
+                                
+                                <!--<li><a href="http://www.touzhijia.com/wenda/c-15.html">p2p其他问</a><em>(196)</em></li>-->
+                <li><a href="http://www.touzhijia.com/wenda/c-15.html">p2p其他问题</a></li>
+                                
+            </ul>
+        </div>
+        <!--广告位1-->
+                <div id="mod-answer-list" class="mod-answer-list mt10">
+            <div class="hd">
+                <ul class="tab-card">
+                    <li class="on"><span>全部问题</span></li>                    <li class="current_none"><a class="recommand" href="http://www.touzhijia.com/wenda/c-all/6.html">推荐问题</a></li>                    <li class="current_none"><a href="http://www.touzhijia.com/wenda/c-all/1.html"><font color="#ff6600">？</font>待解决</a></li>                    <li class="current_none"><a href="http://www.touzhijia.com/wenda/c-all/2.html"><font color="#1bbf00">√ </font>已解决</a></li>                </ul>
+            </div>
+            <div class="bd">
+                <div class="cls-qa-table">
+                    <table>
+                        <tbody>
+                            <tr class=""><th class="s0">标题</th><th class="s1">回答/浏览</th><th class="s2">时间</th></tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3934.html" target="_blank" title="楚金所的微信公众号能干什么？有什么功能？">楚金所的微信公众号能干什么？有什么功能？...</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-14.html" title="理财投资交流" class="lei">理财投资交流</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>0/1</td>
+                                <td>9分钟前</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3933.html" target="_blank" title="请问二级市场能在手机上投标吗？">请问二级市场能在手机上投标吗？</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-12.html" title="投之家使用答疑" class="lei">投之家使用答疑</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>0/16</td>
+                                <td>16小时前</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3932.html" target="_blank" title="一个好的p2p平台关键是做好什么？">一个好的p2p平台关键是做好什么？</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-14.html" title="理财投资交流" class="lei">理财投资交流</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>4/37</td>
+                                <td>22小时前</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3931.html" target="_blank" title="投之家上面的平台都安全吗？">投之家上面的平台都安全吗？</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-14.html" title="理财投资交流" class="lei">理财投资交流</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>4/77</td>
+                                <td>23小时前</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3930.html" target="_blank" title="你们选平台的时候最看重那个指标？">你们选平台的时候最看重那个指标？</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-12.html" title="投之家使用答疑" class="lei">投之家使用答疑</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>3/42</td>
+                                <td>23小时前</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3929.html" target="_blank" title="楚金所没有新标了，是否意味着楚金所的人气现在在大涨？">楚金所没有新标了，是否意味着楚金所的人气现在在大涨...</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-14.html" title="理财投资交流" class="lei">理财投资交流</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>5/29</td>
+                                <td>2015/04/15 09:27</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3928.html" target="_blank" title="银行托管就能保证投资人的资金安全了吗？">银行托管就能保证投资人的资金安全了吗？...</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-14.html" title="理财投资交流" class="lei">理财投资交流</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>2/68</td>
+                                <td>2015/04/14 14:39</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3927.html" target="_blank" title="资金托管与资金存管有什么区别？">资金托管与资金存管有什么区别？</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-14.html" title="理财投资交流" class="lei">理财投资交流</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>2/37</td>
+                                <td>2015/04/14 14:04</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3926.html" target="_blank" title="湖北的哪些平台比较好？楚金所怎么样？">湖北的哪些平台比较好？楚金所怎么样？...</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-14.html" title="理财投资交流" class="lei">理财投资交流</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>1/29</td>
+                                <td>2015/04/14 13:43</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3925.html" target="_blank" title="我是新人">我是新人</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-12.html" title="投之家使用答疑" class="lei">投之家使用答疑</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>0/23</td>
+                                <td>2015/04/14 11:35</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3924.html" target="_blank" title="如何避免踩雷">如何避免踩雷</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-12.html" title="投之家使用答疑" class="lei">投之家使用答疑</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>1/36</td>
+                                <td>2015/04/14 11:33</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3923.html" target="_blank" title="如何避免踩雷">如何避免踩雷</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-12.html" title="投之家使用答疑" class="lei">投之家使用答疑</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>1/14</td>
+                                <td>2015/04/14 11:32</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3922.html" target="_blank" title="楚金所平台为什么进不去了">楚金所平台为什么进不去了</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-13.html" title="平台业务咨询" class="lei">平台业务咨询</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>1/35</td>
+                                <td>2015/04/13 20:03</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3921.html" target="_blank" title="未来p2p会成为互联网金融的主流吗？">未来p2p会成为互联网金融的主流吗？</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-14.html" title="理财投资交流" class="lei">理财投资交流</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>2/49</td>
+                                <td>2015/04/13 14:01</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3920.html" target="_blank" title="保险也开始进入p2p了，保险系的平台会怎么样？">保险也开始进入p2p了，保险系的平台会怎么样？...</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-14.html" title="理财投资交流" class="lei">理财投资交流</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>2/39</td>
+                                <td>2015/04/13 11:31</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3919.html" target="_blank" title="你们觉得平台的保障是抵押模式的好点还是第三方担保的好点？楚金所是那种模式？">你们觉得平台的保障是抵押模式的好点还是第三方担保的...</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-14.html" title="理财投资交流" class="lei">理财投资交流</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>2/37</td>
+                                <td>2015/04/13 09:41</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3918.html" target="_blank" title="二级市场的收益都在13%左右，是否意味着你们所谓的优质债权就是收益在此以上的，而低于的就不是优质的？">二级市场的收益都在13%左右，是否意味着你们所谓的优...</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-13.html" title="平台业务咨询" class="lei">平台业务咨询</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>0/117</td>
+                                <td>2015/04/12 09:03</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3917.html" target="_blank" title="o2o模式是什么意思？有什么好处？">o2o模式是什么意思？有什么好处？</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-14.html" title="理财投资交流" class="lei">理财投资交流</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>2/67</td>
+                                <td>2015/04/10 14:50</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3916.html" target="_blank" title="有什么平台资金站岗比较短的？">有什么平台资金站岗比较短的？</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-14.html" title="理财投资交流" class="lei">理财投资交流</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>1/65</td>
+                                <td>2015/04/10 13:38</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="title">
+                                    <div class="tit-full">
+                                        <div class="wrap">
+                                            <span class="gold">
+                                                                                            </span>
+                                            <a href="http://www.touzhijia.com/wenda/q-3915.html" target="_blank" title="在投资P2P理财产品时，大家喜欢周期短收益低的？还是更青睐周期长收益高的？">在投资P2P理财产品时，大家喜欢周期短收益低的？还是...</a>&nbsp;<span class="cate">[<a target="_blank" href="http://www.touzhijia.com/wenda/c-14.html" title="理财投资交流" class="lei">理财投资交流</a>]</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>1/75</td>
+                                <td>2015/04/10 11:26</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pages"><strong>1</strong>
+<a href="http://www.touzhijia.com/wenda/c-all/all/2.html">2</a>
+<a href="http://www.touzhijia.com/wenda/c-all/all/3.html">3</a>
+<a href="http://www.touzhijia.com/wenda/c-all/all/4.html">4</a>
+<a href="http://www.touzhijia.com/wenda/c-all/all/5.html">5</a>
+<a href="http://www.touzhijia.com/wenda/c-all/all/6.html">6</a>
+<a href="http://www.touzhijia.com/wenda/c-all/all/7.html">7</a>
+<a href="http://www.touzhijia.com/wenda/c-all/all/8.html">8</a>
+<a class="n" href="http://www.touzhijia.com/wenda/c-all/all/2.html">下一页</a>
+<a class="n" href="http://www.touzhijia.com/wenda/c-all/all/148.html" >最后一页</a>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="aside-right">
+        <!-- 热门标签开始 -->
+        <div class="modbox">
+            <h3 class="title">热门标签</h3>
+            <div class="hot-tags">
+                                
+                                <a target="_blank" title="费用" href="http://www.touzhijia.com/wenda/question/search/tag:%E8%B4%B9%E7%94%A8.html">费用</a>
+                
+                                <a target="_blank" title="投之家债券组合" href="http://www.touzhijia.com/wenda/question/search/tag:%E6%8A%95%E4%B9%8B%E5%AE%B6%E5%80%BA%E5%88%B8%E7%BB%84%E5%90%88.html">投之家债券组合</a>
+                
+                                <a target="_blank" title="理财" href="http://www.touzhijia.com/wenda/question/search/tag:%E7%90%86%E8%B4%A2.html">理财</a>
+                
+                                <a target="_blank" title="p2p平台" href="http://www.touzhijia.com/wenda/question/search/tag:p2p%E5%B9%B3%E5%8F%B0.html">p2p平台</a>
+                
+                                <a target="_blank" title="投之家绑定平台" href="http://www.touzhijia.com/wenda/question/search/tag:%E6%8A%95%E4%B9%8B%E5%AE%B6%E7%BB%91%E5%AE%9A%E5%B9%B3%E5%8F%B0.html">投之家绑定平台</a>
+                
+                                <a target="_blank" title="新人" href="http://www.touzhijia.com/wenda/question/search/tag:%E6%96%B0%E4%BA%BA.html">新人</a>
+                
+                                <a target="_blank" title="陆金所" href="http://www.touzhijia.com/wenda/question/search/tag:%E9%99%86%E9%87%91%E6%89%80.html">陆金所</a>
+                
+                                <a target="_blank" title="二级市场债券组合" href="http://www.touzhijia.com/wenda/question/search/tag:%E4%BA%8C%E7%BA%A7%E5%B8%82%E5%9C%BA%E5%80%BA%E5%88%B8%E7%BB%84%E5%90%88.html">二级市场债券组合</a>
+                
+                                <a target="_blank" title="倒闭" href="http://www.touzhijia.com/wenda/question/search/tag:%E5%80%92%E9%97%AD.html">倒闭</a>
+                
+                                <a target="_blank" title="平台排名" href="http://www.touzhijia.com/wenda/question/search/tag:%E5%B9%B3%E5%8F%B0%E6%8E%92%E5%90%8D.html">平台排名</a>
+                
+                                <a target="_blank" title="投之家平台区别" href="http://www.touzhijia.com/wenda/question/search/tag:%E6%8A%95%E4%B9%8B%E5%AE%B6%E5%B9%B3%E5%8F%B0%E5%8C%BA%E5%88%AB.html">投之家平台区别</a>
+                
+                                <a target="_blank" title="平台数量" href="http://www.touzhijia.com/wenda/question/search/tag:%E5%B9%B3%E5%8F%B0%E6%95%B0%E9%87%8F.html">平台数量</a>
+                
+                                <a target="_blank" title="人人贷" href="http://www.touzhijia.com/wenda/question/search/tag:%E4%BA%BA%E4%BA%BA%E8%B4%B7.html">人人贷</a>
+                
+                                <a target="_blank" title="投之家认证期" href="http://www.touzhijia.com/wenda/question/search/tag:%E6%8A%95%E4%B9%8B%E5%AE%B6%E8%AE%A4%E8%AF%81%E6%9C%9F.html">投之家认证期</a>
+                
+                                <a target="_blank" title="信用卡" href="http://www.touzhijia.com/wenda/question/search/tag:%E4%BF%A1%E7%94%A8%E5%8D%A1.html">信用卡</a>
+                
+                                <a target="_blank" title="标的类型" href="http://www.touzhijia.com/wenda/question/search/tag:%E6%A0%87%E7%9A%84%E7%B1%BB%E5%9E%8B.html">标的类型</a>
+                
+                                <a target="_blank" title="投之家二级市场" href="http://www.touzhijia.com/wenda/question/search/tag:%E6%8A%95%E4%B9%8B%E5%AE%B6%E4%BA%8C%E7%BA%A7%E5%B8%82%E5%9C%BA.html">投之家二级市场</a>
+                
+                                <a target="_blank" title="风险" href="http://www.touzhijia.com/wenda/question/search/tag:%E9%A3%8E%E9%99%A9.html">风险</a>
+                
+                                <a target="_blank" title="网络借贷" href="http://www.touzhijia.com/wenda/question/search/tag:%E7%BD%91%E7%BB%9C%E5%80%9F%E8%B4%B7.html">网络借贷</a>
+                
+                                <a target="_blank" title="投资理财" href="http://www.touzhijia.com/wenda/question/search/tag:%E6%8A%95%E8%B5%84%E7%90%86%E8%B4%A2.html">投资理财</a>
+                
+            </div>
+        </div>
+        <!-- 热门标签结束 -->
+
+                <!-- 关注问题排行榜 -->
+        <div class="modbox mt10">
+            <div class="title">一周热点问题</div>
+            <ul class="right-list">
+                                
+                                <li>
+                                        <em class="n1">1</em>
+                                        <a  title="楚金所没有新标了，是否意味着楚金所的人气现在在大涨？" target="_blank" href="http://www.touzhijia.com/wenda/q-3929.html">楚金所没有新标了，是否意味着楚金所的人气</a>
+                </li>
+                
+                                <li>
+                                        <em class="n1">2</em>
+                                        <a  title="投之家上面的平台都安全吗？" target="_blank" href="http://www.touzhijia.com/wenda/q-3931.html">投之家上面的平台都安全吗？</a>
+                </li>
+                
+                                <li>
+                                        <em class="n1">3</em>
+                                        <a  title="一个好的p2p平台关键是做好什么？" target="_blank" href="http://www.touzhijia.com/wenda/q-3932.html">一个好的p2p平台关键是做好什么？</a>
+                </li>
+                
+                                <li>
+                                        <em class="n2">4</em>
+                                        <a  title="你们选平台的时候最看重那个指标？" target="_blank" href="http://www.touzhijia.com/wenda/q-3930.html">你们选平台的时候最看重那个指标？</a>
+                </li>
+                
+                                <li>
+                                        <em class="n2">5</em>
+                                        <a  title="银行托管就能保证投资人的资金安全了吗？" target="_blank" href="http://www.touzhijia.com/wenda/q-3928.html">银行托管就能保证投资人的资金安全了吗？</a>
+                </li>
+                
+                                <li>
+                                        <em class="n2">6</em>
+                                        <a  title="o2o模式是什么意思？有什么好处？" target="_blank" href="http://www.touzhijia.com/wenda/q-3917.html">o2o模式是什么意思？有什么好处？</a>
+                </li>
+                
+                                <li>
+                                        <em class="n2">7</em>
+                                        <a  title="最近很多平台频频遭受黑客攻击？我在楚金所投资的，楚金所的系统安全吗？" target="_blank" href="http://www.touzhijia.com/wenda/q-3914.html">最近很多平台频频遭受黑客攻击？我在楚金所</a>
+                </li>
+                
+                                <li>
+                                        <em class="n2">8</em>
+                                        <a  title="未来p2p会成为互联网金融的主流吗？" target="_blank" href="http://www.touzhijia.com/wenda/q-3921.html">未来p2p会成为互联网金融的主流吗？</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="footer_main">
+    <div class="footer">
+        <div class="navbox">
+            <ul>
+                <li><a href="http://www.touzhijia.com/about/company" title="关于我们">关于我们</a></li>
+                <li><a href="http://www.touzhijia.com/about/consultant" title="专家顾问">专家顾问</a></li>
+                <li><a href="http://www.touzhijia.com/about/consultant" title="媒体报道">媒体报道</a></li>
+                <li><a href="http://www.touzhijia.com/about/contactway" title="联系我们">联系我们</a></li>
+            </ul>
+            <i class="i"></i>
+            <ul>
+                <li><a href="http://www.touzhijia.com/about/grade" title="安全评级">安全评级</a></li>
+                <li><a href="http://www.touzhijia.com/topic/t1110" title="三重保障">三重保障</a></li>
+                <li><a href="http://www.touzhijia.com/about/required" title="风控管理">使用必读</a></li>
+                <li><a href="http://www.touzhijia.com/about/plan" title="T盾保障">T盾保障</a></li>
+            </ul>
+            <i class="i"></i>
+            <ul>
+                <li><a href="http://www.touzhijia.com/help" title="帮助中心">帮助中心</a></li>
+                <li><a href="http://www.touzhijia.com/news/catlist/5-1" title="常见问题">最新动态</a></li>
+                <li><a href="http://www.touzhijia.com/about/sitemap" title="网站地图">网站地图</a></li>
+                <li><a href="http://www.touzhijia.com/about/friendlink" title="友情链接">友情链接</a></li>
+            </ul>
+            <i class="i"></i>
+            <ul>
+                <li><a href="http://www.touzhijia.com/wenda" title="使用必读">投资问答</a></li>
+                <li><a href="http://www.touzhijia.com/news/catlist/1-1" title="投资攻略">投资攻略</a></li>
+                <li><a href="http://www.touzhijia.com/news/catlist/2-1" title="行业新闻">行业新闻</a></li>
+                <li><a href="http://yun.touzhijia.com" title="云金融">云金融</a></li>
+            </ul>
+            <i class="i"></i>
+            <div class="dbox1">
+                <div>
+                    <i></i>
+                    <p>投之家服务热线</p>
+                    <b>400 883 1803</b>
+                </div>
+                <p>(周一至周五 9:00-17:30)</p>
+            </div>
+            <i class="i"></i>
+            <div class="dbox2">
+                                <a class="awb" target="_blank" href="http://weibo.com/touzhijia"></a>
+                                <a class="awx" href="javascript:;"><i><img src="/static/images/wx.png" alt="" /></i></a>
+            </div>
+        </div>
+                <div class="navbox1">
+                        <ul class="fl">
+                        <li>版权所有：上海盈灿商务咨询有限公司 Copyright © 2014 www.touzhijia.com . All Rights Reserved.</li>
+                        <li>沪ICP备12033003号-2</li>
+                    </ul>
+                        <div class="fr">
+                                <a href="http://www.anquan.org/authenticate/cert/?site=www.touzhijia.com&amp;at=realname" target="_blank" rel="nofollow">
+                                    <img src="/static/images/common/gwyz-1.png" class="img0">
+                                    <img src="/static/images/common/gwyz.png" class="img1">
+                                </a>&#12288;&#12288;&#12288;
+                                <a href="http://pinggu.zx110.org/checkWebsite.do" target="_blank" rel="nofollow">
+                                    <img src="/static/images/common/zxw-1.jpg" class="img0">
+                                    <img src="/static/images/common/zxw.jpg" class="img1">
+                                </a>&#12288;&#12288;&#12288;
+                                <a href="http://webscan.360.cn/index/checkwebsite?url=www.touzhijia.com" target="_blank" rel="nofollow">
+                                    <img src="/static/images/common/360-1.png" class="img0">
+                                    <img src="/static/images/common/360.png" class="img1">
+                                </a>
+                        </div>
+                </div>
+    </div>
+</div>
+<a id="scrollUp" href="#top" title="" style="position: fixed; z-index: 2147483647; display: block;"></a>
+<div class="usercard" id="usercard"><div class="usercard_in clearfix"><div class="loading"><img src='http://www.touzhijia.com/wenda/css/default/loading.gif' align='absmiddle' />&nbsp;加载中...</div></div></div>
+<script src="http://www.touzhijia.com/wenda/js/jquery-ui/jquery-ui.js" type="text/javascript"></script>
+<script src="http://www.touzhijia.com/wenda/js/jquery.scrollup.js" type="text/javascript"></script>
+<script src="http://www.touzhijia.com/wenda/js/common.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+                $.scrollUp({
+                scrollName: 'scrollUp', // Element ID
+                topDistance: '260', // Distance from top before showing element (px)
+                topSpeed: 300, // Speed back to top (ms)
+                animation: 'fade', // Fade, slide, none
+                animationInSpeed: 200, // Animation in speed (ms)
+                animationOutSpeed: 200, // Animation out speed (ms)
+                scrollText: '', // Text for element
+                activeOverlay: false  // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+            });
+</script>
+</body>
+</html>

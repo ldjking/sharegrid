@@ -1,0 +1,56 @@
+@charset "utf-8";
+/*
+ *name:dtt
+ *time:2014.9.30
+ *content:回到顶部、计算浮动区
+*/
+/**@import url('../../../plugIn/lhgdialog/default.css');**/
+
+/*右则回到顶部*/
+.rightTips{bottom:10px;left:50%;margin:0 0 0 500px;position:fixed;z-index:100; width:53px; height:auto;_position:absolute; _top:expression(eval((document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight)-50));}
+.rightTips a{cursor:pointer;height:53px;margin:13px 0 0;overflow:hidden;width:53px; display:inline-block; background:url(../img/tips.png) no-repeat;}
+.rightTips a.go_top{background-position:0 -122px;}
+.rightTips a.go_top:hover{background-position:-60px -122px;}
+.rightTips a.calculator{background-position:0 0;}
+.rightTips a.calculator:hover{background-position:-60px 0;}
+.rightTips a.feedback{background-position:0 -61px;}
+.rightTips a.feedback:hover{background-position:-60px -61px;}
+.rightTipAuto{ left:auto; right:10px;}
+
+/*弹出计算*/
+.lay-cal{ margin:8px; width:414px; height:460px; color:#000;}
+.lay-cal .top{ height:30px; line-height:30px;}
+.lay-cal .top .tel,.lay-cal .top .close{font-size:16px; font-weight:700; }
+.lay-cal .top .tel{ float:left;padding-left:10px;line-height:30px;}
+.lay-cal .top a.close{float:right;filter:alpha(opacity=20);opacity:0.2; color:#000; line-height:20px;}
+.lay-cal .top a.close:hover{filter:alpha(opacity=40);opacity:0.4; text-decoration:none;}
+.lay-cal .tip{color:red;font-size:13px;line-height:20px;height:20px; padding-top:3px;text-align:center;}
+.lay-cal ul.cal{ height:auto; padding:0 20px 10px; font-size:14px;}
+.lay-cal ul.cal li{padding-top:15px;height:30px;}
+.lay-cal span{display:inline-block;}
+.lay-cal span.l{width:90px;text-align:right;float:left; line-height:30px;}
+.lay-cal ul.cal li span.r{display:inline-block; height:28px; overflow:hidden;border:1px solid #c5c5c5;}
+.lay-cal span.r input.txt{width:160px;height:28px;padding:0 5px;border:none; float:left; line-height:28px;}
+.lay-cal span.r i{height:28px; width:20px; line-height:20px;padding:0 5px; font-style:normal; line-height:28px; float:left; background:#eee; border-left:1px solid #c5c5c5;display:inline-block; text-align:center;}
+.lay-cal select,.lay-cal input,.lay-cal .tocal,.lay-cal .tores,.lay-cal .tal,.lay-cal span,.lay-cal h5{font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";}
+.lay-cal select{height:30px;line-height:30px;width:203px;font-size:14px;border:1px solid #c5c5c5;}
+.lay-cal .tocal,.lay-cal .tores{ height:25px;line-height:25px;padding:0 20px; color:#fff;display:inline-block; border:none; font-size:14px;}
+.lay-cal a.tocal{background:#ab6f00; margin-right:15px;}
+.lay-cal a.tocal:hover{ background:#c49814; text-decoration:none;}
+.lay-cal a.tores{background:#c3c3c3;}
+.lay-cal a.tores:hover{background:#cbcbcb;text-decoration:none;}
+.lay-cal h5{height:28px;line-height:28px;border-top:1px solid #999;font-size:14px;color:#000;font-weight:normal; padding-left:28px;}
+.lay-cal .tal{ height:30px; line-height:30px; font-size:14px; padding-left:28px; display:none;}
+.lay-cal div.cur{ display:block;}
+
+/*弹出样式重构*/
+.ui_border .ui_content.ui_state_full{ padding:0 !important;}
+
+
+
+
+
+
+
+
+

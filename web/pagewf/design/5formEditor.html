@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单编辑器</title>
+<!--表单的编辑   选中  布局表格  子表  元素  标签元素  日历元素  输入框元素  值列表元素-->
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="css/wf.css"/>
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">所有表单</div>
+    <div class="tab normal" id="tab_edit">表单编辑</div>
+  </div>
+  <div class="appContent">
+    <div class="content active grid " id="c1"></div>
+    <div class="content normal form"  id="c2"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script> 
+<script type="text/javascript" src="../../release/ui.js"></script> 
+<script type="text/javascript" src="../../release/grid.js"></script> 
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+	var b=10;
+	function init(){
+		uiApp({dom:$("#app1")});
+		var a=10;
+		//alert(eval("a+b"));
+		var grid=$("#c1");
+		var editForm=$("#c2");
+		var cmds=[
+					{cmd:"cmdAdd"	},
+					{cmd:"cmdEdit"	},
+					{cmd:"cmdDelete"},
+					{cmd:"cmdFilter"},
+					{cmd:"cmdRefresh"}
+				];
+	//c0_id	c0_name	c0_sex	c0_birthday	c0_account	c0_pw	c0_state	c0_displayname	c0_code	c0_dep	sexname
+		var cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,pageFlag:true,pageSize:6,pkAttr:"c0_id"};
+		cfg.datas=[{id:"accountAdd",name:"账户录入",type:"add",title:"账户录入表单",des:"用户人员新增"}];
+		var columns=[{text:"表单主键",attr:"id",align:"center",width:80,frozen:1,type:"num",notEdit:0,asc:1},
+		{text:"中文名称",attr:"cname",align:"center",width:120,frozen:1,type:"num",notEdit:0,asc:1},
+		{text:"表单类别",attr:"type",align:"center",frozen:0,width:80,type:"str",asc:1},
+		{text:"标题",attr:"title",align:"center",width:260,frozen:1,notEdit:1,type:"str",asc:1},
+		{text:"功能描述",attr:"des",align:"center",width:360,frozen:1,notEdit:1,type:"str",asc:1},
+		];
+		genGrid(cfg,columns,cmds,cfg.data);
+		
+		var tables=[	{type:0,cells:[
+									{type:"text",attr:"c0_id"}
+								]
+							},
+							{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"用户名",width:80,align:"center",row:1},
+									{type:"txt",attr:"c0_name",width:120,align:"left",row:1},
+									{type:"lbl",text:"性别",width:80,align:"center",row:1},
+									{type:"txt",attr:"sexname",attr2:"c0_sex",width:120,align:"left",row:1},/*txt代表单行元素*/
+									{type:"lbl",text:"生日",width:80,align:"center",row:1},
+									{type:"txt",attr:"c0_birthday",width:120,align:"left",row:1,lov:"date"}
+								]
+							},
+							{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"别名",width:80,align:"center",row:1},
+									{type:"txt",attr:"c0_displayname",width:120,align:"left",row:1},/*txt代表单行元素*/
+									{type:"lbl",text:"账号",width:80,align:"center",row:1},
+									{type:"txt",attr:"c0_account",width:120,align:"left",row:1},
+									{type:"lbl",text:"密码",width:80,align:"center",row:1},
+									{type:"txt",attr:"c0_pw",width:120,align:"left",row:1}
+									
+								]
+							}
+							
+							
+						];
+			var cmdsAdd=[
+						{cmd:"update"},/*表示该操作按钮式定te=1的对象上*/								
+						{cmd:"pre"},
+						{cmd:"next"}
+					];
+			var cfgAdd={dom:editForm,title:"人员信息",formType:"add",addMethod:"personAdd",updateMethod:"personUpdate"};
+			genForm(cfgAdd,tables,cmdsAdd);
+		//wf.init();
+		//alert(1);
+	}
+	window.onload=init;
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!--jsp--<%@ page language="java" pageEncoding="UTF-8"%>-->
+<!--jsp--<%@include file="/include/taglib.jsp"%>-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>验证身份</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="css/wx_login_my.css">
+</head>
+<body>
+<div class='wx_top'>
+  <a class="wx_top_logo" href="index.do">
+  </a>
+  <span class="wx_top_gap"></span>
+  <span class='wx_top_title'>找回密码</span>
+</div>
+<h1 class="wx_title">验证身份</h1>
+<form class="wx_login_box"  autocomplete="off">
+  <div class="wx_row">
+    <span class="wx_row_c1">用&nbsp;户&nbsp;&nbsp;名：</span>
+    <span class="wx_row_c2">${usrmap.username}</span>
+  </div>
+  <div class="wx_row">
+    <span class="wx_row_c1">手机号码：</span>
+    <span class="wx_row_c2">${usrmap.cellPhone}</span>
+    <span class="wx_row_c3" id="phonecodesend">获取验证码<i id="phonesecond">(300)</i></span>
+  </div>
+  <div id="dlphoneseconderr" class="wx_tips hide">
+    <div class="fl" id="phoneseconderr">验证码已发送，请查收手机短信!</div>
+  </div>
+  <div class="input_box only1">
+    <input type="tel" id="phonecode" placeholder="请输入验证码" style="line-height:normal;" class="phoneCode"/>
+  </div>
+  <div id="s_usrnm" class="wx_tips"></div>
+  <a href="javascript:void(0)" id="btnsubmit" tabindex="4" class="wx_btn_orange wx_nextStep"> 下一步 </a>
+</form>
+<script type="text/javascript" src="js/lib/zepto.min.js"></script>
+<script type="text/javascript" src="js/wx_retrieveSend.js"></script>
+</body>
+</html>

@@ -1,0 +1,743 @@
+@charset "utf-8";
+.group {
+	height: 80px;
+	position: relative;
+	float: left;
+	background-image: url(../../img/word/divide_line_1.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+	font-size:12px;
+}
+.group .dialog{
+	position:absolute;
+	z-index:999;
+	border:1px solid #A7ABB0;
+	background-color:white;
+}
+.group .title {
+	font-weight:bold;
+	background-color:#F0F2F5;
+	margin:1px;
+}
+.group .color{
+	border:1px solid #E2E4E7;
+}
+.tips{
+	position:absolute; 
+	border:1px solid #B7B7B9 ;
+	background-image:url(../../img/word/start/tipsBackgroundColor.jpg);
+	background-repeat:repeat; 
+	width:180px; 
+	top:85px; 
+	z-index:900;
+}
+.group1 {
+	width: 160px;
+}
+.group2 {
+	width: 250px;
+}
+.group3 {
+	width: 150px;
+}
+/**************start********************/
+.cmd {
+	background-repeat: no-repeat;
+	background-position: left;
+	font-size: 12px;
+	height: 26px;
+	line-height: 26px;
+	float: left;
+	position: absolute;
+}
+.cmd:hover {
+	background-position: center;
+}
+.cmd:active {
+	background-position: right;
+}
+.cmd4 {
+	background-repeat: no-repeat;
+	background-position: left;
+	font-size: 12px;
+	height: 26px;
+	line-height: 26px;
+	float: left;
+	position: absolute;
+}
+.cmd4:hover {
+	background-position: 66.67%;
+}
+.cmd4:active {
+	background-position: right;
+}
+.cmd.paste {
+	background-image: url(../../img/word/start/paste.png);
+	background-repeat: no-repeat;
+	width: 42px;
+	height: 53px;
+	left: 4px;
+	top: 2px;
+}
+.cmd.cut {
+	background-image: url(../../img/word/start/cut.png);
+	width: 50px;
+	height: 22px;
+	left: 50px;
+	top: 4px;
+}
+.cmd.copy {
+	width: 50px;
+	height: 22px;
+	left: 104px;
+	top: 4px;
+	background-image: url(../../img/word/start/copy.png);
+}
+.cmd.brush {
+	background-image: url(../../img/word/start/brush.png);
+	width: 62px;
+	height: 22px;
+	top: 32px;
+	left: 50px;
+}
+.cmd.shearplate{
+	top:54px;
+	left:1px;
+	color:#666D7C;	
+	width:158px;
+	background-image:url(../../img/word/start/style_backgroundcolor.jpg);
+	background-repeat:repeat;
+	text-align:center;
+}
+/**************字体********************/
+
+.cmd.fontfamily {
+	background-image: url(../../img/word/start/fontfamily2.png);
+	top: 4px;
+	left: 10px;
+	width: 80px;
+	padding-left: 11px;
+	height: 26px;
+	line-height: 26px;
+}
+.cmd.fontsize {
+	background-image: url(../../img/word/start/fontsize2.png);
+	top: 4px;
+	left: 100px;
+	width: 40px;
+	padding-left: 10px;
+	height: 26px;
+	line-height: 26px;
+}
+.cmd.bigger {
+	background-image: url(../../img/word/start/size_bigger.png);
+	top: 4px;
+	left: 151px;
+	width: 23px;
+	height: 22px;
+	line-height: 22px;
+}
+.cmd.smaller {
+	background-image: url(../../img/word/start/size_smaller.png);
+	top: 4px;
+	left: 175px;
+	width: 22px;
+	height: 22px;
+	line-height: 22px;
+}
+.cmd.clearformat {
+	background-image:url(../../img/word/start/clearformat.png);
+	top: 4px;
+	left: 198px;
+	width:23px;
+	height:23px;
+}
+.showchinese {
+	background-image:url(../../img/word/start/showchinese.png);
+	top: 4px;
+	left: 223px;
+	width:24px;
+	height:23px;
+}
+/**************字体第二行********************/
+.cmd.bold {
+	background-image:url(../../img/word/start/bold.png);
+	background-repeat:no-repeat;
+	width:23px;
+	height:23px;
+	top: 30px;
+	left: 10px;
+}
+
+.cmd.italic {
+	background-image:url(../../img/word/start/italic.png);
+	background-repeat:no-repeat;
+	width:24px;
+	height:23px;
+	top: 30px;
+	left: 33px;
+}
+.cmd4.underline {
+	background-image:url(../../img/word/start/underline.png);
+	background-repeat:no-repeat;
+	width:23px;
+	height:23px;
+	top: 30px;
+	left: 57px;
+}
+.cmd4.underlineselect {
+	background-image:url(../../img/word/start/underline-select.png);
+	background-repeat:no-repeat;
+	width:13px;
+	height:23px;
+	top: 30px;
+	left: 80px;
+}
+.cmd.deleteline {
+	background-image:url(../../img/word/start/deleteline.png);
+	background-repeat:no-repeat;
+	width:24px;
+	height:23px;
+	left: 93px;
+	top: 30px;
+}
+.cmd4.fontcolorprominent {
+	background-image:url(../../img/word/start/fontcolorprominent.png);
+	background-repeat:no-repeat;
+	width:23px;
+	height:23px;
+	left:118px;
+	top:30px;
+}
+.cmd4.fontcolorprominentselect {
+	float:left;
+	background-image:url(../../img/word/start/fontcolorprominentselect.png);
+	background-repeat:no-repeat;
+	width:13px;
+	height:23px;
+	top: 30px;
+	left: 141px;
+}
+.cmd4.fontcolor{
+	background-image:url(../../img/word/start/fontcolor.png);
+	background-repeat:no-repeat;
+	width:23px;
+	height:23px;
+	top:30px;
+	left:154px;
+}
+.cmd4.fontcolorselecet {
+	float:left;
+	background-image:url(../../img/word/start/fontcolorselecet.png);
+	background-repeat:no-repeat;
+	width:13px;
+	height:23px;
+	top: 30px;
+	left: 177px;
+}
+.cmd.charbackShade {
+	background-image:url(../../img/word/start/charbackShade.png);
+	background-repeat:no-repeat;
+	width:24px;
+	height:23px;
+	top:30px;
+	left:190px;
+	
+}
+.cmd.font{
+	top:53px;
+	left:1px;
+	color:#666D7C;	
+	width:248px;
+	background-image:url(../../img/word/start/style_backgroundcolor.jpg);
+	background-repeat:repeat;
+	text-align:center;
+}
+.cmd.fontstyle{
+	background-image:url(../../img/word/start/style.jpg);
+	top:6px;
+	left:230px;
+	height:15px;
+	width:15px;
+}
+
+/**************段落********************/
+.cmd.alignleft {
+	background-image:url(../../img/word/start/align-left.png);
+	background-repeat:no-repeat;
+	width:23px;
+	height:23px;
+	left: 10px;
+	top: 30px;
+}
+.cmd.aligncenter {
+	background-image:url(../../img/word/start/align-center.png);
+	background-repeat:no-repeat;
+	width:24px;
+	height:23px;
+	top: 30px;
+	left: 34px;
+}
+.cmd.alignright{
+	background-image:url(../../img/word/start/align-right.png);
+	background-repeat:no-repeat;
+	width:24px;
+	height:24px;
+	top: 30px;
+	left: 58px;
+}
+.cmd.alignjustify{
+	background-image:url(../../img/word/start/aligntwodirect.png);
+	background-repeat:no-repeat;
+	width:24px;
+	height:23px;
+	top:30px;
+	left:81px;
+}
+.cmd.algindispersed{
+	background-image:url(../../img/word/start/algindispersed.png);
+	background-repeat:no-repeat;
+	width:22px;
+	height:23px;
+	top:30px;
+	left:105px;
+}
+.cmd.rowspace{
+	background-image:url(../../img/word/start/rowspace.png);
+	background-repeat:no-repeat;
+	width:32px;
+	height:23px;
+	/*top:30px;
+	left:128px;*/
+	top:4px;
+	left:58px;
+}
+.cmd4.backcolor{
+	background-image:url(../../img/word/start/backcolor.png);
+	background-repeat:no-repeat;
+	width:22px;
+	height:23px;
+	top:30px;
+	left:161px;
+}
+.cmd4.backcolorselect{
+	background-image:url(../../img/word/start/backcolorselect.png);
+	background-repeat:no-repeat;
+	width:13px;
+	height:23px;
+	top:30px;
+	left:183px;
+}
+.cmd4.border {
+	background-image:url(../../img/word/start/border.png);
+	background-repeat:no-repeat;
+	width:21px;
+	height:23px;
+	top:30px;
+	left:196px;
+}
+.cmd4.borderselect {
+	background-image:url(../../img/word/start/borderselect.png);
+	background-repeat:no-repeat;
+	width:13px;
+	height:23px;
+	top:30px;
+	left:217px;
+}
+.cmd4.projectsing{
+	background-image:url(../../img/word/start/projectsing.png);
+	background-repeat:no-repeat;
+	width:22px;
+	height:23px;
+	top:4px;
+	left:10px;
+}
+.cmd4.projectsing_selecet{
+	background-image:url(../../img/word/start/projectsing_selecet.png);
+	background-repeat:no-repeat;
+	width:13px;
+	height:23px;
+	top:4px;
+	left:32px;
+}
+.cmd4.number{
+	background-image:url(../../img/word/start/number.png);
+	background-repeat:no-repeat;
+	width:23px;
+	height:23px;
+	top:4px;
+	left:45px;
+}
+.cmd4.number_select{
+	background-image:url(../../img/word/start/number_select.png);
+	background-repeat:no-repeat;
+	width:13px;
+	height:23px;
+	top:4px;
+	left:67px;
+}
+.cmd.manylevellist{
+	background-image:url(../../img/word/start/manylevellist.png);
+	background-repeat:no-repeat;
+	width:30px;
+	height:23px;
+	top:4px;
+	left:80px;
+}
+.cmd.reductindent{
+	background-image:url(../../img/word/start/reductindent.png);
+	background-repeat:no-repeat;
+	width:23px;
+	height:23px;
+	top:4px;
+	/*left:111px;*/
+	left:10px;
+}
+.cmd.addindent{
+	background-image:url(../../img/word/start/addindent.png);
+	background-repeat:no-repeat;
+	width:22px;
+	height:23px;
+	top:4px;
+	/*left:134px;*/
+	left:33px;
+}
+.cmd.chinesestyle{
+	background-image:url(../../img/word/start/chinesestyle.png);
+	background-repeat:no-repeat;
+	width:32px;
+	height:23px;
+	top:4px;
+	left:157px;
+}
+.cmd.sort{
+	background-image:url(../../img/word/start/sort.png);
+	background-repeat:no-repeat;
+	width:24px;
+	height:23px;
+	top:4px;
+	left:190px;
+}
+.cmd.shwoandhidedeitsign{
+	background-image:url(../../img/word/start/shwoandhidedeitsign.png);
+	background-repeat:no-repeat;
+	width:24px;
+	height:23px;
+	top:4px;
+	left:215px;
+}
+
+.cmd.paragraph{
+	top:53px;
+	left:1px;
+	color:#666D7C;	
+	/*width:248px;*/
+	width:140px;
+	background-image:url(../../img/word/start/style_backgroundcolor.jpg);
+	background-repeat:repeat;
+	text-align:center;
+}
+.cmd.paragraphstyle{
+	background-image:url(../../img/word/start/style.jpg);
+	top:6px;
+	/*left:230px;*/
+	left:130px;
+	height:15px;
+	width:15px;
+}
+
+/**************insert********************/
+
+.insert_group1 {
+	width: 94px;
+}
+.insert_blankpage {
+	background-image:url(../../img/word/insert/blankpage.jpg);
+	width:42px;
+	height:78px;
+	top:1px;
+	left:5px;
+}
+.insert_paging {
+	background-image:url(../../img/word/insert/paging.jpg);
+	width:42px;
+	height:78px;
+	top:1px;
+	left:47px;
+}
+
+.insert_group2 {
+	width: 94px;
+}
+.insert_deleteBlankpage {
+	background-image:url(../../img/word/insert/deleteBlankpage.jpg);
+	width:42px;
+	height:78px;
+	top:1px;
+	left:5px;
+}
+.insert_deletePaging {
+	background-image:url(../../img/word/insert/deletePaging.jpg);
+	width:42px;
+	height:78px;
+	top:1px;
+	left:47px;
+}
+.insert_group3 {
+	width: 52px;
+}
+.insert_table{
+	background-image:url(../../img/word/insert/table.jpg);
+	width:42px;
+	height:78px;
+	top:1px;
+	left:5px;
+}
+
+.insert_group4 {
+	width: 52px;
+}
+
+.insert_image{
+	background-image:url(../../img/word/insert/image.jpg);
+	width:42px;
+	height:78px;
+	top:1px;
+	left:5px;
+	overflow:hidden;
+    display:block;
+}
+.insert_image input {
+	height:78px;
+	width:42px;
+    cursor:default;
+   /* filter:alpha(opacity=0);*/
+    opacity:0;
+}
+/**************table********************/
+
+.table_group1 {
+	width: 137px;
+}
+.table_select{
+	background-image:url(../../img/word/table/select.jpg);
+	width:42px;
+	height:78px;
+	top:1px;
+	left:5px;
+}
+.table_gridding{
+	background-image:url(../../img/word/table/gridding.jpg);
+	width:42px;
+	height:78px;
+	top:1px;
+	left:47px;
+}
+.table_property{
+	background-image:url(../../img/word/table/perperty.jpg);
+	width:42px;
+	height:78px;
+	top:1px;
+	left:89px;
+}
+
+.table_group2 {
+	width: 320px;
+}
+.table_delete{
+	background-image:url(../../img/word/table/delete.jpg);
+	width:42px;
+	height:78px;
+	top:1px;
+	left:5px;
+}
+.table_upInsert{
+	background-image:url(../../img/word/table/upInsert.jpg);
+	width:65px;
+	height:78px;
+	top:1px;
+	left:55px;
+}
+.table_downInsert{
+	background-image:url(../../img/word/table/downInsert.jpg);
+	width:65px;
+	height:78px;
+	top:1px;
+	left:120px;
+}
+.table_leftInsert{
+	background-image:url(../../img/word/table/leftInsert.jpg);
+	width:65px;
+	height:78px;
+	top:1px;
+	left:185px;
+}
+.table_rightInsert{
+	background-image:url(../../img/word/table/rightInsert.jpg);
+	width:65px;
+	height:78px;
+	top:1px;
+	left:250px;
+}
+
+
+.table_group3 {
+	width: 147px;
+}
+.table_mergeCells{
+	background-image:url(../../img/word/table/mergeCells.jpg);
+	width:42px;
+	height:78px;
+	top:1px;
+	left:5px;
+}
+.table_splitCells{
+	background-image:url(../../img/word/table/splitCells.jpg);
+	width:42px;
+	height:78px;
+	top:1px;
+	left:47px;
+}
+.table_splitTable{
+	background-image:url(../../img/word/table/splitTable.jpg);
+	width:53px;
+	height:78px;
+	top:1px;
+	left:89px;
+	
+}
+.table_group4 {
+	width: 160px;
+}
+.table_cellHeight{
+	background-image:url(../../img/word/table/cellHeight.jpg);
+	width:51px;
+	height:26px;
+	top:10px;
+	left:5px;
+}
+.table_cellHeightValue{
+	border:1px solid #D4D6D9;
+	height:24px;
+	width:87px;
+	top:10px;
+	left:61px;
+}
+.table_cellHeightUp{
+	background-image:url(../../img/word/table/up.jpg);
+	width:17px;
+	height:12px;
+	top:0px;
+	left:70px;
+}
+.table_cellHeightDown{
+	background-image:url(../../img/word/table/down.jpg);
+	width:17px;
+	height:12px;
+	top:12px;
+	left:70px;
+}
+
+.table_cellWidth{
+	background-image:url(../../img/word/table/cellWidth.jpg);
+	width:51px;
+	height:26px;
+	top:46px;
+	left:5px;
+}
+.table_cellWidthVaule{
+	border:1px solid #D4D6D9;
+	height:24px;
+	width:87px;
+	top:46px;
+	left:61px;
+	background-color:red;
+}
+.table_cellWidthUp{
+	background-image:url(../../img/word/table/up.jpg);
+	width:17px;
+	height:12px;
+	top:0px;
+	left:70px;
+}
+.table_cellWidthDown{
+	background-image:url(../../img/word/table/down.jpg);
+	width:17px;
+	height:12px;
+	top:12px;
+	left:70px;
+}
+.table_group5 {
+	width: 123px;
+}
+.table_topJustify{
+	background-image:url(../../img/word/table/topJustify.jpg);
+	width:22px;
+	height:22px;
+	top:5px;
+	left:5px;
+}
+.table_topCenter{
+	background-image:url(../../img/word/table/topCenter.jpg);
+	width:22px;
+	height:22px;
+	top:5px;
+	left:27px;
+}
+.table_topRight{
+	background-image:url(../../img/word/table/topRight.jpg);
+	width:22px;
+	height:22px;
+	top:5px;
+	left:49px;
+}
+.table_middleJustify{
+	background-image:url(../../img/word/table/middleJustify.jpg);
+	width:22px;
+	height:22px;
+	left:5px;
+	top:30px;
+}
+.table_middleCenter{
+	background-image:url(../../img/word/table/middleCenter.jpg);
+	width:22px;
+	height:22px;
+	top:30px;
+	left:27px;
+	
+}
+.table_middleRight{
+	background-image:url(../../img/word/table/middleRight.jpg);
+	width:22px;
+	height:22px;
+	top:30px;
+	left:49px;
+}
+.table_bottomJustify{
+	background-image:url(../../img/word/table/bottomJustify.jpg);
+	width:22px;
+	height:22px;
+	top:55px;
+	left:5px;
+}
+.table_bottomCenter{
+	background-image:url(../../img/word/table/bottomCenter.jpg);
+	width:22px;
+	height:22px;
+	top:55px;
+	left:27px;
+}
+.table_bottomRight{
+	background-image:url(../../img/word/table/bottomRight.jpg);
+	width:22px;
+	height:22px;
+	top:55px;
+	left:49px;
+}
+.table_cellMargin{
+	background-image:url(../../img/word/table/cellMargin.jpg);
+	width:42px;
+	height:78px;
+	top:1px;
+	left:76px;
+}

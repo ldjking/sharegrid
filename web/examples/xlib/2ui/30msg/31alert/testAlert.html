@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../../../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../../src/css/81msg.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../../src/css/71button.css"/>
+<title>无标题文档</title>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../../src/2ui/30msg.js"></script> 
+<script type="text/javascript" src="../../../../../release/ui.js"></script> 
+<script type="text/javascript" src="../../../../../release/grid.js"></script>
+<script type="text/javascript" src="../../../../../release/form.js"></script> 
+<script type="text/javascript">
+function showMsgAlert(){
+	var cfg={title:"出错信息提示",content:"保存失败!"};
+	cfg.okfn=ok;
+	msgAlert(cfg);
+}
+function ok(){
+	out("ok","ok");
+}
+function showMsgConfirm(){
+	var cfg={title:"提交确认",content:"确定要删除这条数据吗？"};
+	cfg.okfn=ok;
+	cfg.cancelfn=cancel;
+	msgConfirm(cfg);
+}
+function cancel(){
+	out("cancel","cancel");
+}
+function showMsgPromot(){
+	var cfg={title:"输入对话框"};
+	
+	var content=[	
+		{type:"radio",attr:"c2_id",text:"下一环节",values:[{name:"总经理审批",value:"001"},{name:"技术条款审核",value:"002"},{name:"商务条款审核",value:"003"}]},
+		{type:"checkbox",attr:"c0_id",text:"下一环节处理",values:[{name:"陈旭",value:"001"},{name:"刘小青",value:"002"},{name:"顾伟",value:"003"}]},
+		{type:"textarea",attr:"c1_id",text:"处理意见"}
+	];
+	
+	
+	cfg.content=content;
+	cfg.okfn=submitPromot;
+	cfg.cancelfn=cancel;
+	msgPromot(cfg);
+}
+function submitPromot(obj){
+	out("obj",obj);
+}
+</script>
+<input type="button" name="alert" value="弹出警告框" onClick="showMsgAlert();"> 
+<input type="button" name="confirm" value="弹出确认框" onClick="showMsgConfirm();"> 
+<input type="button" name="promot" value="弹出输入框" onClick="showMsgPromot();"> 
+</body>
+</html>

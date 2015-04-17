@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>文档格式模版</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../release/css/doc.css"/>
+</head>
+<body>
+<div id="catelog" class="catelog"></div>
+<div class="container"  id="doc" style="background-color:#000;width:80%;float:right;" >
+  <div class="doc">
+    <div class="paper">
+      <div class="content" id="paperContent">
+        <div class="p1" id="p1">第一章、文档的组成元素</div>
+        <div class="p2" id="p11">1. 标题段落</div>
+        <div class="z1">标题段落共分三级，一级标题样式为p1,二级标题样式为p2,三级标题样式为p3,使用div标签</div>
+        <div class="p2" id="p12">2. 正文段落</div>
+        <div class="z1">正文段落有两种样式，一种首行缩进使用z1样式，使用div标签，第二种不使用首行缩进，使用z2样式，div标签</div>
+        <div class="p2" id="p13">3. 表格</div>
+        <div class="z1">表格使用t1样式,table标签,并要求设置cellspacing=0,cellpadding=0 bordor=0,表格的标题行使用thead样式</div>
+        <div class="p2" id="p14">4. 图像</div>
+        <div class="z1">图像的使用必须用正文包含 使用img样式,img标签</div>
+        <div class="p2" id="p15">5. 其他元素</div>
+        <div class="z1">换行使用br，超链接使用 a,超链接的锚标记可以为页内元素，可以为其他页面，默认事件将不执行，超链接的点击事件由doc.js统一处理。</div>
+        <div class="p1" id="p2">第二章、文档的编写示例</div>
+        <div class="p2" id="p21">1. 标题段落</div>
+        <div class="z2"> &lt;div class=&quot;p1&quot; id=&quot;p1&quot;&gt;第一章、文档的组成元素&lt;/div&gt;<br />
+          &lt;div class=&quot;p2&quot; id=&quot;p11&quot;&gt;1. 标题段落&lt;/div&gt;<br />
+        </div>
+        <div class="p2" id="p22">2. 正文段落</div>
+        <div class="z2"> &lt;div class=&quot;p&quot;&gt;标题段落共分三级，一级标题样式为p1,二级标题样式为p2,三级标题样式为p3,使用div标签&lt;/div&gt;<br />
+        </div>
+        <div class="p2" id="p23">3. 表格</div>
+        <div class="z2">&lt;div class=&quot;p&quot;&gt;<br />
+          &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;1&quot;&gt;<br />
+          &lt;tr&gt;<br />
+          &lt;td width=&quot;136&quot;&gt;属性名&lt;/td&gt;<br />
+          &lt;td width=&quot;205&quot;&gt;意义&lt;/td&gt;<br />
+          &lt;td width=&quot;220&quot;&gt;值示例&lt;/td&gt;<br />
+          &lt;/tr&gt;<br />
+          &lt;tr&gt;<br />
+          &lt;td&gt;id&lt;/td&gt;<br />
+          &lt;td&gt;表单主键&lt;/td&gt;<br />
+          &lt;td&gt;1001001&lt;/td&gt;<br />
+          &lt;/tr&gt;<br />
+          &lt;tr&gt;<br />
+          &lt;td&gt;name&lt;/td&gt;<br />
+          &lt;td&gt;表单的名称&lt;/td&gt;<br />
+          &lt;td&gt;lixiang 表单的名称不允许重复&lt;/td&gt;<br />
+          &lt;/tr&gt;<br />
+          &lt;tr&gt;<br />
+          &lt;td&gt;cname&lt;/td&gt;<br />
+          &lt;td&gt;表单的中文名称&lt;/td&gt;<br />
+          &lt;td&gt;立项申请&lt;/td&gt;<br />
+          &lt;/tr&gt;<br />
+          &lt;tr&gt;<br />
+          &lt;td&gt;title&lt;/td&gt;<br />
+          &lt;td&gt;表单的标题&lt;/td&gt;<br />
+          &lt;td&gt;三峡高科立项申请审批表&lt;/td&gt;<br />
+          &lt;/tr&gt;<br />
+          &lt;tr&gt;<br />
+          &lt;td&gt;paper&lt;/td&gt;<br />
+          &lt;td&gt;纸张大小&lt;/td&gt;<br />
+          &lt;td&gt;A4&lt;/td&gt;<br />
+          &lt;/tr&gt;<br />
+          &lt;tr&gt;<br />
+          &lt;td&gt;hstyle&lt;/td&gt;<br />
+          &lt;td&gt;纸张横排样式&lt;/td&gt;<br />
+          &lt;td&gt;1&lt;/td&gt;<br />
+          &lt;/tr&gt;<br />
+          &lt;tr&gt;<br />
+          &lt;td&gt;pk_attr&lt;/td&gt;<br />
+          &lt;td&gt;表单数据的主键&lt;/td&gt;<br />
+          &lt;td&gt;p0_id&lt;/td&gt;<br />
+          &lt;/tr&gt;<br />
+          &lt;/table&gt;<br />
+          &lt;/div&gt;</div>
+        <div class="p1" id="p3">第三章、文档的使用</div>
+        <div class="p2" id="p31">1. 引用资源</div>
+        <div class="z2">
+          <table cellpadding="0" cellspacing="0" border="0" class="t">
+            <tr class="thead">
+              <td width="38">序号</td>
+              <td width="89">资源名称</td>
+              <td width="50">类型</td>
+              <td width="159">路径</td>
+              <td width="264">作用</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>all.css</td>
+              <td>css</td>
+              <td>release/css/all.css</td>
+              <td>基础样式</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>doc.css</td>
+              <td>css</td>
+              <td>release/css/doc.css</td>
+              <td>展示文档效果</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>base.js</td>
+              <td>js</td>
+              <td>release/base.js</td>
+              <td>基础JavaScript函数</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>ui.js</td>
+              <td>js</td>
+              <td>release/ui.js</td>
+              <td>用户交互效果，控制滚动滚动</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>doc.js</td>
+              <td>js</td>
+              <td>release/doc.js</td>
+              <td>文档事件控制，负责将文档分页，负责初始化滚动，监听文档内部事件等</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../src/2ui/21body.js"></script>
+<script type="text/javascript" src="../../src/2ui/23spliter.js"></script>
+<script type="text/javascript" src="../../src/2ui/25panel.js"></script>
+<script type="text/javascript" src="54doc.js"></script>
+<script type="text/javascript">
+	window.onload=function(){
+		 uiScroll($("#doc"),{color:"#666",opacity:0.6});
+		 genCatolog($("#doc"));
+	}
+</script>
+</html>

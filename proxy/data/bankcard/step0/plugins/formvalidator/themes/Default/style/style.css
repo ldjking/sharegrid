@@ -1,0 +1,49 @@
+.onShow {
+	background: url(../images/onShow.gif) no-repeat;
+	padding-left: 25px;
+	/*margin-left: 10px;*/
+	color: #999999;
+	font-size: 12px;
+	line-height: 22px;
+	vertical-align: middle;
+}
+
+.onFocus {
+	background: url(../images/onFocus.png) no-repeat;
+	padding-left: 25px;
+	/*margin-left: 10px;*/
+	font-size: 12px;
+	line-height: 22px;
+	vertical-align: middle;
+}
+
+.onError {
+	background: url(../../../../../../step1/plugins/formvalidator/themes/Default/images/onError.png) no-repeat;
+	padding-left: 25px;
+	/*margin-left: 10px;*/
+	font-size: 12px;
+	line-height: 22px;
+	vertical-align: middle;
+}
+
+.onCorrect {
+	background: url(../../../../../../step1/plugins/formvalidator/themes/Default/images/onCorrect.png) no-repeat;
+	padding-left: 25px;
+	/*margin-left: 10px;*/
+	font-size: 12px;
+	line-height: 22px;
+	vertical-align: middle;
+}
+
+.onLoad {
+	background: url(../../../../../../step1/plugins/formvalidator/themes/Default/images/onLoad.gif) no-repeat 3px 3px;
+	padding-left: 25px;
+	/*margin-left: 10px;*/
+	font-size: 12px;
+	line-height: 22px;
+	vertical-align: middle;
+}
+
+.inputOnShow {
+	color: #999999
+}

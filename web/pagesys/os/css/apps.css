@@ -1,0 +1,146 @@
+html ,body{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	height: 100%;
+	font-size: 12px;
+	overflow: hidden;
+}
+body {
+	position: relative;
+	background: #fff;
+}
+
+.app_center {
+	width: 1003px;
+	z-index: 800;
+	height: 560px;
+	margin-top: 0px;
+	display: block;
+	text-align: left;
+	background-color: #FFF;
+	margin-left: auto;
+	margin-right: auto;
+}
+.app_module {
+	text-align: center;
+	margin-bottom: 6px;
+}
+.module_table {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #eee;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	border: 1px solid #aaa;
+	border-top: 0px none #aaa;
+	width: 100%;
+	font-size: 12px;
+}
+.module_table td {
+	padding-left: 12px;
+	padding-right: 12px;
+	line-height: 32px;
+	color: #999;
+	padding-top: 4px;
+	padding-bottom: 2px;
+	cursor: default;
+}
+.module_table td.active {
+	line-height: 32px;
+	color: #333;
+	font-weight: normal;
+	text-align: center;
+}
+.module_table td:hover {
+	padding-left: 12px;
+	padding-right: 12px;
+	line-height: 32px;
+	color: #333;
+	font-weight: normal;
+}
+.apps{
+	width:1003px;
+	overflow: hidden;
+}
+#appContainer{
+	width:10030px;
+	margin-left: 0px;
+}
+.page{
+	width:1003px;
+	float: left;
+	height: 500px;
+}
+.page div{
+	float: left;
+	border: 1px solid #fff;
+	width: 117px;
+	margin: 12px;
+	height: 20px;
+	padding-top: 86px;
+	background-repeat: no-repeat;
+	background-position: center top;
+	text-align: center;
+	background-size: 64px 64px;
+}
+.page div:hover{
+	border: 1px solid #dedede;
+	border-radius: 7px;
+}
+.page div.workflow{
+	cursor:default;
+	float: left;
+	border: 1px solid #fff;
+	width: 130px;
+	margin: 12px;
+	height: 30px;
+	text-align: left;
+	line-height: 30px;
+	padding: 0px;
+	margin-left: 44px;
+	margin-right: 12px;
+	font-size: 14px;
+	padding-top: 2px;
+}
+.page div.workflow:hover{
+	border: 1px solid #fff;
+	text-decoration:underline;
+	border-radius: 0px;
+}
+
+.mytask {
+	float: left;
+	width: 740px;
+	height: 200px;
+	background-repeat: no-repeat;
+}
+.menu2 {
+	border: 1px solid #666;
+	border-left:0px none #FFF;
+	position: absolute;
+	z-index: 920;
+	left: 0px;
+	top: 54px;
+	background-color: #777;
+}
+#menu2_1 {
+	display: none;
+	overflow: hidden;
+
+}
+.menu2 .menu_item:last-child{
+	border-bottom: 0px dashed #888;
+}
+.menu2 .menu_item:hover{
+	background-color: #999;
+}
+.menu2 .menu_item{
+	line-height: 32px;
+	height: 32px;
+	border: 0px none #888;
+	border-bottom: 1px dashed #888;
+	letter-spacing: 2px;
+	font-size: 13px;
+	width: 132px;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/23form.css"/>
+</head>
+<body>
+<div id="content" style=" background-color:#FF0000; position:absolute; z-index:20"> </div>
+<script type="text/javascript" src="../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/21body.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/22layout.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/23spliter.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/26table.js"></script> 
+<script type="text/javascript" src="../../../../src/4form/41form.js"></script> 
+<script type="text/javascript" src="../../../../src/4form/42cmd.js"></script> 
+<script type="text/javascript" src="../../../../src/4form/43content.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/27lov.js"></script> 
+<script type="text/javascript" src="../../../../release/lovdef.js"></script> 
+<script type="text/javascript">
+	//window.require([""],init);
+	window.onload=init;
+	function init(){/*需要有一些自定义动画效果*/
+		var content=$("#content");
+		//var conditions=$("#conditions");
+		
+		/*布局的配置  target  参照物  容器一定要有准确的高度 */
+		/*100行才能把一个表单定义清楚，很不方便  能不能用更短的把表单定义清楚*/
+		uiLayout({dom:content,container:document.body,dx:0,dy:0,xdoms:[]});	
+		/*form是由table组成 table有3种类别 1 单行 2 固定多行  3 不固定多行*/
+		/*表单是靠绘制出来，然后设置一些标准化的属性*/
+		//uiForm({dom:form});/*这样一个form的事件就标准化了，比如值列表的出现，校验的出现*/
+		
+		/*grid是由conf columns datas组成*/
+		/*form是由conf talbes  data组成  tables是由cells组成*/	  /*宽度就按600定 以后移动要更短*/
+		var cfg={dom:$("#content"),title:"新增方法表单",formType:"add",addMethod:"methodAdd"};
+
+		var tables=[	
+						{type:0,rows:1,cells:[/*隐藏字段  在提交时方获得值，该值可能对子表产生影响*/
+								{type:"sid",attr:"c2_id",sidType:"method",width:120,align:"left",row:1}/*txt代表单行元素*/
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"方法名",width:80,align:"center",row:1},
+								{type:"txt",attr:"c2_name",width:120,align:"left",row:1},/*txt代表单行元素*/
+								{type:"lbl",text:"功能描述",width:80,align:"center",row:1},
+								{type:"txt",attr:"c2_des",width:320,align:"center",row:1}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"应用分类",width:80,align:"center",row:1},
+								{type:"txt",attr:"c2_appname",width:120,align:"left",row:1},
+								{type:"lbl",text:"脚本类型",width:80,align:"center",row:1},
+								{type:"txt",attr:"c2_target",attr2:"c2_target",lov:"methodTarget",width:120,align:"center",row:1},
+								{type:"lbl",text:"方法类型",width:80,align:"left",row:1},
+								{type:"txt",attr:"c2_type",attr2:"c2_type",lov:"methodType",width:120,align:"center",row:1}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"触发更新",width:80,align:"center",row:1},
+								{type:"txt",attr:"c2_triggerflag",lov:"on_off",width:120,align:"left",row:1},
+								{type:"lbl",text:"目标数据库",width:80,align:"center",row:1},
+								{type:"txt",attr:"c2_db",lov:"sex",width:120,align:"center",row:1},
+								{type:"lbl",text:"权限校验",width:80,align:"center",row:1},
+								{type:"lov",attr:"c2_data_check",lov:"date",width:120,align:"center",row:1}
+							]
+						},
+						{type:2,rows:2,cells:[
+								{type:"lbl",text:"脚本定义",width:590,align:"left",row:1,left:10},
+								{type:"txt",attr:"c2_sql",width:600,align:"left",row:2,height:200}
+							]
+						},
+						{type:3,rows:3,refAttr:{name:"c2_name",name2:"c3_method"},addMethod:"paramAdd",
+							columns:[
+								{type:"txt",attr:"c3_name",name:"参数名",width:120,align:"center"},
+								{type:"txt",attr:"c3_type",name:"参数类型",width:120,align:"center"},/*txt单行*/
+								{type:"txt",attr:"c3_length",name:"参数长度",width:120,align:"center"},
+								{type:"txt",attr:"c3_defaultval",name:"默认值",width:100,align:"left"},
+								{type:"txt",attr:"c3_des",name:"参数描述",width:140,align:"left"}
+							]
+						}
+					];
+		var cmds=[
+					{cmd:"addItem"},
+					{cmd:"rmItem"},
+					{cmd:"save"},/*在新系统中，我打算干掉复杂方法，一个复杂表单的提交，将分步骤实施，主id如果需要，提供一个getsid的方法*/
+					{cmd:"cancel"}
+				];
+		genForm(cfg,tables,cmds);
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine><!--支持web调用-->
+	<excute>
+		<method></method>
+		<param></param>
+		<person></person>
+	</excute>
+</engine>

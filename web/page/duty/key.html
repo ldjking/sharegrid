@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>设备台账</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">钥匙借用登记记录</div>
+    <div class="tab hide" id="tab_add">新建钥匙借用登记</div>
+    <div class="tab normal" id="tab_unreturn">未归还的钥匙</div>
+    <div class="tab normal" id="tab_keys">钥匙库</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+    <div class="content normal"  id="c4"></div>
+    <div class="content normal"  id="c5"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script>
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+(function(){
+	var grid		    =$("#c1");
+	var editForm	    =$("#c2");
+	var addForm			=$("#c3");
+	var unreturnGrid	=$("#c4");
+	var keyGrid	        =$("#c5");
+	var tabList			=$("#tab_list");
+	var tabEdit			=$("#tab_edit");
+	var tabAdd			=$("#tab_add");
+	var tunreturnList	=$("#tab_unreturn");
+	var keyList	        =$("#tab_keys");
+	
+		
+	var fn_showList     =function(evt){
+		//genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	var fn_showkeyList  =function(evt){
+		activeTab(keyList);
+	}
+	var fn_showunreturnList =function(evt){
+		activeTab(tunreturnList);
+	}
+	var fn_showNext=	function(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showPre=		function(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showEditForm=function(evt){
+		activeTab(tabEdit);
+	}
+	var fn_showAddForm=function(evt){/*要把新增表单显示出来*/
+		activeTab(tabAdd);
+	}
+	var e_refushEdit =function(target){
+		genGridCmd(grid);
+		genGridContent(grid);
+		activeTab(tabList);
+	}
+	var e_refushAdd =function(target){
+		genGridCmd(grid);
+		genGridContent(grid);/*重绘内容*/
+		activeTab(tabList);
+	}
+	var tabChange=function(target,p){
+		if(p==0)		fn_showList();
+		else if(p==1)	refreshEditForm();
+		else if(p==2)	refreshAddGrid();/*刷新子对象内容*/
+		else if(p==3)   fn_showunreturnList();
+		else if(p==4)   fn_showkeyList();
+	}
+	var refreshEditForm =function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		
+		if(editForm.formCfg.param==obj)	return;
+		else{
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+			cssRm([preCmd,nextCmd],"gray");
+			if(obj.rownum==1)						cssAdd(preCmd,"gray");
+			else if(obj.rownum==cfg.totalNum)		cssAdd(nextCmd,"gray");
+			genFormContent(editForm);/*重绘内容*/
+		}
+	}
+	var refreshAddGrid=function(evt){
+		$$("accountInfoGet",null,false,function(result){
+			if(result){
+				     addForm.formCfg.data={per_enter:result.data.c0_id};
+					 genFormContent(addForm);
+			}
+	   });
+	}
+    var e_cmd_qrjc_hanlder=function(evt){
+		$$('accountInfoGet',null,false,function(result){
+			//if(result){
+				var param={}
+				param.ae_dutykeyid=genFormData(editForm).ae_dutykeyid;
+				param.per_jc=genFormData(editForm).per_jy;
+				param.status=2;
+				param.per_jc_yx=result.data.c0_id;
+				param.tm_jc=dt2Str(12);
+				$$('dutykeyUpdate',param,false,function(r){
+					if(r.flag){
+						var r3=$$('getOndutyingId',null);
+						param.ae_ondutyid=r3.data.ae_ondutyid;
+						r3=$$('getOnDutyAccountStepNum',{ondutyid:r3.data.ae_ondutyid});
+						param.stepnum=r3.data.num;
+						param.duty_tb='ae_dutykey'
+						param.duty_id=param.ae_dutykeyid;
+						param.per_insert=param.per_jc_yx;
+						param.recordtype='借出钥匙';
+						$$('lockkey',param,false,function(r){
+							if(r.flag) e_refushEdit();
+							else alert("借用失败")
+						});
+					}
+				})
+			//}
+		});
+	}
+	
+	var e_cmd_gh_handler=function(evt){
+		$$('accountInfoGet',null,false,function(result){
+			if(result){
+				var param={}
+				param.ae_dutykeyid=genFormData(editForm).ae_dutykeyid;
+				param.status=3;
+				param.per_gh=result.data.c0_id;
+				param.tm_gh_jy=dt2Str(12);
+				$$('dutykeyUpdate',param,false,function(r){
+					if(r.flag)e_refushEdit();
+				})
+			}
+		});
+	}
+	
+	var e_cmd_qrgh_handler=function(evt){
+		$$('accountInfoGet',null,false,function(result){
+			//if(result){
+				var param={}
+				param.ae_dutykeyid=genFormData(editForm).ae_dutykeyid;
+				param.status=4;
+				param.per_gh_yx=result.data.c0_id;
+				param.tm_gh_yx=dt2Str(12);
+				$$('dutykeyUpdate',param,false,function(r){
+					if(r.flag){
+						var param1={};
+						param1.ae_dutykeyid=genFormData(editForm).ae_dutykeyid;
+						$$('unlockkey',param,false,function(r){
+							e_refushEdit();
+						});
+					}
+				})
+			//}
+		});
+	}
+	var e_keychange=function(target,data){
+		
+		var td=getChilds(target.parentNode.parentNode,getDomIndex(target.parentNode)+1);
+		var text=td.childNodes[0];
+		text.value=data.name;
+		
+	}
+	var init=function(){
+		uiApp({dom:$("#app1"),fn:tabChange});
+		cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"dutykeyGets",pageFlag:false,pageSize:6,autoWidth:1,pkAttr:"ae_dutykeyid"};
+		cfg.columns=[	
+						{text:"借用人",attr:"per_jy_name",align:"left",type:"str",width:80,asc:1},
+						{text:"状态",attr:"status_name",align:"left",width:120,type:"str",asc:1},
+						{text:"借用联系方式",attr:"contact",align:"left",width:120,type:"str",asc:1},
+						{text:"借出时间",attr:"tm_jc",align:"left",width:150,type:"str",asc:1},
+						{text:"归还人",attr:"per_gh_name",align:"left",width:120,type:"str",asc:1},
+						{text:"归还时间",attr:"tm_gh_jy",align:"left",width:150,type:"str",asc:1},
+					];
+		cfg.cmds=[
+						{cmd:"cmdAdd"	,fn:fn_showAddForm},
+						{cmd:"cmdEdit"	,fn:fn_showEditForm},
+						{cmd:"cmdFilter"},
+						{cmd:"cmdRefresh"}
+					]
+		genGrid(grid,cfg);	
+		var cfg2={title:"钥匙借出记录",formType:"update",dataMethod:"dutykeyGet",updateMethod:"dutykeyUpdate"};
+		cfg2.tables=[	
+							{type:0,rows:1,cells:[
+									{type:"sid",attr:"ae_dutykeyid",sidType:"method",width:120,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"状态",width:100,align:"center",row:1},
+									{type:"txt",attr:"status_name",attr2:'status',width:80,align:"left",row:1,lov:"getKeyStatus"},
+									{type:"lbl",text:"借用人员",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_jy_name",attr2:"per_jy",width:120,align:"center",row:1,lov:'stuff',onchange:e_keychange},
+									{type:"lbl",text:"借用联系方式",width:120,align:"center",row:1},
+									{type:"txt",attr:"contact",width:120,align:"center",row:1,lov:'staff'}								
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"登记时间",width:100,align:"center",row:1},
+									{type:"txt",attr:"tm_enter",width:280,align:"left",row:1 ,lov:'datetime'},
+									{type:"lbl",text:"登录人员",width:120,align:"center",row:1},
+									{type:"txt",attr:"per_enter_name",attr2:"per_enter",width:120,align:"center",row:1,lov:'stuff'}							
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"借出时间",width:100,align:"center",row:1},
+									{type:"txt",attr:"tm_jc",width:280,align:"left",row:1,lov:'datetime'}	,
+									{type:"lbl",text:"借用运行人员签名",width:120,align:"center",row:1},
+									{type:"txt",attr:"per_jc_yx_name",attr2:"per_jc_yx",width:120,align:"center",row:1,lov:'stuff'}						
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"归还时间",width:100,align:"center",row:1},
+									{type:"txt",attr:"tm_gh_jy",width:280,align:"left",row:1,lov:'datetime'}	,
+									{type:"lbl",text:"归还人员",width:120,align:"center",row:1},
+									{type:"txt",attr:"per_gh_name",attr2:"per_gh",width:120,align:"center",row:1,lov:'stuff'}]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"确认归还时间",width:100,align:"center",row:1},
+									{type:"txt",attr:"tm_gh_yx",width:280,align:"left",row:1,lov:'datetime'}	,
+									{type:"lbl",text:"归还运行人员签名",width:120,align:"center",row:1},
+									{type:"txt",attr:"per_gh_yx_name",attr2:"per_gh_yx",width:120,align:"center",row:1,lov:'stuff'}]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"借用钥匙信息",width:600,align:"left",left:20,row:1}							]
+							},
+							{type:3,rows:3,refAttr:[{name:"ae_dutykeyid",name2:"ae_dutykeyid"}],rmMethod:'dutykeyzRm',updateMethod:"dutykeyzUpdate",addMethod:"dutykeyzAdd",dataMethod:"dutykeyzGets",
+								columns:[
+									{type:"txt",attr:"stepnum",name:"序号",width:60,align:"center"},
+									{type:"txt",attr:"keynum",name:"钥匙编号",width:80,align:"center",onchange:e_keychange,lov:'keyMap'},/*txt单行*/
+									{type:"txt",attr:"keyname",name:"钥匙名称",width:80,align:"left"},
+									{type:"txt",attr:"address",name:"使用地点",width:80,align:"center"},
+									{type:"txt",attr:"used",name:"用途",width:320,align:"center"}
+								]
+							}
+						];
+						
+						//	ae_dutykey_zid	ae_dutykeyid	stepnum	keynum	keyname	address	used	site	org
+			cfg2.cmds=[
+						{cmd:'qrjc',text:'确认借出',checkMethod:"cmd_key_jcCheck", checkFalse:"hide",fn:e_cmd_qrjc_hanlder},
+						{cmd:'gh',text:'归还',checkMethod:"cmd_key_ghCheck", checkFalse:"hide",fn:e_cmd_gh_handler},
+						{cmd:'qrgh',text:'确认归还' ,checkMethod:"cmd_key_qrghCheck", checkFalse:"hide",fn:e_cmd_qrgh_handler},
+						{cmd:"addItem",checkMethod:"cmd_key_edit_Check", checkFalse:"hide"},
+						{cmd:"rmItem",checkMethod:"cmd_key_edit_Check", checkFalse:"hide"},
+						{cmd:"update",checkMethod:"cmd_key_edit_Check", checkFalse:"hide",fn:e_refushEdit},
+						{cmd:"pre",fn:fn_showPre},
+						{cmd:"next",fn:fn_showNext},
+						
+					];
+			genForm(editForm,cfg2);
+			var cfg3={title:"新建钥匙借出记录",formType:"add",addMethod:"dutykeyAdd"};
+			cfg3.tables=[	
+							{type:0,rows:1,cells:[
+									{type:"sid",attr:"ae_dutykeyid",sidType:"method",width:120,align:"left",row:1},
+									{type:"txt",attr:"per_enter",width:120,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"状态",width:80,align:"center",row:1},
+									{type:"lbl",text:"正在录入",width:80,align:"left",row:1},
+									{type:"lbl",text:"借用人员",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_jy_name",attr2:'per_jy',width:120,align:"center",row:1,lov:'stuff'},
+									{type:"lbl",text:"借用联系方式",width:120,align:"center",row:1},
+									{type:"txt",attr:"contact",width:120,align:"center",row:1}								
+								]
+							}
+						];
+				cfg3.cmds=[
+						{cmd:"save",fn:e_refushAdd}
+				];
+			    genForm(addForm,cfg3);
+				//	keynum	keyname	address	used	tm_jc	per_jy_name
+				cfg4={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"unreturnkeyGets",pageFlag:false,pageSize:6,autoWidth:1};
+				cfg4.columns=[	
+								{text:"钥匙编号",attr:"keynum",align:"left",type:"str",width:80,asc:1},
+								{text:"钥匙名称",attr:"keyname",align:"left",width:120,type:"str",asc:1},
+								{text:"使用地点",attr:"address",align:"left",width:120,type:"str",asc:1},
+								{text:"用途",attr:"used",align:"left",width:150,type:"str",asc:1},
+								{text:"借用时间",attr:"tm_jc",align:"left",width:120,type:"str",asc:1},
+								{text:"借用人",attr:"per_jy_name",align:"left",width:150,type:"str",asc:1},
+							];
+				cfg4.cmds=[{cmd:"cmdFilter"},
+							{cmd:"cmdRefresh"}]
+				genGrid(unreturnGrid,cfg4);	
+				
+				cfg5={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"dutykeyinfoGets",pageFlag:false,pageSize:6,autoWidth:1};
+				cfg5.columns=[	
+								{text:"钥匙编号",attr:"keynum",align:"left",type:"str",width:80,asc:1},
+								{text:"钥匙名称",attr:"keyname",align:"left",width:120,type:"str",asc:1},
+								{text:"状态",attr:"type",align:"left",width:120,type:"str",asc:1}
+							];
+				cfg5.cmds=[{cmd:"cmdFilter"},
+							{cmd:"cmdRefresh"}]
+				genGrid(keyGrid,cfg5);	
+			
+	}
+	
+	window.onload=init;
+})();
+</script>
+</body>
+</html>

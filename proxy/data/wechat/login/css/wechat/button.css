@@ -1,0 +1,29 @@
+body {
+	padding-bottom:65px;
+}
+
+ul {
+	width: 100%
+}
+
+li {
+	width: 50%;
+	box-sizing: border-box;
+	-webkit-box-sizing:border-box;
+	float: left;
+}
+
+li:first-child {
+	padding-right: 1px;
+}
+
+li:last-child {
+	padding-left: 1px;
+}
+
+.btns {
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	max-width: 640px;
+}

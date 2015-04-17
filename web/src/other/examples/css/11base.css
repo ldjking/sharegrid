@@ -1,0 +1,78 @@
+html ,body{
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+body {
+	position: relative;
+	overflow: hidden;
+
+}
+
+#debug_console {
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	height: 300px;
+	width: 400px;
+	border-top: 1px solid #666;
+	border-left: 1px solid #666;
+	background-color: #CCC;
+	border-top-left-radius: 8px;
+	padding-left: 0px;
+	padding-top: 0px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	z-index: 901;
+}
+#debug_console pre{
+	padding: 0;
+	margin: 0px;
+	border: 0;
+	white-space: pre;
+	word-wrap: break-word;
+	word-break: break-all;
+	word-spacing: normal;
+	font-size: 14px;
+	margin-left: 12px;
+	margin-top: 6px;
+}
+#debug_console pre label{
+	color: #C39;
+}
+
+#msg_console {
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	overflow: hidden;
+	z-index: 902;
+	height: 0px;
+}
+#msg_console div{
+	border-top: 1px solid #666;
+	border-left: 1px solid #666;
+	background-color: #CCC;
+	border-top-left-radius: 8px;
+	text-align: center;
+	padding: 6px;
+	color: #C39;
+
+}
+#msg_console .content {
+	color: #C39;
+	padding-left: 24px;
+}
+#test_console  {
+	z-index: 903;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100px;
+	height: 100px;
+	background-color: #000;
+	opacity: 0.5;
+}

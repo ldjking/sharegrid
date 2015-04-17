@@ -1,0 +1,2567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title> 投之家-P2P网贷评级-选标中心，您身边的网贷投资专家 </title>
+    <meta name="keywords" content="投之家,网贷评级,网贷选标,网贷投资,网络借贷,p2p理财">
+    <meta name="description" content="投之家是国内领先的P2P网贷评级、选标和服务平台，提供对现有网贷平台的评级服务并为您推荐优良的P2P选标，为投资者提供优良的P2P投资服务">
+    <meta name="author" content="p2p网贷,p2p理财,投之家投资理财平台" />
+    <meta name="searchtitle" content="p2p网贷,p2p理财,投之家投资理财平台" />
+    <link href="/static/css/css.css?ver=2015040900" type="text/css" rel="stylesheet" />
+    <link href="/static/css/float.css" type="text/css" rel="stylesheet" />
+    <script src="/static/js/lib/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="/static/js/jQueryRotate.js" type = "text/javascript"></script>
+    <script src="/static/js/jquery.login.js" type="text/javascript"></script>
+    <script type="text/javascript" src = "/static/js/base64encode.js"></script>
+    <script type="text/javascript">
+        function externallinks() {
+            if (!document.getElementsByTagName) return;
+            var anchors = document.getElementsByTagName("a");
+            for (var i = 0; i < anchors.length; i++) {
+                var anchor = anchors[i];
+                if (anchor.getAttribute("href") &&
+                    anchor.getAttribute("rel") == "external")
+                    anchor.target = "_blank";
+            }
+        }
+        window.onload = externallinks;
+    </script>
+    <style type="text/css">
+    #curr{
+            color:#1D82B6;
+        }
+    </style>
+</head>
+<body>
+	<div class="top_main">
+        <div class="ovf" style="background:#003550;height:40px; line-height:40px; color:#fff;">
+            <div class="top tit">
+                <div class="fl"><span style="float:left;">全国统一电话：400-883-1803 </span><span><h1 style="font-size:13px;float:left;font-weight:100;">P2P理财</h1>交流群：186760784</span></div>
+                <div class="fr">
+                                         <a class="reg" href = "https://www.touzhijia.com/user/register.html" alt="免费注册">免费注册</a>
+                    <a href="https://www.touzhijia.com/user/signin.html" id="loginStart" alt="立即登录">立即登录</a>
+                                    </div>
+            </div>
+        </div>
+        <div class="top prel">
+            <a class="logo" href="http://www.touzhijia.com/" title="投之家-中国领先的P2P网贷投资平台，您的个人理财专家">
+                <img src="/static/images/logo.png" alt="投之家,p2p理财,投资理财,p2p网贷" title="投之家-中国领先的P2P网贷投资平台，您的个人理财专家"/>
+            </a>
+            <img src="/static/images/purl_txt.png" alt="P2P理财第一站" title="P2P理财第一站"/>
+            <ul class="menu">
+            <li><a  href="http://www.touzhijia.com/" title="首页">首页</a></li>
+            <li><a  href="http://www.touzhijia.com/platform/" title="选平台">选平台</a></li>
+            <li><a id = "curr" href="http://www.touzhijia.com/project/" title="选标中心">选标中心</a></li>
+            <li><a  href="http://www.touzhijia.com/debt/guide.html" title="二级市场">二级市场</a></li>
+            <li><a  href="http://www.touzhijia.com/wenda" title="投资问答">投资问答</a></li>
+            <li><a  href="http://www.touzhijia.com/about/consultant.html" title="关于我们">关于我们</a></li>
+            </ul>
+        </div>
+	</div>
+<!-- start 登录框  -->
+<div class="_login_div_filter_" style="width:100%;height:100%;"></div>
+<div class="_login_div_quick_ login-box">
+	<div class="login-b-title"><a id="close" class="login-close" href="javascript:void(0)" title="关闭">X</a>登录投之家帐号</div>
+	<div class="loginform">
+		<div id = "user_error" class="error"></div>
+		<div class="ui-form-item">
+			<label class="login-userName" id="" for=""></label>
+			<input id = "popusername" class="pass-text-input" type="text"  placeholder="请输入用户名">
+		</div>
+		<div class="ui-form-item">
+			<label class="login-pass" id="" for=""></label>
+			<input id = "poppassword" class="pass-text-input" type="password" placeholder="密码">
+		</div>
+		<div class="ui-form-item">
+                        <a class="findpsw" href="https://www.touzhijia.com/user/reset_password.html" title="忘记密码">忘记密码</a>
+			<input type="checkbox" checked="checked" class="pass-checkbox-input" value = "1" name="memberPass" id="status" />
+			<label class="" id="" for="">下次自动登录</label>
+		</div>
+		<div class="ui-form-item">
+		  <input type="button" value="立即登录" id="submit" class="ui-button-rrd-blue ui-button-rrd-blue-large" onclick = "javascript:checkform();">
+		</div>
+                <div class="ui-form-item text-right">没有账号？<a href="https://www.touzhijia.com/user/register.html" title="立即注册">立即注册</a></div>
+	</div>
+	<div class="login-b-footer">
+	  <span>可以使用以下方式登录</span>
+          <a href="http://www.touzhijia.com/ologin/qq.html" class="partner" id="partner-qq" title="腾讯账号">腾讯账号</a>
+          <a href="http://www.touzhijia.com/ologin/sina.html" class="partner" id="partner-weibo" title="新浪微博">新浪微博</a>
+	  <a href="http://www.touzhijia.com/ologin/wdzj.html" class="partner" id="partner-wdzj" title="网贷之家">网贷之家</a>
+	</div>
+</div>
+<div id = "synclogin"></div>
+<!-- end 登录框  -->
+
+<script type="text/javascript">
+
+$('#do_logout').click(function () {
+    $.ajax({
+        'type': 'get',
+        'cache' : false,
+        'url' : '/user/logout',
+        'success': function (data)
+        {
+            if (1 == data.rcode)
+            {
+                window.location.href = data.url;
+                window.location.reload();
+            }
+            else
+            {
+                alert('退出失败');
+            }
+        },
+        'error' : function()
+        {
+            alert('系统错误');
+        },
+        'dataType': 'json'
+    });
+});
+
+</script>
+<style type="text/css">
+        .info_con #other_data span{ display: inline-block; float: left; white-space: nowrap;}
+    .info_con #other_data { padding-right: 30px}
+    .info_con{ width: 800px;}
+</style> 
+<div class="container">
+    <div class="main">
+        <div class="main_box search_cond">
+			<div class="pbox_con search_box">
+				<ul>
+					<li>
+						<label class="info_til">安全评级：</label>
+						<label class="info_con">
+							<a class="btn_blue_" grade=0><span>不限</span></a>
+							<a grade=1><span>AAA</span></a>
+							<a grade=2><span>AA以上</span></a>
+							<a grade=3><span>A以上</span></a>
+							<a grade=4><span>BBB以上</span></a>
+							<a grade=5><span>BB以上</span></a>
+							<a grade=6><span>B以上</span></a>
+						</label>
+					</li>
+					<li>
+						<label class="info_til">年化收益：</label>
+						<label class="info_con">
+							<a class="btn_blue_" overall=0><span>不限</span></a>
+							<a overall=1><span>20%~16%</span></a>
+							<a overall=2><span>16%~12%</span></a>
+							<a overall=3><span>12%~8%</span></a>
+							<a overall=4><span>8%以下</span></a>
+						</label>
+					</li>
+					<li>
+						<label class="info_til">投资期限：</label>
+						<label class="info_con">
+							<a class="btn_blue_" time=0><span>不限</span></a>
+							<a time=1><span >30天以内</span></a>
+							<a time=2><span >1~3个月</span></a>
+							<a time=3><span >3~6个月</span></a>
+							<a time=4><span >6~12个月</span></a>
+							<a time=5><span >12个月以上</span></a>
+							
+						</label>
+					</li>
+					<!-- <li>
+						<label class="info_til">赎回方式：</label>
+						<div class="info_con">
+							<span><label class="checkbox"><input type="checkbox" value="" repayitem=1>按月分期还款</label></span>
+							<span><label class="checkbox"><input type="checkbox" value="" repayitem=2>月付息到期还本</label></span>
+							<span><label class="checkbox"><input type="checkbox" value="" repayitem=3>到期还本付息</label></span>
+							<span><label class="checkbox"><input type="checkbox" value="" repayitem=4>按季分期还款</label></span>
+						</div>
+					</li> -->
+					<li>
+						<label class="info_til">标的来源：</label>
+						<div class="info_con">
+												
+							<span>
+								<label class="checkbox">
+										<input type="checkbox" value="" from="wsloan">温商贷		
+								</label>
+							</span>
+												
+							<span>
+								<label class="checkbox">
+										<input type="checkbox" value="" from="gcjr">国诚金融		
+								</label>
+							</span>
+												
+							<span>
+								<label class="checkbox">
+										<input type="checkbox" value="" from="rongtongzc">融通资产		
+								</label>
+							</span>
+												
+							<span>
+								<label class="checkbox">
+										<input type="checkbox" value="" from="xiangshang360">向上金服		
+								</label>
+							</span>
+												
+							<span>
+								<label class="checkbox">
+										<input type="checkbox" value="" from="hepandai">合盘贷		
+								</label>
+							</span>
+												
+							<span>
+								<label class="checkbox">
+										<input type="checkbox" value="" from="rxdai">投哪网		
+								</label>
+							</span>
+												
+							<span>
+								<label class="checkbox">
+										<input type="checkbox" value="" from="yesvion">粤商贷		
+								</label>
+							</span>
+												
+							<span>
+								<label class="checkbox">
+										<input type="checkbox" value="" from="xiaoniu88">小牛在线		
+								</label>
+							</span>
+													<span class="more" style="color:#FF4E00;cursor:pointer;">收起↑</span><br/>
+							<div id="other_data" style="display:;" start="open">
+															<span >
+									<label class="checkbox">
+										<input type="checkbox" value="" from="mscredit">小富金融		
+									</label>
+								</span>
+															<span >
+									<label class="checkbox">
+										<input type="checkbox" value="" from="chujinsuo">楚金所		
+									</label>
+								</span>
+															<span >
+									<label class="checkbox">
+										<input type="checkbox" value="" from="baobidai">生菜金融		
+									</label>
+								</span>
+															<span >
+									<label class="checkbox">
+										<input type="checkbox" value="" from="91wangcai">91旺财		
+									</label>
+								</span>
+															<span >
+									<label class="checkbox">
+										<input type="checkbox" value="" from="id68">前海理想金融		
+									</label>
+								</span>
+															<span >
+									<label class="checkbox">
+										<input type="checkbox" value="" from="xinrong">信融财富		
+									</label>
+								</span>
+															<span >
+									<label class="checkbox">
+										<input type="checkbox" value="" from="51rzy">融资易		
+									</label>
+								</span>
+															<span >
+									<label class="checkbox">
+										<input type="checkbox" value="" from="myzhongjin">众金在线		
+									</label>
+								</span>
+															<span >
+									<label class="checkbox">
+										<input type="checkbox" value="" from="yinh">银湖网		
+									</label>
+								</span>
+															<span >
+									<label class="checkbox">
+										<input type="checkbox" value="" from="ppmoney">PPmoney		
+									</label>
+								</span>
+															<span >
+									<label class="checkbox">
+										<input type="checkbox" value="" from="rongjinsuo">融金所		
+									</label>
+								</span>
+															<span >
+									<label class="checkbox">
+										<input type="checkbox" value="" from="licaifan">理财范		
+									</label>
+								</span>
+														</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<script type="text/javascript">
+				$(".more").on("click",function(){
+					var start = $("#other_data").attr("start");
+					if(start == "open"){
+						$("#other_data").hide();
+						$("#other_data").attr("start","close");
+						$(".more").html("展开↓");
+					}else if(start == "close"){
+						$("#other_data").show();
+						$("#other_data").attr("start","open");
+						$(".more").html("收起↑");
+					}
+				});
+			</script>
+        </div>
+         		<div class="px_box">
+			<ul class="con_til til-ul">
+				<li><a class="active" href="javascript:void(0)" sorttype=0 sortorder="desc">默认排序</a></li>
+				<li><a href="javascript:void(0)" sorttype=1 sortorder="desc">收益率<i></i></a></li>
+				<li><a href="javascript:void(0)" sorttype=2 sortorder="desc">借款期限<i></i></a></li>
+				<li><a href="javascript:void(0)" sorttype=3 sortorder="desc">投标进度<i></i></a></li>
+				<li><span class="px_num">共搜索到<em>214</em>个标的</span></li>
+			</ul>
+		</div>
+        <div class="second_box">
+        	<div class="pbox_con invlist_box">
+                <table class="tab_sty2">
+                    <tbody>
+                   		                    	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2014112411514845121.jpg" alt="网贷选标平台-信融财富" title="信融财富"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		140615系列转让                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">771</font> 
+                            		<!--期限：2个月-->
+                            		&nbsp;<!-- 标种：消费贷 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：等额本息                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeA">A</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">72.67</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">76.64</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">76.79</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">88.88</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">76.11</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">75.39</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">2</font>个月                            	</p>
+                            	<!--								<p class="lv-num">18<span class="small-num">.00%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 0%"></div>
+								</div>
+								<p class="press-num">当前进度：0%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		等额本息                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">18<span class="small-num">.00<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益3.00元) -->
+                            		标种：消费贷                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>3.00</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：消费贷</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">3.00元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">3.00元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>0</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="128" isskip="0" inversurl='https://www.xinrong.com/invest/consume_detail/14978' bid="14978" href="javascript:void(0);" plat_en_name="xinrong" invest_id="14978"flag = "0" platname='信融财富' username='' investname='140615系列转让' investunit='月' investdeadline='2' investrate='18.00' repaytypestr='等额本息'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2014122514032190419.png" alt="网贷选标平台-温商贷" title="温商贷"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		房产抵押LFKY450020000209                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">1,000,000</font> 
+                            		<!--期限：12个月-->
+                            		&nbsp;<!-- 标种： -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：按月付息到期还本                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeBBB">BBB</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">50.87</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">73.11</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">84.54</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">70.63</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">77.28</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">72.89</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">12</font>个月                            	</p>
+                            	<!--								<p class="lv-num">17<span class="small-num">.80%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 78%"></div>
+								</div>
+								<p class="press-num">当前进度：78%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		按月付息到期还本                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">17<span class="small-num">.80<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益17.80元) -->
+                            		标种：                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>17.80</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">17.80元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">17.80元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>78</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1015" isskip="0" inversurl='http://www.wsloan.com/jkxq.aspx?id=5401' bid="5401" href="javascript:void(0);" plat_en_name="wsloan" invest_id="5401"flag = "0" platname='温商贷' username='' investname='房产抵押LFKY450020000209' investunit='月' investdeadline='12' investrate='17.80' repaytypestr='按月付息到期还本'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2014112411592112937.jpg" alt="网贷选标平台-前海理想金融" title="前海理想金融"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		新手体验专享•2015041501                             	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">1,000,000</font> 
+                            		<!--期限：1个月-->
+                            		&nbsp;<!-- 标种：短期本息担保标 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：每月还息到期还本                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeA">A</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">82.05</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">74.41</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">73.12</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">87.53</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">71.99</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">89.72</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">1</font>个月                            	</p>
+                            	<!--								<p class="lv-num">16<span class="small-num">.80%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 99%"></div>
+								</div>
+								<p class="press-num">当前进度：99%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		每月还息到期还本                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">16<span class="small-num">.80<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益1.40元) -->
+                            		标种：短期本息担保标                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>1.40</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：短期本息担保标</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">1.40元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">1.40元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>99</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1001" isskip="0" inversurl='http://www.id68.cn/invest/799.html' bid="799" href="javascript:void(0);" plat_en_name="id68" invest_id="799"flag = "0" platname='前海理想金融' username='' investname='新手体验专享•2015041501 ' investunit='月' investdeadline='1' investrate='16.80' repaytypestr='每月还息到期还本'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2015011317532829067.jpg" alt="网贷选标平台-国诚金融" title="国诚金融"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		资金周转                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">1,206</font> 
+                            		<!--期限：3个月-->
+                            		&nbsp;<!-- 标种：债权转让 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：按月付息到期还本                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeBBB">BBB</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">63.29</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">79.17</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">86.12</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">92.04</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">77.07</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">68.65</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">3</font>个月                            	</p>
+                            	<!--								<p class="lv-num">16<span class="small-num">.80%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 31%"></div>
+								</div>
+								<p class="press-num">当前进度：31%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		按月付息到期还本                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">16<span class="small-num">.80<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益4.20元) -->
+                            		标种：债权转让                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>4.20</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：债权转让</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">4.20元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">4.20元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>31</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1002" isskip="0" inversurl='http://www.gcjr.com/zhaiquan/4500.html' bid="ZQZR_4500" href="javascript:void(0);" plat_en_name="gcjr" invest_id="ZQZR_4500"flag = "0" platname='国诚金融' username='' investname='资金周转' investunit='月' investdeadline='3' investrate='16.80' repaytypestr='按月付息到期还本'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2014112412170344994.jpg" alt="网贷选标平台-PPmoney" title="PPmoney"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		【新手标】股票配资借款项目(2期)GZ1504151334                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">3,000,000</font> 
+                            		<!--期限：10天-->
+                            		&nbsp;<!-- 标种：惠商贷 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：到期一次性返本付息                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeA">A</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">65.28</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">81.73</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">77.61</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">92.34</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">83.21</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">78.57</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">10</font>天                            	</p>
+                            	<!--								<p class="lv-num">15<span class="small-num">.00%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 93%"></div>
+								</div>
+								<p class="press-num">当前进度：93%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		到期一次性返本付息                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">15<span class="small-num">.00<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益0.42元) -->
+                            		标种：惠商贷                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>0.42</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：惠商贷</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">0.42元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">0.42元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>93</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="107" isskip="0" inversurl='http://www.ppmoney.com/project/detail/8845' bid="8845" href="javascript:void(0);" plat_en_name="ppmoney" invest_id="8845"flag = "0" platname='PPmoney' username='' investname='【新手标】股票配资借款项目(2期)GZ1504151334' investunit='天' investdeadline='10' investrate='15.00' repaytypestr='到期一次性返本付息'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2014122314312944874.jpg" alt="网贷选标平台-融资易" title="融资易"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		广播电台广告代理商周转项目（二）                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">100,000</font> 
+                            		<!--期限：1个月-->
+                            		&nbsp;<!-- 标种：机构本息担保 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：按月还息到期还本                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeBBB">BBB</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">84.85</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">60.74</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">72.04</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">71.56</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">58.42</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">60.27</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">1.5</font>个月                            	</p>
+                            	<!--								<p class="lv-num">15<span class="small-num">.00%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 59%"></div>
+								</div>
+								<p class="press-num">当前进度：59%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		按月还息到期还本                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">15<span class="small-num"><span class="small-num">+3<span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益4.88元) -->
+                            		标种：机构本息担保                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>4.88</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：3.00%</p><p>标种：机构本息担保</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">1.88元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">3.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">4.88元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>59</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1014" isskip="0" inversurl='http://www.51rzy.com/touzi/borrowdetails/498' bid="rzyi498" href="javascript:void(0);" plat_en_name="51rzy" invest_id="rzyi498"flag = "0" platname='融资易' username='' investname='广播电台广告代理商周转项目（二）' investunit='月' investdeadline='1.5' investrate='15.00' repaytypestr='按月还息到期还本'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2014122916511334974.jpg" alt="网贷选标平台-众金在线" title="众金在线"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		众金在线E贷20150414019                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">2,000,000</font> 
+                            		<!--期限：50天-->
+                            		&nbsp;<!-- 标种：现金赎楼借款 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：一次性                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeBBB">BBB</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">69.50</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">69.92</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">61.88</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">98.35</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">67.13</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">68.16</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">50</font>天                            	</p>
+                            	<!--								<p class="lv-num">15<span class="small-num">.00%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 65%"></div>
+								</div>
+								<p class="press-num">当前进度：65%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		一次性                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">15<span class="small-num">.00<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益2.08元) -->
+                            		标种：现金赎楼借款                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>2.08</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：现金赎楼借款</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">2.08元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">2.08元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>65</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1016" isskip="0" inversurl='http://www.myzhongjin.com//Loan/Details/1932.html' bid="1932" href="javascript:void(0);" plat_en_name="myzhongjin" invest_id="1932"flag = "0" platname='众金在线' username='' investname='众金在线E贷20150414019' investunit='天' investdeadline='50' investrate='15.00' repaytypestr='一次性'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2015033116523086054.jpg" alt="网贷选标平台-小富金融" title="小富金融"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		食品进出口商流动资金贷款(优质房产抵押)(一)新                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">20,000</font> 
+                            		<!--期限：6个月-->
+                            		&nbsp;<!-- 标种：抵押流转标 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：按月付息，到期还本                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeBBB">BBB</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">83.04</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">55.59</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">86.61</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">67.42</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">57.29</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">66.14</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">6</font>个月                            	</p>
+                            	<!--								<p class="lv-num">15<span class="small-num">.00%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 43%"></div>
+								</div>
+								<p class="press-num">当前进度：43%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		按月付息，到期还本                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">15<span class="small-num">.00<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益7.50元) -->
+                            		标种：抵押流转标                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>7.50</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：抵押流转标</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">7.50元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">7.50元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>43</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1017" isskip="0" inversurl='https://www.xiaofujr.com/loan/detail/317' bid="317" href="javascript:void(0);" plat_en_name="mscredit" invest_id="317"flag = "0" platname='小富金融' username='' investname='食品进出口商流动资金贷款(优质房产抵押)(一)新' investunit='月' investdeadline='6' investrate='15.00' repaytypestr='按月付息，到期还本'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/201503251045082481.jpg" alt="网贷选标平台-小牛在线" title="小牛在线"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		安心牛D20150416-432                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">1,000,000</font> 
+                            		<!--期限：12个月-->
+                            		&nbsp;<!-- 标种：安心牛 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：一次性还清                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeA">A</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">67.13</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">80.74</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">80.81</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">78.33</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">82.38</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">77.75</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">12</font>个月                            	</p>
+                            	<!--								<p class="lv-num">14<span class="small-num">.80%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 0%"></div>
+								</div>
+								<p class="press-num">当前进度：0%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		一次性还清                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">14<span class="small-num">.80<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益14.80元) -->
+                            		标种：安心牛                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>14.80</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：安心牛</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">14.80元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">14.80元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>0</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1023" isskip="0" inversurl='http://www.xiaoniu88.com/product/detail/56755' bid="56755" href="javascript:void(0);" plat_en_name="xiaoniu88" invest_id="56755"flag = "0" platname='小牛在线' username='' investname='安心牛D20150416-432' investunit='月' investdeadline='12' investrate='14.80' repaytypestr='一次性还清'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2014112412182829478.jpg" alt="网贷选标平台-理财范" title="理财范"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		阀门企业补充流动资金借款（一期）                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">5,000,000</font> 
+                            		<!--期限：6个月-->
+                            		&nbsp;<!-- 标种：担保标 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：按月付息,到期还本                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeBBB">BBB</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">78.09</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">70.24</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">83.19</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">76.79</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">74.74</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">73.22</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">6</font>个月                            	</p>
+                            	<!--								<p class="lv-num">13<span class="small-num">.00%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 58%"></div>
+								</div>
+								<p class="press-num">当前进度：58%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		按月付息,到期还本                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">13<span class="small-num">.00<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益6.50元) -->
+                            		标种：担保标                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>6.50</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：担保标</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">6.50元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">6.50元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>58</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1006" isskip="0" inversurl='http://www.licaifan.com/project/detail/fa7cdfad1a5aaf8370ebeda47a1ff1c3' bid="project_164" href="javascript:void(0);" plat_en_name="licaifan" invest_id="project_164"flag = "0" platname='理财范' username='' investname='阀门企业补充流动资金借款（一期）' investunit='月' investdeadline='6' investrate='13.00' repaytypestr='按月付息,到期还本'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2014112621334884891.jpg" alt="网贷选标平台-投哪网" title="投哪网"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		用于购买货源                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">33,000</font> 
+                            		<!--期限：12个月-->
+                            		&nbsp;<!-- 标种：旺车贷 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：等额本息                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeA">A</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">71.34</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">87.86</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">86.39</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">93.79</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">80.36</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">81.47</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">12</font>个月                            	</p>
+                            	<!--								<p class="lv-num">13<span class="small-num">.00%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 64%"></div>
+								</div>
+								<p class="press-num">当前进度：64%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		等额本息                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">13<span class="small-num">.00<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益13.00元) -->
+                            		标种：旺车贷                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>13.00</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：旺车贷</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">13.00元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">13.00元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>64</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1010" isskip="0" inversurl='http://www.touna.cn/invest-page.html?id=235080' bid="235080" href="javascript:void(0);" plat_en_name="rxdai" invest_id="235080"flag = "0" platname='投哪网' username='' investname='用于购买货源' investunit='月' investdeadline='12' investrate='13.00' repaytypestr='等额本息'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2015012910383245614.png" alt="网贷选标平台-向上金服" title="向上金服"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		向上冲365天计划0016期                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">1,000,000</font> 
+                            		<!--期限：365天-->
+                            		&nbsp;<!-- 标种： -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：债权还款                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeBBB">BBB</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">22.36</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">92.28</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">50.20</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">45.19</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">87.63</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">81.17</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">365</font>天                            	</p>
+                            	<!--								<p class="lv-num">12<span class="small-num">.00%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 55%"></div>
+								</div>
+								<p class="press-num">当前进度：55%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		债权还款                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">12<span class="small-num">.00<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益12.17元) -->
+                            		标种：                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>12.17</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">12.17元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">12.17元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>55</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1019" isskip="0" inversurl='http://www.xiangshang360.com/plan_detail.html?plnKey=231EC17E82E395F8BD5B2BFAB5A93354' bid="231EC17E82E395F8BD5B2BFAB5A93354" href="javascript:void(0);" plat_en_name="xiangshang360" invest_id="231EC17E82E395F8BD5B2BFAB5A93354"flag = "0" platname='向上金服' username='' investname='向上冲365天计划0016期' investunit='天' investdeadline='365' investrate='12.00' repaytypestr='债权还款'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2014112414002832651.gif" alt="网贷选标平台-楚金所" title="楚金所"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		楚金融●全季盈●民生宝●年收益11%                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">500,000</font> 
+                            		<!--期限：12个月-->
+                            		&nbsp;<!-- 标种：担保标 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：每月还息到期还本                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeA">A</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">96.55</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">66.56</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">62.78</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">87.56</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">62.49</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">86.01</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">12</font>个月                            	</p>
+                            	<!--								<p class="lv-num">11<span class="small-num">.00%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 29%"></div>
+								</div>
+								<p class="press-num">当前进度：29%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		每月还息到期还本                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">11<span class="small-num">.00<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益11.00元) -->
+                            		标种：担保标                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>11.00</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：担保标</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">11.00元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">11.00元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>29</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1004" isskip="0" inversurl='http://www.chujinsuo.com/page/p2p.web.bid/tender.html?id=4028b79f4cb85297014cbcef4dcd014f' bid="4028b79f4cb85297014cbcef4dcd014f" href="javascript:void(0);" plat_en_name="chujinsuo" invest_id="4028b79f4cb85297014cbcef4dcd014f"flag = "0" platname='楚金所' username='' investname='楚金融●全季盈●民生宝●年收益11%' investunit='月' investdeadline='12' investrate='11.00' repaytypestr='每月还息到期还本'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/201503231623178777.jpg" alt="网贷选标平台-生菜金融" title="生菜金融"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		信必贷XBD-JKDB-JHDB-20150414-001                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">150,000</font> 
+                            		<!--期限：12个月-->
+                            		&nbsp;<!-- 标种：信用标 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：等额本息                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeAA">AA</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">85.14</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">55.50</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">73.89</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">81.98</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">53.08</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">70.93</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">12</font>个月                            	</p>
+                            	<!--								<p class="lv-num">10<span class="small-num">.80%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 33%"></div>
+								</div>
+								<p class="press-num">当前进度：33%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		等额本息                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">10<span class="small-num">.80<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益10.80元) -->
+                            		标种：信用标                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>10.80</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：信用标</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">10.80元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">10.80元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>33</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1022" isskip="0" inversurl='https://www.shengcaijinrong.com/bidding/detail/id/912/' bid="912" href="javascript:void(0);" plat_en_name="baobidai" invest_id="912"flag = "0" platname='生菜金融' username='' investname='信必贷XBD-JKDB-JHDB-20150414-001' investunit='月' investdeadline='12' investrate='10.80' repaytypestr='等额本息'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2014112411514845121.jpg" alt="网贷选标平台-信融财富" title="信融财富"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		140616系列转让                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">881</font> 
+                            		<!--期限：2个月-->
+                            		&nbsp;<!-- 标种：消费贷 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：等额本息                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeA">A</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">72.67</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">76.64</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">76.79</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">88.88</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">76.11</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">75.39</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">2.03</font>个月                            	</p>
+                            	<!--								<p class="lv-num">18<span class="small-num">.00%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 0%"></div>
+								</div>
+								<p class="press-num">当前进度：0%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		等额本息                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">18<span class="small-num">.00<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益3.04元) -->
+                            		标种：消费贷                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>3.04</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：消费贷</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">3.04元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">3.04元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>0</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="128" isskip="0" inversurl='https://www.xinrong.com/invest/consume_detail/14979' bid="14979" href="javascript:void(0);" plat_en_name="xinrong" invest_id="14979"flag = "0" platname='信融财富' username='' investname='140616系列转让' investunit='月' investdeadline='2.03' investrate='18.00' repaytypestr='等额本息'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2015011317532829067.jpg" alt="网贷选标平台-国诚金融" title="国诚金融"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		资金周转                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">2,008</font> 
+                            		<!--期限：3个月-->
+                            		&nbsp;<!-- 标种：债权转让 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：按月付息到期还本                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeBBB">BBB</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">63.29</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">79.17</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">86.12</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">92.04</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">77.07</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">68.65</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">3</font>个月                            	</p>
+                            	<!--								<p class="lv-num">16<span class="small-num">.80%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 0%"></div>
+								</div>
+								<p class="press-num">当前进度：0%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		按月付息到期还本                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">16<span class="small-num">.80<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益4.20元) -->
+                            		标种：债权转让                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>4.20</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：债权转让</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">4.20元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">4.20元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>0</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1002" isskip="0" inversurl='http://www.gcjr.com/zhaiquan/4501.html' bid="ZQZR_4501" href="javascript:void(0);" plat_en_name="gcjr" invest_id="ZQZR_4501"flag = "0" platname='国诚金融' username='' investname='资金周转' investunit='月' investdeadline='3' investrate='16.80' repaytypestr='按月付息到期还本'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2014112412170344994.jpg" alt="网贷选标平台-PPmoney" title="PPmoney"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		【安稳盈】小贷资产权益项目ASZ150416001                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">500,000</font> 
+                            		<!--期限：30天-->
+                            		&nbsp;<!-- 标种：理财产品再融资 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：到期一次性返本付息                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeA">A</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">65.28</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">81.73</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">77.61</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">92.34</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">83.21</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">78.57</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">30</font>天                            	</p>
+                            	<!--								<p class="lv-num">15<span class="small-num">.00%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 0%"></div>
+								</div>
+								<p class="press-num">当前进度：0%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		到期一次性返本付息                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">15<span class="small-num">.00<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益1.25元) -->
+                            		标种：理财产品再融资                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>1.25</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：理财产品再融资</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">1.25元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">1.25元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>0</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="107" isskip="0" inversurl='http://www.ppmoney.com/project/product/8852' bid="8852" href="javascript:void(0);" plat_en_name="ppmoney" invest_id="8852"flag = "0" platname='PPmoney' username='' investname='【安稳盈】小贷资产权益项目ASZ150416001' investunit='天' investdeadline='30' investrate='15.00' repaytypestr='到期一次性返本付息'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2014112411592112937.jpg" alt="网贷选标平台-前海理想金融" title="前海理想金融"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		年存宝八期·2015041601                             	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">1,800,000</font> 
+                            		<!--期限：6个月-->
+                            		&nbsp;<!-- 标种：短期本息担保标 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：每月还息到期还本                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeA">A</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">82.05</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">74.41</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">73.12</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">87.53</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">71.99</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">89.72</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">6</font>个月                            	</p>
+                            	<!--								<p class="lv-num">15<span class="small-num">.00%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 0%"></div>
+								</div>
+								<p class="press-num">当前进度：0%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		每月还息到期还本                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">15<span class="small-num">.00<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益7.50元) -->
+                            		标种：短期本息担保标                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>7.50</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：短期本息担保标</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">7.50元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">7.50元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>0</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1001" isskip="0" inversurl='http://www.id68.cn/invest/807.html' bid="807" href="javascript:void(0);" plat_en_name="id68" invest_id="807"flag = "0" platname='前海理想金融' username='' investname='年存宝八期·2015041601 ' investunit='月' investdeadline='6' investrate='15.00' repaytypestr='每月还息到期还本'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2014122314312944874.jpg" alt="网贷选标平台-融资易" title="融资易"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		知名纸张经销商周转项目（一）                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">1,500,000</font> 
+                            		<!--期限：3个月-->
+                            		&nbsp;<!-- 标种：机构本息担保 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：按月还息到期还本                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeBBB">BBB</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">84.85</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">60.74</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">72.04</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">71.56</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">58.42</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">60.27</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">3</font>个月                            	</p>
+                            	<!--								<p class="lv-num">15<span class="small-num">.00%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 15%"></div>
+								</div>
+								<p class="press-num">当前进度：15%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		按月还息到期还本                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">15<span class="small-num"><span class="small-num">+1<span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益4.75元) -->
+                            		标种：机构本息担保                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>4.75</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：1.00%</p><p>标种：机构本息担保</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">3.75元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">1.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">4.75元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>15</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1014" isskip="0" inversurl='http://www.51rzy.com/touzi/borrowdetails/510' bid="rzyi510" href="javascript:void(0);" plat_en_name="51rzy" invest_id="rzyi510"flag = "0" platname='融资易' username='' investname='知名纸张经销商周转项目（一）' investunit='月' investdeadline='3' investrate='15.00' repaytypestr='按月还息到期还本'><span>投 资</span></a></td>
+                        </tr>
+                                            	<tr >
+                            <td class="td1">
+                            	<a>
+                            		
+                            		<img src="http://www.touzhijia.com/./upload/image/bidimg/logo_small_img/2014122916511334974.jpg" alt="网贷选标平台-众金在线" title="众金在线"/>
+                            	</a>
+                            </td>
+                            <td class="td2">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;overflow:hidden;height:25px;width:189px;">
+                            		众金在线E贷20150414020                            	</p>
+                            	<p style="font-size:14px;color:#636363;">
+                            		借款金额<font color="red">1,000,000</font> 
+                            		<!--期限：50天-->
+                            		&nbsp;<!-- 标种：现金赎楼借款 -->
+                            	</p>
+                            	<!-- <p style="font-size:14px;color:#636363;">
+                            		赎回方式：一次性                            	</p> -->
+                            </td>
+                            <td class="td5">
+								<div class="td5-p">
+									<span class="grade gradeBBB">BBB</span>
+									<ul class="th-icon-ul">
+										<li><span class="sx">资本充足：</span><span class="sz">69.50</span></li>
+										<li><span class="sx">分散度：</span><span class="sz">69.92</span></li>
+										<li><span class="sx">透明度：</span><span class="sz">61.88</span></li>
+										<li><span class="sx">流动性：</span><span class="sz">98.35</span></li>
+										<li><span class="sx">运营能力：</span><span class="sz">67.13</span></li>
+										<li><span class="sx">违约成本：</span><span class="sz">68.16</span></li>
+									</ul>
+								</div>
+								
+							</td>
+                            <td class="td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">50</font>天                            	</p>
+                            	<!--								<p class="lv-num">15<span class="small-num">.00%</span></p>
+                            	<div class="progress progress-danger progress-striped ">
+								  <div class="bar" style="width: 46%"></div>
+								</div>
+								<p class="press-num">当前进度：46%</p>-->
+								<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		一次性                            	</p>
+                            </td>
+                            <td class="td-icon-div td3">
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<font color="red">15<span class="small-num">.00<span class="small-num"><span class="small-num">%</span></span></font>
+                            	</p>
+                            	<p class="thank-p" style="font-size:14px;color:#636363;">
+                            		<!-- (每100元预计收益2.08元) -->
+                            		标种：现金赎楼借款                            	</p>
+								<!-- <div class="td4-div">
+									<p>预计收益：<em>2.08</em>（每100元）<i class="th-icon"></i></p><p>投资奖励：无</p><p>标种：现金赎楼借款</p>
+									<div class="th-icon-div">
+										利率收益：</br><i class="tid-i">2.08元</i>（每投资100元）</br>
+										投资奖励：</br><i class="tid-i">0.00元</i>（每投资100元）</br>
+										预计收益：</br><i class="tid-i">2.08元</i>（每投资100元）
+									</div>
+								</div> -->
+							</td>
+							<td class="td3" width="9%">
+								 <strong style="background-position: -3024px 0px;" class="td5-m td5-m-str"><em>46</em>%</strong>
+                            </td>
+                            <td class="td6"><a class="btn btn_blue view-btn touzi" platid="1016" isskip="0" inversurl='http://www.myzhongjin.com//Loan/Details/1933.html' bid="1933" href="javascript:void(0);" plat_en_name="myzhongjin" invest_id="1933"flag = "0" platname='众金在线' username='' investname='众金在线E贷20150414020' investunit='天' investdeadline='50' investrate='15.00' repaytypestr='一次性'><span>投 资</span></a></td>
+                        </tr>
+                                            </tbody>
+                </table>
+				<div class="manu">
+				
+<!-- 总共条数 -->
+<span href='javascript:void(0);' style="border:1px solid #ccc;padding:3px;color:#005E8F;border-radius:10px;padding-left:5px;padding-right:5px;">共 214 条记录</span>
+<!-- 总共条数 -->
+<!--  上一页 -->
+	<span class="disabled"> <<</span>
+	<span class="disabled"><</span>
+<!-- 下一页 -->
+<!-- 页码 -->
+						<span class="current">1</span>
+									<a href="http://www.touzhijia.com/project/?page=2">2</a>
+						<a href="http://www.touzhijia.com/project/?page=3">3</a>
+						<a href="http://www.touzhijia.com/project/?page=4">4</a>
+						<a href="http://www.touzhijia.com/project/?page=5">5</a>
+						<a href="http://www.touzhijia.com/project/?page=6">6</a>
+						<a href="http://www.touzhijia.com/project/?page=7">7</a>
+	<!-- 页码 -->
+<!-- 下一页 -->
+	<a href="http://www.touzhijia.com/project/?page=2">></a>
+	<a href="http://www.touzhijia.com/project/?page=11">>></a>
+<!-- 下一页 -->
+
+
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+body{ position:relative; margin:0; padding:0;
+	color: #636363;
+	font: 14px/1.8 "Microsoft YaHei",Arial;
+}
+
+/*登录框*/
+#login-box{
+	height:100%;
+	width:100%;
+	display:none;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:4998;
+	}
+#login-box-new{
+	height:100%;
+	width:100%;
+	display:none;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:4998;
+	}
+/*._login_div_filter_{position:absolute;top:0px;left:0px;filter: alpha(opacity=60);-moz-opacity:.1;opacity:0.6;background-color:#777;z-index:4999; height:100%; width:100%; display:block;}
+.login-box{position:absolute;width:392px;height:402px;border:1px solid #E5E5E5;z-index:5000;background:#fff; margin:auto;}*/
+</style>
+<!-- start 登录框  -->
+<div id="login-box-new">
+		<div class="_login_div_filter_"></div>
+		<div id="_login_div_quick_new_" class="_login_div_quick_ login-box">
+			<div class="login-b-title"><a  id="close" class="login-close" href="javascript:void(0)" onclick="hideNewLoginDiv();">X</a>登录投之家帐号</div>
+			<div class="login_box">
+
+				<div class="login_1">
+					<div class="p_text">
+						<p>一站式搞定多个平台投资</p>
+						<p>还能享受投之家的<span class="c_fe7800">保障服务</span>哦！</p>
+					</div>
+					<div class="ui-form-item buttons">
+						<input type="submit" name="" value="立即登录" class="ui-button-rrd-blue ui-button-rrd-blue-large buttons_1" />
+						<input type="button" name="" value="直接去平台" class="ui-button-rrd-blue ui-button-rrd-blue-large go_pintai" url="javascript:void(0);" onClick="directGo()"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<!-- end 登录框  -->
+
+		<!-- start_认证弹窗 -->
+		<div style="display: none;" class="dialog">
+			<div class="dialog-title"><a class="dialog-close c-right" href="javascript:void(0);" onclick = "window.location.href='/user'" title="关闭本框">X</a></div>
+				<div class="dialog-con" style="text-align:center;">
+					<p>亲，完成邮箱、手机认证</p>
+					<p>投之家才能更好为您服务哦！</p>
+				</div>
+			<div class="dialog-setting" style="margin-top:40px;"><a class="dialog-close c-btn ui-button-rrd-blue ui-button-rrd-blue-large" href="javascript:void(0)" title=""  onclick = "window.location.href='/user'">去认证</a></div>
+		</div>
+
+
+		<!-- end_认证弹窗 -->
+		<link href="" type="text/css" rel="stylesheet" />
+		<link href="/static/css/jquery.mCustomScrollbar.css" type="text/css" rel="stylesheet" />
+		<style type="text/css">
+			.pie{
+				WIDTH: 320px;
+				HEIGHT: 200px;
+			}
+			.chart{
+				WIDTH: 660px;
+				HEIGHT: 200px;
+			}
+			.bar{
+				WIDTH: 310px;
+				HEIGHT: 200px;
+			}
+		</style>
+
+
+
+<script type="text/javascript">
+var win = document.getElementById('login-box');
+	function directGo(){
+		//获取url跳转
+		var url = $(".go_pintai").attr("url");
+		window.open(url);
+
+	}
+	function supports_input_placeholder(){
+	    var i = document.createElement("input");
+	    return "placeholder" in i;
+	}
+		// 让不支持placeholder的浏览器实现此属性
+	$(function(){
+		$(".buttons_1").click(function(){
+			window.location.href = '/user/signin';
+		});
+		$("#close").click(function(){
+			$(".login_box .login_2").hide();
+			$(this).parents(".login-b-title").next().css({"height":"260px"});
+		});
+	    var input_placeholder = $("input[placeholder],textarea[placeholder]");
+	    if (input_placeholder.length !== 0 && !supports_input_placeholder()) {
+	        var color_place = "#A9A9A9";
+	        $.each(input_placeholder, function(i){
+	            var isUserEnter = 0; // 是否为用户输入内容,placeholder允许用户的输入和默认内容一样
+	            var ph = $(this).attr("placeholder");
+	            var curColor = $(this).css("color");
+	            $(this).val(ph).css("color", color_place);
+	            $(this).focus(function(){
+	                if ($(this).val() == ph && !isUserEnter) $(this).val("").css("color", curColor);
+	            }).blur(function(){
+	                if ($(this).val() == "") {
+	                    $(this).val(ph).css("color", color_place);
+	                    isUserEnter = 0;
+	                }
+	            }).keyup(function(){
+	                if ($(this).val() !== ph) isUserEnter = 1;
+	            });
+	        });
+	    }
+	});
+
+var loginDiv = document.getElementById('_login_div_quick_');
+	var loginTop = loginLeft = 0;
+
+	function winCenter(){
+		var win = document.getElementById('login-box');
+		loginTop = parseInt((win.offsetHeight-loginDiv.offsetHeight)/2)+'px';
+		loginLeft = parseInt((win.offsetWidth-loginDiv.offsetWidth)/2)+'px';
+		loginDiv.style.top = loginTop;
+		loginDiv.style.left = loginLeft;
+	}
+
+	var newWin = document.getElementById('login-box-new');
+	var newLoginDiv = document.getElementById('_login_div_quick_new_');
+	var newLoginTop = newLoginLeft = 0;
+
+	function newWinCenter(){
+		newLoginTop = parseInt((newWin.offsetHeight-newLoginDiv.offsetHeight)/2)+'px';
+		newLoginLeft = parseInt((newWin.offsetWidth-newLoginDiv.offsetWidth)/2)+'px';
+		newLoginDiv.style.top = newLoginTop;
+		newLoginDiv.style.left = newLoginLeft;
+	}
+
+	window.onresize = function(){
+		winCenter();
+		newWinCenter();
+	}
+
+    //显示登录框
+ 	function showDiv(){
+		$("#login-box").show();
+		$("#_login_div_quick_").show();
+		winCenter();
+	}
+ //显示登录框
+ 	function showNewLoginDiv(platId,bid,url){
+		$("#login-box-new").show();
+ 		$("#_login_div_quick_new_").show();
+		newWinCenter();
+		$("#platIdClk").val(platId);
+		$("#bidClk").val(bid);
+		$("#bidurlClk").val(url);
+	}
+
+	//隐藏登录框
+	function hideDiv(){
+		$("#login-box").hide();
+		$("#_login_div_quick_").hide();
+	}
+
+
+	//隐藏登录框
+	function hideNewLoginDiv(){
+		$("#login-box-new").hide();
+		$("#_login_div_quick_new_").hide();
+		$(".login_1").slideDown("fast");
+	}
+
+//跳转标的所在平台
+	function openPlat(platId,bid,url){
+		if(url.indexOf("http") != 0){
+			url = "http://" + url;
+		}
+		//直接去平台连接改变
+		$(".go_pintai").attr("url",url);
+		var userId=$("#loginUserName").val();
+		if(userId=="" || userId==null){
+			showNewLoginDiv(platId,bid,url);
+			return;
+		}else{
+			var emailFlag=0;
+			var phoneFlag=0;
+			if(emailFlag!=1 || phoneFlag!=1){
+				//alert("您的邮箱或者手机号还未认证，为了更好的享受投之家服务，请先去认证!");
+				//window.location.href ="http://www.touzhijia.com:80/business/personCenter!indexUI.action";
+				$(".dialog").show();
+				$(".div_mask").show();
+				$("body").css("overflow","auto");
+				return;
+			}
+			//window.open(url,"_blank");
+			$("#platId").val(platId);
+			$("#bid").val(bid);
+			$("#bidurl").val(url);
+			document.p2pRedirectForm.submit();
+		}
+	}
+$(function(){
+		$(".touzi").live("click",function(){
+			var isskip = $(this).attr("isskip");
+			var platid = $(this).attr('platid');	// 平台id
+			var url = $(this).attr('inversurl');
+			switch(isskip){
+				case "0":	// 未登录
+					var platname = $(this).attr('plat_en_name');
+					var invest_id = $(this).attr('invest_id');
+					var bid = $(this).attr("bid");
+					//投资历史
+					var bid = $(this).attr("bid");
+					var url = 'https://www.touzhijia.com/user/platform_login//'+platname+'/'+invest_id+'/'+bid;
+					var data = {url:$(this).attr("inversurl")};
+					//var data = {plat_id:plat_id,bid:bid,plat_name:plat_name,user_name:user_name};
+					$.get(url,data,function(reg){
+					//alert(reg);
+					});
+					openPlat(platid,bid,$(this).attr("inversurl"));
+				break;
+				case "1":	// 登录
+					var verify_flag = $(this).attr('flag');
+					if (1 == verify_flag)
+					{
+						var platname = $(this).attr('plat_en_name');
+						var invest_id = $(this).attr('invest_id');
+						window.open('/user/platform_login/' + platname + '/' + invest_id);
+						//投资历史
+						var bid = $(this).attr("bid");
+						var url = 'https://www.touzhijia.com/user/platform_login//'+platname+'/'+invest_id+'/'+bid;
+						var data = {url:$(this).attr("inversurl")};
+						//var data = {plat_id:plat_id,bid:bid,plat_name:plat_name,user_name:user_name};
+						$.get(url,data,function(reg){
+						//alert(reg);
+						});
+					}
+					else
+					{
+						$('.dialog').show();
+
+					}
+
+				break;
+			}
+		});
+	});
+
+function URLEncode (clearString) {
+  var output = '';
+  var x = 0;
+  clearString = clearString.toString();
+  var regex = /(^[a-zA-Z0-9-_.]*)/;
+  while (x < clearString.length) {
+    var match = regex.exec(clearString.substr(x));
+    if (match != null && match.length > 1 && match[1] != '') {
+        output += match[1];
+      x += match[1].length;
+    } else {
+      if (clearString.substr(x, 1) == ' ') {
+        //原文在此用 clearString[x] == ' ' 做判断, 但ie不支持把字符串当作数组来访问,
+        //修改后两种浏览器都可兼容
+        output += '+';
+      }
+      else {
+        var charCode = clearString.charCodeAt(x);
+        var hexVal = charCode.toString(16);
+        output += '%' + ( hexVal.length < 2 ? '0' : '' ) + hexVal.toUpperCase();
+      }
+      x++;
+    }
+  }
+  return output;
+}
+	//点击checkbox ajax请求
+	$("input[type='checkbox']").on("click",function(){
+		nowcheckparam();
+	});
+
+	$(".th-icon").live("mouseover",function(){
+		$(this).parent("p").siblings(".th-icon-div").show();
+	});
+	$(".th-icon").live("mouseout",function(){
+		$(this).parent("p").siblings(".th-icon-div").hide();
+	});
+
+	// $(".th-icon").hover(function(){
+	// 	$(this).parent("p").siblings(".th-icon-div").show();
+	// },function(){
+	// 	$(this).parent("p").siblings(".th-icon-div").hide();
+	// });
+
+	$(function(){
+
+        //初始化选择项
+        var str_lo = window.location.href;
+        lo_arr = str_lo.split("?");
+        if(lo_arr.length > 1){ 
+            var row = lo_arr[1].split("&");
+            for(var i=0;i < row.length;i++){
+                var obj = row[i].split("=");
+                switch(obj[0]){
+                    case "grade":
+                        $(".pbox_con ul li").eq(0).children(".info_con").children("a").removeClass("btn_blue_").eq(obj[1]).addClass("btn_blue_");
+                    break;
+                    case "overall":
+                        $(".pbox_con ul li").eq(1).children(".info_con").children("a").removeClass("btn_blue_").eq(obj[1]).addClass("btn_blue_");
+                    break;
+                    case "time":
+                        $(".pbox_con ul li").eq(2).children(".info_con").children("a").removeClass("btn_blue_").eq(obj[1]).addClass("btn_blue_");
+                    break;
+                }
+            }
+        }
+   
+    function init(){
+        //初始化投资偏好
+        $(".dropBtn").on("click",function(){
+            $(this).next("ul").show();
+        });
+        	$(".grade").live("mouseover",function(){
+        		$(this).next(".th-icon-ul").show();
+        	});
+
+        	$(".grade").live("mouseout",function(){
+        		$(this).next(".th-icon-ul").hide();
+        	});
+            //悬停保障等级显示右侧
+            // $(".grade").hover(function(){
+            //     $(this).next(".th-icon-ul").show();
+            // },function(){
+            //     $(this).next(".th-icon-ul").hide();
+            // });
+            //点击保障等级,年化收益，投资期限显示状态
+            $(".info_con a").on("click",function(){
+                //给当前A标签添加class btn_blue_,当前dom元素兄弟姐级删除Class btn_blue_
+                $(this).addClass("btn_blue_").siblings("a").removeClass("btn_blue_");
+                nowcheckparam();
+            });
+            //排序点击
+            $(".px_box ul li a").on("click",function(){
+                //本身添加class属性 active 父级dom节点的兄弟级的子级节点删除active
+                $(this).addClass("active").parent("li").siblings("li").children("a").removeClass("active");
+                //存在i标签及修改i标签箭头
+                if($(this).children("i").length > 0){
+                    //判断i节点的class 为i-active 改为i-active-2,反之改回
+                    if($(this).children("i").attr("class") == "i-active"){
+                        $(this).children("i").attr("class","i-active-2");
+                        $(this).attr("sortorder","asc");
+                    }else if($(this).children("i").attr("class") == "i-active-2"){
+                        $(this).children("i").attr("class","i-active");
+                        $(this).attr("sortorder","desc");
+                    }else{
+                        //本身的dom子节点添加class属性i-active ，父级的a的父级的li的兄弟级的li的子节点的a的子节点的i的删除节点i-active
+                        $(this).children("i").addClass("i-active").parent("a").parent("li").siblings("li").children("a").children("i").removeClass("i-active");
+                    }
+                }
+                nowcheckparam();
+
+            });
+
+    }
+    init();
+
+
+});
+ $(".manu a").live("click",function(){
+ 	var page = parseInt($(this).attr("page"));
+    	nowcheckparam(page);
+    });
+	//获取当前用户选择给予传参
+		function nowcheckparam(page){
+			if(page == undefined){
+				page = 1;
+			}
+
+			var grade = $(".pbox_con ul li").eq(0).children(".info_con").children(".btn_blue_").attr("grade");
+			var overall = $(".pbox_con ul li").eq(1).children(".info_con").children(".btn_blue_").attr("overall");
+			var time = $(".pbox_con ul li").eq(2).children(".info_con").children(".btn_blue_").attr("time");
+			var sorttype = $(".px_box ul li").children(".active").attr("sorttype");
+			var sortorder = $(".px_box ul li").children(".active").attr("sortorder");
+			var repayitem = '';
+			var from = '';
+			// $($(".pbox_con ul li").eq(3)).children('.info_con').children("span").each(function(i){
+			// 	var obj = $($($(".pbox_con ul li").eq(3)).children('.info_con').children("span").eq(i)).children("label").children("input");
+			// 	if(obj.prop("checked") == true){
+			// 		repayitem += obj.attr("repayitem")+",";
+			// 	}
+
+			// });
+
+			$($(".pbox_con ul li").eq(3)).children('.info_con').children("span").each(function(i){
+				var obj1 = $($($(".pbox_con ul li").eq(3)).children('.info_con').children("span").eq(i)).children("label").children("input");
+				if(obj1.prop("checked") == true){
+					from += obj1.attr("from")+",";
+				}
+			});
+			$("#other_data span label input").each(function(i){
+				if($(this).prop("checked") == true){
+					from += $(this).attr("from")+",";
+				}
+			});
+			var url = 'http://www.touzhijia.com/project/lists/';
+			var data = {grade:grade,overall:overall,time:time,sorttype:sorttype,sortorder:sortorder,repayitem:repayitem,from:from,page:page};
+			$.get(url,data,function(reg){
+				//数据解析
+				var obj = eval("("+reg+")");
+				//清空数据
+				$(".tab_sty2").html("");
+				var str = '';
+				//修改搜索投标个数
+				$(".px_num").children("em").html(obj['total']);
+
+
+				for(var i=0;i < obj['rows'].length; i++){
+					var now_go = obj['rows'][i]['annual_interest_rate'].split(".");
+					var new_now_go ='';
+					var rewardstr='';
+					var recommend_html_str='';
+                    if(parseFloat(obj['rows'][i]['rewardstr']) < 0.00001){
+                        rewardstr = '';
+                    }else{
+                        var temp = Number(obj['rows'][i]['rewardstr']).toFixed(2);
+                        rewardstr = temp.indexOf('.00') == -1 ? temp : parseInt(temp);
+                    }
+					if(now_go[1].length > 0){
+                        if(now_go[1]==0) {//后面两位为0
+                            if(rewardstr) {
+                                new_now_go = '+'+rewardstr;
+                            }else{
+                                new_now_go = '.00';
+                            }
+                        }else{
+                            if(rewardstr) {
+                                new_now_go = '.'+parseInt(now_go[1])+'+'+rewardstr;
+                            }else{
+                                new_now_go = '.'+now_go[1];
+                            }
+                        }
+					}
+					var user_status = "0";
+				var isskip = '';
+					if(user_status > 0 ){
+						isskip = 1;
+					}else{
+						isskip = 0;
+					}
+
+					var username = "";
+					var plat_en_name = '';
+					var invest_id = '';
+					var platname = '';
+					if (username.length > 0)
+					{
+						plat_en_name = obj['rows'][i]['plat_en_name'];
+						invest_id = obj['rows'][i]['invest_id'];
+						platname = obj['rows'][i]['plat_cn_name'];
+					}
+
+					var flag = 0;
+					var moth_str = '';
+					if(obj['rows'][i]['invest_deadline_unit'] == '天'){
+						moth_str = '天';
+					}else{
+						moth_str = '个月';
+					}
+						str+='<tr><td class="td1"><a><img src="'+obj['rows'][i]['plat_logo_small_url'].replace('./','/')+'" alt=""/></a></td><td class="td2"><p class="thank-p" style="font-size:14px;color:#636363;height:25px;overflow:hidden;width:189px;">'+obj['rows'][i]['invest_name']+'</p><p style="font-size:14px;color:#636363;">借款金额<font color="red">'+obj['rows'][i]['invest_amountstr']+'</font></p></td><td class="td5"><div class="td5-p"><span class="grade grade'+obj['rows'][i]['credit_level']+'">'+obj['rows'][i]['credit_level']+'</span><ul class="th-icon-ul"><li><span class="sx">资本充足：</span><span class="sz">'+obj['rows'][i]['levers']+'</span></li><li><span class="sx">分散度：</span><span class="sz">'+obj['rows'][i]['fensandu']+'</span></li><li><span class="sx">透明度：</span><span class="sz">'+obj['rows'][i]['toumingdu']+'</span></li><li><span class="sx">流动性：</span><span class="sz">'+obj['rows'][i]['ldx']+'</span></li><li><span class="sx">运营能力：</span><span class="sz">'+obj['rows'][i]['yynl']+'</span></li><li><span class="sx">违约成本：</span><span class="sz">'+obj['rows'][i]['wycb']+'</span></li></ul></div></td><td class="td3"><p class="thank-p" style="font-size:14px;color:#636363;"><font color="red">'+obj['rows'][i]['invest_deadline']+'</font>'+moth_str+'</p><p class="thank-p" style="font-size:14px;color:#636363;">'+obj['rows'][i]['repaytypestr']+'</p></td><td class="td-icon-div td3"><p class="thank-p" style="font-size:14px;color:#636363;"><font color="red">'+now_go[0]+'<span class="small-num">'+new_now_go+'%</span></font></p><p class="thank-p" style="font-size:14px;color:#636363;">标种: '+obj['rows'][i]['type']+'</p></td><td class="td3" width="9%"><strong style="background-position: 0px 0px;" class="td5-m td5-m-str"><em>'+obj['rows'][i]['invest_process']+'</em>%</strong></td><td class="td6"><a class="btn btn_blue view-btn touzi" platid="'+obj['rows'][i]['plat_id']+'" bid="'+obj['rows'][i]['invest_id']+'" isskip="'+isskip+'" inversurl="'+obj['rows'][i]['invest_url']+'"  href="javascript:void(0);" username="" platname="'+obj['rows'][i]['plat_cn_name']+'" plat_en_name = "' + plat_en_name + '" invest_id = "' + invest_id + '"  flag = "' + flag + '" platname = "' + platname + '" username='+username+' investname="'+obj['rows'][i]['invest_name']+'" investunit="'+obj['rows'][i]['invest_deadline_unit']+'" investdeadline="'+obj['rows'][i]['invest_deadline']+'" investrate="'+obj['rows'][i]['annual_interest_rate']+'" repaytypestr="'+obj['rows'][i]['repaytypestr']+'"><span>投 资</span></a></td></tr>';
+				}
+				if(parseInt(obj['total']) == 0)
+				{
+					str = '<tr><td style="text-align:center;" colspan="6">对不起,暂未搜索到数据!</td></tr>';
+				}
+
+				$(".tab_sty2").html(str);
+				$(".td5-m-str").each(function(index, el) {
+					var $val=$(".td5-m-str em").get(index).innerHTML;
+					var $key=-54*$val;
+					$index=$(this).index();
+					// console.log($val)
+					if($val>=0){
+						$(this).eq($index).css({"background-position":""+$key+"px 0"})
+					}
+				});
+
+				var total = obj['total'];
+				var all_page = Math.ceil(total/20);
+					if(parseInt(page) < 1){
+						page=1;
+					}else{
+						page = page;
+					}
+
+					if(page > (parseInt(all_page)-1)){
+						page = all_page;
+					}
+					var page_str = '';
+					$(".manu").html("");
+					page_str +='<span href="javascript:void(0);" style="border:1px solid #ccc;padding:3px;color:#005E8F;border-radius:10px;padding-left:5px;padding-right:5px;">共 '+total+' 条记录</span>';
+					if(page == 1){
+						page_str += '<span class="disabled"><<</span>';
+						page_str += '<span class="disabled"><</span>';
+					}else{
+						page_str += '<a href="javascript:void(0);" page='+1+'"><<</a>';
+						page_str += '<a href="javascript:void(0);" page='+parseInt(parseInt(page)-1)+'"><</a>';
+					}
+					if(all_page > 8){
+							if(page < 4){
+								for (var i=1; i < 8; i++) {
+									if(i == (parseInt(page))){
+										page_str += '<span class="current">'+i+'</span>';
+									}else{
+										page_str += '<a href="javascript:void(0);" page='+(parseInt(i))+'>'+parseInt(i)+'</a>';
+
+									}
+								}
+							}else{
+								if(page <= (parseInt(all_page)-4)){
+								page_str += '<a href="javascript:void(0);" page='+(parseInt(page)-3)+'>'+(parseInt(page)-3)+'</a>';
+								page_str += '<a href="javascript:void(0);" page='+(parseInt(page)-2)+'>'+(parseInt(page)-2)+'</a>';
+								page_str += '<a href="javascript:void(0);" page='+(parseInt(page)-1)+'>'+(parseInt(page)-1)+'</a>';
+								page_str += '<span class="current">'+(parseInt(page))+'</span>';
+								page_str += '<a href="javascript:void(0);" page='+(parseInt(page)+1)+'>'+(parseInt(page)+1)+'</a>';
+								page_str += '<a href="javascript:void(0);" page='+(parseInt(page)+2)+'>'+(parseInt(page)+2)+'</a>';
+								page_str += '<a href="javascript:void(0);" page='+(parseInt(page)+3)+'>'+(parseInt(page)+3)+'</a>';
+							}else{
+
+								for(var i=page-3;i <= all_page;i++){
+									if(parseInt(page) == parseInt(i)){
+
+										page_str += '<span class="current">'+i+'</span>';
+									}else{
+										page_str += '<a href="javascript:void(0);" page='+(parseInt(i))+'>'+i+'</a>';
+									}
+								}
+							}
+						}
+					}else{
+							for(var i=1; i <= all_page; i++){
+								if(i == (page)){
+									page_str += '<span class="current">'+parseInt(i)+'</span>';
+								}else{
+									page_str += '<a href="javascript:void(0);" page="'+(+parseInt(i))+'">'+i+'</a>';
+							}
+						}
+					}
+					if(page == all_page){
+						page_str += '<span class="disabled">></span>';
+						page_str += '<span class="disabled">>></span>';
+					}else{
+						page_str += '<a href="javascript:void(0);" page='+(parseInt(page)+1)+'>></a>';
+						page_str += '<a href="javascript:void(0);" page='+(parseInt(all_page))+'>>></a>';
+					}
+
+					if (parseInt(total) < 1)
+					{
+						var str_td = "<tr><td style='text-align:center;'' colspan='6'>对不起,暂未搜索到数据!</td></tr>";
+						$(".tab_sty1 tbody").html(str_td);
+					}else{
+						$(".manu").html(page_str);
+					}
+			});
+		}
+
+</script>
+
+<!--投资百分比-->
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".td5-m-str").each(function(index, el) {
+			var $val=$(".td5-m-str em").get(index).innerHTML;
+			var $key=-54*$val;
+			$index=$(this).index();
+			// console.log($val)
+			if($val>=0){
+				$(this).eq($index).css({"background-position":""+$key+"px 0"})
+			}
+		});
+		
+	});
+</script>
+<div class="footer_main">
+	<div class="footer">
+		<div class="navbox">
+			<div class="dbox1 fr">
+				<img src="/static/images/common/weixin.jpg" />
+				<p class="tit"><i></i>服务热线</p>
+				<p class="tel">400 883 1803</p>
+				<p>(周一至周五 9:00-17:30)</p>
+                                <p><a class="awb" href="javascript:;"></a><a class="awx" target="_blank" href="http://weibo.com/touzhijia" rel="nofollow"></a></p>
+			</div>
+		<ul>
+				<li><a href="http://www.touzhijia.com/about/company.html" title="关于我们">关于我们</a></li>
+				<li><a href="http://www.touzhijia.com/about/consultant.html" title="专家顾问">专家顾问</a></li>
+				<li><a href="http://www.touzhijia.com/about/team.html" title="媒体报道">团队介绍</a></li>
+				<li><a href="http://www.touzhijia.com/about/contactway.html" title="联系我们">联系我们</a></li>
+			</ul>
+			<i class="i"></i>
+			<ul>
+				<li><a href="http://www.touzhijia.com/about/grade.html" title="安全评级">安全评级</a></li>
+				<li><a href="http://www.touzhijia.com/topic/t1110.html" title="三重保障">三重保障</a></li>
+				<li><a href="http://www.touzhijia.com/about/required.html" title="风控管理">使用必读</a></li>
+				<li><a href="http://www.touzhijia.com/about/plan.html" title="T盾保障">T盾保障</a></li>
+			</ul>
+			<i class="i"></i>
+			<ul>
+				<li><a href="http://www.touzhijia.com/help.html" title="帮助中心">帮助中心</a></li>
+				<li><a href="http://www.touzhijia.com/about/media.html" title="媒体报道">媒体报道</a></li>
+				<li><a href="http://www.touzhijia.com/about/sitemap.html" title="网站地图">网站地图</a></li>
+                <li><a href="http://www.touzhijia.com/platform/" title="P2P平台 ">P2P平台</a></li>
+			</ul>
+			<i class="i"></i>
+			<ul>
+				<li><a href="http://www.touzhijia.com/about/join.html" title="使用必读">加入我们</a></li>
+				<li><a href="http://www.touzhijia.com/news/1-1/" title="投资攻略">投资攻略</a></li>
+				<li><a href="http://www.touzhijia.com/news/2-1/" title="行业新闻">行业新闻</a></li>
+				<li><a href="http://www.touzhijia.com/news/3-1/" title="网站公告">网站公告</a></li>
+			</ul>
+		</div>
+    </div>
+</div>
+<div class="footer_bg">
+	<div class="footer">
+    	<div class="navbox">
+    		<div class="fl">
+					 <p>版权所有：上海盈灿商务咨询有限公司 沪ICP备12033003号-2</p>
+                <p>Copyright © 2014 www.touzhijia.com . All Rights Reserved.</p>
+            </div>
+    		<div class="fr">
+                                <a href="http://www.anquan.org/authenticate/cert/?site=www.touzhijia.com&amp;at=realname" target="_blank" rel="nofollow">
+					<img class="img0" src="/static/images/common/gwyz-1.png" />
+					<img class="img1" src="/static/images/common/gwyz.png" />
+                                </a>&#12288;&#12288;&#12288;
+                                <a href="http://pinggu.zx110.org/checkWebsite.do" target="_blank" rel="nofollow">
+					<img class="img0" src="/static/images/common/zxw-1.jpg" />
+					<img class="img1" src="/static/images/common/zxw.jpg" />
+                                </a>&#12288;&#12288;&#12288;
+                                <a href="http://webscan.360.cn/index/checkwebsite?url=www.touzhijia.com" target="_blank" rel="nofollow">
+					<img class="img0" src="/static/images/common/360-1.png" />
+					<img class="img1" src="/static/images/common/360.png" />
+                                </a>
+                        </div>
+    	</div>
+    </div>
+</div>
+<div id="a_calc" class="alertbox">
+	<div class="boxbg"></div>
+	<div class="boxbody">
+		<div class="boxheight">
+			<div class="boxtop">
+				<a class="boxclose" href="javascript:;" onclick="alertBox.hide()"></a>
+			</div>
+			<div class="boxcen ovf">
+    		<div class="layer div_calc">
+	    		<div class="tit t2"><h2>计算器</h2></div>
+    			<div class="counter">
+	    			<ul>
+                      <li class="inls_til">投资金额：</li>
+                      <li class="inls_con">
+                      <input type="text" placeholder="" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" onkeyup="value=value.replace(/[^\d]/g,'') " id="amount" class="txt">&nbsp;元
+                      </li>
+                      <li class="inls_til">投入时长：</li>
+                      <li class="inls_con">
+                      <input type="text" placeholder="" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" onkeyup="value=value.replace(/[^\d]/g,'') " id="deadline" class="txt" style="width:117px;">&nbsp;<span style="vertical-align: middle;"><input type="radio" name="time" value="1" checked="checked" style="margin-top:4px;"/>月 <input type="radio" name="time" value="2" style="margin-top:4px;"/>日</span>
+                      </li>
+                      <li class="inls_til">年化利率：</li>
+                      <li class="inls_con">
+                      <input type="text" placeholder="" onbeforepaste="value=/^\d*(\d|(\.\d*))$/.test(value)?value:''" onkeyup="value=/^\d*(\d|(\.\d*))$/.test(value)?value:''" id="interestRate" class="txt">&nbsp;％
+                      </li>
+                      <li class="inls_til">奖励比率：</li>
+                      <li class="inls_con">
+                      <input type="text" placeholder="" onbeforepaste="value=/^\d*(\d|(\.\d*))$/.test(value)?value:''" onkeyup="value=/^\d*(\d|(\.\d*))$/.test(value)?value:''" id="creditRate" class="txt">&nbsp;％
+                      </li>
+                      <li class="inls_til">赎回方式：</li>
+                      <li class="inls_con">
+                      <select id="rePayWaySelect1" class="sel" style="width:190px">
+                      	  <option value="1">到期还本息</option>
+		                  <option value="2">按月还本息</option>
+		                  <option value="3">按季还本息</option>
+                      </select>
+                      <select style="display:none;" id="rePayWaySelect2" class="sel">
+                      		 <option value="1">到期还本息</option>
+                      </select>
+                      </li>
+                  </ul>
+                  <div class="count_box_btn">
+					  <a href="javascript:void(0);" id="calcBtn" onclick=";" class="btn_count" title="计算">计算</a>
+					  <a href="javascript:void(0);" id="cancelCalcBtn" onclick="" class="btn_cencel" title="重置">重置</a>
+				  </div>
+				  <div class="xi" style="font-size:12px;"><span >本息合计：<i id="sumAmount">0</i> 元</span><span >利息收入：<i id="interest">0</i> 元</span></div>
+	    		</div>
+    		</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+        $(document).ready(function(){
+
+
+		$('#calcBtn').click(function(){
+			$("#sumAmount").text("0");
+			$("#interest").text("0");
+		    if($("#amount").val()==""){
+		    	alert("请输入投资金额!");
+		    	return false;
+		    }
+		    if($("#deadline").val()==""){
+		    	alert("请输入投入时长!");
+		    	return false;
+		    }
+		    if($("#interestRate").val()==""){
+		    	alert("请输入年化利率!");
+		    	return false;
+		    }
+		    if($("#repaymentType").val()==""){
+		    	alert("请选择还款方式!");
+		    	return false;
+		    }
+			var amount = parseInt($("#amount").val()); //金额
+			var deadline = parseInt($("#deadline").val()); //月
+			var interestRate = $("#interestRate").val();//利率
+			var creditRate = $("#creditRate").val();//奖励
+			var repaymentType = $("#rePayWaySelect1").val();
+			if($("#amount").val() == ""){
+				amount = 0;
+			}
+
+			if(creditRate==""){
+				creditRate=0;
+			}
+			if(parseInt(creditRate)>=100){
+				alert("奖励比率不能超过100!");
+				$("#creditRate").val("");
+		    	return false;
+			}
+			//creditRate=parseInt(creditRate);
+		    var result="";
+		    var unitVal=$('input:radio[name="time"]:checked').val();
+		    if(unitVal=="1"){
+				if(repaymentType=='1' && $("#interestRate").val()!="" && $("#deadline").val()!=""){
+					result=calcDQHBX(amount,deadline,interestRate,creditRate);
+				}else if(repaymentType=="2" && $("#interestRate").val()!="" && $("#deadline").val()!=""){
+					result=calcAYHBX(amount,deadline,interestRate,creditRate);
+				}else if(repaymentType=="3" && $("#interestRate").val()!="" && $("#deadline").val()!=""){
+					if(deadline%3>0){
+						alert("当还款方式为【按季还本息时】投入时长必须为3的整数倍!");
+						return false;
+					}
+					result=calcAJHBX(amount,deadline,interestRate,creditRate);
+				}
+			}else{
+				result=calcDQHBXR(amount,deadline,interestRate,creditRate);
+			}
+			$("#sumAmount").text(result.toFixed(2));
+			$("#interest").text((result-amount).toFixed(2));
+		});
+
+		$('#cancelCalcBtn').click(function(){
+			$("#amount").val('');
+			$("#deadline").val('');
+			$("#interestRate").val('');
+			$("#creditRate").val('');
+			$("#repaymentType").val("0");
+			$("#sumAmount").text('0');
+			$("#interest").text('0');
+		});
+
+		// 初始化，以投之家平均利率作为初始值
+//		$('#amount').val($('#amount').attr('placeholder'));
+//		$('#deadline').val($('#deadline').attr('placeholder'));
+//		$('#interestRate').val($('#interestRate').attr('placeholder'));
+//		$('#creditRate').val($('#creditRate').attr('placeholder'));
+//		$('#calcBtn').click();
+
+		// 清空，但保留灰化提示，为用户进一步输入做准备
+//		$("#amount").val('');
+//		$("#deadline").val('');
+//		$("#interestRate").val('');
+//		$("#creditRate").val('');
+
+	});
+	//到期还本息
+	function calcDQHBX(amount,time,rate,bonus){
+		var result=amount*(1+(rate/100)*(time/12))+amount*(bonus/100);
+		return result;
+	}
+	//按月还本息
+	function calcAYHBX(amount,time,rate,bonus){
+	    //月利率
+	    rate=rate/(100*12);
+	    var result=(amount*rate*Math.pow((1+rate),time))/(Math.pow((1+rate),time)-1);
+		result=result*time+amount*(bonus/100);
+		return result;
+	}
+	//按季还本息
+	function calcAJHBX(amount,time,rate,bonus){
+		var size=time/3;
+		var result=0;
+		//月利率
+	    rate=rate/(100*12);
+		for(var i=0;i<size;i++){
+			//每一轮的前两个月还款利息
+			var tmpA=amount*(1-((3*i)/time))*rate*2;
+			//每一轮的最后一个月还款金
+			var tmpB=amount*(1-((3*i)/time))*rate+(3/time)*amount;
+			result+=tmpA+tmpB;
+		}
+		result+=amount*(bonus/100);
+		return result;
+	}
+	//到期还本息(日)
+	function calcDQHBXR(amount,time,rate,bonus){
+		var result=amount*(1+(rate/100)*(time/365))+amount*(bonus/100);
+		return result;
+	}
+</script>
+<div id="top">
+    <a class="a_qq" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=ca98975e0a87c20387eddace9aa8a92e8327464b2b4d650a1a993cb4c6842161" rel="nofollow"></a>
+    <a class="a_calc" href="javascript:;" onclick="alertBox.show('a_calc')"></a>
+    <a class="a_top" href="#"></a>
+</div>
+<script type="text/javascript">
+$(function(){
+        $("input[type=password]").val('');
+        function supports_input_placeholder(){  
+                var i = document.createElement("input");  
+                return "placeholder" in i;
+            }
+        var input_placeholder = $("input[placeholder],textarea[placeholder]"); 
+        if (input_placeholder.length !== 0 && !supports_input_placeholder()) { 
+            var color_place = "#A9A9A9";   
+            $.each(input_placeholder, function(i){  
+                var isUserEnter = 0; // 是否为用户输入内容,placeholder允许用户的输入和默认内容一样  
+                var ph = $(this).attr("placeholder");  
+                var curColor = $(this).css("color");  
+                $(this).val(ph).css("color", color_place); 
+                $(this).focus(function(){  
+                    if ($(this).val() == ph && !isUserEnter) $(this).val("").css("color", curColor);  
+                }).blur(function(){  
+                    if ($(this).val() == "") {  
+                        $(this).val(ph).css("color", color_place);  
+                        isUserEnter = 0;  
+                    }  
+                }).keyup(function(){  
+                    if ($(this).val() !== ph) isUserEnter = 1;  
+                });  
+            });  
+        }  
+});
+
+/*#top*/
+window.onscroll = function(){
+        var atop = $("#top .a_top");
+        if(window.scrollY>200){atop.css("display","block").slideDown(300);}
+        else{atop.slideUp(300);}
+};
+/*弹出框*/
+var alertBox = {
+	"show" : function(id){
+			var o = $("#"+id);
+			o.show();
+			o.find(".boxbody").height(o.find(".boxheight").height());
+		},	
+	"hide" : function(){$(".alertbox").hide();}
+};
+/* 倒计时 */
+$(function(){
+        $(".second_timing").each(function(i){
+                var secObj = $(this);
+                var sec = parseInt(secObj.attr('exp_sec'));
+                var t;
+                t = setInterval(function(){
+                        --sec;
+                        if(sec==0){
+                                clearInterval(t);
+                                if(secObj.attr('did')){
+                                        $("#btn_"+secObj.attr('did')).html("立即购买").addClass('a1');
+                                        $("#progress_"+secObj.attr('did')).html('<em>0</em>%');
+                                }else{
+                                    secObj.html('立即购买');
+                                }
+                        }else{
+                            secObj.html(timing_str(sec));
+                        }
+                }, 1000);
+        });
+});
+function timing_str(exp_sec){
+    var hour = 0, min = 0, sec = 0, timing_str = '';
+    hour = parseInt(exp_sec / 3600);
+    timing_str += (hour ? ['<b>',hour,'</b>时'] : []).join('');
+    min = parseInt((exp_sec % 3600) / 60);
+    timing_str += (min ? ['<b>',min,'</b>分'] : []).join('');
+    sec = exp_sec % 60;
+    timing_str += ['<b>',sec,'</b>秒'].join('');
+    return timing_str;
+}
+</script>
+<span style="display:none">
+	    <script type="text/javascript">
+	    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F2b3e83e93e7867e14d6725c042dcc5ae' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	  	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : "  http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5870923'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/stat.php%3Fid%3D5870923%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+		<!-- Piwik -->
+		<script type="text/javascript">
+		  var _paq = _paq || [];
+		  _paq.push(["setDomains", ["*.touzhijia.com"]]);
+		  _paq.push(['trackPageView']);
+		  _paq.push(['enableLinkTracking']);
+		  (function() {
+		    var u=(("https:" == document.location.protocol) ? "http" : "http") + "://piwik.wangdaizhijia.com/";
+		    _paq.push(['setTrackerUrl', u+'piwik.php']);
+		    _paq.push(['setSiteId', 7]);
+		    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+		    g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+		  })();
+		</script>
+		<noscript><p><img src="http://piwik.wangdaizhijia.com/piwik.php?idsite=7" style="border:0;" alt="投之家流量统计" title="投之家流量统计"/></p></noscript>
+		<!-- End Piwik Code -->
+    </span>
+</body>
+</html>

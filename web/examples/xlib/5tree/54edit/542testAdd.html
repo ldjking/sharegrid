@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/bootstrap/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css">
+<link rel="stylesheet" type="text/css" href="../../../../src/css/29tree.css">
+</head>
+
+<body>
+<div class="container" style="background-color:#999999; height:100%">
+<div id="c1" style="background-color:#fff; width:240px; height:100%; float:right"> </div>
+</div>
+<script type="text/javascript" src="../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../release/ui.js"></script> 
+<script type="text/javascript" src="../../../../release/lovdef.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/51tree.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/52cmd.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/53content.js"></script>
+<script type="text/javascript" src="../../../../src/5tree/54data.js"></script>
+<script type="text/javascript" src="../../../../src/5tree/55edit.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/56scroll.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/58ui.js"></script> 
+<script type="text/javascript">	
+	window.onload=init;
+	function init(){/*需要有一些自定义动画效果*/	
+		var dom=$("#c1");
+		var cfg={clickHandler:fn_tree_click,dblHandler:fn_tree_dbl,exclusive:1,openAll:1,
+				formatType:1,idAttr:"",pidAttr:"",nameAttr:"name",showCmd:1};
+		/*排他设置exclusive  formatFlag是否需要格式化数据	idAttr主键	pidAttr父键	nameAttr名称属性*/
+		cfg.data=[
+				{id:11,name:"本地磁盘C盘",pid:1,type:"folder"},
+				{id:12,name:"本地磁盘D盘",pid:1,type:"folder"},
+				{id:13,name:"本地磁盘E盘",pid:1,type:"folder"},
+				{id:14,name:"本地磁盘F盘",pid:1,type:"file"},
+				
+				
+				{id:21,name:"我的文档",pid:11,type:"folder"},
+				{id:22,name:"Windows",pid:11,type:"folder"},
+				{id:23,name:"dev",pid:12,type:"folder"},
+				{id:24,name:"devdoc",pid:12,type:"folder"},
+				{id:25,name:"devlib",pid:12,type:"folder"},
+				{id:26,name:"Oracle",pid:12,type:"folder"},
+				{id:27,name:"Program Files",pid:12,type:"folder"},
+				{id:31,name:"7-zip",pid:27,type:"folder"},
+				{id:32,name:"360",pid:27,type:"folder"},
+				{id:33,name:"Microsoft Offic",pid:27,type:"folder"},
+				{id:43,name:"Document themes 14",pid:33,type:"folder"},
+				{id:45,name:"Office 14",pid:33,type:"folder"},
+
+				{id:53,name:"Theme colors",pid:43,type:"folder"},
+				{id:63,name:"Adjacency.xml",pid:53,type:"folder"},
+				{id:54,name:"Groove",pid:45,type:"folder"},
+				{id:64,name:"Certificates",pid:54,type:"folder"},
+				{id:74,name:"groove.net",pid:64,type:"folder"},
+				{id:84,name:"Servers",pid:74,type:"folder"},
+				{id:94,name:"Management.cer",pid:84,type:"file"},
+				];
+		
+		cfg.cmds=[	{cmd:"nodeOpen"},
+					{cmd:"nodeClose"},
+					{cmd:"nodeRefresh"},
+					{cmd:"nodeAdd"},
+					{cmd:"nodeEdit"},
+					{cmd:"nodeRm"}
+				 ];
+		cfg.map={};/*表单的配置，包含各个属性  相当于是目录的管理*/
+		cfg.attrs=[		{attr:"id",type:"num",name:"主键",hide:1},/*树的编辑器映射  应该说是比较复杂的*/
+				  		{attr:"name",type:"str",name:"名称",hide:0},
+				 		{attr:"type",type:"str",name:"类型",hide:0,defaultVal:"file"},
+				 		{attr:"pid",type:"num",inherit:"id",name:"父键",hide:1}/*inherit继承父节点的值*/
+					];/*如果想要新增和修改节点  需要配置*/
+		genTree(dom,cfg);
+	}
+	
+	function fn_tree_click(sender,evt){
+		//out("tree fn");
+	}
+	function fn_tree_dbl(sender,evt){
+		//alert("tree fn dbl");
+	}
+</script>
+</body>
+</html>

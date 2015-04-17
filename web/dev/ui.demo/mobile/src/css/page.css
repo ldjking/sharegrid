@@ -1,0 +1,385 @@
+.chart .top{
+	background-color: #298AB3;
+	color: #FFF;
+	overflow: hidden;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#0c3856),to(#2b8eb8) );
+	background-image: -webkit-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: -moz-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: -ms-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: -o-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: linear-gradient(top, #0c3856, #2b8eb8);
+	text-align: center;
+	position: relative;
+}
+.chart .down  table{
+	width: 100%;
+	height: 100%;
+
+}
+.chart .down td {
+	text-align: center;
+	vertical-align: middle;
+}
+.chart .down td div{
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+
+}
+.chart .title{
+	padding-left: 14px;
+	background-image: url(../../images/index/logo.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size: 60px 60px;
+	font-size: 20px;
+}
+.chart .back{
+	background-image: url(../../images/list/back.png);
+	background-repeat: no-repeat;
+	float: left;
+	width: 90px;
+	height: 40px;
+	position: absolute;
+	left: 0px;
+	top: 12px;
+	background-size: 80px 40px;
+}
+.list .top{
+	background-color: #298AB3;
+	color: #FFF;
+	overflow: hidden;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#0c3856),to(#2b8eb8) );
+	background-image: -webkit-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: -moz-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: -ms-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: -o-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: linear-gradient(top, #0c3856, #2b8eb8);
+	text-align: center;
+	position: relative;
+}
+.list .title{
+	padding-left: 14px;
+	background-image: url(../../images/index/logo.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size: 60px 60px;
+	font-size: 20px;
+}
+.list .back{
+	background-image: url(../../images/list/back.png);
+	background-repeat: no-repeat;
+	float: left;
+	width: 90px;
+	height: 40px;
+	position: absolute;
+	left: 0px;
+	top: 12px;
+	background-size: 80px 40px;
+}
+.list .down table{
+	height: 50px;
+	line-height: 24px;
+	padding-right: 12px;
+	padding-top: 12px;
+	padding-bottom: 5px;
+	width: 100%;
+	padding-left: 3px;
+	background-color: #f2f2f2;
+	background-image: url(../../images/list/list_border.png);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: 100% 1px;
+}
+.list .down table tr1:first-child td{
+	border-bottom: 1px solid #009;
+}
+.list .down table td{
+}
+.list .down table:hover{
+}
+.list .down div p{
+	clear: both;
+
+
+}
+.list .down .when{
+	color: #1f1ff1;
+	text-align: center;
+	font-size: 13px;
+}
+.list .down .type{
+	text-align: center;
+
+
+}
+.list .down .state{
+	text-align: right;
+	color: #363636;
+}
+.list .down .person{
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: top;
+	width: 80px;
+	color: #113A4D;
+	padding-left:4px;
+}
+.list .down .persons{
+	text-align: left;
+	color: #363636;
+	font-size: 13px;
+}
+.list .down .dep{
+	text-align: center;
+	font-size: 13px;
+
+}
+.app .top{
+	background-color: #298AB3;
+	color: #FFF;
+	overflow: hidden;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#0c3856),to(#2b8eb8) );
+	background-image: -webkit-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: -moz-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: -ms-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: -o-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: linear-gradient(top, #0c3856, #2b8eb8);
+}
+.app .title{
+	padding-left: 14px;
+	background-image: url(../../images/index/logo.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size: 60px 60px;
+	font-size: 20px;
+}
+.app .welcome{
+
+}
+.app_content {
+	width: 90%;
+	height: 90%;
+	vertical-align: middle;
+	text-align: center;
+	margin-top: 5%;
+	margin-left: 5%;
+}
+.app_content td{
+	text-align: center;
+}
+.app_content img{
+	width: 70px;
+	height: 70px;
+	margin: 5px;
+}
+.app_content div{
+	height: 25px;
+	line-height: 25px;
+	font-size: 14px;
+	padding-top: 75px;
+	background-repeat: no-repeat;
+	background-position: center 5px;
+	background-size: 70px 70px;
+	border:1px solid #fff;
+	width: 100px;
+	border-radius:9px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.app_content div:hover{
+	background-color: #dedede;
+	border:1px solid #ccc;
+}
+#app_1 {
+	background-image: url(../../images/appIcon/piao1.png);
+}
+#app_2 {
+	background-image: url(../../images/appIcon/rizhi2.png);
+}
+#app_3 {
+	background-image: url(../../images/appIcon/dianliang.png);
+}
+#app_4 {
+	background-image: url(../../images/appIcon/org.png);
+}
+#app_5 {
+	background-image: url(../../images/appIcon/person.png);
+}
+#app_6 {
+	background-image: url(../../images/appIcon/shebei.png);
+}
+#app_7 {
+	background-image: url(../../images/appIcon/engine.png);
+}
+#app_8 {
+	background-image: url(../../images/appIcon/engine_test.png);
+}
+#app_9 {
+	background-image: url(../../images/appIcon/dw.png);
+}
+.cover {
+	vertical-align: middle;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+
+.cover td{
+	text-align: center;
+}
+.cover img{
+
+}
+.login .top{
+	background-color: #298AB3;
+	color: #FFF;
+	overflow: hidden;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#0c3856),to(#2b8eb8) );
+	background-image: -webkit-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: -moz-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: -ms-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: -o-linear-gradient(top, #0c3856, #2b8eb8);
+	background-image: linear-gradient(top, #0c3856, #2b8eb8);
+}
+.login .title{
+	padding-left: 16px;
+	background-image: url(../../images/index/logo.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size: 60px 60px;
+	font-size: 20px;
+}
+.login .down{
+	z-index: 2;
+	background-color: #FFF;
+}
+.loginTable  {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	height: 100%;
+	width: 240px;
+}
+.loginTable .line {
+	margin-left:auto;
+	margin-right:auto;
+	overflow: hidden;
+	height: 50px;
+	padding-top: 12px;
+	padding-bottom: 24px;
+}
+.loginTable .line1 {
+	border: 1px solid #c2c2c2;
+	border-bottom: 0px none;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+	background-color: #fff;
+	height: 10px;
+}
+.loginTable .line2 {
+	border: 1px solid #c2c2c2;
+	border-top: 0px none;
+	border-bottom: 0px none;
+	background-color: #f2f2f2;
+	height: 16px;
+	line-height: 16px;
+	padding-bottom: 1px;
+}
+.loginTable .line3 {
+	border: 1px solid #c2c2c2;
+	border-top: 0px none;
+	border-bottom: 2px solid #c2c2c2;
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+	background-color: #e6e6e6;
+	height: 12px;
+	line-height: 12px;
+	box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, .8) inset, 0 1px 0 rgba(0, 0, 0, .4);
+
+}
+.loginTable .account {
+	background-image: url(../../images/icon/account.png);
+	background-repeat: no-repeat;
+	background-position: 12px center;
+}
+.loginTable .pw {
+	background-image: url(../../images/icon/pw.png);
+	background-repeat: no-repeat;
+	background-position: 8px center;
+}
+.loginTable .lbl {
+	width: 80px;
+	display: inline-block;
+	color: #2A8BB4;
+	letter-spacing: 2px;
+	text-align: right;
+	padding-right: 12px;
+}
+.loginTable .txt {
+	width: 140px;
+	border: 0px none #fff;
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+	color: #333;
+	background-color: transparent;
+}
+.loginTable .btn {
+	font-size: 16px;
+	border-radius: 6px;
+	height: 32px;
+	line-height: 32px;
+	border: 1px solid #666;
+	box-shadow: 0 0 1px 1px rgba(255, 255, 255, .8) inset, 0 1px 0 rgba(0, 0, 0, .3);
+
+}
+.loginTable .check {
+	background-color: #FFF;
+}
+.loginTable .remember {
+	height: 48px;
+	line-height: 48px;
+	padding-bottom: 12px;
+}
+.loginTable .remember label{
+	width: 90px;
+	text-align: left;
+	display: inline-block;
+	padding-left: 4px;
+	letter-spacing: 2px;
+	color: #343434;
+}
+.loginTable .button {
+	display: inline-block;
+	white-space: nowrap;
+	background-color: #ccc;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#eee),to(#ccc) );
+	background-image: -webkit-linear-gradient(top, #eee, #ccc);
+	background-image: -moz-linear-gradient(top, #eee, #ccc);
+	background-image: -ms-linear-gradient(top, #eee, #ccc);
+	background-image: -o-linear-gradient(top, #eee, #ccc);
+	background-image: linear-gradient(top, #eee, #ccc);
+	border: 1px solid #777;
+	padding: 0 1.5em;
+	font: bold 1em/ 2em Arial, Helvetica;
+	text-decoration: none;
+	color: #000;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, .8);
+	border-radius: 0.2em;
+	box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, .8) inset, 0 1px 0 rgba(0, 0, 0, .4);
+	font-weight: normal;
+	height: 30px;
+}
+
+.loginTable .submit {
+	width: 100px;
+	text-align: left;
+	display: inline-block;
+	height: 36px;
+	line-height: 36px;
+	letter-spacing: 2px;
+	padding-top: 12px;
+}
+	

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+.tabContainer {
+width: 500px;
+height: 300px;
+background-color: #999;
+margin: 60px;
+cursor: default;
+}
+.cusorDefault {
+cursor: sw-resize;
+}
+.resizeC1 {
+cursor: se-resize;
+}
+.resizeC2 {
+cursor: ne-resize;
+}
+.resizeL1 {
+cursor: ns-resize;
+}
+.resizeL2 {
+cursor: ew-resize;
+}
+.a1 {
+height: 100%;
+background-color: #CCC;
+float: left;
+width: 100px;
+}
+.a2 {
+height: 100%;
+background-color: #06F;
+float: left;
+width: 400px;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="../../../css/0base.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/1ui.css"/>
+</head>
+<body>
+<div class="tabContainer">
+<div class="a1">我</div>
+<div class="a2">你</div>
+</div>
+<script type="text/javascript" src="../../../base.js"></script> <script type="text/javascript" src="../../../ui.js"></script> 
+<script type="text/javascript" src="../../../grid.js"></script> 
+
+<script type="text/javascript">
+window.onload=init;
+function init(){/*控制*/
+//;////out("init");
+var d=$(".tabContainer")[0];
+uiSpliter({dom:d,mode:"x",minValue:30});
+}
+</script>
+</body>
+</html>

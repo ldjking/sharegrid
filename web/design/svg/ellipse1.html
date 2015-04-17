@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">    
+<html >    
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="svg.js"></script>
+<script type="text/javascript">  
+var l;  
+window.onload = function() {    
+    var svg = document.getElementById('svg'); 
+	var cfg={
+				x:300,
+				y:300,
+				xr:100,
+				yr:50,
+				e:30,
+				style:{
+					fill:'red',
+					stroke:'blue'
+				}
+			}
+
+	var e1=new gfx.Ellipse(cfg);
+	e1.draw(svg);
+	/*var escale=document.getElementById("escale");
+	escale.onclick=function(e){
+		e1.changeshape(1.1);
+	}*/
+};    
+    
+</script>    
+    
+<body>    
+    <div id="container">    
+        <svg  id='svg'width="100%" height="100%" version="1.1">
+				<rect id="painter" width="700" height="700"style="fill:#999;stroke-width:1;
+stroke:rgb(0,0,0)"/>	
+		</svg> 
+    </div>    
+</body>    
+</html>    

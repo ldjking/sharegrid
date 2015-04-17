@@ -1,0 +1,60 @@
+<HTML xmlns:v>
+<HEAD>
+    <META http-equiv=Content-Type content=text/html;charset=gb2312>
+    <TITLE>我的杰作</TITLE>
+    <STYLE>
+    v:*{behavior:url(#default#VML);}
+    </STYLE>
+
+</HEAD>
+<BODY>
+
+<div onmousedown="xulei_mousedown(this);" style='width:400;height:400;background-color:white;border:1 solid gray;color:black;' id=div1 >   
+    <v:group  ID="group1" style="position:absolute;WIDTH:100%;HEIGHT:100%;" coordsize = "2000,2000" coordorigin="-500,-500">
+        <v:rect style="WIDTH:2000;HEIGHT:2000;z-index:6" fillcolor="#99cccc"/>
+        <v:oval style="position:absolute;top:100;left:100;width:1000;height:1000;z-index:7;" fillcolor="red" strokeColor="red"/>
+        <v:rect style="position:absolute;top:500;left:300;width:1000;height:1000;z-index:8;" fillcolor="blue" strokeColor="blue"/>
+        <v:line from="200,200" to="1000,1700" style="z-index:9" fillcolor="yellow" strokeColor="yellow" strokeWeight="2pt"/>    
+    </v:group>          
+</div>  
+</BODY>
+<script>
+var polyline = document.createElement("<v:polyline id='XLpolyline' points='0,0,10,10'  style='z-index:10' filled='false'  strokecolor='black' strokeweight='3pt'/>");
+//polyline.points = "0,0,2000,2000";
+group1.appendChild(polyline);
+polyline.points.value = "0,0,2000,2000";
+
+function xulei_mousedown(tt)
+{
+    var Coordsize = group1.coordsize.value.split(",");
+    var Coordorigin = group1.coordorigin.value.split(",");
+    var X = getVmlX(event.x,tt.offsetWidth,tt.offsetLeft,Coordsize[0]) + parseFloat(Coordorigin[0]);
+    var Y = getVmlX(event.y,tt.offsetHeight,tt.offsetTop,Coordsize[1]) + parseFloat(Coordorigin[1]);
+    XLpolyline.points.value += " " + X + " " + Y;
+    alert(getGEOX(X,Coordsize[0],Coordorigin[0],tt.offsetWidth) + "  " + getGEOY(Y,Coordsize[1],Coordorigin[1],tt.offsetHeight));
+}
+//将屏幕坐标转换为VML坐标
+function getVmlX(ScreeX,width,left,CoordsizeX)
+{
+    return (ScreeX - left)/width * CoordsizeX;
+}
+function getVmlY(ScreeY,height,top,CoordsizeY)
+{
+    return (ScreeY - top)/height * CoordsizeY;
+}
+//将VML坐标转换为地理坐标GEO
+var GEOScle = 100;//像素与实际距离比例
+var GEOCenterX = 500000;//屏幕中心X轴地理坐标
+var GEOCenterY = 500000;//屏幕中心y轴地理坐标
+function getGEOX(VX,CoordsizeX,CoordoriginX,width)
+{
+    var OX = GEOCenterX - GEOScle * width/2;//原点实际地理坐标X
+    return OX + GEOScle * width / CoordsizeX * (VX - CoordoriginX);
+}
+function getGEOY(VY,CoordsizeY,CoordoriginY,height)
+{
+    var OY = GEOCenterY + GEOScle * height/2;//原点实际地理坐标y
+    return OY - GEOScle * height / CoordsizeY * (VY - CoordoriginY);
+}
+</script>
+</HTML>

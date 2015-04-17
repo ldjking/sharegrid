@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单编辑器</title>
+<link rel="stylesheet" type="text/css" href="release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="src/css/29tree.css"/>
+<link rel="stylesheet" type="text/css" href="pageeditor/design/css/dw_index.css"/>
+<link rel="stylesheet" type="text/css" href="pageeditor/design/css/dw.css"/>
+</head>
+<body>
+
+<input type="text" value="" dt="num" id="a1"/>
+<input type="text" value="" dt="email" id="a2"/>
+
+<script type="text/javascript" src="check.js"></script>
+
+<script type="text/javascript">
+	//alert(isNum(10));
+	//alert(isNum(0));
+	//alert(isNum(-1));
+	//alert(isNum(1.1));
+	//alert(isEmail("aaa@qq.com"));
+	//alert(postcode("443000"));
+	//alert(mobile("13469812672"));
+	//alert(phone("027-639121011"));
+	//alert(isUrl("http:/www.baidu.com?tt=tt"));
+	enableCheck($("#a1"),{type:"num"});
+	enableCheck([$("#a1"),$("#a2")],{typename:"datatype"});/**/
+</script>
+
+</body>
+</html>

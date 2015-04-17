@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>测试AMD加载</title>
+</head>
+
+<body>
+<script type="text/javascript" src="../../../../src/1base/11basis.js"></script>
+<script type="text/javascript" src="../../../../src/1base/12extend.js"></script>
+<script type="text/javascript" src="../../../../src/1base/13core.js"></script>
+<script type="text/javascript" src="../../../../src/1base/14out.js"></script>
+<script type="text/javascript" src="../../../../src/1base/14dom.js"></script>
+<script type="text/javascript" src="../../../../src/1base/17ajax.js"></script>
+<script type="text/javascript" src="../../../../src/excluede/20require.js"></script>
+<script type="text/javascript">
+	window.onload=init;
+	function init(){/**/
+		require("data1","http://localhost/eam/web/examples/xlib/1base/20require/data1.js",dataBack);
+		//require('1001',"http://handler/method?param={}&t=4&c=1001",dataBack);
+	}
+	
+	function dataBack(data){
+		out("loadback",data);
+	}
+</script>
+</body>
+</html>

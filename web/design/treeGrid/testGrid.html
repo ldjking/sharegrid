@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>单独grid全表编辑展示</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="rs/tree.css"/>
+
+</head>
+<body>
+<div id="c1" style="position:absolute; z-index:30; background-color:#FFFFFF"></div>
+
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script> 
+<script type="text/javascript" src="rs/81grid.js"></script>
+<script type="text/javascript" src="rs/82cmd.js"></script>
+<script type="text/javascript" src="rs/83header.js"></script>
+<script type="text/javascript" src="rs/84content.js"></script>
+<script type="text/javascript" src="rs/85page.js"></script>
+<script type="text/javascript" src="rs/86scroll.js"></script>
+<script type="text/javascript" src="rs/87fix.js"></script>
+<script type="text/javascript" src="rs/88ui.js"></script>
+<script type="text/javascript" src="rs/89op.js"></script>
+
+<script type="text/javascript">
+	window.onload=init;
+	var targetGrid;
+	function init(){/*需要有一些自定义动画效果*/	
+		var grid=$("#c1");
+		uiLayout({dom:grid,container:document.body,dx:0,dy:0,xdoms:[]});	
+		
+		var cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"orgGets",
+			rmMethod:'personRm',addMethod:"personAdd",updateMethod:"personUpdate",pageFlag:false,pageSize:6};
+		var columns=[	{text:"主键",attr:"d1_id",align:"center",width:80,frozen:1,type:"num",notEdit:0,asc:1},
+						{text:"组织机构名称",attr:"d1_name",align:"left",frozen:1,width:260,type:"str",asc:1},
+						{text:"简称",attr:"d1_shortname",align:"left",type:"str",width:80,notEdit:1,lov:"date",asc:1},
+						{text:"类别",attr:"d1_type",align:"center",width:80,type:"str",asc:1},
+						{text:"上级主键",attr:"d1_pid",align:"center",width:100,type:"str",notEdit:0,asc:1},
+						{text:"状态",attr:"d1_state",align:"center",width:100,type:"str",asc:1}
+					
+					];
+		var cmds=[/*grid 默认有10个左右按钮*/
+					
+					{cmd:"cmdLock",		fn:e_cmdAddItem_handler,	check:"personCheck"},
+					{cmd:"cmdAddItem",	fn:e_cmdAddItem_handler},
+					{cmd:"cmdRmItem",	fn:e_cmdAddItem_handler},
+				  	{cmd:"cmdCommit",	fn:e_cmdAddItem_handler},
+				  	{cmd:"cmdFilter",	fn:e_cmdAddItem_handler},
+				  	{cmd:"cmdRefresh",	fn:e_cmdAddItem_handler}					
+				]
+		var data=[];/*手动构造一部分数据*/
+		genGrid(cfg,columns,cmds,[]);	
+	}
+	
+	function e_cmdPre_handler(evt){
+		//;////out("上一条数据");
+	}
+	function e_cmdAddItem_handler(evt){
+		//msg("用户自定义事件");
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/bootstrap/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css">
+<link rel="stylesheet" type="text/css" href="../../../../src/css/29tree.css">
+</head>
+
+<body>
+<div id="c1" style="height:300px; width:320px;"> </div>
+<script type="text/javascript" src="../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../release/ui.js"></script> 
+<script type="text/javascript" src="../../../../release/lovdef.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/51tree.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/52cmd.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/53content.js"></script>
+<script type="text/javascript" src="../../../../src/5tree/54data.js"></script>
+<script type="text/javascript" src="../../../../src/5tree/55edit.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/56scroll.js"></script>
+<script type="text/javascript" src="../../../../src/5tree/57fix.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/58ui.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/59drag.js"></script> 
+<script type="text/javascript">	
+	window.onload=init;
+	function init(){/*需要有一些自定义动画效果*/	
+		var dom=$("#c1");
+		//uiLayiout();
+		var cfg={clickHandler:fn_tree_click,dblHandler:fn_tree_dbl,exclusive:0,formatType:1,openAll:1,
+					idAttr:"id",pidAttr:"pid",nameAttr:"name"};
+		/*排他设置exclusive  formatFlag是否需要格式化数据	idAttr主键	pidAttr父键	nameAttr名称属性*/
+		cfg.data=[
+				{id:11,name:"本地磁盘C盘xxdfdsaf",pid:1,type:"folder"},
+				{id:12,name:"本地磁盘D盘",pid:1,type:"folder"},
+				{id:13,name:"本地磁盘E盘",pid:1,type:"folder"},
+				{id:14,name:"本地磁盘F盘",pid:1,type:"file"},
+				
+				
+				{id:111,name:"我的文档",pid:11,type:"folder"},
+				{id:112,name:"WindowsWindowsWindowsWindows",pid:11,type:"folder"},
+				{id:113,name:"Program",pid:12,type:"folder"},
+				{id:114,name:"我的音乐",pid:12,type:"folder"},
+				{id:115,name:"游戏",pid:13,type:"folder"},
+				{id:116,name:"工作相关",pid:13,type:"folder"},
+				{id:117,name:"学习",pid:116,type:"folder"},
+				{id:118,name:"资料",pid:116,type:"folder"}
+				];
+		genTree(dom,cfg);
+	}
+	
+	function fn_tree_click(tree,evt){
+		out("tree fn",tree);
+	}
+	function fn_tree_dbl(tree,evt){
+		//alert("tree fn dbl");
+	}
+</script>
+</body>
+</html>

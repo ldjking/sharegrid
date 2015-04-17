@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link rel="stylesheet" type="text/css" href="../../../release/css/all.css"/>
+</head>
+<body>
+  <div id="content" style=" background-color:#FF0000; position:absolute; z-index:20">
+  </div>
+<script type="text/javascript" src="../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../release/ui.js"></script> 
+<script type="text/javascript" src="../../../release/grid.js"></script> 
+<script type="text/javascript" src="../../../release/lovdef.js"></script> 
+<script type="text/javascript">
+	window.onload=init;
+	function init(){/*需要有一些自定义动画效果*/
+		var content=$("#content");
+		uiLayout({dom:content,container:document.body,dx:0,dy:0,xdoms:[]});	
+		var tables=[	{type:2,rowNum:1,cells:[
+								{type:"lbl",text:"姓名",width:80,align:"center",row:1},
+								{type:"txt",attr:"c0_name",width:120,align:"left",row:1},/*txt代表单行元素*/
+								{type:"lbl",text:"性别",width:80,align:"center",row:1},
+								{type:"txt",attr:"c0_sex",width:120,align:"center",row:1},
+								{type:"lbl",text:"出生日期",width:80,align:"center",row:1},
+								{type:"txt",attr:"c0_birthday",width:120,align:"center",row:1}
+							]
+						},
+						{type:2,rowNum:1,cells:[
+								{type:"lbl",text:"显示名称",width:80,align:"center",row:1},
+								{type:"txt",attr:"c0_displayname",width:120,align:"left",row:1},
+								{type:"lbl",text:"账号",width:80,align:"center",row:1},
+								{type:"txt",attr:"c0_account",lov:"methodTarget",width:120,align:"center",row:1},
+								{type:"lbl",text:"初始密码",width:80,align:"center",row:1},
+								{type:"txt",attr:"c0_pw",lov:"methodType",width:120,align:"center",row:1}
+							]
+						},
+						{type:2,rowNum:1,cells:[
+								{type:"lbl",text:"人员编码",width:80,align:"center",row:1},
+								{type:"txt",attr:"c0_code",width:120,align:"left",row:1},
+								{type:"lbl",text:"电子邮箱",width:80,align:"center",row:1},
+								{type:"txt",attr:"c0_email",width:320,align:"left",row:1}
+							]
+						},
+						{type:2,rowNum:1,cells:[
+								{type:"lbl",text:"电话",width:80,align:"center",row:1},
+								{type:"txt",attr:"c0_phone",width:120,align:"left",row:1},
+								{type:"lbl",text:"手机",width:80,align:"center",row:1},
+								{type:"txt",attr:"c0_mobile",width:120,align:"left",row:1},
+								{type:"lbl",text:"QQ",width:80,align:"center",row:1},
+								{type:"txt",attr:"c0_qq",width:120,align:"left",row:1}
+							]
+						},
+						{type:2,rowNum:1,cells:[
+								{type:"lbl",text:"住址",width:80,align:"center",row:1},
+								{type:"txt",attr:"c0_address",width:320,align:"left",row:1},
+								{type:"blank",text:"",width:200,align:"center",row:1}
+							]
+						}
+					];
+		var cmds=	[{cmd:"save"},
+					{cmd:"cancel"}/*表示该操作按钮式定义在c0_state=1的对象上*/		];
+		var cfg={dom:$("#content"),title:"新增人员表单",saveMethod:"methodAdd",formType:"add"};
+		genForm(cfg,tables,cmds);
+	}
+</script>
+</body>
+</html>

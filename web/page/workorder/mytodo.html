@@ -1,0 +1,434 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>第一种工作票</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+</head>
+
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">待办列表</div>
+    <div class="tab hide" id="tab_edit">工作票</div>
+    <div class="tab hide" id="tab_sign">签发</div>
+    <div class="tab hide" id="tab_allow">许可</div>
+    <div class="tab hide" id="tab_do">执行</div>
+
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+    <div class="content normal"  id="c4"></div>
+    <div class="content normal"  id="c5"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+(function(){
+	var grid		    =$("#c1");
+	var editForm	    =$("#c2");
+	var signForm        =$("#c3");
+	var allowForm       =$("#c4");
+	var doForm          =$("#c5");
+	var tabList			=$("#tab_list");
+	var tabEdit			=$("#tab_edit");
+	var tabSign			=$("#tab_sign");
+	var tabAllow		=$("#tab_allow");
+	var tabDo			=$("#tab_do");
+	var fn_showList=	function(evt){
+		genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	var fn_showNext=	function(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showPre=		function(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showEditForm=function(evt){
+		activeTab(tabEdit);
+	}
+	var tabChange=function(target,p){
+		if(p==0)		fn_showList();
+		else if(p==1)	refreshEditForm();
+	}
+	var refreshEditForm =function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		else obj=cfg.activeRow.obj;
+		if(obj==null||editForm.formCfg.param==obj)	return;
+		else{
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+			cssRm([preCmd,nextCmd],"gray");
+			if(obj.rownum==1)						cssAdd(preCmd,"gray");
+			else if(obj.rownum==cfg.totalNum)		cssAdd(nextCmd,"gray");
+			genFormContent(editForm);/*重绘内容*/
+		}
+	}
+	var getsessionperosn=function(){
+		var result=$$("getSessionPerson",{});
+		if(result.flag) return result.data.session_person_id;
+		else return null;
+	}
+	var e_grid_row_dbclick_handler=function(evt){
+		var wfid=grid.gridCfg.activeRow.obj.w4_objid;
+		editForm.formCfg.param={f1_id:wfid};
+		genFormContent(editForm);
+		activeTab(editForm);
+	}
+	function shebei_change(target,data){
+		var form=editForm;
+		var code=$("#"+form.formCfg.id+"_f1_assetnum").value;
+		var result =$$("shemcGet",{code:code});
+		if(result.flag)
+		{
+			$("#"+form.formCfg.id+"_asset_name").value=result.data.f0_des;
+		}
+	}
+	var e_cmd_zhixing_handler=function(evt){
+		
+		var cfg=editForm.formCfg;
+		if(cfg.data.f1_status=="1")
+		{
+			signForm.formCfg.data.f1_id=cfg.data.f1_id;
+			genFormContent(signForm);
+			activeTab(signForm);
+		}
+		else if(cfg.data.f1_status=="2")
+		{
+			allowForm.formCfg.data.f1_id=cfg.data.f1_id;
+			genFormContent(allowForm);
+			activeTab(allowForm);
+		}
+		else if(cfg.data.f1_status=="3")
+		{
+			doForm.formCfg.data.f1_id=cfg.data.f1_id;
+			genFormContent(doForm);
+			activeTab(doForm);
+		}
+	}
+	var e_cmd_qianfa_handler=function(evt){
+		var cfg=signForm.formCfg;
+		var personid=getsessionperosn()
+		cfg.data.personid=personid;
+		cfg.data.f1_status="2";
+		editForm.formCfg.param={f1_id:cfg.data.f1_id};
+		if(cfg.data.issign=="1"){
+			var result=$$("qianfaDo",cfg.data);
+			if(result.flag){
+				//out("签发成功");
+				genFormContent(editForm);
+				activeTab(editForm);
+				cssReplace(tabSign,"normal","hide");
+			}
+		}
+		else if(cfg.data.issign=="0"){
+			var result=$$("returnDo",cfg.data);
+			if(result.flag){
+				//out("不签发 退回");
+				genFormContent(editForm);
+				activeTab(editForm);
+				cssReplace(tabSign,"normal","hide");
+			}
+		}
+	}
+	var qianfa_change=function(target,data){
+		signForm.formCfg.data.issign=data.value;
+	}
+	var e_cmd_xuke_handler=function(){
+		var cfg=allowForm.formCfg;
+		var personid=getsessionperosn();
+		cfg.data.personid=personid;
+		cfg.data.f1_status="3";
+		cfg.data.f1_per_fzr=editForm.formCfg.data.f1_per_fzr;
+		editForm.formCfg.param={f1_id:cfg.data.f1_id};
+		if(cfg.data.isallow=="1"){			
+			var result=$$("allowDo",cfg.data);
+			if(result.flag){
+				//out("许可成功");
+				genFormContent(editForm);
+				activeTab(editForm);
+				cssReplace(tabAllow,"normal","hide");
+			}
+		}
+		else if(cfg.data.isallow=="0"){
+			var result=$$("returnDo",cfg.data);
+			if(result.flag){
+				//out("不许可");
+				genFormContent(editForm);
+				activeTab(editForm);
+				cssReplace(tabAllow,"normal","hide");
+			}
+		}
+	}
+	var allow_change=function(target,data){
+		allowForm.formCfg.data.isallow=data.value;
+	}
+	var e_cmd_do_handler=function(){
+		var cfg=doForm.formCfg;
+		var personid=getsessionperosn();
+			cfg.data.personid=personid;
+			cfg.data.f1_status="3";
+			var result=$$("dowoDo",cfg.data);
+			if(result.flag){
+				//out("执行成功");
+				editForm.formCfg.param={f1_id:cfg.data.f1_id};
+				genFormContent(editForm);
+				activeTab(editForm);
+			}
+		
+	}
+	
+	function classChange(target,data){
+		var form;
+		if(target.outerHTML.indexOf("form_2")>0)
+		{
+			form=addForm;
+		}
+		else
+		{
+			form=editForm;
+		}
+		var code=data.value;
+		var memberstext=$("#"+form.formCfg.id+"_f1_member");
+		var membernum=$("#"+form.formCfg.id+"_f1_mem_num");
+		var result = $$("workorderMemberGet",{classid:code});
+		if(result.flag){
+			if(result.data.person_names!=null) memberstext.value=result.data.person_names;
+			else memberstext.value="";
+			membernum.value=result.data.person_count;
+		}
+	}
+	var init=function(){
+		uiApp({dom:$("#app1"),fn:tabChange});
+		var person_id=getsessionperosn();
+		var cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"mytodoGets",
+	    pageFlag:false,pageSize:6,pkAttr:"f1_id"};
+		cfg.param={person_id:person_id}
+		//select w4_objid ,w4_title ,w4_wfname From w4_records where w4_person ='40' and w4_state in ('start','todo')
+		var columns=[	{text:"待办编号",attr:"w4_objid",align:"center",width:80,frozen:1,type:"str",notEdit:0,asc:1},
+		{text:"待办内容",attr:"w4_title",align:"center",width:350,frozen:0,type:"num",notEdit:0,asc:1},
+		{text:"应用程序",attr:"w4_wfname",align:"center",width:80,frozen:0,type:"str",notEdit:0,asc:1},
+		{text:"时间",attr:"w4_sendtime",align:"center",width:160,frozen:0,type:"str",notEdit:0,asc:1}
+		];
+		var cmds=[
+						{cmd:"cmdFilter"},
+						{cmd:"cmdRefresh"}
+					]
+		genGrid(cfg,columns,cmds,[]);/*主列表*/
+		bind(grid,"dblclick",e_grid_row_dbclick_handler);
+		var tables=[	{type:0,cells:[{type:"text",attr:"f1_id"}]},
+						{type:2,rowNum:1,cells:[
+								
+									{type:"lbl",text:"地点",width:80,align:"center",row:1},
+									{type:"lbl",text:"化德风电",width:200,align:"left",row:1},
+									{type:"lbl",text:"状态",width:80,align:"center",row:1},
+									{type:"txt",attr:"status_name",width:400,align:"center",row:1}
+						]},
+						{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"设备编码",width:80,align:"center",row:1},
+									{type:"txt",attr:"f1_assetnum",width:200,align:"left",row:1,lov:"asset",onchange:shebei_change},
+									{type:"lbl",text:"设备名称",width:80,align:"center",row:1},
+									{type:"txt",attr:"asset_name",width:400,align:"center",row:1}
+						]},
+						{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"编号",width:80,align:"center",row:1},
+									{type:"txt",attr:"f1_code",width:200,align:"left",row:1},
+									{type:"lbl",text:"部门单位",width:80,align:"center",row:1},
+									{type:"txt",attr:"f1_dept",width:400,align:"left",row:1}
+									
+						]},
+						{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"1、",width:40,align:"center",row:1},
+									{type:"lbl",text:"工作负责人",width:80,align:"center",row:1},
+									{type:"txt",attr:"f1_per_fzr_name",attr2:"f1_per_fzr",width:160,align:"left",row:1,lov:"stuff"},
+									{type:"lbl",text:"工段（班组）名称",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_class_name",attr2:"f1_class",width:360,align:"left",row:1,lov:"workClassGet",onchange:classChange}
+						]},
+						{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"2、",width:40,align:"center",row:1},
+									{type:"lbl",text:"工作班成员",width:80,align:"center",row:1},
+									{type:"txt",attr:"f1_member",width:360,align:"left",row:1},
+									{type:"lbl",text:"工作班人数",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_mem_num",width:160,align:"left",row:1}
+						]},
+						{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"3、",width:40,align:"center",row:1},
+									{type:"lbl",text:"设备双重名称",width:80,align:"center",row:1},
+									{type:"txt",attr:"f1_sc_name",width:640,align:"left",row:1}
+						]},
+						{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"4、",width:40,align:"center",row:1},
+									{type:"lbl",text:"工作地点",width:80,align:"center",row:1},
+									{type:"txt",attr:"f1_location",width:640,align:"left",row:1}
+						]},
+						
+						{type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"",width:40,align:"center",row:1},
+									{type:"lbl",text:"工作内容",width:80,align:"center",row:1},
+									{type:"txt",attr:"f1_content",width:640,align:"left",row:1}
+						]},
+						
+						{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"5、",width:40,align:"center",row:1},
+									{type:"lbl",text:"计划工作开始时间",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_jhstart",width:240,align:"left",row:1,lov:"datetime"},
+									{type:"lbl",text:"计划工作结束时间",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_jhfinish",width:240,align:"left",row:1,lov:"datetime"}
+						]},
+						{type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"6、",width:40,align:"center",row:1},
+									{type:"lbl",text:"工作条件",width:80,align:"center",row:1},
+									{type:"txt",attr:"f1_condition",width:640,align:"left",row:1}
+						]},		
+						{type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"7、",width:40,align:"center",row:1},
+									{type:"lbl",text:"安全措施",width:80,align:"center",row:1},
+									{type:"txt",attr:"f1_safety",width:640,align:"left",row:1}
+						]},	
+						{type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"工作票签发人",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_per_qfr_name",width:120,align:"left",row:1},
+									{type:"lbl",text:"工作票签发时间",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_tm_qfr",width:160,align:"left",row:1,lov:"datetime"},
+									{type:"lbl",text:"值长签名",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_per_zz_sp",width:120,align:"left",row:1}
+						]},	
+						
+						{type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"8、",width:40,align:"center",row:1},
+									{type:"lbl",text:"补充安全措施",width:80,align:"center",row:1},
+									{type:"txt",attr:"f1_safety_bc",width:640,align:"left",row:1}
+						]},	
+						{type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"9、",width:40,align:"center",row:1},
+						            {type:"lbl",text:"确认本工作票1至8项：许可开始工作时间",width:240,align:"center",row:1},
+									{type:"txt",attr:"f1_tm_xk",width:480,align:"left",row:1}
+						]},	
+						{type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"",width:40,align:"center",row:1},
+						            {type:"lbl",text:"工作负责人签名",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_per_fzr_xk",width:240,align:"left",row:1},
+									{type:"lbl",text:"工作许可人签名",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_per_xkr_xk_name",width:240,align:"left",row:1}
+						]},	
+						{type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"10、",width:40,align:"center",row:1},
+						            {type:"lbl",text:"&nbsp;&nbsp;确认工作负责人布置的任务和本施工项目安全措施",width:720,align:"left",row:1}
+						]},	
+						{type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"",width:40,align:"center",row:1},
+									{type:"lbl",text:"工作班成员签名",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_class_mem",width:600,align:"left",row:1}
+						]},	
+						{type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"11、",width:40,align:"center",row:1},
+						            {type:"lbl",text:"工作票延期：有效期延长到",width:240,align:"center",row:1},
+									{type:"txt",attr:"f1_tm_yq",width:480,align:"left",row:1,lov:"datatime"}
+						]},	
+						{type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"",width:40,align:"center",row:1},
+						            {type:"lbl",text:"工作负责人签名",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_per_fzr_yq",width:240,align:"left",row:1},
+									{type:"lbl",text:"工作许可人签名",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_per_xkr_yq",width:240,align:"left",row:1}
+						]},
+						{type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"12、",width:40,align:"center",row:1},
+						            {type:"lbl",text:"检修交待",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_jxjd",width:600,height:120,align:"left",row:1}
+						]},
+						{type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"13、",width:40,align:"center",row:1},
+						            {type:"lbl",text:"&nbsp;&nbsp;&nbsp;&nbsp;工作终结：&nbsp;&nbsp;&nbsp;&nbsp;全部工作于",width:200,align:"left",row:1},
+									{type:"txt",attr:"f1_actfinish",width:160,align:"left",row:1,lov:"datetime"},
+									{type:"lbl",text:"&nbsp;&nbsp;&nbsp;&nbsp;结束，工作人员已全部撤离，材料工具已清理完毕。",width:360,align:"left",row:1}
+						]},
+						{type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"工作负责人签名",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_per_fzr_js_name",width:120,align:"left",row:1},
+									{type:"lbl",text:"工作许可人签名",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_per_xkr_js",width:120,align:"left",row:1},
+									{type:"lbl",text:"工作票终结时间",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_tm_zj",width:160,align:"left",row:1,lov:"datetime"}
+						]},	           
+					    {type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"14、",width:40,align:"center",row:1},
+									{type:"lbl",text:"备&nbsp;&nbsp注",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_qtsx",width:600,align:"left",row:1}
+						]},	
+						{type:2,rowNum:1,cells:[
+						            {type:"lbl",text:"",width:40,align:"center",row:1},
+									{type:"lbl",text:"备注人签名",width:120,align:"center",row:1},
+									{type:"txt",attr:"f1_per_jhr_zj",width:600,align:"left",row:1}
+						]}
+							
+					];
+		var cmds1=[
+					{cmd:"zhixing",text:"状态审批",fn:e_cmd_zhixing_handler,checkMethod:"qianCmdCheck",checkFalse:"hide"},
+					{cmd:"cancel",fn:fn_showList}
+				];
+		var cfg1={dom:editForm,title:"工作票信息",formType:"update",formType:"update",updateMethod:"workorderUpdate",dataMethod:"workorderGet",bigPaper:1};
+		genForm(cfg1,tables,cmds1);
+		var table2=[{type:0,cells:[{type:"text",attr:"f1_id"}]},	
+					{type:2,rowNum:1,cells:[
+						     		{type:"lbl",text:"签发人确定是否签发",width:720,align:"center",row:1}
+						]},
+					{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"选择",width:120,align:"center",row:1},
+									{type:"txt",attr:"issignname",attr2:"issign",width:600,align:"left",row:1,lov:"issign",onchange:qianfa_change}
+					]}
+				   ];
+		var cmds2=[
+					{cmd:"qianfa",text:"提交",fn:e_cmd_qianfa_handler},
+					{cmd:"cancel"}
+				];
+		var cfg2={dom:signForm,title:"工作票签发",data:{issign:"1"}};
+		genForm(cfg2,table2,cmds2);
+		var table3=[{type:0,cells:[{type:"text",attr:"f1_id"}]},	
+					{type:2,rowNum:1,cells:[
+						     		{type:"lbl",text:"许可人确定是否许可",width:720,align:"center",row:1}
+						]},
+					{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"选择",width:120,align:"center",row:1},
+									{type:"txt",attr:"isallowname",attr2:"isallow",width:600,align:"left",row:1,lov:"isallow",onchange:allow_change}
+					]}
+				   ];
+		var cmds3=[
+					{cmd:"tijiao",text:"提交",fn:e_cmd_xuke_handler},
+					{cmd:"cancel"}
+				];
+		var cfg3={dom:allowForm,title:"工作票许可",data:{isallow:"1"}};
+		genForm(cfg3,table3,cmds3);
+		
+		var table4=[{type:0,cells:[{type:"text",attr:"f1_id"}]},	
+					{type:2,rowNum:1,cells:[
+						     		{type:"lbl",text:"执行人执行",width:720,align:"center",row:1}
+						]}
+				   ];
+		var cmds4=[
+					{cmd:"tijiao",text:"提交",fn:e_cmd_do_handler},
+					{cmd:"cancel"}
+				];
+		var cfg4={dom:doForm,title:"工作票执行",data:{isdo:"1"}};
+		genForm(cfg4,table4,cmds4);
+		
+	}
+	window.onload=init;
+})();
+</script>
+</body>
+
+</html>

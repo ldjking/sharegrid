@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>第二种工作票</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">第二种工作票</div>
+    <div class="tab hide"  	id="tab_add">新增第二种工作票</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script> 
+<script type="text/javascript" src="../../release/ui.js"></script> 
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script> 
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+
+<script type="text/javascript">
+	window.onload=init;	
+	var grid		=$("#c1");
+	var editForm	=$("#c2");
+	var addForm		=$("#c3");
+	var tabList		=$("#tab_list");
+	var tabEdit		=$("#tab_edit");
+	var tabAdd		=$("#tab_add");
+	function e_cmdAddItem_handler(target){
+		//msg(target.cmd.cmd+"用户自定义事件");
+	}
+	function fn_showNext(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showPre(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showList(evt){
+		genGridCmd(grid);
+		genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	
+	function fn_showEditForm(evt){
+		activeTab(tabEdit);
+	}
+	function fn_showAddForm(evt){/*要把新增表单显示出来*/
+	////out("showAddForm");
+		activeTab(tabAdd);
+	}
+	function fn_hideAddForm(evt){
+		cssReplace(tabAdd,"active","hide");
+		activeTab(tabList);
+	}
+	function fn_updateStatus(evt){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(obj.status=='0'){
+			obj.status="1";
+			var result=$$("companyUpdate",obj);
+			//out("result:",result);
+			if(result.flag){
+				genGridContent(grid);/*重绘内容*/
+			}
+		}else{
+			var activeButton=$("#"+cfg.id+"_active");
+			cssAdd(activeButton,"gray");
+		}
+	}
+	function fn_disabledStatus(evt){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		obj.status="2";
+		var result=$$("companyUpdate",obj);
+		//out("result:",result);
+		if(result.flag){
+			genGridContent(grid);/*重绘内容*/
+		}
+	}
+	function tabChange(target,p){
+		if(p==1){
+			refreshEditForm();
+		}
+		else if(p==2){
+			refreshAddForm();
+		}
+	}
+	function refreshAddForm(){
+		//var obj = addForm;
+		//addForm.formCfg.param.childtype_kg = 'KG';
+	    //addForm.formCfg.param.childtype_dx = 'DX';
+	    //addForm.formCfg.param.childtype_zl = 'ZL';
+		genFormCmd(addForm);
+		genFormContent(addForm);
+	}
+	function refreshEditForm(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.data==obj){return;}
+		else{
+			//editForm.formCfg.param={childtype_kg:"KG"};
+				//addForm.formCfg.param.childtype_kg = 'KG';
+	    //addForm.formCfg.param.childtype_dx = 'DX';
+	    //addForm.formCfg.param.childtype_zl = 'ZL';
+			editForm.formCfg.param=obj;
+			var kkk = editForm.formCfg.param;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+			//;//out(obj.rownum);
+			cssRm(preCmd,"gray");
+			cssRm(nextCmd,"gray");
+			if(obj.rownum==1){
+				cssAdd(preCmd,"gray");
+			}
+			else if(obj.rownum==cfg.totalNum){
+				cssAdd(nextCmd,"gray");
+			}
+			genFormContent(editForm);/*重绘内容*/
+		}
+	}
+	
+	function shebei_change(target,data){
+		//alert(target);
+		//alert(data);
+		var formdesc = target.id.replace("_attrassetnum","");
+		var assetnum = $("#"+formdesc+"_attrassetnum").value;;
+		//alert(assetnum);
+		var result = $$("shemcGet",{assetnum:assetnum});
+		if(result.flag)
+		{
+			$("#"+formdesc+"_attrasset_name").value=result.data.description;
+		}
+		/*var assetnum=$("#"+form.formCfg.id+"_assetnum").value;
+		var result =$$("shemcGet",{assetnum:assetnum});
+		if(result.flag)
+		{
+			$("#"+form.formCfg.id+"_asset_name").value=result.data.description;
+		}*/
+	}
+	
+	function init(){/*需要有一些自定义动画效果*/	
+		grid		=$("#c1");
+		editForm	=$("#c2");
+		addForm		=$("#c3");
+		tabList		=$("#tab_list");
+		tabEdit		=$("#tab_edit");
+		tabAdd		=$("#tab_add");
+		uiApp({dom:$("#app1"),fn:tabChange});	
+		var grid=$("#c1");
+		var cfg={multiMode:0,toolbar:1,filterMode:0,data_method:"workorder2Gets",
+				rmMethod:'workorderRm',pageFlag:true,pageSize:5,pkAttr:"af_workorderid"};
+		cfg.columns=[	{text:"工作票票号",attr:"workordernum",align:"center",width:120,frozen:1,type:"str",notEdit:0},       
+		                {text:"工作计划时间",attr:"schedstart",align:"center",width:120,type:"str"}, 
+					    {text:"许可时间",attr:"tm_xk_start",align:"center",width:120,type:"str"}, 
+						{text:"工作终结时间",attr:",actfinish",align:"center",type:"str"},
+						{text:"工作票任务",attr:"content",align:"left",width:400,type:"str"},
+						{text:"工作许可人",attr:"per_xkr_xk",align:"left",width:80,type:"str"},
+						{text:"工作票签发人",attr:"per_qfr_qf",align:"left",width:80,type:"str"},
+						{text:"工作负责人",attr:"per_fzr_fz",align:"center",width:80,type:"str"},
+						{text:"状态",attr:"status",align:"center",width:200,frozen:0,type:"str"}
+					];
+		cfg.cmds=[
+					{cmd:"cmdAdd"	,fn:fn_showAddForm},
+					{cmd:"cmdEdit"	,fn:fn_showEditForm},
+					{cmd:"cmdDelete",fn:e_cmdAddItem_handler},
+					{cmd:"cmdFilter",fn:e_cmdAddItem_handler},
+					{cmd:"cmdRefresh",fn:e_cmdAddItem_handler}
+				]
+		genGrid(grid,cfg);	
+		
+		
+		var cfg2={title:"第二种工作票详细信息",formType:"update",updateMethod:"workorderUpdate",dataMethod:"workorderGet",bigPaper:1};
+		cfg2.tables=[	{type:0,cells:[
+									{type:"text",attr:"af_workorderid",sidType:"method"}
+									]
+						},
+						{type:0,cells:[
+									{type:"text",attr:"worktype"}
+									]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"地点",width:100,align:"center",row:1},
+								{type:"txt",attr:"site",width:320,align:"left",row:1},/*txt代表单行元素*/
+								{type:"lbl",text:"状态",width:100,align:"center",row:1},
+								{type:"txt",attr:"status",width:320,align:"left",row:1}
+							]
+						},
+
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"工作票编号",width:100,align:"center",row:1},
+								{type:"txt",attr:"workordernum",width:320,align:"left",row:1},
+								{type:"lbl",text:"部门",width:100,align:"center",row:1},
+								{type:"txt",attr:"dept",width:320,align:"left",row:1}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"设备编码",width:100,align:"center",row:1},
+								{type:"txt",attr:"assetnum",width:320,align:"left",row:1,lov:"asset",onchange:shebei_change},
+								{type:"lbl",text:"设备名称",width:100,align:"center",row:1},
+								{type:"txt",attr:"asset_name",width:320,align:"left",row:1,}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"1、工作负责人（监护人）：",width:200,align:"left",row:1},
+								{type:"txt",attr:"per_fzr_fz",width:220,align:"left",row:1,lov:"getCldept"},
+								{type:"lbl",text:"班组",width:100,align:"center",row:1},
+								{type:"txt",attr:"class_num",width:320,align:"left",row:1}
+							]
+						},
+						
+							{type:2,rows:1,cells:[
+								{type:"lbl",text:"工作班人员：",width:120,align:"left",row:1},
+								{type:"txt",attr:"memeber",width:520,align:"left",row:1},
+								{type:"lbl",text:"共",width:60,align:"center",row:1},
+								{type:"txt",attr:"mem_count",width:80,align:"left",row:1},
+								{type:"lbl",text:"人",width:60,align:"center",row:1}
+							]
+						},
+						
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"2、工作任务：",width:200,align:"left",row:1},
+								{type:"txt",attr:"content",width:640,align:"left",row:1,height:100}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"3、计划工作时间：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自",width:240,align:"left",row:1},
+								{type:"txt",attr:"schedstart",width:270,align:"left",row:1,height:20,lov:"datetime"},
+								{type:"lbl",text:"至",width:60,align:"center",row:1,height:20},
+								{type:"txt",attr:"schedfinish",width:270,align:"left",row:1,height:20,lov:"datetime"},
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"4、工作条件（停电或不停电）：",width:200,align:"left",row:1},
+								{type:"txt",attr:"condition",width:640,align:"left",row:1,height:100}
+							]
+						},
+						
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"5、注意事项（安全措施）：",width:200,align:"left",row:1},
+								{type:"txt",attr:"safety",width:640,align:"left",row:1,height:100}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"工作票签发人签名：",width:540,align:"right",row:1},
+								{type:"txt",attr:"per_qfr_qf",width:300,align:"left",row:1}
+							]
+						},
+							
+					    {type:2,rows:1,cells:[
+								{type:"lbl",text:"6、许可开始工作时间：",width:160,align:"left",row:1},
+								{type:"txt",attr:"tm_xk_start",width:680,align:"left",row:1,lov:"datetime"}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"工作许可人签名：",width:160,align:"left",row:1},
+								{type:"txt",attr:"per_xkr_xk",width:260,align:"left",row:1},
+								{type:"lbl",text:"工作负责人签名：",width:160,align:"center",row:1},
+								{type:"txt",attr:"per_fzr_xk",width:260,align:"left",row:1}
+							]
+						},
+						
+					    {type:2,rows:1,cells:[
+								{type:"lbl",text:"7、许可结束工作时间：",width:160,align:"left",row:1},
+								{type:"txt",attr:"actfinish",width:680,align:"left",row:1,lov:"datetime"}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"工作负责人签名：",width:160,align:"left",row:1},
+								{type:"txt",attr:"per_xkr_js",width:260,align:"left",row:1},
+								{type:"lbl",text:"工作许可人签名：",width:160,align:"center",row:1},
+								{type:"txt",attr:"per_xkr_js",width:260,align:"left",row:1}
+							]
+						},
+						
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"8、备注：",width:100,align:"left",row:1},
+								{type:"txt",attr:"remark",width:740,align:"left",row:1,height:60}
+							]
+						},
+						
+						
+				];
+		cfg2.cmds=[
+						{cmd:"update",fn:fn_showList},
+						{cmd:"pre",fn:fn_showPre},
+						{cmd:"next",fn:fn_showNext}
+						
+					];
+					
+		genForm(editForm,cfg2);
+		var cfg3={title:"第二种工作票",formType:"add",addMethod:"workorderAdd",bigPaper:1};
+			cfg3.tables=cfg2.tables;
+			cfg3.cmds=[
+						{cmd:"save",fn:fn_showList},
+						{cmd:"cancel",fn:fn_hideAddForm}
+					];
+			cfg3.data = {worktype:"WT2"};
+			genForm(addForm,cfg3);
+	}
+</script>
+</body>
+</html>

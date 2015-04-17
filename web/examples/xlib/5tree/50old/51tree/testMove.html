@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="tree" style="cursor:default">
+  <div>第一节点</div>
+  <div>第二节点</div>
+  <div>第三节点</div>
+</div>
+<div id="c1"></div>
+<script type="text/javascript" src="../../../../../release/base.js"></script> 
+<script type="text/javascript">
+	window.onload=init;
+	var dom=null;
+	function init(){
+		//var tree=document.getElementById("tree");
+		document.body.onmousedown=e_tree_mousedown;
+		document.body.onmouseup=e_tree_mouseup;
+	}
+	
+	function e_tree_mousedown(evt){
+		var target=evt.target;
+		dom=target;
+		var tree=document.getElementById("tree");
+		tree.style.cursor="copy";
+		//alert(target.innerHTML);
+		stopEvt(evt);
+		
+	}
+	
+	function e_tree_mouseup(evt){
+		var target=evt.target;
+		var str=("移动节点"+dom.innerHTML+"到"+target.innerHTML);
+		document.getElementById("c1").innerHTML=str;
+		tree.style.cursor="default";
+
+	}
+</script>
+</body>
+</html>

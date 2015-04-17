@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<script type="text/javascript">
+var myObject= { 
+  num: 2, 
+  add: function(){ 
+  this.num=3; 
+  (function(){ 
+  alert(this==window);/*this==window*/
+  alert(this.num);  //underfined 
+  this.num=4; 
+  })(); 
+alert(this.num)   //3 
+alert(window.num);
+  } 
+} 
+
+myObject.add(); 
+</script>
+</body>
+</html>

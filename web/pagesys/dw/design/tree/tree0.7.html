@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="../../css/tree.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="tree">
+  <div class="root open music">
+  	<div class="tag"><div class="text">我的电脑</div></div>
+    <div class="childs">
+    	<div class="node normal open music">
+       	  <div class="tag"><div class="text">本地磁盘 C盘</div></div>
+            <div class="childs">
+                <div class="leaf folder normal">
+                	<div class="tag"><div class="text">我的文档</div></div>
+                </div>
+                <div class="leaf folder normal">
+                    <div class="tag"><div class="text">Windows</div></div>
+                </div>
+                <div class="leaf folder normal">
+                    <div class="tag"><div class="text">System</div></div>
+                </div>
+                <div class="leaf folder normal">
+                	<div class="tag"><div class="text">Program files</div></div>
+                </div>	
+                <div class="leaf file last">
+                    <div class="tag"><div class="text">reademe.txt</div></div>
+                </div>	
+            </div>
+        </div>
+        <div class="node normal open">
+			<div class="tag"><div class="text">本地磁盘 D盘</div></div>
+            <div class="childs">
+                <div class="leaf folder normal">
+                    <div class="tag"><div class="text">我的文档</div></div>
+                </div>
+                <div class="leaf folder normal">
+                    <div class="tag"><div class="text">Windows</div></div>
+                </div>
+                <div class="leaf folder normal">
+                    <div class="tag"><div class="text">System</div></div>
+                </div>
+                <div class="leaf folder normal">
+                    <div class="tag"><div class="text">Program files</div></div>
+                </div>	
+                <div class="leaf file last">
+                    <div class="tag"><div class="text">reademe.txt</div></div>
+                </div>	
+            </div>
+        </div>
+        <div class="leaf folder normal">
+        	<div class="tag"><div class="text">本地磁盘 E盘</div></div>
+        </div>
+        <div class="node last open">
+        	<div class="tag"><div class="text">本地磁盘 F盘</div></div>
+            <div class="childs">
+                <div class="leaf folder normal">
+                    <div class="tag"><div class="text">我的文档</div></div>
+                </div>
+                <div class="leaf folder normal">
+                    <div class="tag"><div class="text">Windows</div></div>
+                </div>
+                <div class="leaf folder normal">
+                    <div class="tag"><div class="text">System</div></div>
+                </div>
+                <div class="leaf folder normal">
+                    <div class="tag"><div class="text">Program files</div></div>
+                </div>	
+                <div class="leaf file last">
+                    <div class="tag"><div class="text">reademe.txt</div></div>
+                </div>	
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="js/tree0.7.js"></script>
+<!--总结
+	节点分为 root  node 和leaf 三种
+    root 由 tag 和childs组成 
+    node 由 tag 和childs组成
+    leaf 不具有childs元素
+    root是一种特殊的node,根节点，但是不使用node来表达
+    
+    按照node的位置分为  normal正常  last最后一个三种
+    按照node的状态分为  open 和close两种
+    
+-->
+</body>
+</html>

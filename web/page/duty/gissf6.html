@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GIS室SF6气压巡检记录表</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<!--link rel="stylesheet" type="text/css" href="../../src/css/23form.css"/-->
+</head>
+<body>
+<body>
+<div id="c1" style="position:absolute; z-index:30; background-color:#FFFFFF"></div>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script>
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">	
+	window.onload=init;
+	var targetGrid;
+	function e_gridrow_select(grid,row){
+		//out("select row data",row.obj);
+	}
+	function e_gridrow_dbl(grid,row){
+		//out("dbl row data",row.obj);
+	}
+	function init(){/*需要有一些自定义动画效果*/	
+		var grid=$("#c1");
+		uiLayout({dom:grid,container:document.body,dx:0,dy:0,xdoms:[]});	
+		
+		var cfg={multiMode:0,selectHandler:e_gridrow_select,dblHandler:e_gridrow_dbl,toolbar:1,filterMode:0,data_method:"gissf6Gets",
+			rmMethod:'gissf6Rm',addMethod:"gissf6Add",updateMethod:"gissf6Update",pageFlag:false,pageSize:10,pkAttr:"ae_gissf6id"};
+		//cfg.data_method=null;
+		cfg.columns=[	
+						{text:"时间",attr:"tm_check",align:"center",width:160,type:"str",asc:1,lov:"datetime"},
+						{text:"1G主变高压侧出线",attr:"p_1g_gyccx",align:"center",width:100,type:"str",asc:1},
+						{text:"1号主变高压侧CB",attr:"p_1g_gyccb",align:"center",type:"str",width:100,asc:1},
+						{text:"1G主变高压侧ES",attr:"p_1g_gyces",align:"center",width:100,type:"str",asc:1},
+						{text:"HIN HEUP线CB",attr:"p_hin_cb",align:"center",width:100,type:"str",notEdit:0,asc:1},
+						{text:"HIN HEUP线ES",attr:"p_hin_es",align:"center",width:100,type:"str",asc:1},
+					    {text:"HIN HEUP线FES",attr:"p_hin_fes",align:"center",width:100,type:"str",asc:1},
+					    {text:"115KV母线",attr:"p_115_mx",align:"center",width:100,type:"str",asc:1},
+						{text:"115KV母线PT",attr:"p_115_mxpt",align:"center",width:100,type:"str",asc:1},
+						{text:"115KV母线ES",attr:"p_115_mxes",align:"center",width:100,type:"str",asc:1},
+						{text:"115KV母线避雷器",attr:"p_115_mxblq",align:"center",width:100,type:"str",asc:1},
+						{text:"115KV母线 ES-PT",attr:"p_115_mxespt",align:"center",width:100,type:"str",asc:1},
+						{text:"2G主变高压侧出线",attr:"p_2g_gyccx",align:"center",width:100,type:"str",asc:1},
+						{text:"2号主变高压侧CB",attr:"p_2g_gyccb",align:"center",width:100,type:"str",asc:1},
+						{text:"2号主变高压侧ES",attr:"p_2g_gyces",align:"center",width:100,type:"str",asc:1},
+						{text:"BAN DON线CB",attr:"p_ban_cb",align:"center",width:100,type:"str",asc:1},
+						{text:"BAN DON线ES",attr:"p_ban_es",align:"center",width:100,type:"str",asc:1},
+						{text:"BAN DON线FES",attr:"p_ban_fes",align:"center",width:100,type:"str",asc:1},
+						{text:"检查人",attr:"per_check_name",attr2:"per_check",align:"center",width:100,type:"str",asc:1,lov:"stuff"},
+					];
+		cfg.cmds=[/*grid 默认有10个左右按钮*/
+					
+					{cmd:"cmdLock",		fn:e_cmdAddItem_handler},
+					{cmd:"cmdAddItem",	fn:e_cmdAddItem_handler},
+					{cmd:"cmdRmItem",	fn:e_cmdAddItem_handler},
+				  	{cmd:"cmdCommit",	fn:e_cmdAddItem_handler},
+				  	{cmd:"cmdFilter",	fn:e_cmdAddItem_handler},
+				  	{cmd:"cmdRefresh",	fn:e_cmdAddItem_handler}					
+				]
+		genGrid(grid,cfg);	
+	}
+	
+	function e_cmdPre_handler(evt){
+		//;////out("上一条数据");
+	}
+	function e_cmdAddItem_handler(evt){
+		//msg("用户自定义事件");
+	}
+</script>
+</body>
+</html>

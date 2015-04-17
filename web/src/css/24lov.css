@@ -1,0 +1,49 @@
+@charset "utf-8";
+.lov {
+	background-color: #FFFFFF;
+	position: absolute;
+	z-index: 9999;
+	font-size: 12px;
+}
+.lov_list {
+	cursor: default;
+	text-align: center;
+}
+.lov_img {
+	cursor: default;
+	text-align: center;
+	border:1px solid #666;
+	width: 420px;
+	height: 260px;
+	overflow: auto;
+	background-color: #FFF;
+}
+.lov_img div{
+	width: 60px;
+	height: 20px;
+	background-size: 48px 48px;
+	float: left;
+	background-repeat: no-repeat;
+	margin: 10px;
+	padding-top: 50px;
+	background-position: center top;
+	overflow: hidden;
+}
+.lov_list div{
+	border-left:1px solid #666;
+	border-right:1px solid #666;
+	line-height:28px;
+	border-bottom: 1px solid #b1b5ba;
+}
+.lov_list div:first-child{
+	line-height:28px;
+	border-top: 1px solid #666;
+}
+.lov_list div:last-child{
+	line-height:28px;
+	border-bottom: 1px solid #666;
+}
+.lov_list div:hover{
+	background-color: #99CC66;
+	color: #000000;
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <folder name="参考资源" class="base">
+    <folder name="UI框架" class="js">
+      <file name="KendoUI" url="demo/kendo2/kendo.htm"/>
+    </folder>
+    <folder name="按钮设计" class="js">
+      <file name="sweet button" url="demo/sweetbutton/buttons.htm"/>
+    </folder>
+    <folder name="WebGL" class="js">
+      <file name="3d cloudy" url="demo/webgl/3dcloudy.html"/>
+    </folder>
+    <folder name="WebFonts" class="js">
+      <file name="font awsome" url="demo/FortAwesome/docs/design.html"/>
+    </folder>
+    <folder name="Canvas" class="js">
+      <file name="Area2D" url="demo/ichart/Area2D.html" />
+	  <file name="Bar2D" url="demo/ichart/Bar2D.html" />
+	  <file name="column2D" url="demo/ichart/column2D.html" />
+	  <file name="column3D" url="demo/ichart/column3D.html" />
+	  <file name="operateManger" url="demo/ichart/operateManger.html" />
+	  <file name="pie2D" url="demo/ichart/pie2D.html" />
+    </folder>
+    <folder name="SVG" class="js">
+      <file name="svgeditor" url="demo/svg-edit-2.6/svg-editor.html"/>
+    </folder>
+  </folder>
+  <folder name="XLIB" class="base">
+    <folder name="Grid" class="js">
+      <file name="基本grid"/>
+      <file name="分页控制"/>
+      <file name="可编辑grid"/>
+      <file name="调整列宽、滚动条"/>
+      <file name="操作按钮控制"/>
+      <file name="筛选、排序"/>
+      <file name="分类导航"/>
+      <file name="树状grid"/>
+    </folder>
+    <folder name="Form" class="js">
+      <file name="基本表单"/>
+      <file name="带子表表单"/>
+      <file name="布局元素类型"/>
+      <file name="输入校验"/>
+      <file name="表单的操作按钮及按钮校验"/>
+      <file name="错误提示"/>
+    </folder>
+    <folder name="Tree" class="js">
+      <file name="基本树"/>
+      <file name="可编辑树"/>
+      <file name="可拖拽树"/>
+    </folder>
+    <folder name="Dialog" class="js">
+      <file name="提示信息"/>
+      <file name="用户确认"/>
+      <file name="弹出表单"/>
+    </folder>
+    <folder name="组件搭配使用" class="js">
+      <file name="列表配合表单"/>
+      <file name="列表配合树"/>
+    </folder>
+  </folder>
+  <folder name="平台基本功能" class="js">
+    <file name="登录退出"/>
+    <file name="方法管理"/>
+    <file name="方法快速生成"/>
+    <file name="方法测试"/>
+  </folder>
+  <folder name="在线Word" class="js">
+    <file name="word的基本功能"/>
+  </folder>
+  <folder name="移动界面设计" class="js">
+    <file name="mobile"/>
+  </folder>
+</root>

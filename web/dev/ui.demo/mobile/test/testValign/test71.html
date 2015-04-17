@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>测试垂直居中</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0"/>
+<style type="text/css">
+html,body {
+	padding:0px;
+	margin:0px;
+	height: 100%;
+	text-align:center;
+	background-color:#06C;
+}
+.container {
+	height:100%;
+	width:100px;
+	background-color: #8fcbff;
+}
+.middle-item, .middle-full {
+	display:inline-block;
+	vertical-align:middle;
+	/**display:inline;
+	*zoom:1;
+	*/
+}
+.middle-full {
+	height:100%;
+	width:0;
+	overflow:hidden;
+	font-size:0;
+}
+</style>
+</head>
+<body>
+<div class="container"><div class="middle-full"></div><div class="middle-item">我是A面，CSS 3D transition are supported by IE10</div>
+</div>
+</body>
+</body>
+</html>

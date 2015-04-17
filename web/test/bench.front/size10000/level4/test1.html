@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#contrainer{
+	width:300px;
+}
+#contrainer div{
+ border:1px solid #000;
+ width:200px;
+ background-color:#33FFCC;
+ float:left;
+}
+#out{
+ border:1px solid #000;
+ width:100px;
+ float:left;
+ background-color:#CCC;
+}
+#contrainer td{
+ border:1px solid #000;
+ width:200px;
+ height:20px;
+ background-color:#33FFCC;
+ 
+}
+#title{
+ border:1px solid #000;
+ width:200px;
+ float:left;
+ background-color:#CCC;
+}
+</style>
+</head>
+<body>
+<div id="title">规模10000 绘制表格带内容</div>
+<div id="out">
+</div>
+<div id="contrainer">
+</div>
+
+<script src="../../../../release/base.js"></script>
+<script type="text/javascript">
+function comptime(beginTime,endTime) {
+			var a = endTime.getTime() - beginTime.getTime();
+			return a;
+}
+function addTr(table,start,end){
+	out("添加一行",new Date())
+	var tr=$e("tr");
+	var tds=$e("td",2);
+	tr.appendChild(tds[0]);
+	tr.appendChild(tds[1]);
+	tbody.appendChild(tr);
+}
+var init =function(){
+	var starttime=new Date();
+	var contrainer=$("#contrainer");
+	var out=$("#out");
+	var tables=$table(10000,2)
+	contrainer.appendChild(tables);
+	/*var table=$e("table")
+	table.cellPadding=0;
+	table.cellSpacing=0;
+	var tbody=$e("tbody");
+	table.appendChild(tbody);
+	contrainer.appendChild(table);*/
+	batchDoFun(addTr,10000,10,2000,tables);
+	var endtime=new Date();
+	var time=comptime(starttime,endtime);
+	out.innerText="花费"+time+" 毫秒";
+}
+var batchDoFun=function(fn,time,separate,delay,param){
+	var group=Math.floor(time/separate);
+	var residue=time%separate;
+	var t=true;
+	var t1=0
+	var start=0;
+	var end=0;
+	var setT=function(){
+		t=false;
+	}
+	var batchDo=function(){
+		if(t){
+			for(var i=0;i<group;i++){
+				fn.call(null,param);
+			}
+		}
+		else{
+			fn.call(null,param);
+		}
+	}
+	for(var i=0;i<separate;i++){
+		t1=delay*i
+		setTimeout(batchDo,delay*i);
+		if(i==separate-1) setTimeout(setT,delay*i+10);
+	}
+	setTimeout(batchDo,t1+delay);
+}
+window.onload=init;
+</script>
+</body>
+</html>

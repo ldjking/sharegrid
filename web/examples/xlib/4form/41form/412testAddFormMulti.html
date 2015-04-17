@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/13cmd.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/23form.css"/>
+</head>
+<body>
+<div id="content" style=" background-color:#FF0000; position:absolute; z-index:20"> </div>
+<script type="text/javascript" src="../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/21body.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/22layout.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/23spliter.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/26table.js"></script> 
+<script type="text/javascript" src="../../../../src/4form/41form.js"></script> 
+<script type="text/javascript" src="../../../../src/4form/42cmd.js"></script> 
+<script type="text/javascript" src="../../../../src/4form/43content.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/27lov.js"></script> 
+<script type="text/javascript" src="../../../../release/lovdef.js"></script> 
+<script type="text/javascript">
+	//window.require([""],init);
+	window.onload=init;
+	function init(){/*需要有一些自定义动画效果*/
+		var content=$("#content");
+		//var conditions=$("#conditions");
+		
+		/*布局的配置  target  参照物  容器一定要有准确的高度 */
+		/*100行才能把一个表单定义清楚，很不方便  能不能用更短的把表单定义清楚*/
+		uiLayout({dom:content,container:document.body,dx:0,dy:0,xdoms:[]});	
+		/*form是由table组成 table有3种类别 1 单行 2 固定多行  3 不固定多行*/
+		/*表单是靠绘制出来，然后设置一些标准化的属性*/
+		//uiForm({dom:form});/*这样一个form的事件就标准化了，比如值列表的出现，校验的出现*/
+		
+		/*grid是由conf columns datas组成*/
+		/*form是由conf talbes  data组成  tables是由cells组成*/	  /*宽度就按600定 以后移动要更短*/
+		var tables=[	{type:2,rows:1,cells:[
+								{type:"lbl",text:"姓名",width:80,align:"center",row:1},
+								{type:"txt",attr:"name",width:120,align:"center",row:1},/*txt代表单行元素*/
+								{type:"lbl",text:"性别",width:80,align:"center",row:1},
+								{type:"txt",attr:"sex",attr2:"c0_sex",lov:"sex",width:120,align:"center",row:1},
+								{type:"lbl",text:"出生日期",width:80,align:"center",row:1},
+								{type:"lov",attr:"birthday",lov:"date",width:120,align:"center",row:1}
+							]
+						},
+						{type:2,rows:3,cells:[
+								{type:"lbl",text:"姓名1",width:120,align:"center",row:1},
+								{type:"txt",attr:"name1",width:120,align:"left",row:1},/*txt代表单行元素*/
+								{type:"lbl",text:"性别1",width:100,align:"center",row:1},
+								{type:"lov",attr:"sex1",lov:"sex",width:120,align:"center",row:1},
+								{type:"img",text:"个人照片",width:140,align:"center",rowspan:3,row:1},
+								{type:"lbl",text:"学历",width:120,align:"center",row:2},
+								{type:"txt",attr:"name2",width:120,align:"center",row:2},/*txt代表单行元素*/
+								{type:"lbl",text:"政治面貌",width:100,align:"center",row:2},
+								{type:"lov",attr:"sex2",lov:"sex",width:120,align:"center",row:2},
+								{type:"lbl",text:"家庭住址",width:120,align:"center",row:3},
+								{type:"txt",attr:"name3",width:320,align:"left",colspan:3,row:3}
+							]
+						},
+						{type:3,rows:3,attr:"records",columns:[
+								{type:"lov",attr:"start_time",name:"开始时间",lov:"date",width:120,align:"center"},
+								{type:"lov",attr:"end_time",name:"结束时间",lov:"date",width:120,align:"center"},/*txt单行*/
+								{type:"lov",attr:"company",name:"单位部门",width:120,align:"center"},
+								{type:"txt",attr:"title",name:"职务",width:100,align:"left"},
+								{type:"txt",attr:"des",name:"主要业绩",width:140,align:"left"}
+							]
+						}
+					];
+		var cmds=[
+					{cmd:"addItem"},
+					{cmd:"rmItem"},
+					{cmd:"save"},
+					{cmd:"cancel"},
+					{cmd:"ceshi",text:"测试"}
+				];
+		var cfg={title:"新增员工表单"};
+		cfg.tables=tables;
+		cfg.cmds=cmds;
+		genForm($("#content"),cfg,tables,cmds);
+	}
+</script>
+</body>
+</html>

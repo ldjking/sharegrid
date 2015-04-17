@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="../../../src/css/11base.css" rel="stylesheet" type="text/css" />
+<link href="../../../src/css/13cmd.css" rel="stylesheet" type="text/css" />
+<link href="../../../src/css/23form.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/form2.css"/>
+</head>
+
+<body>
+<div class="content active form" id="c2" style=" height: 673px;">
+  <div class="cmdbar" id="form_1_cmdbar">
+    <div class="cmd" id="form_1_cmd">
+      <div class="btn  hide">交班</div>
+      <div class="btn  hide">撤销交班</div>
+      <div class="btn  hide">接班</div>
+      <div class="addItem  hide" id="form_1_cmdAddItem"></div>
+      <div class="rmItem  hide" id="form_1_cmdRmItem"></div>
+      <div class="update  hide" id="form_1_cmdUpdate"></div>
+      <div class="pre gray" id="form_1_cmdPre"></div>
+      <div class="next" id="form_1_cmdNext"></div>
+    </div>
+  </div>
+  <div class="formContainer" id="form_1_container" style="width: 1366px; height: 635px;">
+    <div class="paper" id="form_1_paper">
+      <div class="form_title">运行日志详细信息</div>
+      <table class="formTable" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td style="display: none;"><table class="hidden" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr>
+                    <td><input type="text"></td>
+                  </tr>
+                </tbody>
+              </table></td>
+          </tr>
+          <tr>
+            <td><table class="rows" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="row">
+                    <td class="lbl"><div style="width: 80px; text-align: center;">当前状态</div></td>
+                    <td class="attr"><textarea class="text" id="form_1_status_name" style="width: 100px; height: 20px; text-align: left;" rows="1">正在值班</textarea></td>
+                    <td class="lbl"><div style="width: 80px; text-align: center;">地点</div></td>
+                    <td class="attr"><textarea class="text" id="form_1_e0_where" style="width: 100px; height: 20px; text-align: center;" rows="1">三峡高科</textarea></td>
+                    <td class="lbl"><div style="width: 80px; text-align: center;">值长</div></td>
+                    <td class="attr"><textarea class="text" id="form_1_person3_name" style="width: 100px; height: 20px; text-align: center;" rows="1">王智华</textarea></td>
+                  </tr>
+                </tbody>
+              </table></td>
+          </tr>
+          <tr>
+            <td><table class="rows " cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="row">
+                    <td class="lbl"><div style="width: 80px; text-align: center;">班次</div></td>
+                    <td class="attr"><textarea class="text" id="form_1_class_name" style="width: 80px; height: 20px; text-align: left;" rows="1">白班</textarea></td>
+                    <td class="lbl"><div style="width: 80px; text-align: center;">接班时间</div></td>
+                    <td class="attr edit"><textarea class="text" id="form_1_e0_time2" style="width: 320px; height: 20px; text-align: left;" rows="1">2013-01-11 09:21</textarea></td>
+                  </tr>
+                </tbody>
+            </table></td>
+          </tr>
+          <tr>
+            <td><table class="rows" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="row">
+                    <td class="lbl"><div style="width: 80px; text-align: center;">值别</div></td>
+                    <td class="attr noEdit"><textarea class="text" id="form_1_type_name" style="width: 80px; height: 20px; text-align: left;" rows="1">运行一值</textarea></td>
+                    <td class="lbl"><div style="width: 80px; text-align: center;">交班时间</div></td>
+                    <td class="attr edit"><textarea class="text" id="form_1_e0_time1" style="width: 320px; text-align: left;" rows="1"></textarea></td>
+                  </tr>
+                </tbody>
+              </table></td>
+          </tr>
+          <tr>
+            <td><table class="rows" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="row">
+                    <td class="lbl"><div style="width: 80px; text-align: center;">值班人员</div></td>
+                    <td class="attr"><textarea class="text" id="form_1_e0_persons" style="width: 500px; height: 20px; text-align: left;" rows="1">李政伟 游涛 王艳龙 高文亭 何孝蓉 </textarea></td>
+                  </tr>
+                </tbody>
+              </table></td>
+          </tr>
+          <tr>
+            <td><table class="rows" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="row">
+                    <td class="lbl"><div style="width: 580px; text-align: left; padding-left: 20px;">运行日志内容</div></td>
+                  </tr>
+                </tbody>
+              </table></td>
+          </tr>
+          <tr>
+            <td><table class="childs" cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr class="row noEdit">
+                    <td class="lbl"><div style="width: 50px;">序号</div></td>
+                    <td class="lbl"><div style="width: 200px;">记录时间</div></td>
+                    <td class="lbl"><div style="width: 250px;">记录内容</div></td>
+                    <td class="lbl"><div style="width: 100px;">记录类型</div></td>
+                  </tr>
+                   <tr class="row header">
+                    <td class="attr edit"><div style="width: 50px;">1</div></td>
+                    <td class="attr edit"><div style="width: 200px;"></div></td>
+                    <td class="attr edit"><div style="width: 250px;"></div></td>
+                    <td class="attr edit"><div style="width: 100px;"></div></td>
+                  </tr>
+                   <tr class="row header">
+                    <td class="attr edit"><div style="width: 50px;">2</div></td>
+                    <td class="attr edit"><div style="width: 200px;"></div></td>
+                    <td class="attr edit"><div style="width: 250px;"></div></td>
+                    <td class="attr edit"><div style="width: 100px;"></div></td>
+                  </tr>
+                </tbody>
+              </table></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="focus focus_1" id="focus1"></div>
+<div class="focus focus_2" id="focus2"></div>
+<div class="focus focus_3" id="focus3"></div>
+<div class="focus focus_4" id="focus4"></div>
+<script type="text/javascript" src="../../../release/base.js"></script>
+<script type="text/javascript">
+	var activeText;
+	function e_mouse_move(evt){
+		var text=evt.target;
+		var target;
+		if(text!=null&&text.tagName.toLowerCase()=="textarea")	target=text.parentNode;
+		else{
+			target=text;
+			text=target.childNodes[0];
+		}
+		if(target==null||target.tagName.toLowerCase()!="td")	return;
+		////out("text",text.disabled);
+		if(!text.disabled){
+			cssRm(activeText,"active");
+			activeText=target;
+			cssAdd(activeText,"active");
+			var rect=getRect(target);
+			$("#focus1").style.left=rect.left-1+"px";
+			$("#focus1").style.top=rect.top+"px";
+			$("#focus1").style.height=rect.height+"px";
+			
+			$("#focus2").style.left=rect.left-1+"px";
+			$("#focus2").style.top=rect.top-1+"px";
+			$("#focus2").style.width=rect.width+1+"px";
+			
+			$("#focus3").style.left=rect.left+rect.width-1+"px";
+			$("#focus3").style.top=rect.top+"px";
+			$("#focus3").style.height=rect.height+"px";
+			
+			$("#focus4").style.left=rect.left+"px";
+			$("#focus4").style.top=rect.top+rect.height-1+"px";
+			$("#focus4").style.width=rect.width+"px";
+			
+			
+			////out("rect",rect);
+		}
+	}
+	document.body.onclick=e_mouse_move;
+</script>
+</body>
+</html>

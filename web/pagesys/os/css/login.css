@@ -1,0 +1,121 @@
+body {
+	background-color: #171a25;
+}
+.container {
+	height: 100%;
+	width: 100%;
+	vertical-align: middle;
+	text-align: center;
+	background-color: #0d1d3e;
+	height: 100%;
+	width: 100%;
+}
+.panel {
+	text-align: center;
+	background-image: url(../../../images/os/bg.png);
+	background-repeat: repeat-x;
+	background-position: center 60px;
+	padding-top: 32px;
+}
+
+.loginDiv {
+	width: 501px;
+	height: 350px;
+	text-align: left;
+	background-image: url(../../../images/os/loginbg.png);
+	background-repeat: no-repeat;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 16px;
+}
+.tr1 {
+	height: 87px;
+}
+.tr2 {
+	height: 40px;
+}
+.tr3 {
+	height: 26px;
+}
+.td1 {
+	text-align: justify;
+	text-justify:distribute;
+	text-align-last:justify;
+	width: 93px;
+}
+.td2 {
+	text-align: left;
+	width: 90px;
+	color: #88898b;
+	font-size: 16px;
+	font-weight: normal;
+}
+.td3 {
+	text-align: left;
+	width: 234px;
+	color: #88898b;
+	font-size: 14px;
+}
+.account {
+	text-align: left;
+	background-color: #FFF;
+	width: 220px;
+	border: 1px solid #9b9b9b;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 5px 0 5px;
+	margin: 0px;
+	font-size: 16px;
+}
+.pw {
+	text-align: left;
+	background-color: #FFF;
+	width: 220px;
+	border: 1px solid #9b9b9b;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 5px 0 5px;
+	margin: 0px;
+	font-size: 16px;
+}
+.msg {
+	text-align: left;
+	padding: 0 5px 0 5px;
+	width: 220px;
+	height: 20px;
+	line-height: 20px;
+	padding: 0px;
+	margin: 0px;
+	font-size: 16px;
+	color: #C00;
+	visibility: hidden;
+}
+.submit {
+	width: 80px;
+	height: 25px;
+	border: 1px solid #9a9a9a;
+	border-radius: 4px;
+	line-height: 25px;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	background-repeat: no-repeat;
+	background-color: #7bb6f3;
+	background-image: url(../../../images/button/btn_silver.png);
+	background-repeat: repeat-x;
+
+}
+.submit:hover {
+	width: 80px;
+	height: 25px;
+	border: 1px solid #9a9a9a;
+	border-radius: 4px;
+	line-height: 25px;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	background-repeat: no-repeat;
+	background-color: #7bb6f3;
+	background-image: url(../../../images/button/btn_green.png);
+	background-repeat: repeat-x;
+}

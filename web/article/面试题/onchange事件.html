@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<textarea id="text">测试</textarea>
+<script type="text/javascript">
+window.onload=init;
+function init(){
+	var text=document.getElementById("text");
+	text.onchange=onchange;
+	//text.onpropertychange=onchange;
+	text.value="hello world";
+	text.onchange();
+}
+
+function onchange(evt){
+	//alert(evt);
+	if(evt===undefined){
+		var dom=this;
+		alert(dom);
+	}
+	//alert("change");
+}
+</script>
+</body>
+</html>

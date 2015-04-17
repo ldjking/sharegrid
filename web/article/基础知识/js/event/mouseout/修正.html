@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>mouseout</title>
+</head>
+
+<body>
+<div id="c1" style="background-color:#0CC; width:100px; height:200px; padding:40px;">
+<div id="c2" style="background-color:#ccc; width:100px; height:100px; margin:10px;"></div>
+<div id="c3" style="background-color:#fff; width:100px; height:100px;margin:10px;"></div></div>
+<div id="c4"></div>
+<script type="text/javascript" src="../../../../../src/1base/11basis.js"></script>
+<script type="text/javascript" src="../../../../../src/1base/12extend.js"></script>
+<script type="text/javascript" src="../../../../../src/1base/13core.js"></script>
+<script type="text/javascript" src="../../../../../src/1base/14out.js"></script>
+<script type="text/javascript" src="../../../../../src/1base/14dom.js"></script>
+<script type="text/javascript" src="../../../../../src/1base/16evt.js"></script>
+<script type="text/javascript">
+	window.onload=init;
+	function init(){
+		var c1=document.getElementById("c1");
+		var c2=document.getElementById("c2");
+		var c3=document.getElementById("c3");
+		var c4=document.getElementById("c4");
+		bind(c1,"mouseleave",leave_handler);
+	}
+	function leave_handler(){
+		out("leave事件处理"+new Date());
+	}
+</script>
+</body>
+</html>

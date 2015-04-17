@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>风电管理系统</title>
+<LINK href="../images/icon/favicon.ico" type="image/x-icon" rel=icon>
+<LINK HREF="../images/icon/favicon.ico" rel="shortcut icon" >
+<LINK HREF="../images/icon/favicon.ico" rel="bookmark" >
+<link rel="apple-touch-icon" href="../images/icon/logo.png">
+<link rel="stylesheet" type="text/css" href="../../../../demo/mobile/old/rs/index/index.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0"/>
+</head>
+
+<body>
+<div class="top" id="top">
+  <div class="title">风电资产管理系统 移动版</div>
+</div>
+<div class="down">
+  <table cellpadding="0" cellspacing="0">
+    <tr>
+      <td><label>用户名</label></td>
+      <td><input type="text" value="wang_zhihua"/></td>
+    </tr>
+    <tr>
+      <td><label>密码</label></td>
+      <td><input type="password" value="123"/></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" checked="check"/>
+        记住密码</td>
+      <td><input type="checkbox" checked="check"/>
+        自动登录</td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="登录"/></td>
+    </tr>
+  </table>
+</div>
+<script type="text/javascript" src="../../../../demo/mobile/old/rs/common/xlib.js"></script>
+<script type="text/javascript" src="../../../../demo/mobile/old/rs/common/fullScreen.js"></script> 
+
+<script type="text/javascript">
+	function loginBack(result){
+		alert(result.flag);
+	}
+	
+	function init(){
+		//alert("open login");
+		//var result=$$("login",{account:"wang_zhihua",pw:"123"},true,loginBack);
+		//alert(jsonStr(result));
+		//alert(document.body.clientHeight);
+		var imgContainer=document.getElementById('top');
+        imgContainer.onclick=topClick;
+	}
+	function topClick(evt){
+		var target=evt.target;
+		//target.requestFullScreen();    
+		if(target.webkitRequestFullScreen)	target.webkitRequestFullScreen();         
+	 }
+	window.onload=init;
+</script>
+</body>
+</html>

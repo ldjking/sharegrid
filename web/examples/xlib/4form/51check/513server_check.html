@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/23form.css"/>
+</head>
+<body>
+<div id="content" style=" background-color:#FF0000; position:absolute; z-index:20"> </div>
+<script type="text/javascript" src="../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/21body.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/22layout.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/23spliter.js"></script>
+<script type="text/javascript" src="../../../../src/2ui/25panel.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/26table.js"></script> 
+<script type="text/javascript" src="../../../../src/4form/41form.js"></script> 
+<script type="text/javascript" src="../../../../src/4form/42cmd.js"></script> 
+<script type="text/javascript" src="../../../../src/4form/43content.js"></script> 
+<script type="text/javascript" src="../../../../src/4form/44attr.js"></script>
+<script type="text/javascript" src="../../../../src/4form/45check.js"></script>
+<script type="text/javascript" src="../../../../src/4form/46scroll.js"></script>
+<script type="text/javascript" src="../../../../src/4form/47fix.js"></script>
+<script type="text/javascript" src="../../../../src/4form/48ui.js"></script>
+<script type="text/javascript" src="../../../../src/2ui/27lov.js"></script>
+<script type="text/javascript" src="../../../../src/2ui/28calendar.js"></script> 
+<script type="text/javascript" src="../../../../release/lovdef.js"></script> 
+<script type="text/javascript">
+	//window.require([""],init);
+	window.onload=init;
+	function init(){/*需要有一些自定义动画效果*/
+		var content=$("#content");
+		//var conditions=$("#conditions");
+		
+		/*布局的配置  target  参照物  容器一定要有准确的高度 */
+		/*100行才能把一个表单定义清楚，很不方便  能不能用更短的把表单定义清楚*/
+		uiLayout({dom:content,container:document.body,dx:0,dy:0,xdoms:[]});	
+		/*form是由table组成 table有3种类别 1 单行 2 固定多行  3 不固定多行*/
+		/*表单是靠绘制出来，然后设置一些标准化的属性*/
+		//uiForm({dom:form});/*这样一个form的事件就标准化了，比如值列表的出现，校验的出现*/
+		
+		/*grid是由conf columns datas组成*/
+		/*form是由conf talbes  data组成  tables是由cells组成*/	  /*宽度就按600定 以后移动要更短*/
+		var cfg={title:"服务器校验",formType:"update",addMethod:"methodAdd",updateMethod:"methodUpdate",
+				dataMethod:"methodGet"};
+		cfg.param={c2_id:"140115"};/*要使用几种模式*/
+		//cfg.data={};//,checkMethod:"checkFormMethod1",des:['c2_des21'],
+		var tables=[	
+						{type:0,rows:1,cells:[/*隐藏字段  在提交时方获得值，该值可能对子表产生影响*/
+								{type:"sid",attr:"c2_id",sidType:"method",width:120,align:"left",row:1}/*txt代表单行元素*/
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"服务器校验",width:600,align:"center",row:1}
+								]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"所选人员必须为值长",width:300,align:"center",row:1},
+								{type:"txt",attr:"c2_name10",width:300,align:"left",row:1,checkMethod:"checkFormMethod2",des:['c2_des21'],error:"大于数值2",lov:"stuff"}
+								]
+						}
+					];
+		var cmds=[
+					{cmd:"addItem"},
+					{cmd:"rmItem"},
+					{cmd:"update"},/*在新系统中，我打算干掉复杂方法，一个复杂表单的提交，将分步骤实施，主id如果需要，提供一个getsid的方法*/
+					{cmd:"cancel"}
+				];
+		cfg.tables=tables;
+		cfg.cmds=cmds;
+		genForm($("#content"),cfg);
+	}
+</script>
+</body>
+</html>

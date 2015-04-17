@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>风电管理系统</title>
+<LINK href="../images/icon/favicon.ico" type="image/x-icon" rel=icon>
+<LINK HREF="../images/icon/favicon.ico" rel="shortcut icon" >
+<LINK HREF="../images/icon/favicon.ico" rel="bookmark" >
+<link rel="apple-touch-icon" href="../images/icon/mylogo.png">
+<link rel="stylesheet" type="text/css" href="../../../../demo/mobile/old/rs/form/form.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0"/>
+</head>
+
+<body>
+<div class="top" id="top">
+  <div class="nav">
+    <div class="back"></div>
+    <div class="cmds">
+      <div class="cmd addItem"></div>
+      <div class="cmd commit"></div>
+      <div class="cmd pre"></div>
+      <div class="cmd next"></div>
+      <div class="cmd index"></div>
+    </div>
+  </div>
+</div>
+<div id="debug_console"> </div>
+<div class="down" id="down"><div class="content">
+    <table cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="lbl">当前状态</td>
+        <td><input type="text" class="txt" name="attr1" value="正在值班"/></td>
+      </tr>
+      <tr>
+        <td class="lbl">接班时间</td>
+        <td><input type="text" class="txt" name="attr2"  value="2013-1-27 10:54"/></td>
+      </tr>
+      <tr>
+        <td class="lbl">值长</td>
+        <td><input type="text" class="text" name="attr3"   value="李政伟"/></td>
+      </tr>
+      <tr>
+        <td class="lbl">类别</td>
+        <td><input type="text" class="text" name="attr4"   value="白班"/></td>
+      </tr>
+      <tr>
+        <td class="lbl">班次</td>
+        <td><input type="text" class="text" name="attr5"   value="运行二值"/></td>
+      </tr>
+      <tr>
+        <td class="lbl">值班人员</td>
+        <td><textarea class="text">李政伟 王智华 刘东杰 陈赟 张进 唐骏</textarea></td>
+      </tr>
+      <tr>
+        <td class="lbl">值班日志</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="2"><div>
+            <label class="time">17:54</label>
+            <label class="type">工作票</label>
+          </div>
+          <div class="text1">工作票签发，由刘东杰发起，因工具不足，发给后勤部准备工具</div></td>
+      </tr>
+      <tr>
+        <td colspan="2"><div>
+            <label class="time">16:34</label>
+            <label class="type">工作票</label>
+          </div>
+          <div class="text1">工作票签发，由刘东杰发起，因工具不足，发给后勤部准备工具</div></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="footer"></div>
+<script type="text/javascript" src="../../../../demo/mobile/old/rs/common/xlib.js"></script> 
+<script type="text/javascript">
+	function init(){
+		fixScroll($("down"));	
+	}
+	window.onload=init;
+</script>
+</body>
+</html>

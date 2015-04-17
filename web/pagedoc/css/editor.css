@@ -1,0 +1,78 @@
+.dwMain {
+	position: absolute;
+	top: 0px;
+	left: 1px;
+	right: 260px;
+	background-color: #333;
+	bottom: 1px;
+	z-index: 30;
+	border: 1px solid #333333;
+}
+.editors {
+	background-color: #d6d6d6;
+	height: 621px;
+	line-height: 26px;
+	font-size: 12px;
+	border-top: 1px solid #ffffff;
+}
+.editors .editor{
+	height: 100%;
+	background-color: #FFF;
+	overflow: auto;
+	display: none;
+
+}
+.editors .editor.active{
+	display: block;
+
+}
+.editors .editorTable{
+	line-height: 16px;
+}
+.editors .editorTable pre{
+	line-height: 16px;
+	margin: 0;
+	padding: 0;
+}
+.editors .editorTable tr td:first-child{
+	background-color: #3399ff;
+	color: #FFF;
+
+}
+.editors td{
+	vertical-align: middle;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 20px;
+}
+.editors .c1{
+	background-color: #3399ff;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #FFF;
+}
+.editors .c2{
+	background-color: #FFFFFF;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.editors .w1{
+	text-align: right;
+	color: #FFFFFF;
+	min-width: 30px;
+}
+.editors .w2{
+	text-align: left;
+	color: #000099;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	outline: none;
+	overflow: hidden;
+	background-color: #FFF;
+	width: 1030px;
+	line-height: 20px;
+}
+.editors .text{
+	text-align: left;
+}

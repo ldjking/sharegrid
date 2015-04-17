@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>测试AJAX1——JSONP</title>
+</head>
+
+<body>
+<div id="container"></div>
+<script type="text/javascript" src="../../../../src/1base/11basis.js"></script>
+<script type="text/javascript" src="../../../../src/1base/12extend.js"></script>
+<script type="text/javascript" src="../../../../src/1base/13core.js"></script>
+<script type="text/javascript" src="../../../../src/1base/17ajax.js"></script>
+<script type="text/javascript">
+	window.onload=init();
+	
+	function  testResult(result){
+		var container=document.getElementById("container");
+		container.innerHTML+="方法名："+result.method+"<br/>";
+		container.innerHTML+="参数："+jsonStr(result.param)+"<br/>";
+		container.innerHTML+="执行结果："+result.flag+"<br/>";
+		container.innerHTML+="消耗时间："+result.cost+"<br/>";
+
+		if(result.flag){
+			container.innerHTML+="返回数据条数："+result.data.length+"<br/>";
+			container.innerHTML+="第一条数据："+result.data[0].c0_name+"<br/>";
+		}
+		else{
+			
+			container.innerHTML+="错误代码："+result.errorCode+"<br/>";
+			container.innerHTML+="错误描述："+result.errorText+"<br/>";
+		}
+	}
+	
+	function init(){
+		$jsonp("personGets",{name:"中文刘珺啊"},testResult);
+		//testResult(result);
+	}
+	
+	
+</script>
+</body>
+</html>

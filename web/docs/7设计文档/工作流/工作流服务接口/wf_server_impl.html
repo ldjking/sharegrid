@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单设计文档</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/css/doc.css"/>
+</head>
+
+<body>
+<div class="doc">
+  <div class="container">
+    <div class="paperh">
+      <div class="content">
+        <div class="h1 center">工作流后台接口</div>
+        <table cellpadding="0" cellspacing="0" border="1">
+          <tr class="thead">
+            <td colspan="8">文档编写记录</td>
+          </tr>
+          <tr>
+            <td width="80">编写人:</td>
+            <td width="80">王智华</td>
+            <td width="80">编写时间:</td>
+            <td width="80">2013-2-28</td>
+            <td width="80">审核人:</td>
+            <td width="80">&nbsp;</td>
+            <td width="80">审核时间:</td>
+            <td width="80">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="8"><div>1. 接口功能设计简介</div>
+              <div>2. 工作流引擎</div></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="paperh">
+      <div class="content">
+        <div class="h1">目录</div>
+        <ol class="rectangle-list">
+          <li><a href="#p1">接口功能设计简介</a></li>
+          <li><a href="#p2">工作流引擎</a>
+          <ol>
+              <li><a href="#p21">启动任务接口</a></li>
+              <li><a href="#p22">发送任务接口</a></li>
+              <li><a href="#p23">保存任务接口</a></li>
+              <li><a href="#p24">执行任务接口</a></li>
+              <li><a href="#p25">取消任务接口</a></li>
+              <li><a href="#p26">待办接口</a></li>
+              <li><a href="#p27">已办接口</a></li>
+              <li><a href="#p28">表单数据接口</a></li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="paper">
+      <div class="content">
+        <div class="p1" id="p1">第一章、接口功能设计简介</div>
+        <div class="p">工作流的后台接口，主要是对后台工作流定义，启动，执行，发送，取消，保存，获取待办等一系列相关操作提供一个灵活，标准的操作接口.</div>
+        <div class="p1" id="p2">第一章、工作流引擎</div>
+        <div class="p2" id="p21">1. 启动任务接口</div>
+        <div class="p">启动任务接口接会判断接受参数中的任务id是否为空，如果不为空则表明该启动一个以前保存过的流程，否则是启动一个新的流程，接口还会接受tasktype Perantid（有该参数则表明该流程是一个子流程），openperson，formdata，在该接口方法中获得当前时间作为发起时间并构造任务标题，通过任务类型在问w3_op表中获得启动环节的op的id和环节id，并w5_task表中新建或更新保存的任务状态为获得op信息中的下一环节计算结果，在通过获取到的环节信息，在w2_node表中获取下一环节人员的获取信息，并计算出下一环节接受人，通过send_task方法发送。</div>
+        <div class="part">
+          <table cellpadding="0" cellspacing="0" border="1">
+          	<tr class="thead">
+            	<td >接口名</td>
+            	<td colspan="2">start_task</td>
+            </tr>
+            <tr>
+              <td width="136">参数名</td>
+              <td width="205">意义</td>
+              <td width="220">值示例</td>
+            </tr>
+            <tr>
+              <td>taskid</td>
+              <td>任务id</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>tasktype</td>
+              <td>任务类型</td>
+              <td>askleave</td>
+            </tr>
+            <tr>
+              <td>perantid</td>
+              <td>任务父id</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>openperson</td>
+              <td>发起人</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>formdata</td>
+              <td>表单数据</td>
+              <td>{
+  					 a:10,
+  					 b:100,
+  					 c:300
+				  }			  
+			  </td>
+            </tr>
+          </table>
+        </div>
+        <div class="p2" id="p22">2.发送任务接口</div>
+        <div class="p">发送任务接口通过接收到的taskid,person,node,op,comment 和程序获得的时间作为当前发送时间，设置状态为todo，构造标题【中文】，在w6_record表中新建一条记录</div>
+        <div class="part">
+          <table cellpadding="0" cellspacing="0" border="1">
+          	<tr class="thead">
+            	<td >接口名</td>
+            	<td colspan="2">send_task</td>
+            </tr>
+            <tr>
+              <td width="136">参数名</td>
+              <td width="205">意义</td>
+              <td width="220">值示例</td>
+            </tr>
+            <tr>
+              <td>taskid</td>
+              <td>任务id</td>
+              <td>1002001</td>
+            </tr>
+            <tr>
+              <td>person</td>
+              <td>执行人</td>
+              <td>22</td>
+            </tr>
+            <tr>
+              <td>node</td>
+              <td>环节</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>op</td>
+              <td>操作</td>
+              <td>32</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="paper">
+      <div class="content">
+      	<div class="part">
+        	 <table cellpadding="0" cellspacing="0" border="1" width="100%">
+                <tr>
+                  <td>comment</td>
+                  <td>处理意见</td>
+                  <td>同意</td>
+                </tr>
+            </table>
+        </div>
+        <div class="p2" id="p23">3.保存任务接口</div>
+        <div class="p">启动任接口接受tasktype Perantid（有该参数则表明该流程是一个子流程），openperson，formdata，在该接口方法中获得当前时间作为发起时间并构造任务标题，通过任务类型在问w3_op表中获得启动环节的op的id和环节id，并w5_task表中更新保存的任务为编辑状态，
+和启动不一样的是保存方法不会发送任务。</div>
+		
+        <div class="part">
+          <table cellpadding="0" cellspacing="0" border="1">
+          	<tr class="thead">
+            	<td >接口名</td>
+            	<td colspan="2">save_task</td>
+            </tr>
+            <tr>
+              <td width="136">参数名</td>
+              <td width="205">意义</td>
+              <td width="220">值示例</td>
+            </tr>
+            <tr>
+              <td>tasktype</td>
+              <td>任务类型</td>
+              <td>askleave</td>
+            </tr>
+            <tr>
+              <td>perantid</td>
+              <td>任务父id</td>
+              <td>23</td>
+            </tr>
+            <tr>
+              <td>saveperson</td>
+              <td>保存人 （逻辑上谁保存的谁可以编辑，其他人不可打开）</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>formdata</td>
+              <td>表单数据</td>
+              <td>{id:232,name:ak_1,....}</td>
+            </tr>
+          </table>
+        </div>
+        <br />
+        <div class="p2" id="p24">4.执行任务接口</div>
+        <div class="p">启动任接口接受tasktype Perantid（有该参数则表明该流程是一个子流程），openperson，formdata，在该接口方法中获得当前时间作为发起时间并构造任务标题，通过任务类型在问w3_op表中获得启动环节的op的id和环节id，并w5_task表中更新保存的任务为编辑状态，
+和启动不一样的是保存方法不会发送任务。</div>
+        <div class="part">
+          <table cellpadding="0" cellspacing="0" border="1">
+          	<tr class="thead">
+            	<td >接口名</td>
+            	<td colspan="2">do_task</td>
+            </tr>
+            <tr>
+              <td width="136">参数名</td>
+              <td width="205">意义</td>
+              <td width="220">值示例</td>
+            </tr>
+            <tr>
+              <td>taskid</td>
+              <td>任务id</td>
+              <td>100021</td>
+            </tr>
+            <tr>
+              <td>doperson</td>
+              <td>处理人</td>
+              <td>23</td>
+            </tr>
+            <tr>
+              <td>formdata</td>
+              <td>表单数据</td>
+              <td>{id:100021:name:askleave}</td>
+            </tr>
+            <tr>
+              <td>op</td>
+              <td>执行操作</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>node</td>
+              <td>执行的环节</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>comment</td>
+              <td>操作意见</td>
+              <td>不同意</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="paper">
+      <div class="content">
+        <div class="p2" id="p25">5.取消任务接口</div>
+        <div class="p">通过获得的taskid和node信息，将该任务环节的所有待办记录修除done以外的记录改为cancel。</div>
+        <div class="part">
+          <table cellpadding="0" cellspacing="0" border="1">
+          	<tr class="thead">
+            	<td >接口名</td>
+            	<td colspan="2">cancel_task</td>
+            </tr>
+            <tr>
+              <td width="136">参数名</td>
+              <td width="205">意义</td>
+              <td width="220">值示例</td>
+            </tr>
+            <tr>
+              <td>taskid</td>
+              <td>任务id</td>
+              <td>1003001</td>
+            </tr>
+            <tr>
+              <td>Node</td>
+              <td>执行的环节</td>
+              <td>3</td>
+            </tr>
+          </table>
+        </div>
+        <div class="p2" id="p26">6.待办接口</div>
+        <div class="p">通过personid，在w6_record表中查询w6_person为personid ，所有w6_state为todo的任务记录，并以json格式返回
+		</div>
+        <div class="part">
+          <table cellpadding="0" cellspacing="0" border="1">
+         	<tr class="thead">
+            	<td >接口名</td>
+            	<td colspan="2">mytodo_task</td>
+            </tr>
+            <tr>
+              <td width="136">参数名</td>
+              <td width="205">意义</td>
+              <td width="220">值示例</td>
+            </tr>
+            <tr>
+              <td>Personid</td>
+              <td>任务属于谁</td>
+              <td>32</td>
+            </tr>
+          </table>
+        </div>
+        <div class="p2" id="p27">7.已办接口</div>
+        <div class="p">通过personid，在w6_record表中查询w6_person为personid ，所有w6_state为done的任务记录，并以json格式返回返回
+		</div>
+        <div class="part">
+          <table cellpadding="0" cellspacing="0" border="1">
+         	<tr class="thead">
+            	<td >接口名</td>
+            	<td colspan="2">mytodo_task</td>
+            </tr>
+            <tr>
+              <td width="136">参数名</td>
+              <td width="205">意义</td>
+              <td width="220">值示例</td>
+            </tr>
+            <tr>
+              <td>Personid</td>
+              <td>任务属于谁</td>
+              <td>32</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="paper">
+      <div class="content">
+        <div class="p2" id="p28">8.表单数据接口</div>
+        <div class="p">通过获得tackid在w0_wf获得w0_form , 在通过taskid和nodeid在w4_attr表在获得属性编辑权限
+		</div>
+        <div class="part">
+          <table cellpadding="0" cellspacing="0" border="1">
+          	<tr class="thead">
+            	<td >接口名</td>
+            	<td colspan="2">get_task_form</td>
+            </tr>
+            <tr>
+              <td width="136">参数名</td>
+              <td width="205">意义</td>
+              <td width="220">值示例</td>
+            </tr>
+            <tr>
+              <td>taskid</td>
+              <td>任务id</td>
+              <td>102201</td>
+            </tr>
+            <tr>
+              <td>nodeid</td>
+              <td>环节id</td>
+              <td>44</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+</body>
+</html>

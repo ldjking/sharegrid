@@ -1,0 +1,118 @@
+﻿<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>巡回检查记录管理</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<!--link rel="stylesheet" type="text/css" href="../../src/css/23form.css"/-->
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script>
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+(function(){
+	var grid		    =$("#c1");
+	
+		
+	var fn_showList     =function(evt){
+		//genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	var fn_showkeyList  =function(evt){
+		activeTab(keyList);
+	}
+	var fn_showNext=	function(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showPre=		function(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showEditForm=function(evt){
+		activeTab(tabEdit);
+	}
+	var fn_showAddForm=function(evt){/*要把新增表单显示出来*/
+		activeTab(tabAdd);
+	}
+	var e_refushEdit =function(target){
+		genGridCmd(grid);
+		genGridContent(grid);
+		activeTab(tabList);
+	}
+	var e_refushAdd =function(target){
+		cssReplace(tabAdd,"active","hide");
+		cssReplace(tabAdd,"normal","hide");
+		genGridCmd(grid);
+		genGridContent(grid);/*重绘内容*/
+		activeTab(tabList);
+	}
+	var tabChange=function(target,p){
+		if(p==0)		fn_showList();
+		else if(p==1)	refreshEditForm();
+		else if(p==2)	refreshAddGrid();
+	}
+	var refreshAddGrid=function(){
+		 addForm.formCfg.data={type:2}
+		 genFormContent(addForm);
+	}
+	var refreshEditForm =function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.param==obj)	return;
+		else{
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			cssRm([preCmd,nextCmd],"gray");
+			if(obj.rownum==1)						cssAdd(preCmd,"gray");
+			else if(obj.rownum==cfg.totalNum)		cssAdd(nextCmd,"gray");
+			genFormContent(editForm);
+		}
+	}
+	var init=function(){
+		uiApp({dom:$("#app1"),fn:tabChange});
+		//ae_xhcheckid	tm_enter	content	result	per_jc	isload	class	site	org
+		cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"xhcheckGets",rmMethod:'xhcheckRm',addMethod:"xhcheckAdd",updateMethod:"xhcheckUpdate",pageFlag:false,pageSize:6,autoWidth:1,pkAttr:"ae_xhcheckid"};
+		cfg.columns=[	
+						{text:"检查时间",attr:"tm_enter",align:"left",type:"str",width:150,asc:1,lov:'datetime'},
+						{text:"检查内容",attr:"content",align:"left",width:200,type:"str",asc:1},
+						{text:"检查情况",attr:"result",align:"left",width:250,type:"str",asc:1},
+						{text:"检查人",attr:"per_jc_name",attr2:'per_jc',align:"left",width:80,type:"str",asc:1,lov:'stuff'},
+						{text:"班组",attr:"class",align:"left",width:80,type:"str",asc:1}
+					];
+		cfg.cmds=[
+					{cmd:"cmdLock"},
+					{cmd:"cmdAddItem"},
+					{cmd:"cmdRmItem"},
+				  	{cmd:"cmdCommit"},
+				  	{cmd:"cmdFilter"},
+				  	{cmd:"cmdRefresh"}
+				]
+		$$("getOndutyingId",null,null,function(r3){
+			if(r3){
+				cfg.param={ae_ondutyid:r3.data.ae_ondutyid}
+				genGrid(grid,cfg);
+			}
+		});
+	}
+	
+	window.onload=init;
+})();
+</script>
+</body>
+</html>

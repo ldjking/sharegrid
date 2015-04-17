@@ -1,0 +1,40 @@
+<!--jsp--<%@ page language="java" pageEncoding="UTF-8"%>-->
+<!--jsp--<%@include file="/include/taglib.jsp"%>-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>设置新密码</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<!--jsp--<%@ taglib uri="/encode.rsa/tags" prefix="rsa"%>-->
+<!--jsp--<rsa:encode/>-->
+<link rel="stylesheet" type="text/css" href="css/wx_login_my.css">
+</head>
+<body>
+<div class='wx_top'>
+  <a class="wx_top_logo" href="index.do">
+  </a>
+  <span class="wx_top_gap"></span>
+  <span class='wx_top_title'>找回密码</span>
+</div>
+<h1 class="wx_title">设置新登录密码</h1>
+<form class="wx_login_box">
+  <div class="input_box">
+    <input type="password" placeholder="输入新密码"  style="line-height:normal;" id="onepassword" class="wx_icon_pw" tabindex="1"/>
+  </div>
+  <div id="s_tip" class="wx_tips3"></div>
+  <div class="input_box">
+    <input type="password" placeholder="再次确认新密码"  style="line-height:normal;" id="twopassword" class="wx_icon_pw" tabindex="2"/>
+  </div>
+  <div id="sw_tip" class="wx_tips3"></div>
+  <div id="s_usrnm2"></div>
+
+  <a href="javascript:void(0)" id="btnsubmit" tabindex="4" class="wx_btn_orange wx_nextStep"> 下一步 </a>
+</form>
+<script type="text/javascript" src="js/lib/zepto.min.js"></script>
+<script type="text/javascript" src="js/lib/pwd/security.js?v=0.0.1"></script>
+<script type="text/javascript" src="js/wx_retrieveUpdate.js"></script>
+</body></html>

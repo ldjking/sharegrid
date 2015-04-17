@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/bootstrap/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css">
+<link rel="stylesheet" type="text/css" href="../../../../src/css/29tree.css">
+</head>
+
+<body>
+<div class="container" style="background-color:#999999; height:100%">
+<div id="c1" style="background-color:#fff; width:240px; height:100%; float:right"> </div>
+</div>
+<script type="text/javascript" src="../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../release/ui.js"></script> 
+<script type="text/javascript" src="../../../../release/lovdef.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/51tree.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/52cmd.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/53content.js"></script>
+<script type="text/javascript" src="../../../../src/5tree/54data.js"></script>
+<script type="text/javascript" src="../../../../src/5tree/55edit.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/56scroll.js"></script>
+<script type="text/javascript" src="../../../../src/5tree/57fix.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/58ui.js"></script> 
+<script type="text/javascript" src="../../../../src/5tree/59drag.js"></script> 
+<script type="text/javascript">	
+	window.onload=init;
+	function init(){/*需要有一些自定义动画效果*/	
+		var dom=$("#c1");
+		var cfg={clickHandler:fn_tree_click,dblHandler:fn_tree_dbl,exclusive:0,formatType:1,
+			dataMethod:"orgGets",addMethod:"orgAdd",updateMethod:"orgUpdate",rmMethod:"orgRm",
+			allowEdit:1,showCmd:1,openAll:1,addNodeTitle:"新增组织机构",allowDrag:1,
+			idAttr:"d1_id",pidAttr:"d1_pid",nameAttr:"d1_name"};/*增删查改方法*/
+		/*排他设置exclusive  formatFlag是否需要格式化数据	idAttr主键	pidAttr父键	nameAttr名称属性*/
+		cfg.cmds=[	{cmd:"nodeOpen"},
+					{cmd:"nodeClose"},
+					{cmd:"nodeRefresh"},
+					{cmd:"nodeAdd"},
+					{cmd:"nodeEdit"},
+					{cmd:"nodeRm"}
+				 ];
+		cfg.map={};/*表单的配置，包含各个属性  相当于是目录的管理*/
+		cfg.attrs=[		{attr:"d1_id",type:"num",name:"主键",hide:1},/*树的编辑器映射  应该说是比较复杂的*/
+				  		{attr:"d1_name",type:"str",name:"名称",hide:0},
+				 		{attr:"d1_type",type:"str",name:"类型",hide:0,defaultVal:"file"},
+				 		{attr:"d1_pid",type:"num",inherit:"d1_id",name:"父键",hide:0,readOnly:1}/*inherit继承父节点的值*/
+					];/*如果想要新增和修改节点  需要配置*/
+		genTree(dom,cfg);
+	}
+	
+	function fn_tree_click(sender,evt){
+		//out("tree fn");
+	}
+	function fn_tree_dbl(sender,evt){
+		//alert("tree fn dbl");
+	}
+</script>
+</body>
+</html>

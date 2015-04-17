@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>带子对象管理的grid</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/21app.css"/>
+
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">员工</div>
+    <div class="tab normal" id="tab_role">角色</div>
+    <div class="tab normal"  	id="tab_add">新增员工</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"><br/><br/><br/><br/>1</div>
+    <div class="content normal"  id="c2"><br/><br/><br/><br/>2</div>
+    <div class="content normal"  id="c4"><br/><br/><br/><br/>3</div>
+    <div class="content normal"  id="c3"><br/><br/><br/><br/>4</div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../release/ui.js"></script> 
+<script type="text/javascript" src="../../../../release/lovdef.js"></script> 
+<script type="text/javascript">
+
+	uiApp({dom:$("#app1")});
+
+</script>
+</body>
+</html>

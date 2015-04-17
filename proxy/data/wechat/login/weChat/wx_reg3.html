@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>注册</title>
+<base  href="http://dev.xiaoniu88.com/">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<link rel="stylesheet" type="text/css" href="../css/wechat/base.css"/>
+<link rel="stylesheet" type="text/css" href="../css/wechat/global.css"/>
+<link rel="stylesheet" type="text/css" href="../css/wechat/element.css"/>
+<link rel="stylesheet" type="text/css" href="../css/wechat/include.css"/>
+<link rel="stylesheet" type="text/css" href="../css/wechat/inline.css">
+<link rel="stylesheet" type="text/css" href="../css/wechat/xn_reg.css">
+</head>
+<body>
+<!--顶部 -->
+<div class='top'>
+  <span class='top_con'>
+  <a class="we_logo" href="http://www.xiaoniu88.com/weChat/index.do">
+  </a>
+  <span class='top_title top_btn'>登录</span>
+  </span>
+</div>
+<form action='weChat/wx_regtwo.do' method="post" name="pageform" id="pageform">
+  <div class='ipt_area'>
+    <input class='ipt input_tel input_tel_cur' type='text' maxlength="11" name="paramMap.m" id="m"/>
+    <label class="input"><i>手机号码</i>/用户名/邮箱</label>
+  </div>
+  <div class='error_msg' id="tel_msg"></div>
+  <div class='ipt_area'>
+    <input class='ipt input_pass' type='password' maxlength="20" name="paramMap.p" id="p" onpaste="return false"/>
+    <label>输入登录密码</label>
+  </div>
+  <div class='error_msg' id="pass_msg">登录密码必须为6-16位</div>
+  <div class="ref_area check">
+    <div class='ipt_area'>
+      <input class='ipt input_referer' type='text' maxlength="20" name="paramMap.r" id="r"/>
+      <label>请输入验证码</label>
+    </div>
+    <div class="img_code" id="ref_check">验证码</div>
+  </div>
+  <div class='error_msg' id="ref_msg">推荐人不存在</div>
+  <div class='val_btn'>立即登录</div>
+</form>
+
+<!--<script type="text/javascript">
+	var basePath = "http://www.xiaoniu88.com/";
+</script>
+<script type="text/javascript" src="weChat/js/lib/pwd/security.js?v=0.0.1"></script>
+<script type="text/javascript" src="weChat/js/lib/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="weChat/js/lib/swipe.js"></script>
+<script type="text/javascript" src="weChat/js/lib/popom.js"></script>
+<script type="text/javascript" src="weChat/js/lib/lhgdialog/lhgdialog.js"></script>
+<script type="text/javascript" src="weChat/js/wx_reg.js"></script>-->
+</body>
+</html>

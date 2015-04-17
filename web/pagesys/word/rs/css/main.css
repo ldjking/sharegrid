@@ -1,0 +1,134 @@
+@CHARSET "UTF-8";
+
+html,body {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+body {
+	font: normal 12px Verdana, Arial;
+	line-height: 1.166;
+	margin: 0px;
+	background-color: #fbfdff;
+}
+
+.display_block {
+	display: block;
+}
+
+.display_none {
+	display: none;
+}
+
+.border4 {
+	border: 1px solid #cccccc;
+	cursor: pointer;
+}
+
+.table2 {
+	border-collapse: collapse;
+	border: solid 1px #CDCDCD;
+}
+
+.table2 tbody tr td,.table2 thead tr th {
+	text-align: left;
+	height: 25px;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	word-break: keep-all;
+}
+
+.table2 tbody tr td,.table2 thead tr th {
+	border-left: solid 1px #CDCDCD;
+	border-top: solid 0px #CDCDCD;
+	border-right: solid 1px #CDCDCD;
+	border-bottom: solid 1px #CDCDCD;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	padding: 2px
+}
+
+.table2 thead tr {
+	background-color: #F1F1F1;
+}
+
+.table2 thead tr th {
+	font-weight: bold;
+	height: 28px;
+	text-align: left;
+	padding: 2px;
+}
+
+/*分页样式*/
+#xPagingInfo {
+	font-size: 12px;
+	padding: 2px 2px 2px 2px;
+	border: #efefde 1px outset;
+	background-color: #efefde;
+}
+
+#xPagingAnalyse {
+	background-color: #dfdfd8;
+	border-width: 1px;
+	border-style: outset;
+	border-color: #f9f9f4 #474742 #474742 #f9f9f4;
+	cursor: default;
+	padding: 2px 5px 1px 5px;
+	float: left;
+}
+
+#xPagingCreate,#xPagingDelete,#xPagingDelete {
+	background-color: #dfdfd8;
+	border-width: 1px;
+	border-style: outset;
+	border-color: #f9f9f4 #474742 #474742 #f9f9f4;
+	cursor: default;
+	padding: 2px 5px 1px 5px;
+	margin: 0px 5px 1px 0px;
+	float: left;
+}
+
+#xPagingUnite {
+	color: red;
+	background-color: #dfdfd8;
+	border-width: 1px;
+	border-style: outset;
+	border-color: #f9f9f4 #474742 #474742 #f9f9f4;
+	cursor: default;
+	padding: 2px 5px 1px 5px;
+	margin: 0px 5px 1px 0px;
+	float: left;
+}
+
+#xPagingMessage {
+	float: left;
+	padding-left: 5px;
+	padding-top: 4px;
+	color: red;
+}
+
+.xPageNode1 {
+	background-color: #dfdfd8;
+	border-width: 1px;
+	border-style: outset;
+	border-color: #f9f9f4 #474742 #474742 #f9f9f4;
+	cursor: default;
+	padding: 0px 10px 2px 10px;
+	margin: 0px 5px 1px 0px;
+	float: left;
+}
+
+.xPageNode2 {
+	font-weight: bold;
+	color: #ff0000;
+	background-color: #ffffff;
+	border-width: 1px;
+	border-style: inset;
+	border-color: #f9f9f4 #474742 #474742 #f9f9f4;
+	cursor: default;
+	padding: 0px 10px 2px 10px;
+	margin: 0px 5px 1px 0px;
+	float: left;
+}
+/**/

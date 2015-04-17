@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>方法测试</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">方法列表</div>
+    <div class="tab normal" id="tab_test">方法测试</div>
+    <div class="tab hide"  	id="tab_result">测试结果</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script> 
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script> 
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+	window.onload=init;	
+	var grid		=$("#c1");
+	var testForm	=$("#c2");
+	var resultForm	=$("#c3");
+	var tabList		=$("#tab_list");
+	var tabTest		=$("#tab_test");
+	var tabResult		=$("#tab_result");
+	function e_cmdAddItem_handler(target){
+		//msg(target.cmd.cmd+"用户自定义事件");
+	}
+	function fn_showNext(evt){
+		selectGridRow(grid,1);
+		refreshTestForm();/*重绘内容*/
+	}
+	function fn_showPre(evt){
+		selectGridRow(grid,-1);
+		refreshTestForm();/*重绘内容*/
+	}
+	function fn_showList(evt){
+		genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	function fn_showTestForm(evt){
+		activeTab(tabTest);
+	}
+	function fn_showAddForm(evt){/*要把新增表单显示出来*/
+	////out("showAddForm");
+		activeTab(tabResult);
+	}
+	function fn_hideAddForm(evt){
+		cssReplace(tabResult,"active","hide");
+		activeTab(tabList);
+	}
+	function tabChange(target,p){
+		if(p==1){
+			refreshTestForm();
+		}
+		else if(p==2){
+			refreshResultForm();
+		}
+	}
+	function refreshResultForm(){
+	}
+	function refreshTestForm(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(testForm.formCfg.data==obj){return;}
+		else{
+			testForm.formCfg.param=obj;
+			var preCmd=$("#"+testForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+testForm.formCfg.id+"_cmdNext");
+			/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+			//out(obj.rownum);
+			cssRm(preCmd,"gray");
+			cssRm(nextCmd,"gray");
+			if(obj.rownum==1){
+				cssAdd(preCmd,"gray");
+			}
+			else if(obj.rownum==cfg.totalNum){
+				cssAdd(nextCmd,"gray");
+			}
+			genFormContent(testForm);/*重绘内容*/
+		}
+	}
+	var e_grid_row_click_handler=function(evt){
+		testForm.formCfg.param=grid.gridCfg.activeRow.obj;
+		genFormContent(testForm);
+		activeTab(testForm);
+	}
+	function fn_method_test(evt){
+		var cfg=testForm.formCfg;
+		var formid=cfg.id;
+		var resultdom=$("#"+formid+"_method_result");
+		var methodname=cfg.data.c2_name;
+		var tables=cfg.childTables;
+		var param={};
+		for(var i=0;i<tables.length;i++){
+			var table=tables[i];
+			for(var j=1;j<table.rows.length;j++){
+				var row=table.rows[j];
+				var text=row.cells[0].childNodes[0].value;
+				var text1=row.cells[2].childNodes[0].value;
+				if(text1!="") param[text]=text1;
+			}
+		}
+		////out("param",param);
+		////out("methodname",methodname);
+		var result=$$(methodname,param);
+		resultdom.value=jsonStr(result);
+		var scrollHeight=resultdom.scrollHeight;
+		if(scrollHeight>400)resultdom.style.height=scrollHeight+"px";
+			////out("result",result);
+	}
+	function init(){/*需要有一些自定义动画效果*/	
+		uiApp({dom:$("#app1"),fn:tabChange});
+		var grid=$("#c1");
+		var cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"methodGets",
+				rmMethod:'methodRm',pageFlag:true,pageSize:5,pkAttr:"c2_id"};
+		cfg.columns=[	{text:"应用程序",attr:"c2_appname",align:"center",width:80,frozen:1,type:"str",notEdit:0},
+						{text:"方法名",attr:"c2_name",align:"left",frozen:0,type:"str"},
+						{text:"执行类型",attr:"c2_target",align:"center",width:60,type:"str",notEdit:1,lov:"sex"},
+						{text:"方法类型",attr:"c2_type",align:"center",type:"str",notEdit:1,lov:"str"},
+						{text:"功能描述",attr:"c2_des",align:"left", width:260,frozen:0,type:"str"}
+					];
+		cfg.cmds=[
+					{cmd:"cmdFilter"},
+					{cmd:"cmdRefresh"}
+				]
+		genGrid(grid,cfg);	
+		bind(grid,"dblclick",e_grid_row_click_handler);
+		var tables=[	{type:0,cells:[
+									{type:"text",attr:"c2_id"}
+									]
+						},
+						{type:2,rowNum:1,cells:[
+								{type:"lbl",text:"方法名",width:80,align:"center",row:1},
+								{type:"txt",attr:"c2_name",width:120,align:"left",row:1},/*txt代表单行元素*/
+								{type:"lbl",text:"功能描述",width:80,align:"center",row:1},
+								{type:"txt",attr:"c2_des",width:320,align:"left",row:1}
+							]
+						},
+						{type:2,rowNum:1,cells:[
+								{type:"lbl",text:"应用分类",width:80,align:"center",row:1},
+								{type:"txt",attr:"c2_appname",width:120,align:"left",row:1},
+								{type:"lbl",text:"脚本类型",width:80,align:"center",row:1},
+								{type:"txt",attr:"c2_target",lov:"methodTarget",width:120,align:"center",row:1},
+								{type:"lbl",text:"方法类型",width:80,align:"center",row:1},
+								{type:"txt",attr:"c2_type",lov:"methodType",width:120,align:"center",row:1}
+							]
+						},
+						{type:2,rowNum:1,cells:[
+								{type:"lbl",text:"触发更新",width:80,align:"center",row:1},
+								{type:"txt",attr:"c2_triggerflag",lov:"on_off",width:120,align:"left",row:1},
+								{type:"lbl",text:"目标数据库",width:80,align:"center",row:1},
+								{type:"txt",attr:"c2_db",lov:"sex",width:120,align:"center",row:1},
+								{type:"lbl",text:"权限校验",width:80,align:"center",row:1},
+								{type:"lov",attr:"c2_data_check",lov:"date",width:120,align:"center",row:1}
+							]
+						},
+						{type:2,rowNum:1,cells:[
+								{type:"lbl",text:"参数列表",width:580,align:"left",paddingLeft:10,left:20,row:1}
+							]
+						},
+						{type:3,rowNum:3,refAttr:{name:"c2_name",name2:"c3_method"},addMethod:"paramAdd",
+							dataMethod:"paramGets",updateMethod:"paramUpdate",rmMethod:"paramRm",
+							columns:[
+								{type:"txt",attr:"c3_name",name:"参数名",width:120,align:"center"},
+								{type:"txt",attr:"c3_type",name:"参数类型",width:120,align:"center"},/*txt单行*/
+								{type:"txt",attr:"methodvalue",name:"参数值",width:360,align:"center"}
+							]
+						},
+						{type:2,rowNum:1,cells:[
+								{type:"lbl",text:"测试结果",width:580,align:"left",left:20,row:1}
+							]
+						},
+						{type:2,rowNum:1,cells:[
+								{type:"txt",attr:"method_result",width:600,height:400,align:"left",row:1}
+							]
+						}
+				];
+		var cfg={dom:testForm,title:"方法详细信息",dataMethod:"methodGetByName",formType:"update"};
+		cfg.tables=tables;
+		cfg.cmds=[
+			/*表示该操作按钮式定te=1的对象上*/	
+			{cmd:"test",text:"测试",fn:fn_method_test},							
+			{cmd:"pre",fn:fn_showPre},
+			{cmd:"next",fn:fn_showNext}
+		];
+		genForm(testForm,cfg);
+	}
+</script>
+</body>
+</html>

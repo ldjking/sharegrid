@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>方法管理</title>
+<link href="../../release/css/all.css" rel="stylesheet" type="text/css" />
+<link href="../../src/css/29tree.css" rel="stylesheet" type="text/css" />
+<link href="../../release/css/chm.css" rel="stylesheet" type="text/css" />
+<link href="../../release/css/doc.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="chm">
+  <div id="dwIndex" class="dwIndex hide">
+    <table cellpadding="0" cellspacing="0">
+      <tr>
+        <td><div class="indexContent">
+            <div class="top">
+              <div class="product_name">Work Assignment</div>
+              <div class="product_name2">工作任务安排</div>
+            </div>
+            <div class="center">
+              <div class="center_left">
+                <div class="guide">- 所有工作内容</div>
+                <div class="guide_item">表单定义</div>
+                <div class="guide_item">布局元素</div>
+                <div class="guide_item">操作按钮</div>
+                <div class="guide_item">自定义事件</div>
+                <div class="guide_item">运行调试</div>
+                <div class="guide">+ 任务安排</div>
+                <div class="guide">+ 使用帮助</div>
+                <div class="guide">+ 联系我们</div>
+              </div>
+              <div class="center_right">
+                <div class="guide_content">工作任务安排由工作任务清单和工作安排组成。其中工作任务清单分为数据库设计、XLib开发、开发辅助开发、业务模块开发四个部分，业务模块又划分为运行模块、设备管理模块、物资模块。开发人员包括刘东杰、张进、王智华、陈赟、陈利林共五位，刘东杰负责XLib开发和开发辅助开发,张进负责数据库设计和数据初始化，王智华负责运行模块和设备管理模块，陈赟和陈利林共同负责物资模块开发。</div>
+              </div>
+            </div>
+            <div class="foot">三峡高科信息技术有限责任公司 版权所有</div>
+          </div></td>
+      </tr>
+    </table>
+  </div>
+  <div class="content" id="editForm"> </div>
+  <input type="hidden" id="paramId" />
+  <div class="nav" id="nav">
+    <div class="top"><!--用户收缩-->
+      <div class="title">方法管理</div>
+    </div>
+    <div class="pageTabs"><!--用于导航-->
+      <div  class="active" id="method">所有方法</div>
+      <div id="param">参数</div>
+    </div>
+    <div class="rightContent tabContent">
+      <div class="tab active forms">
+        <div class="forms_cmd"><span onclick="methodRm()">&nbsp;&nbsp;删除方法</span><span onclick="paramAdd()">&nbsp;&nbsp;增加参数</span><span onclick="paramRm()">&nbsp;&nbsp;删除参数</span></div>
+        <div class="forms_list tree" id="list"> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script> 
+<script type="text/javascript" src="../../release/ui.js"></script> 
+<script type="text/javascript" src="../../release/form.js"></script>
+<script type="text/javascript" src="../../release/tree.js"></script> 
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+	window.onload=init;
+	
+	function getMethodData(){
+		var data=[];
+		var appname="";
+		var result=$$("methodGets","");
+		//out("method:",result);
+		for(var i in result.data){
+			var obj=result.data[i];
+			if(appname!=obj.c2_appname){
+				appname=obj.c2_appname;
+				var root={};
+				root.name=obj.c2_appname;
+				root.type="folder";
+				root.child=[];
+				var child={};
+				child.name=obj.c2_name;
+				child.type="file";
+				child.obj=obj;
+				root.child.push(child);
+				data.push(root);
+			}else{
+				var child={};
+				child.name=obj.c2_name;
+				child.type="file";
+				child.obj=obj;
+				root.child.push(child);
+			}
+		}
+		//out("data:",data);
+		return data;
+	}
+	function getParamData(obj){
+		var data=[];
+		var param={};
+		param.c3_method=obj.c2_name;
+		//out("obj:",obj);
+		var result=$$("paramGets",param);
+		//out("result",result);
+		for(var i in result.data){
+			var obj=result.data[i];
+			var node={};
+			node.name=obj.c3_name;
+			node.type="file";
+			node.obj=obj;
+			data.push(node);
+		}
+		return data;
+	}
+	
+	function showEditForm(tree,evt){
+		cssAdd($("#dwIndex"),"hide");
+		var target=evt.target;
+		var obj=target.obj;
+		//out("obj",obj);
+		if(obj!=null&&obj.type=="file"){
+			//out("obj",obj);
+			var dom=$("#editForm");
+			clearDom(dom);
+			dom.obj=obj.obj;
+			var nav=$("#nav");
+			uiLayout({dom:dom,container:document.body,dx:6,dy:0,xdoms:[nav],ydoms:[]});
+			var tables=[	{type:0,cells:[
+										{type:"text",attr:"c2_id"}
+										]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"方法名",width:80,align:"center",row:1},
+									{type:"txt",attr:"c2_name",width:120,align:"left",row:1},/*txt代表单行元素*/
+									{type:"lbl",text:"功能描述",width:80,align:"center",row:1},
+									{type:"txt",attr:"c2_des",width:320,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"应用分类",width:80,align:"center",row:1},
+									{type:"txt",attr:"c2_appname",width:120,align:"left",row:1},
+									{type:"lbl",text:"脚本类型",width:80,align:"center",row:1},
+									{type:"txt",attr:"c2_target",lov:"methodTarget",width:120,align:"center",row:1},
+									{type:"lbl",text:"方法类型",width:80,align:"center",row:1},
+									{type:"txt",attr:"c2_type",lov:"methodType",width:120,align:"center",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"触发更新",width:80,align:"center",row:1},
+									{type:"txt",attr:"c2_triggerflag",lov:"on_off",width:120,align:"left",row:1},
+									{type:"lbl",text:"目标数据库",width:80,align:"center",row:1},
+									{type:"txt",attr:"c2_db",width:120,align:"center",row:1},
+									{type:"lbl",text:"权限校验",width:80,align:"center",row:1},
+									{type:"lov",attr:"c2_data_check",width:120,align:"center",row:1}
+								]
+							},
+							{type:2,rows:2,cells:[
+									{type:"lbl",text:"脚本定义",width:590,align:"left",row:1,left:10},
+									{type:"txt",attr:"c2_sql",width:600,align:"left",row:2,height:200}
+								]
+							}
+					];
+			var cmds=[
+				{cmd:"update"}
+			];
+			var cfg={title:"方法详细信息",updateMethod:"methodUpdate",dataMethod:"methodGet"};
+			cfg.tables=tables;
+			cfg.cmds=cmds;
+			var param={};
+			param.c2_id=obj.obj.c2_id;
+			cfg.param=param;
+			genForm(dom,cfg);
+		}
+		
+	}
+	
+	function methodRm(){
+		var dom=$("#editForm");
+		var obj=dom.obj;
+		var param={};
+		param.c2_id=obj.c2_id;
+		var result=$$("methodRm",param);
+		if(result.flag){
+			refreshMethodTree();
+		}
+	}
+	var tables=[	
+					{type:2,rows:1,cells:[
+							{type:"lbl",text:"方法名",width:80,align:"center",row:1},
+							{type:"txt",attr:"c3_method",width:120,align:"left",row:1},/*txt代表单行元素*/
+							{type:"lbl",text:"参数名",width:80,align:"center",row:1},
+							{type:"txt",attr:"c3_name",width:320,align:"left",row:1}
+						]
+					},
+					{type:2,rows:1,cells:[
+							{type:"lbl",text:"类型",width:80,align:"center",row:1},
+							{type:"txt",attr:"c3_type",width:120,align:"left",row:1},
+							{type:"lbl",text:"长度",width:80,align:"center",row:1},
+							{type:"txt",attr:"c3_length",width:120,align:"center",row:1},
+							{type:"lbl",text:"默认值",width:80,align:"center",row:1},
+							{type:"txt",attr:"c3_defaultval",width:120,align:"center",row:1}
+						]
+					},
+					{type:2,rows:1,cells:[
+							{type:"lbl",text:"描述",width:80,align:"center",row:1},
+							{type:"txt",attr:"c3_des",width:520,align:"left",row:1}
+						]
+					}
+			];
+	
+	function paramAdd(){
+		var dom=$("#editForm");
+		clearDom(dom);
+		//dom.obj={};
+		var nav=$("#nav");
+		uiLayout({dom:dom,container:document.body,dx:6,dy:0,xdoms:[nav],ydoms:[]});
+		var cmds=[
+			{cmd:"save",fn:refreshParamTree}						
+		];
+		var cfg={title:"增加参数信息",addMethod:"paramAdd"};
+		cfg.tables=tables;
+		cfg.cmds=cmds;
+		cfg.data={c3_method:dom.obj.c2_name};
+		genForm(dom,cfg);
+	}
+	var showParamEditForm=function(tree,evt){
+		var dom=$("#editForm");
+		var paramId=$("#paramId");
+		clearDom(dom);
+		var target=evt.target;
+		var obj=target.obj;
+		//dom.obj={};
+		paramId.value=obj.obj.c3_id;
+		//out("obj:",obj);
+		var nav=$("#nav");
+		uiLayout({dom:dom,container:document.body,dx:6,dy:0,xdoms:[nav],ydoms:[]});
+		var cmds=[
+			{cmd:"update"}
+		];
+		var cfg={title:"修改参数信息",updateMethod:"paramUpdate",dataMethod:"paramGet"};
+		cfg.tables=tables;
+		cfg.cmds=cmds;
+		cfg.param={c3_id:obj.obj.c3_id}
+		genForm(dom,cfg);
+	}
+	function paramRm(){
+		var paramId=$("#paramId");
+		var param={};
+		param.c3_id=paramId.value;
+		var result=$$("paramRm",param);
+		//out("result:",result);
+		if(result.flag){
+			refreshParamTree();
+		}
+	}
+	var tabChange=function(evt){
+		var target=evt.target;
+		cssRm($("#method"),"active");
+		cssRm($("#param"),"active");
+		cssAdd($("#"+target.id),"active");
+		if(target.id=="method"){
+			refreshMethodTree();
+		}else{
+			refreshParamTree();
+		}
+	}
+	function refreshMethodTree(){
+		var data=getMethodData();
+		clearDom($("#list"));
+		genTree($("#list"),{clickHandler:showEditForm,data:data,});
+	}
+	function refreshParamTree(){
+		var dom=$("#editForm");
+		if(dom.obj!=null){
+			var data=getParamData(dom.obj);
+			clearDom($("#list"));
+			genTree($("#list"),{clickHandler:showParamEditForm,data:data});
+		}
+	}
+	function init(){
+		bind($("#method"),"click",tabChange);
+		bind($("#param"),"click",tabChange);
+		//showData();
+		refreshMethodTree();
+	}
+</script>
+</body>
+</html>

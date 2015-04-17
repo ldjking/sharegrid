@@ -1,0 +1,132 @@
+/*版权信息*/
+.xn_g-o {
+	width: 1000px;
+	margin: 0 auto
+}
+.xn_footer {
+	background: url(../../../../images/xn_register/footer/foot_bg.jpg) repeat-x left top;
+	text-align: center;
+}
+.xn_footer ul {
+	height: auto;
+	overflow: hidden;
+	zoom: 1;
+	padding-top: 9px;
+}
+.xn_footer ul li {
+	height: 173px;
+	width: 177px;
+	padding: 26px 0 0 0;
+	float: left;
+	background: url(../../../../images/xn_register/footer/foot_ul_bg.jpg) no-repeat 0 1px;
+}
+.xn_footer ul li.xn_last {
+	width: 442px;
+	text-align: left;
+}
+.xn_footer ul li a {
+	font-size: 13px;
+	height: 22px;
+	line-height: 22px;
+	color: #c6c6c6;
+	display: block;
+	text-align: center;
+}
+.xn_footer ul li a.xn_til {
+	padding-bottom: 14px;
+	font-size: 16px;
+	color: #fff;
+}
+.xn_footer ul li a:hover {
+	text-decoration: none;
+	color: #ffe4ae;
+}
+.xn_footer ul li.xn_last div {
+	width: 262px;
+	_width: auto;
+	height: 173px;
+	padding-left: 180px;
+	background: url(../../../../images/xn_register/footer/weixin.jpg) no-repeat 54px 0;
+}
+.xn_footer li.xn_last p {
+	height: 26px;
+	line-height: 26px;
+	font-size: 14px;
+	color: #f3f3f3;
+}
+.xn_footer li.xn_last p.xn_bd {
+	font-size: 35px;
+	height: 42px;
+	line-height: 42px;
+	color: #fffdfd;
+}
+.xn_foot-bt {
+	background: #aaa;
+	text-align: center;
+	padding: 20px 0;
+	color: #6c6c6d;
+}
+.xn_foot-bt span {
+	height: 39px;
+	width: auto;
+	text-align: center;
+	display: inline-block;
+	padding-top: 10px;
+}
+.xn_foot-bt span a {
+	display: inline-block;
+	height: 39px;
+	margin-right: 4px;
+	width: 107px;
+	display: inline-block;
+	background: url(../../../../images/xn_register/footer/foot_link.png) no-repeat;
+}
+.xn_foot-bt span a.xn_lk06:hover {
+	background-position: -579px 0;
+}
+.xn_foot-bt span a.xn_lk06 {
+	background-position: -579px -39px;
+}
+.xn_foot-bt span a.xn_lk06 img {
+	display: none;
+}
+.xn_foot-bt span a.xn_lk05:hover {
+	background-position: 0 0;
+}
+.xn_foot-bt span a.xn_lk05 {
+	background-position: 0 -39px;
+}
+.xn_foot-bt span a.xn_lk04:hover {
+	background-position: -116px 0;
+}
+.xn_foot-bt span a.xn_lk04 {
+	background-position: -116px -39px;
+}
+.xn_foot-bt span a.xn_lk03:hover {
+	background-position: -232px 0;
+}
+.xn_foot-bt span a.xn_lk03 {
+	background-position: -232px -39px;
+}
+.xn_foot-bt span a.xn_lk02:hover {
+	background-position: -347px 0;
+}
+.xn_foot-bt span a.xn_lk02 {
+	background-position: -347px -39px;
+}
+.xn_foot-bt span a.xn_lk01:hover {
+	background-position: -463px 0;
+}
+.xn_foot-bt span a.xn_lk01 {
+	background-position: -463px -39px;
+}
+
+.xn_link{
+	cursor:pointer;
+	color: #6c6c6d;
+}
+.xn_link:hover{
+	color: #ffe4ae;
+	text-decoration:none;
+
+}

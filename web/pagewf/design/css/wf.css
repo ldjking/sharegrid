@@ -1,0 +1,86 @@
+#c11 {
+	background-color: #666;
+	height: 600px;
+	width: 1000px;
+}
+.wfList {
+	background-color: #333;
+}
+.wfList .cmd{
+
+}
+.wfList .container{
+	height: 660px;
+	background-color: #bec2c6;
+}
+.wfList .paper{
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+	border: 1px solid #666;
+	background-color: #FFF;
+	margin-top: 32px;
+	margin-bottom: 32px;
+	text-align: center;
+}
+.wfList .paper .content{
+	padding: 50px 50px 50px 60px;
+}
+.wfList .paper .content table{
+	width: 100%;
+	border: 1px solid #333;
+	border-collapse: collapse;
+
+}
+.wfList .wf{
+	cursor: default;
+	text-align: left;
+	line-height: 36px;
+	width: 200px;
+	padding-left: 10px;
+}
+.wfList .wf:hover{
+	color: #00C;
+	background-color: #FF0;
+}
+
+.taskList {
+	background-color: #333;
+}
+.taskList .cmd{
+	height: 38px;
+	background-color: #E3E6E8;
+}
+.taskList .container{
+	height: 660px;
+	background-color: #bec2c6;
+	border-top: 1px solid #333333;
+}
+.taskList .paper{
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+	border: 1px solid #666;
+	background-color: #FFF;
+	margin-top: 32px;
+	margin-bottom: 32px;
+	text-align: center;
+}
+.taskList .paper .content{
+	padding: 0px;
+}
+.taskList .paper .content table{
+	width: 100%;
+
+}
+.taskList .task{
+	float: left;
+	cursor: default;
+	text-align: left;
+	line-height: 36px;
+	width: 200px;
+}
+.taskList .task:hover{
+	text-decoration: underline;
+	color: #00C;
+}

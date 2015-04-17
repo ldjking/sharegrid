@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/11base.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/20ui.css"/>
+</head>
+
+<body>
+<div class="tabContainer" style="position:absolute; top:20px;left:20px; width:200px; height:200px; background-color:#000099"></div>
+<script type="text/javascript" src="../../../../release/base.js"></script>
+<script type="text/javascript" src="../../../../src/2ui/21body.js"></script>
+<script type="text/javascript" src="../../../../src/2ui/22layout.js"></script>
+<script type="text/javascript" src="../../../../src/2ui/23spliter.js"></script>
+
+
+<script type="text/javascript">
+	window.onload=init;
+	
+	function init(){/*控制*/
+		var d=$(".tabContainer")[0];
+		uiResize({dom:d,minWidth:0,maxWidth:800,minHeight:0,maxHeight:300});
+		uiMove({dom:d,area:"all",gap:10});
+	}
+</script>
+</body>
+</html>

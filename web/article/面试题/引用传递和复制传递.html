@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<script type="text/javascript">
+var x = {a:0}, y = {a:1},z = {a:2}; 
+  function add(n) { 
+  	return n.a = n.a+1; 
+　 } 
+
+  y.a = add(x); 
+    
+  function add(n) { 
+    return n.a = n.a + 3; 
+  } 
+
+  z.a = add(x); 
+  alert(x.a+"+"+y.a+"+"+z.a);
+</script>
+</body>
+</html>

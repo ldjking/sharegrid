@@ -1,0 +1,219 @@
+/* CSS Document */
+body {
+	background: #fff4da;
+}
+.xn_head_center{
+	background-color:#fff;
+	
+}
+/*小牛荣耀*/
+.xn_honor {
+	width: 910px;
+	margin: 0 auto;
+	padding: 30px;
+	background: url(../../../../images/xn_register/line.png) center bottom no-repeat;
+}
+.xn_honor h3 {
+}
+.xn_honor_list {
+	padding-left: 40px;
+}
+.xn_honor_list li {
+	width: 241px;
+	height: 218px;
+	float: left;
+	background: url(../../../../images/xn_register/honor1.png) center center no-repeat;
+	text-align: center;
+	margin: 0 15px;
+}
+.xn_honor_list li.n2 {
+	background-image: url(../../../../images/xn_register/honor2.png);
+}
+.xn_honor_list li span {
+	font-size: 16px;
+	display: block;
+	width: 180px;
+	margin: 92px auto 0;
+	line-height: 20px;
+}
+/*注册步骤*/
+.xn_regstep {
+	width: 910px;
+	margin: 0 auto;
+	padding: 30px;
+	background: url(../../../../images/xn_register/line.png) center bottom no-repeat;
+}
+.xn_regstep_list {
+	height: 46px;
+	line-height: 46px;
+	overflow: hidden;
+	background: #ff9600;
+	border-radius: 3px;
+	font-size: 16px;
+	font-weight: 700;
+	margin: 15px 0 5px;
+}
+.xn_regstep_list li {
+	float: left;
+	text-align: center;
+	padding-right: 10px;
+}
+.xn_regstep_list .n1 {
+	width: 260px;
+	background: url(../../../../images/xn_register/step.png) right 0 no-repeat;
+}
+.xn_regstep_list .n2 {
+	width: 200px;
+	background: #fdc400 url(../../../../images/xn_register/step.png) right -46px no-repeat;
+}
+.xn_regstep_list .n3 {
+	width: 190px;
+	background: url(../../../../images/xn_register/step.png) right 0 no-repeat;
+}
+.xn_regstep_list .n4 {
+	width: 220px;
+	background: #fdc400;
+	border-radius: 0 3px 3px 0;
+}
+.xn_regstep_list li span {
+	color: #fff;
+	font-family: Arial;
+	font-size: 32px;
+	font-weight: 700;
+	margin-right: 10px;
+	vertical-align: middle;
+	text-shadow: 0 -1px 1px #b26900;
+}
+/*小牛特点*/
+.xn_special {
+	width: 910px;
+	margin: 30px auto;
+	border-radius: 3px;
+}
+.xn_special h3 {
+	height: 37px;
+	line-height: 37px;
+	text-align: center;
+	width: 100%;
+	background: #ff9600;
+	font-size: 18px;
+	font-weight: 400;
+	border-radius: 3px 0 0 3px;
+}
+.xn_special_left {
+	float: left;
+	width: 453px;
+	border-right: solid 1px #ffc56d;
+	border-left: solid 1px #ffc56d;
+	border-bottom: solid 1px #ffc56d;
+	border-radius: 3px 0 0 3px;
+}
+.xn_special_right {
+	float: right;
+	width: 454px;
+	border-right: solid 1px #ffc56d;
+	border-bottom: solid 1px #ffc56d;
+	border-radius: 0 3px 3px 0;
+}
+.xn_special_right h3 {
+	background: #fdc400;
+	border-radius: 0 3px 3px 0;
+}
+.xn_special ul {
+	padding: 25px;
+	margin-bottom: 15px;
+}
+.xn_special li {
+	width: 200px;
+	height: 125px;
+	float: left;
+	text-align: center;
+	font-size: 15px;
+}
+.xn_special_left ul .n1 {
+	border-right: dashed 1px #ffbc72;
+	border-bottom: dashed 1px #ffbc72;
+}
+.xn_special_left ul .n2 {
+	border-bottom: dashed 1px #ffbc72;
+}
+.xn_special_left ul .n3 {
+	border-right: dashed 1px #ffbc72;
+}
+.xn_special_right ul .n1 {
+	border-right: dashed 1px #ffbc72;
+	border-bottom: dashed 1px #ffbc72;
+}
+.xn_special_right ul .n2 {
+	border-bottom: dashed 1px #ffbc72;
+}
+.xn_special_right ul .n3 {
+	border-right: dashed 1px #ffbc72;
+}
+.xn_special li .icon {
+	display: block;
+	width: 60px;
+	height: 50px;
+	margin: 8px auto 10px;
+	background: url(../../../../images/xn_register/special.png) right 0 no-repeat;
+}
+.xn_special li .i2 {
+	background-position: 0 -50px;
+}
+.xn_special li .i3 {
+	background-position: 0 -100px;
+}
+.xn_special li .i4 {
+	background-position: 0 -150px;
+}
+.xn_special li .i5 {
+	background-position: 0 -200px;
+}
+.xn_special li .i6 {
+	background-position: 0 -250px;
+}
+.xn_special li .i7 {
+	background-position: 0 -300px;
+}
+.xn_special li .i8 {
+	background-position: 0 -350px;
+}
+.apply_now {
+	display: block;
+	width: 140px;
+	height: 38px;
+	line-height: 38px;
+	font-size: 16px;
+	text-align: center;
+	background: #ff9600;
+	text-decoration: none;
+	border-radius: 3px;
+	margin: 15px auto 20px;
+	color: #333;
+}
+.apply_now:hover {
+	background: #ffae3c;
+	text-decoration: none;
+}
+
+
+.xn_hr {
+	font-size: 0px;
+	height: 1px;
+	background-image: url(../../../../images/xn_register/ctn_border_bg.png);
+	background-positon: top center;
+	background-repeat: repeat-x;
+}
+.xn_header {
+	background-color: #ece4c0;
+}
+.xn_p_list {
+	background-color: #254582;
+	width: 100%!important;
+}
+.xn_p_msg {
+	width: 970px;
+	background-color: #254582!important;
+	margin: auto;
+	height: 145px;
+}

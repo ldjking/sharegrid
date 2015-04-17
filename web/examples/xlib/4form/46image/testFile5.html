@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/23form.css"/>
+</head>
+
+<body>
+
+  <div class="form" id="content" style="width: 1366px; height: 673px; position: absolute; z-index: 20; background-color: rgb(255, 0, 0);">
+    <div class="cmdbar" id="form_0_cmdbar">
+      <div class="cmd" id="form_0_cmd">
+        <div class="save" id="form_0_cmdSave"></div>
+      </div>
+    </div>
+    <div class="formContainer scroll" id="form_0_container" style="width: 1366px; height: 635px;">
+      <div class="scroll_content" id="form_0_doc">
+        <div class="paper " id="form_0_paper">
+          <div class="form_title">新增员工表单</div>
+          <table class="formTable" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td><table class="rows" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr class="row">
+                        <td class="lbl"><div style="width: 80px; text-align: left;">姓名</div></td>
+                        <td class="attr hint"><textarea class="text" id="form_0_attrname" style="width: 100px; text-align: right;" rows="1">数字必填</textarea></td>
+                        <td class="lbl"><div style="width: 80px; text-align: center;">性别</div></td>
+                        <td class="attr hint "><textarea class="slt" id="form_0_attrsex" style="width: 100px; text-align: right;" rows="1" readonly="">必填</textarea></td>
+                        <td class="lbl"><div style="width: 80px; text-align: left;">出生日期</div></td>
+                        <td class="attr hint "><textarea class="slt" id="form_0_attrbirthday" style="width: 100px; text-align: right;" rows="1" readonly="">必填</textarea></td>
+                      </tr>
+                    </tbody>
+                  </table></td>
+              </tr>
+              <tr>
+                <td><table class="rows" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr class="row">
+                        <td class="lbl"><div style="width: 120px; text-align: left;">姓名1</div></td>
+                        <td class="attr hint"><textarea class="text" id="form_0_attrname1" style="width: 100px; text-align: right;" rows="1">必填</textarea></td>
+                        <td class="lbl"><div style="width: 100px; text-align: left;">性别1</div></td>
+                        <td class="attr"><textarea class="slt" id="form_0_attrsex1" style="width: 100px; text-align: center;" rows="1" readonly=""></textarea></td>
+                        <td class="lbl" rowspan="3" id="c11"><form class="img" id="form_0_attrphoto" style="width: 140px;"  name="form"  enctype="multipart/form-data" method="post" target="hidden_frame"  action="http://10.68.105.166/eam/upload"><input id="file1" name="file1"  style="background-color: rgb(204, 204, 204);" type="file" onchange="document.getElementById('form_0_attrphoto').submit();">
+                          <div>个人照片</div></form>
+</td>
+                      </tr>
+                      <tr class="row">
+                        <td class="lbl"><div style="width: 120px; text-align: left;">学历</div></td>
+                        <td class="attr"><textarea class="text" id="form_0_attrname2" style="width: 100px; text-align: left;" rows="1"></textarea></td>
+                        <td class="lbl"><div style="width: 100px; text-align: left;">政治面貌</div></td>
+                        <td class="attr"><textarea class="slt" id="form_0_attrsex2" style="width: 100px; text-align: center;" rows="1" readonly=""></textarea></td>
+                      </tr>
+                      <tr class="row">
+                        <td class="lbl"><div style="width: 120px; text-align: left;">家庭住址</div></td>
+                        <td class="attr" colspan="3"><textarea class="text" id="form_0_attrname3" style="width: 300px; height: 20px; text-align: left;" rows="1">abc</textarea></td>
+                      </tr>
+                    </tbody>
+                  </table></td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="scroll_h" style="display: none;"></div>
+      <div class="scrollbar_h" style="display: none; background-color: rgb(102, 102, 102);"></div>
+      <div class="scroll_v" style="display: none;"></div>
+      <div class="scrollbar_v" style="display: none; background-color: rgb(102, 102, 102);"></div>
+      <div class="scroll_fix1" style="display: none;"></div>
+      <div class="scroll_fix2" style="display: none;"></div>
+    </div>
+  </div>
+<iframe name="hidden_frame" id="hidden_frame" style="display:block"></iframe>
+<script type="text/javascript">
+var onmessage = function(e) {    
+  var result = eval("("+e.data+")");    
+  var origin = e.origin;  
+  var c11=document.getElementById("c11");  
+  var url="url(http://10.68.105.166/"+result.data.imgSrc+")";
+  alert(url);
+  c11.style.backgroundImage=url;
+  c11.style.backgroundSize="100% 100%";
+  //alert("接收数据"+data);
+  //document.getElementById('c2').innerHTML = "内页接受信息"+data;    
+};    
+
+if (typeof window.addEventListener != 'undefined') {    
+  window.addEventListener('message', onmessage, false);    
+} else if (typeof window.attachEvent != 'undefined') {    
+  window.attachEvent('onmessage', onmessage);    
+}   
+</script>
+</body>
+</html>

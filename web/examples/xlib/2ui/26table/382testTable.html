@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/11base.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/20ui.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/26table.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/31grid.css"/>
+
+</head>
+
+<body>
+<div style="height:64px">
+</div>
+<div id="container"></div>
+<script type="text/javascript" src="../../../../release/base.js"></script>
+<script type="text/javascript" src="../../../../src/2ui/21body.js"></script>
+<script type="text/javascript" src="../../../../src/2ui/23spliter.js"></script>
+<script type="text/javascript" src="../../../../src/2ui/26table.js"></script>
+
+<script type="text/javascript">
+	//window.require([],init);
+	window.onload=init;
+	
+	
+	function init(){/*需要有一些自定义动画效果*/
+		var cfg={dom:$("#container"),filterMode:0,data_method:"personGets",pageFlag:true,pageSize:5,currPage:1};
+		var columns=[	{text:"序号",type:"seq",align:"center",width:40},
+						{text:"姓名2",attr:"c0_name",align:"center",width:80,type:"str"},
+						{text:"性别2",attr:"sexname",align:"center",width:60},
+						{text:"年龄2",attr:"c0_birthday",align:"center",width:100},
+						{text:"部门",attr:"c0_account",align:"center",width:160}
+					];
+		var datas=[		{name:"刘东杰2",sex:"男",age:"27",depname:"TGEAM事业部"},
+						{name:"王智2华",sex:"男",age:"27",depname:"TGEAM事业部"},
+						{name:"陈贇2",sex:"男",age:"27",depname:"TGEAM事业部"},
+						{name:"周霏",sex:"男",age:"27",depname:"TGEAM事业部"}
+					];
+		genTable(cfg,columns,datas);
+	}
+</script>
+</body>
+</html>

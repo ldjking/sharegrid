@@ -1,0 +1,1393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title> 投之家-P2P理财第一站，一站式投资理财，P2P网贷平台搜索引擎 </title>
+    <meta name="keywords" content="投之家、P2P网贷、P2P投资、P2P网贷平台、网贷平台、个人投资理财、投资理财、P2P理财">
+    <meta name="description" content="投之家是国内领先的P2P理财网贷平台，为投资者提供专业的P2P理财产品搜索、咨询和对比服务，通过严格的风控，创新的技术，海量的数据，让用户的投资理财变得安全、简单、高效，为您的个人投资理财保驾护航。！">
+    <meta name="author" content="p2p网贷,p2p理财,投之家投资理财平台" />
+    <meta name="searchtitle" content="p2p网贷,p2p理财,投之家投资理财平台" />
+    <link href="/static/css/css.css?ver=2015040900" type="text/css" rel="stylesheet" />
+    <link href="/static/css/float.css" type="text/css" rel="stylesheet" />
+    <script src="/static/js/lib/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="/static/js/jQueryRotate.js" type = "text/javascript"></script>
+    <script src="/static/js/jquery.login.js" type="text/javascript"></script>
+    <script type="text/javascript" src = "/static/js/base64encode.js"></script>
+    <script type="text/javascript">
+        function externallinks() {
+            if (!document.getElementsByTagName) return;
+            var anchors = document.getElementsByTagName("a");
+            for (var i = 0; i < anchors.length; i++) {
+                var anchor = anchors[i];
+                if (anchor.getAttribute("href") &&
+                    anchor.getAttribute("rel") == "external")
+                    anchor.target = "_blank";
+            }
+        }
+        window.onload = externallinks;
+    </script>
+    <style type="text/css">
+    #curr{
+            color:#1D82B6;
+        }
+    </style>
+</head>
+<body>
+	<div class="top_main">
+        <div class="ovf" style="background:#003550;height:40px; line-height:40px; color:#fff;">
+            <div class="top tit">
+                <div class="fl"><span style="float:left;">全国统一电话：400-883-1803 </span><span><h1 style="font-size:13px;float:left;font-weight:100;">P2P理财</h1>交流群：186760784</span></div>
+                <div class="fr">
+                                         <a class="reg" href = "https://www.touzhijia.com/user/register.html" alt="免费注册">免费注册</a>
+                    <a href="https://www.touzhijia.com/user/signin.html" id="loginStart" alt="立即登录">立即登录</a>
+                                    </div>
+            </div>
+        </div>
+        <div class="top prel">
+            <a class="logo" href="http://www.touzhijia.com/" title="投之家-中国领先的P2P网贷投资平台，您的个人理财专家">
+                <img src="/static/images/logo.png" alt="投之家,p2p理财,投资理财,p2p网贷" title="投之家-中国领先的P2P网贷投资平台，您的个人理财专家"/>
+            </a>
+            <img src="/static/images/purl_txt.png" alt="P2P理财第一站" title="P2P理财第一站"/>
+            <ul class="menu">
+            <li><a id = "curr" href="http://www.touzhijia.com/" title="首页">首页</a></li>
+            <li><a  href="http://www.touzhijia.com/platform/" title="选平台">选平台</a></li>
+            <li><a  href="http://www.touzhijia.com/project/" title="选标中心">选标中心</a></li>
+            <li><a  href="http://www.touzhijia.com/debt/guide.html" title="二级市场">二级市场</a></li>
+            <li><a  href="http://www.touzhijia.com/wenda" title="投资问答">投资问答</a></li>
+            <li><a  href="http://www.touzhijia.com/about/consultant.html" title="关于我们">关于我们</a></li>
+            </ul>
+        </div>
+	</div>
+<!-- start 登录框  -->
+<div class="_login_div_filter_" style="width:100%;height:100%;"></div>
+<div class="_login_div_quick_ login-box">
+	<div class="login-b-title"><a id="close" class="login-close" href="javascript:void(0)" title="关闭">X</a>登录投之家帐号</div>
+	<div class="loginform">
+		<div id = "user_error" class="error"></div>
+		<div class="ui-form-item">
+			<label class="login-userName" id="" for=""></label>
+			<input id = "popusername" class="pass-text-input" type="text"  placeholder="请输入用户名">
+		</div>
+		<div class="ui-form-item">
+			<label class="login-pass" id="" for=""></label>
+			<input id = "poppassword" class="pass-text-input" type="password" placeholder="密码">
+		</div>
+		<div class="ui-form-item">
+                        <a class="findpsw" href="https://www.touzhijia.com/user/reset_password.html" title="忘记密码">忘记密码</a>
+			<input type="checkbox" checked="checked" class="pass-checkbox-input" value = "1" name="memberPass" id="status" />
+			<label class="" id="" for="">下次自动登录</label>
+		</div>
+		<div class="ui-form-item">
+		  <input type="button" value="立即登录" id="submit" class="ui-button-rrd-blue ui-button-rrd-blue-large" onclick = "javascript:checkform();">
+		</div>
+                <div class="ui-form-item text-right">没有账号？<a href="https://www.touzhijia.com/user/register.html" title="立即注册">立即注册</a></div>
+	</div>
+	<div class="login-b-footer">
+	  <span>可以使用以下方式登录</span>
+          <a href="http://www.touzhijia.com/ologin/qq.html" class="partner" id="partner-qq" title="腾讯账号">腾讯账号</a>
+          <a href="http://www.touzhijia.com/ologin/sina.html" class="partner" id="partner-weibo" title="新浪微博">新浪微博</a>
+	  <a href="http://www.touzhijia.com/ologin/wdzj.html" class="partner" id="partner-wdzj" title="网贷之家">网贷之家</a>
+	</div>
+</div>
+<div id = "synclogin"></div>
+<!-- end 登录框  -->
+
+<script type="text/javascript">
+
+$('#do_logout').click(function () {
+    $.ajax({
+        'type': 'get',
+        'cache' : false,
+        'url' : '/user/logout',
+        'success': function (data)
+        {
+            if (1 == data.rcode)
+            {
+                window.location.href = data.url;
+                window.location.reload();
+            }
+            else
+            {
+                alert('退出失败');
+            }
+        },
+        'error' : function()
+        {
+            alert('系统错误');
+        },
+        'dataType': 'json'
+    });
+});
+
+</script>
+		<script type="text/javascript" src="/static/js/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="/static/js/highcharts.js"></script>
+<div class="container">
+	<div class="searbg" >
+
+		<ul class="searbg_ul">
+							<li style="background:#222222;display:block;"><a href="http://www.touzhijia.com/news/view/792.html" target="_blank" title="江南春"><img src="/upload/image/banner/20150413/20150413230005_27035.jpg" alt="江南春" title="江南春"></a></li>
+							<li style="background:#222222;"><a href="http://www.touzhijia.com/topic/t0408" target="_blank" title="3月月报"><img src="/upload/image/banner/20150413/20150413230004_30030.png" alt="3月月报" title="3月月报"></a></li>
+							<li style="background:#222222;"><a href="http://www.touzhijia.com/debt/guide.html" target="_blank" title="二级市场破亿"><img src="/upload/image/banner/20150413/20150413230003_34110.png" alt="二级市场破亿" title="二级市场破亿"></a></li>
+							<li style="background:#222222;"><a href="http://www.touzhijia.com/about/consultant.html" target="_blank" title="专家顾问"><img src="/upload/image/banner/20150413/20150413230004_33746.jpg" alt="专家顾问" title="专家顾问"></a></li>
+							<li style="background:#222222;"><a href="http://www.touzhijia.com/news/view/656.html" target="_blank" title="之家哥俱乐部"><img src="/upload/image/banner/20150413/20150413230004_75747.jpg" alt="之家哥俱乐部" title="之家哥俱乐部"></a></li>
+					</ul>
+		<div class="fx_i">
+		
+                    <a href="javascript:void(0)" title="3月月报" class="cur"></a>
+		
+                    <a href="javascript:void(0)" title="二级市场破亿" ></a>
+		
+                    <a href="javascript:void(0)" title="专家顾问" ></a>
+		
+                    <a href="javascript:void(0)" title="之家哥俱乐部" ></a>
+		
+                    <a href="javascript:void(0)" title="" ></a>
+				</div>
+		<script>
+		// $(document).ready(function() {
+		// 			$(".searbg_ul li").eq(0).show();
+		// 			var speed=2000;
+		// 			var num = parseInt($(".searbg_ul").children("li").length);
+		// 			$(".fx_i a").hover(function(){
+		// 				var $index=$(this).index();
+		// 				$(this).addClass('cur').stop().siblings().removeClass('cur');
+		// 				$(".searbg_ul li").eq($index).fadeIn(1000).siblings('').fadeOut(1000);
+		// 				$key=$index;
+		// 			})
+		// 			var $key=0;
+		// 			var time=setInterval(autoplay,speed)
+
+		// 			function autoplay(){
+		// 				$key++;
+		// 				if($key > (parseInt(num)-1))
+		// 				{
+
+		// 					$key=0;
+		// 				}
+		// 				console.log($key)
+
+		// 				$(".fx_i a").eq($key).addClass('cur').stop().siblings().removeClass('cur');
+		// 				$(".searbg_ul li").eq($key).fadeIn(1000).siblings().fadeOut(1000);
+		// 			}
+		// 			$(".searbg").mousemove(function(event) {
+		// 					clearInterval(time);
+		// 				}).mouseleave(function(){
+		// 					clearInterval(time);
+		// 					time=setInterval(autoplay,speed);
+		// 			});
+					
+		// });
+		function sear(time,speed) {
+				var nowimg = 0;
+				var num=parseInt($(".searbg_ul li").length)-1;
+				var timer = setInterval(autoplay,speed);
+
+				$(".searbg").mousemove(
+					function() {
+						clearInterval(timer);	
+					}
+				);
+
+				$(".searbg").mouseleave(
+					function() {
+						clearInterval(timer);
+						timer = setInterval(autoplay,speed);
+					}
+				);
+
+				function autoplay(){
+					if(!$(".searbg_ul li").is(":animated")){
+						$(".searbg_ul li").eq(nowimg).fadeOut(time);
+						if(nowimg < num){
+							nowimg = nowimg + 1;
+						}else{
+							nowimg = 0;
+						}
+
+
+						$(".searbg_ul li").eq(nowimg).fadeIn(time);
+
+						$(".fx_i a").eq(nowimg).addClass("cur").siblings().removeClass("cur");
+					}
+				}
+				$(".fx_i a").hover(
+					function(){
+						nowimg = $(this).index();
+						$(".searbg_ul li").eq(nowimg).fadeIn().siblings('').fadeOut(time);
+						$(".fx_i a").eq(nowimg).addClass("cur").siblings().removeClass("cur");
+					})
+
+
+			}
+
+			sear(500,3000);
+		</script>
+		<div class="searindex">
+			<div class="searArea">
+				<div class="tit">快速选择P2P平台</div>
+				<div class="select">
+					  <div class="st_label">投资偏好</div>
+					  <div class="dropDown">
+						  <input type="text" value="不限" readonly="readonly" class="putIn icn0">
+						  <span class="dropBtn-sy"> </span>
+						  <ul class="dropList-sy" style="display: none;">
+							  <li>不限</li>
+							  <li>新手上路</li>
+							  <li>稳健为主</li>
+							  <li>收益为主</li>
+						  </ul>
+					  </div>
+                </div>
+				<div class="select">
+					  <div class="st_label">安全评级</div>
+					  <div class="dropDown">
+						  <input type="text" value="不限" readonly="readonly" class="putIn icn1">
+						  <span class="dropBtn-sy"> </span>
+						  <ul class="dropList-sy" style="display: none;">
+							  <li>不限</li>
+							  <li>A以上</li>
+							  <li>B以上</li>
+							  <li>C以上</li>
+						  </ul>
+					  </div>
+                </div>
+				<div class="select">
+					  <div class="st_label">投资收益</div>
+					  <div class="dropDown">
+						  <input type="text" value="不限" readonly="readonly" class="putIn icn2">
+						  <span class="dropBtn-sy"> </span>
+						  <ul class="dropList-sy" style="display: none;">
+							  <li>不限</li>
+							  <li>16%-20%</li>
+							  <li>12%-16%</li>
+							  <li>8%-12%</li>
+							  <li>8%以下</li>
+						  </ul>
+					  </div>
+                </div>
+				<div class="select">
+					  <div class="st_label">投资期限</div>
+					  <div class="dropDown">
+						  <input type="text" value="不限" readonly="readonly" class="putIn icn3">
+						  <span class="dropBtn-sy"> </span>
+						  <ul class="dropList-sy" style="display: none;">
+							  <li>不限</li>
+							  <li>12个月以上</li>
+							  <li>6-12个月</li>
+							  <li>3-6个月</li>
+							  <li>1-3个月</li>
+							  <li>1个月以内</li>
+						  </ul>
+					  </div>
+                </div>
+				<div class="sear_btn"><a href="javascript:void(0);" title="立即搜索">立即搜索</a></div>
+				<!--<p class="test"><a href="javascript:void(0);">投资偏好自测</a></p>-->
+			</div>
+		</div>
+	</div>
+    <div class="main">
+    	<div class="notice">
+			<b class="p10 f_16 ml10">公告</b>
+			<ul class="notice_ul">
+                                				<li><span>2015-04-15 10:25:45</span><a href="http://www.touzhijia.com/news/view/816.html">投之家二级市场微信端上线公告</a></li>
+                                				<li><span>2015-04-10 14:09:16</span><a href="http://www.touzhijia.com/news/view/791.html">【投之家大回馈投资赢肾6】获奖用户诞生！</a></li>
+                                				<li><span>2015-04-02 09:54:39</span><a href="http://www.touzhijia.com/news/view/738.html">投之家2015年清明节放假通知</a></li>
+                                			</ul>
+                        <a class="amore" href="http://www.touzhijia.com/about/notice.html" title="投之家-投资理财平台更多公告">更多 &gt;&gt;</a>
+    	</div>
+            <div class="Intro1">
+    		<ul class="l">
+    			<li class="li1">
+    				<i></i>
+                                <p><a href="http://www.touzhijia.com/about/plan.html" title="投之家投资理财T盾计划">投之家T盾计划</a></p>
+    				<span>投资有保障的P2P垂直搜索</span>
+    			</li>
+    			<li class="li2">
+    				<i></i>
+                                <p><a href="http://www.touzhijia.com/topic/t1110.html" title="投之家投资理财三重保障">投之家三重保障</a></p>
+    				<span>投之家三重保障为您保驾护航</span>
+    			</li>
+    			<li class="li3">
+    				<i></i>
+                                <p><a href="http://www.touzhijia.com/about/consultant.html" title="投之家投资理财权威指导">权威的专家指导</a></p>
+    				<span>投之家顾问委员会保驾护航</span>
+    			</li>
+    			<li class="li4">
+    				<i></i>
+                                <p><a href="http://www.touzhijia.com/about/grade.html" title="投之家投资理财权威评级">权威的安全评级</a></p>
+    				<span>实地认证考察结合运营数据</span>
+    			</li>
+    		</ul>
+    		<div class="r">
+    			<div class="fl"><em>实时统计</em></div>
+    			<div class="rdb">
+    				<p>投之家用户数</p>
+    				<em class="numic col">38,032</em>
+    				<span>人</span>
+    			</div>
+    			<div class="rdb">
+    				<p>累计产生收益</p>
+    				<em class="numic col1">14,562,340</em>
+    				<span>元</span>
+    			</div>
+    		</div>
+    	</div>
+        <div class="recom">
+    		<div class="layer l3">
+    			<div class="tit t3">
+    				<h2>热点平台</h2>
+                                <a href="http://www.touzhijia.com/platform/" class="mo" title="投之家-个人投资理财更多平台">更多&gt;&gt;</a>
+    			</div>
+    			<div class="pt_con2">
+
+					                                <div class="pt_cn">
+                                        <a href="http://www.touzhijia.com/platform/wsloan.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-0']);" target="_bank" title="温商贷详细档案-温商贷靠谱介绍">
+                                                <div class="pt_logo"><img src="/upload/image/bidimg/logo_recommend_img/2014122514032179785.png" alt="温商贷详细档案-温商贷靠谱介绍" title="温商贷"></div>
+                                                <div class="pt_nr">
+                                                        <p>年化收益：<span class="col">15.00%-17.80%</span></p>
+                                                        <p>投资期限：<span class="col1">1月-12月</span></p>
+                                                        <p>安全评级：<span class="col1">BBB</span></p>
+                                                </div>
+                                        </a>
+    				</div>
+					                                <div class="pt_cn">
+                                        <a href="http://www.touzhijia.com/platform/gcjr.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-1']);" target="_bank" title="国诚金融详细档案-国诚金融靠谱介绍">
+                                                <div class="pt_logo"><img src="/upload/image/bidimg/logo_recommend_img/2015011317532867447.jpg" alt="国诚金融详细档案-国诚金融靠谱介绍" title="国诚金融"></div>
+                                                <div class="pt_nr">
+                                                        <p>年化收益：<span class="col">10.00%-15.00%</span></p>
+                                                        <p>投资期限：<span class="col1">1月-3月</span></p>
+                                                        <p>安全评级：<span class="col1">BBB</span></p>
+                                                </div>
+                                        </a>
+    				</div>
+					                                <div class="pt_cn">
+                                        <a href="http://www.touzhijia.com/platform/rongtongzc.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-2']);" target="_bank" title="融通资产详细档案-融通资产靠谱介绍">
+                                                <div class="pt_logo"><img src="/upload/image/bidimg/logo_recommend_img/2015031611045784640.jpg" alt="融通资产详细档案-融通资产靠谱介绍" title="融通资产"></div>
+                                                <div class="pt_nr">
+                                                        <p>年化收益：<span class="col">13.00%-18.00%</span></p>
+                                                        <p>投资期限：<span class="col1">20天-12月</span></p>
+                                                        <p>安全评级：<span class="col1">BBB</span></p>
+                                                </div>
+                                        </a>
+    				</div>
+					                                <div class="pt_cn">
+                                        <a href="http://www.touzhijia.com/platform/xiangshang360.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-3']);" target="_bank" title="向上金服详细档案-向上金服靠谱介绍">
+                                                <div class="pt_logo"><img src="/upload/image/bidimg/logo_recommend_img/2015012910383234675.png" alt="向上金服详细档案-向上金服靠谱介绍" title="向上金服"></div>
+                                                <div class="pt_nr">
+                                                        <p>年化收益：<span class="col">7.50%-13.00%</span></p>
+                                                        <p>投资期限：<span class="col1">7日-12月</span></p>
+                                                        <p>安全评级：<span class="col1">BBB</span></p>
+                                                </div>
+                                        </a>
+    				</div>
+					                                <div class="pt_cn">
+                                        <a href="http://www.touzhijia.com/platform/hepandai.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-4']);" target="_bank" title="合盘贷详细档案-合盘贷靠谱介绍">
+                                                <div class="pt_logo"><img src="/upload/image/bidimg/logo_recommend_img/2015040216291964108.jpg" alt="合盘贷详细档案-合盘贷靠谱介绍" title="合盘贷"></div>
+                                                <div class="pt_nr">
+                                                        <p>年化收益：<span class="col">12.00%-18.00%</span></p>
+                                                        <p>投资期限：<span class="col1">7天-24月</span></p>
+                                                        <p>安全评级：<span class="col1">BBB</span></p>
+                                                </div>
+                                        </a>
+    				</div>
+					                                <div class="pt_cn">
+                                        <a href="http://www.touzhijia.com/platform/rxdai.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-5']);" target="_bank" title="投哪网详细档案-投哪网靠谱介绍">
+                                                <div class="pt_logo"><img src="/upload/image/bidimg/logo_recommend_img/201411262133482121.jpg" alt="投哪网详细档案-投哪网靠谱介绍" title="投哪网"></div>
+                                                <div class="pt_nr">
+                                                        <p>年化收益：<span class="col">12.00%-15.00%</span></p>
+                                                        <p>投资期限：<span class="col1">1日-24月</span></p>
+                                                        <p>安全评级：<span class="col1">A</span></p>
+                                                </div>
+                                        </a>
+    				</div>
+					                                <div class="pt_cn">
+                                        <a href="http://www.touzhijia.com/platform/yesvion.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-6']);" target="_bank" title="粤商贷详细档案-粤商贷靠谱介绍">
+                                                <div class="pt_logo"><img src="/upload/image/bidimg/logo_recommend_img/2014121116172774628.png" alt="粤商贷详细档案-粤商贷靠谱介绍" title="粤商贷"></div>
+                                                <div class="pt_nr">
+                                                        <p>年化收益：<span class="col">15.00%-22.00%</span></p>
+                                                        <p>投资期限：<span class="col1">15日-12月</span></p>
+                                                        <p>安全评级：<span class="col1">BBB</span></p>
+                                                </div>
+                                        </a>
+    				</div>
+					                                <div class="pt_cn">
+                                        <a href="http://www.touzhijia.com/platform/xiaoniu88.html" onclick="javascript:_paq.push(['trackEvent', 'home-click', 'ad-hot-plat', 'ad-7']);" target="_bank" title="小牛在线详细档案-小牛在线靠谱介绍">
+                                                <div class="pt_logo"><img src="/upload/image/bidimg/logo_recommend_img/2015032510450836177.jpg" alt="小牛在线详细档案-小牛在线靠谱介绍" title="小牛在线"></div>
+                                                <div class="pt_nr">
+                                                        <p>年化收益：<span class="col">10.00%-15.00%</span></p>
+                                                        <p>投资期限：<span class="col1">5天-12月</span></p>
+                                                        <p>安全评级：<span class="col1">A</span></p>
+                                                </div>
+                                        </a>
+    				</div>
+					    			</div>
+    		</div>
+    	</div>
+            <div class="adv_box mt20">
+				<a target="_blank" href="http://www.wangdaizhijia.com/touzi/index.html">
+					<img src="/static/images/yincanAd.jpg" alt="盈灿基金" />
+				</a>
+				<a target="_blank" href="http://www.wangdaizhijia.com/touzi/index.html">
+					<img src="/static/images/banner02.png" alt="盈灿基金" />
+				</a>
+			</div>
+            <div class="recom">
+    		<div class="layer l3">
+                    <div class="tit t4"><a class="mo" href="http://www.touzhijia.com/debt/borrows.html" title="投之家-二级市场更多资料">更多&gt;&gt;</a><h2>二级市场</h2></div>
+    			<div class="pt_con1">
+                                <ul class="rk3_cen">
+                                                                <li style=" cursor: pointer;" onclick="location.href='https://www.touzhijia.com/debt/borrow/20150416001.html';">
+				<p class="bt">精选P2P债权组合20150416001</p>
+				<!--<p class="bh">债权编号：20150416001</p>-->
+				<div class="bc">
+					<div class="bc_bg"></div>
+					<span><b>12.31</b>%</span>
+				</div>
+				<div class="bf">
+					<p class="bf_p1">剩余份额：<span>406257</span>份</p>
+					<p class="bf_p2"><em>1个月</em><em>待发布</em></p>
+				</div>
+                                                                <a href="https://www.touzhijia.com/debt/borrow/20150416001.html" class="btna" title="精选P2P分散投资债券组合"><em><em class="second_timing" did="" exp_sec="503"><b>8</b>分<b>23</b>秒</em></em></a>
+                                			</li>
+                                                                <li style=" cursor: pointer;" onclick="location.href='https://www.touzhijia.com/debt/borrow/20150416002.html';">
+				<p class="bt">精选P2P债权组合20150416002</p>
+				<!--<p class="bh">债权编号：20150416002</p>-->
+				<div class="bc">
+					<div class="bc_bg"></div>
+					<span><b>13.52</b>%</span>
+				</div>
+				<div class="bf">
+					<p class="bf_p1">剩余份额：<span>569945</span>份</p>
+					<p class="bf_p2"><em>3个月</em><em>待发布</em></p>
+				</div>
+                                                                <a href="https://www.touzhijia.com/debt/borrow/20150416002.html" class="btna" title="精选P2P分散投资债券组合"><em><em class="second_timing" did="" exp_sec="503"><b>8</b>分<b>23</b>秒</em></em></a>
+                                			</li>
+                                                                <li class="no-b" style=" cursor: pointer;" onclick="location.href='https://www.touzhijia.com/debt/borrow/20150415005.html';">
+				<p class="bt">精选P2P债权组合20150415005</p>
+				<!--<p class="bh">债权编号：20150415005</p>-->
+				<div class="bc">
+					<div class="bc_bg"></div>
+					<span><b>12.30</b>%</span>
+				</div>
+				<div class="bf">
+					<p class="bf_p1">剩余份额：<span>0</span>份</p>
+					<p class="bf_p2"><em>1个月</em><em>100%</em></p>
+				</div>
+                                                                <a href="https://www.touzhijia.com/debt/borrow/20150415005.html" class="btns" title="精选P2P分散投资债券组合">满额</a>
+                                			</li>
+                        		</ul>
+    			</div>
+    		</div>
+    	</div>
+<div class="bulletin">
+    		<div class="fl">
+    			<div class="tit">
+                            <a href="http://www.touzhijia.com/about/dynamic.html" class="mo" title="投之家-P2P理财平台更多动态">更多&gt;&gt;</a>
+    				<span>最新动态</span>
+    			</div>
+    			<div class="cen">
+                                    				<div class="imgbox">
+    					<div class="lunbo">
+							<ul>
+                                                                                                                        <li><a href="http://www.touzhijia.com/news/view/819.html"><img src="/upload/image/20150416/1429147483.jpg" /><span>直击LendIt 2015：来自纽约的网贷脑洞，有多少人能秒懂？ </span></a></li>
+                                                                                                                        <li><a href="http://www.touzhijia.com/news/view/806.html"><img src="/upload/image/20150414/1428975544.jpg" /><span>投之家董事长徐红伟率中国代表团亮相LendIt 2015纽约峰会</span></a></li>
+                                                                                                                        <li><a href="http://www.touzhijia.com/news/view/800.html"><img src="/upload/image/20150413/1428889305.jpg" /><span>投之家副董事长朱明春：政府将颁布P2P准入门槛 但不发牌照</span></a></li>
+                                                        							</ul>
+							<div class="kz_box">
+								<a href="#" class="last"></a>
+								<a href="#" class="next"></a>
+							</div>
+						</div>
+    				</div>
+    				<ul class="list">
+                                        						<li><span>2015-04-16</span><a href="http://www.touzhijia.com/news/view/819.html" title="直击LendIt 2015：来自纽约的网贷脑洞，有多少人能秒懂？ ">直击LendIt 2015：来自纽约的网贷脑洞，有多少人能秒懂？ </a></li>
+                                        						<li><span>2015-04-14</span><a href="http://www.touzhijia.com/news/view/806.html" title="投之家董事长徐红伟率中国代表团亮相LendIt 2015纽约峰会">投之家董事长徐红伟率中国代表团亮相LendIt 2015纽约峰会</a></li>
+                                        						<li><span>2015-04-13</span><a href="http://www.touzhijia.com/news/view/800.html" title="投之家副董事长朱明春：政府将颁布P2P准入门槛 但不发牌照">投之家副董事长朱明春：政府将颁布P2P准入门槛 但不发牌照</a></li>
+                                        						<li><span>2015-04-11</span><a href="http://www.touzhijia.com/news/view/795.html" title="投之家CEO黄诗樵：网贷行业的春天就要来了">投之家CEO黄诗樵：网贷行业的春天就要来了</a></li>
+                                        						<li><span>2015-04-11</span><a href="http://www.touzhijia.com/news/view/793.html" title="投之家副董事长朱明春接受凤凰卫视黄金档财经栏目《财经正前方》专访">投之家副董事长朱明春接受凤凰卫视黄金档财经栏目《财经正前方》专访</a></li>
+                                        						<li><span>2015-04-10</span><a href="http://www.touzhijia.com/news/view/792.html" title="分众传媒董事长江南春与投之家CEO黄诗樵畅谈互联网金融">分众传媒董事长江南春与投之家CEO黄诗樵畅谈互联网金融</a></li>
+                                        						<li><span>2015-04-09</span><a href="http://www.touzhijia.com/news/view/783.html" title="湖北联投集团总经理助理、财务部长何文君女士一行莅临投之家参观考察">湖北联投集团总经理助理、财务部长何文君女士一行莅临投之家参观考察</a></li>
+                                            				</ul>
+                                    			</div>
+    		</div>
+    		<div class="fr _tabs">
+    			<div class="tit">
+    				<span><a class="_tabs_nav cur" href="javascript:;">投资攻略</a></span>
+    				<span><a class="_tabs_nav" href="javascript:;">行业新闻</a></span>
+    			</div>
+    			<div class="_tabs_cen cen">
+                            <a href="http://www.touzhijia.com/news/1-1/" class="mo" title="网贷平台投资攻略">更多&gt;&gt;</a>
+    				<ul class="list">
+                                        						<li><span>2015-04-16</span><a href="http://www.touzhijia.com/news/view/822.html" title="家家有本理财经">家家有本理财经</a></li>
+                                        						<li><span>2015-04-15</span><a href="http://www.touzhijia.com/news/view/817.html" title="像找对象一样去选平台">像找对象一样去选平台</a></li>
+                                        						<li><span>2015-04-15</span><a href="http://www.touzhijia.com/news/view/815.html" title="理财大咖是如何炼成的">理财大咖是如何炼成的</a></li>
+                                        						<li><span>2015-04-15</span><a href="http://www.touzhijia.com/news/view/814.html" title="P2P理财有大招">P2P理财有大招</a></li>
+                                        						<li><span>2015-04-14</span><a href="http://www.touzhijia.com/news/view/810.html" title="大神教你做投资">大神教你做投资</a></li>
+                                        						<li><span>2015-04-14</span><a href="http://www.touzhijia.com/news/view/808.html" title="P2P理财加薪攻略:白领不“白领”">P2P理财加薪攻略:白领不“白领”</a></li>
+                                        						<li><span>2015-04-14</span><a href="http://www.touzhijia.com/news/view/804.html" title="三张图看懂P2P理财精髓">三张图看懂P2P理财精髓</a></li>
+                                            				</ul>
+    			</div>
+    			<div class="_tabs_cen cen" style="display:none;">
+                            <a href="http://www.touzhijia.com/news/2-1/" class="mo" title="网贷平台行业新闻">更多&gt;&gt;</a>
+    				<ul class="list">
+                                        						<li><span>2015-04-16</span><a href="http://www.touzhijia.com/news/view/821.html" title="互金新趋势：科技服务P2P">互金新趋势：科技服务P2P</a></li>
+                                        						<li><span>2015-04-16</span><a href="http://www.touzhijia.com/news/view/820.html" title="P2P火遍娱乐圈，任泉、李冰冰、黄晓明投资千万试水">P2P火遍娱乐圈，任泉、李冰冰、黄晓明投资千万试水</a></li>
+                                        						<li><span>2015-04-15</span><a href="http://www.touzhijia.com/news/view/813.html" title="行业监管新动向：担保行业法规有望年内出台">行业监管新动向：担保行业法规有望年内出台</a></li>
+                                        						<li><span>2015-04-15</span><a href="http://www.touzhijia.com/news/view/812.html" title="Lending Club又出新招   携花旗创低息贷款业务">Lending Club又出新招   携花旗创低息贷款业务</a></li>
+                                        						<li><span>2015-04-15</span><a href="http://www.touzhijia.com/news/view/811.html" title="互联网金融欲掀起A股并购风 P2P将曲线嵌入资本市场">互联网金融欲掀起A股并购风 P2P将曲线嵌入资本市场</a></li>
+                                        						<li><span>2015-04-14</span><a href="http://www.touzhijia.com/news/view/809.html" title="明年中国P2P网贷或涌现首批上市公司">明年中国P2P网贷或涌现首批上市公司</a></li>
+                                        						<li><span>2015-04-14</span><a href="http://www.touzhijia.com/news/view/807.html" title="永安与财雨“撕胯”大战：P2P平台与保险公司该如何合作">永安与财雨“撕胯”大战：P2P平台与保险公司该如何合作</a></li>
+                                            				</ul>
+    			</div>
+    		</div>
+    	</div>
+    	<div class="recom">
+    		<div class="layer l3">
+                    <div class="tit t5"><a href="http://www.touzhijia.com/about/media.html" class="mo" title="投之家-P2P理财平台更多报道">更多&gt;&gt;</a><h2>媒体报道</h2></div>
+                        <div class="pt_con3 scltzj">
+    				<a href="javascript:;" class="a-btn l-btn">&lt;</a>
+    				<a href="javascript:;" class="a-btn r-btn">&gt;</a>
+    				<div class="mt-cen">
+    					<ul>
+                                                <li>
+                                                        <a target="_bank" rel="nofollow" href="http://www.yicai.com/videos/2014/12/4057721.html" title="P2P网贷平台：第一财经报道">
+                                                                <img src="/static/images/mt001.png" alt="" >
+                                                        </a>
+                                                </li>
+                                                <li>
+                                                        <a target="_bank" href="http://www.touzhijia.com/news/view/237.html" title="投之家个人投资理财：腾讯网报道">
+                                                                <img src="/static/images/mt002.png">
+                                                        </a>
+                                                </li>
+                                                </li>
+                                                <li>
+                                        <a target="_bank" href="http://www.touzhijia.com/news/view/255.html"  title="投之家个人投资理财：搜狐网报道">
+							<img src="/static/images/mt003.png">
+						</a>
+                                                </li>
+                                                <li>
+                                        <a target="_bank" href="http://www.touzhijia.com/news/view/339.html"  title="投之家P2P投资：凤凰网报道">
+							<img src="/static/images/mt004.png">
+						</a>
+                                                </li>
+                                                <li>
+                                        <a target="_bank" href="http://www.touzhijia.com/news/view/222.html"  title="P2P投资平台：每日经济新闻报道">
+							<img src="/static/images/mt005.png">
+						</a>
+                                                </li>
+                                                <li>
+                                        <a target="_bank" href="http://www.touzhijia.com/news/view/239.html"  title="投之家P2P网贷：证劵之星报道">
+							<img src="/static/images/mt006.png">
+						</a>
+                                                </li>
+                                                <li>
+                                        <a target="_bank" href="http://www.touzhijia.com/news/view/352.html"  title="P2P网贷平台：东方财富网报道">
+							<img src="/static/images/mt007.png">
+						</a>
+                                                </li>
+                                                <li>
+                                        <a target="_bank" href="http://www.touzhijia.com/news/view/317.html"  title="P2P投资平台：人民网报道">
+							<img src="/static/images/mt008.png">
+						</a>
+                                                </li>
+                        </ul>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+
+        <div class="bulletin">
+            <div class="fr _tabs" style="float:none; width: auto">
+                <div class="tit">
+                    <span><a class="_tabs_nav cur" href="javascript:;">热门关注</a></span>
+                    <span><a class="_tabs_nav" href="javascript:;">友情链接</a></span>
+                    <span><a class="_tabs_nav" href="javascript:;">商务合作</a></span>
+                </div>
+                <div class="pt_con3">
+                    <div class="_tabs_cen cen">
+                        <ul>
+                            <li>
+                                <a rel="external" class="sitelink" href="http://www.touzhijia.com/debt/guide.html" title="二级市场">二级市场</a>
+                            </li>
+                            <li>
+                                <a rel="external" class="sitelink" href="http://www.touzhijia.com/" title="P2P投资">P2P投资</a>
+                            </li>
+                            <li>
+                                <a rel="external" class="sitelink" href="http://www.touzhijia.com/" title="P2P网贷">P2P网贷</a>
+                            </li>
+                            <li>
+                                <a rel="external" class="sitelink" href="http://www.touzhijia.com/platform/" title="P2P平台">P2P平台</a>
+                            </li>
+                            <li>
+                                <a rel="external" class="sitelink" href="http://www.touzhijia.com/project/" title="P2P选标">P2P选标</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="_tabs_cen cen" style="display: none">
+                        <ul>
+                                                            <li>
+                                    <a  class="sitelink" href="http://www.wangdaizhijia.com" title="网贷之家" rel="external">网贷之家</a>
+                                </li>
+                                                            <li>
+                                    <a  rel="nofollow"  class="sitelink" href="http://www.qqwangdai.com/" title="盈灿科技" rel="external">盈灿科技</a>
+                                </li>
+                                                            <li>
+                                    <a  class="sitelink" href="http://www.wangdaizhijia.com/topic/p2plicai.html" title="P2P理财" rel="external">P2P理财</a>
+                                </li>
+                                                            <li>
+                                    <a  class="sitelink" href="http://iof.hexun.com" title="和讯网" rel="external">和讯网</a>
+                                </li>
+                                                            <li>
+                                    <a  class="sitelink" href="http://bbs.wangdaizhijia.com" title="网贷论坛" rel="external">网贷论坛</a>
+                                </li>
+                                                            <li>
+                                    <a  class="sitelink" href="http://www.touzhijia.com/debt/guide.html" title="二级市场" rel="external">二级市场</a>
+                                </li>
+                                                            <li>
+                                    <a  class="sitelink" href="http://www.touzhijia.com/wenda/" title="投资问答" rel="external">投资问答</a>
+                                </li>
+                                                            <li>
+                                    <a  class="sitelink" href="http://finance.china.com.cn/money/efinance/index.shtml" title="中国网" rel="external">中国网</a>
+                                </li>
+                                                            <li>
+                                    <a  class="sitelink" href="http://huaxia.kameng.com" title="华夏银行" rel="external">华夏银行</a>
+                                </li>
+                                                            <li>
+                                    <a  class="sitelink" href="http://ipo.qianzhan.com" title="资本前瞻" rel="external">资本前瞻</a>
+                                </li>
+                                                    </ul>
+                    </div>
+                    <div class="_tabs_cen cen" style="display: none">
+                        <ul>
+                            <li>
+                                <a rel="external" class="sitelink" href="https://www.touzhijia.com/user/business.html" title="资料填写">资料填写</a>
+                            </li>
+                            <li>
+                                <a rel="external" class="sitelink" href="https://www.touzhijia.com/user/businessProcess.html" title="合作流程">合作流程</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+        </div>
+</div>
+<!--<div id="women" style="width: 161px;height: 562px;position:fixed;z-index: 99999;left: 50%;top: 50%;margin: -281px 0 0 -700px;">
+	<img src="/images/common/women.png"/>
+    <a href="javascript:;" style="position: absolute;z-index: 1;right: 0;bottom: 0;width: 60px;height: 20px;" onclick="$('#women').remove();"></a>
+</div>-->
+        <style>
+            .pt_con3 li a.sitelink{ padding:12px 0; width: 100px; color: #333;}
+            .pt_con3 li a:hover{ color: #369FD6;}
+            .pt_con3 li {list-style:none;}
+        </style>
+
+
+<script type="text/javascript">
+/*JQ切换*/
+(function($){
+	$.fn.tabSwitch = function(options){ 
+		var defaults = {
+			tabs_nav:"_tabs_nav", 
+			tabs_cen:"_tabs_cen",
+			curclass:"cur"
+		};
+		var options = $.extend(defaults, options); 
+		this.each(function(){
+			var o = $(this);
+			var b = o.find("."+options.tabs_nav);
+			b.click(function(){
+				var i = b.index(this);
+				var c = o.find("."+options.tabs_cen);
+				b.removeClass(options.curclass);
+				$(this).addClass(options.curclass);
+				c.hide().eq(i).show();
+			});	
+		});
+	};
+})(jQuery);
+$(function(){
+	/*广告切换*/
+	$(".adv_box").each(function(i,e){
+		var o = $(e);
+		var a = o.find("a");
+		var sw = 0;
+		var myTime,imgh;
+		$(e).find("img")[0].onload = function(){
+			o.height($(e).find("img").eq(0).height());
+		};
+		o.height($(e).find("img").eq(0).height());
+		function myShow(i){
+			if(sw>=a.length){sw=0;}
+			a.eq(sw).fadeIn(1000).siblings("a").fadeOut(1000);
+			myTime = window.setTimeout(function(){myShow()},4000);
+			sw++;
+		}
+		//滑入停止动画，滑出开始动画
+		o.hover(function(){
+			if(myTime){ window.clearTimeout(myTime); }
+		},function(){ myShow(); });
+		myShow();
+	});
+        $(".pt_con3.scltzj").each(function(index, el) {
+                var w = 170;
+                var bool = true;
+                var lengimg = $(el).find("li").length*2;
+                var ulwidth = lengimg*w;
+                var ullist = $(el).find("ul");
+                var abtn = $(el).find(".a-btn");
+                var scrollLeft = 0;
+                ullist.width(ulwidth);
+                ullist.append(ullist.html());
+                $(el).find(".l-btn").click(function(){scrollLeft<=0?scrollLeft=0:scrollLeft-=w;ullist.animate({"margin-left":-scrollLeft+"px"},300)});
+                $(el).find(".r-btn").click(function(){
+                    if(scrollLeft>=(lengimg/2)*w){ullist.css({"margin-left":"0"});scrollLeft=w;}
+                    else{scrollLeft+=w;}
+                    ullist.animate({"margin-left":-scrollLeft+"px"},300);
+                });
+                var setIntervalId = window.setInterval(function(){
+                    if(bool){
+                        if(scrollLeft>=(lengimg/2)*w){ullist.css({"margin-left":"0"});scrollLeft=w;}
+                        else{scrollLeft+=w;}
+                        ullist.animate({"margin-left":-scrollLeft+"px"},300);
+                    }
+                },3000);
+		$(el).hover(
+			function(){bool=false;abtn.show();},
+			function(){bool=true;abtn.hide();}
+		);
+	});
+});
+$(function() {
+	/*切换*/
+	$("._tabs").tabSwitch();
+	/*轮播*/
+	$(".lunbo").each(function(index, el) {
+		var o = $(this);
+		var w = o.width();
+		var ul = o.find('ul');
+		var li = ul.find('li');
+		var kz_box = o.find('.kz_box')
+		var last = kz_box.find('.last');
+		var next = kz_box.find('.next');
+		var i = 0;
+		var bool = true;
+		ul.width((li.length+1)*w+"px");
+		li.width(w+"px");
+		ul.append(li.eq(0).clone());
+		last.click(function(event) {
+			if(i<=0){i=li.length;}
+			i-=1;
+			ul.animate({"margin-left":-i*w+"px"},300);
+			return false;
+		});
+		next.click(function(event) {
+			if(i>=li.length){i=0;ul.css({"margin-left":0});}
+			i+=1;
+			ul.animate({"margin-left":-i*w+"px"},300);
+			return false;
+		});
+		var setIntervalId = window.setInterval(function(){
+			if(bool){
+				if(++i>li.length){i=1;ul.css({"margin-left":0});}
+				ul.animate({"margin-left":-i*w+"px"},300);
+			}
+		},3000);
+		o.hover(
+			function(){bool=false;},
+			function(){bool=true;}
+		);
+	});
+});
+</script>
+
+<script>
+	$(document).ready(function(){
+		$(function() {
+
+			/**
+			 * @author ZhengYaFeng
+			 * @description 点击搜索
+			 *
+			 *
+			 */
+			 $(".sear_btn").on("click",function(){
+			 	//准备状态数据
+			 	var grade = new Array();
+			 	var overall = new Array();
+			 	var time = new Array();
+			 	grade[0] = '不限';
+			 	grade[1] = 'A以上';
+			 	grade[2] = 'B以上';
+			 	grade[3] = 'C以上';
+			 	overall[0] = '不限';
+			 	overall[1] = '16%-20%';
+ 				overall[2] = '12%-16%';
+ 				overall[3] = '8%-12%';
+ 				overall[4] = '8%以下';
+ 				time[0] = '不限';
+ 				time[1] = '1个月以内';
+ 				time[2] = '1-3个月';
+ 				time[3] = '3-6个月';
+ 				time[4] = '6-12个月';
+ 				time[5] = '12个月以上';
+ 				var obj = $(".searArea").children(".select");
+ 				var data_grade = in_array(obj.eq(1).children(".dropDown").children("input").val(),grade);
+ 				var data_overall = in_array(obj.eq(2).children(".dropDown").children("input").val(),overall);
+ 				var data_time = in_array(obj.eq(3).children(".dropDown").children("input").val(),time);
+ 				var data_sorttype = 'desc';
+ 				var data_operation = 'sort';
+ 				data_grade = parseInt(data_grade)*3;
+ 				if(data_grade > 6){
+ 					data_grade = 6;
+ 				}
+ 				window.location.href="http://www.touzhijia.com/platform/?grade="+data_grade+"&overall="+data_overall+"&time="+data_time+"&sorttype="+data_sorttype+"&operation="+data_operation+"";
+			 });
+			 //js in_array 返回key下标
+			 function in_array(stringToSearch, arrayToSearch) {
+			 	for (s = 0; s < arrayToSearch.length; s++) {
+			  		thisEntry = arrayToSearch[s].toString();
+			  		if (thisEntry == stringToSearch) {
+			   			return s;
+			  		}
+			 	}
+			 	return s;
+			}
+
+
+		  $(".dropBtn-sy").click(function() {
+			$(".select").css("z-index","0");
+			$(this).parents(".select").css("z-index","100000");
+			$(this).parent().children(".dropList-sy").toggle();
+			$(this).parent().parent().siblings().children().children(".dropList-sy").hide();
+		  });
+		  $(".dropList-sy li").click(function() {
+			var listText = $(this).html();
+			$(this).parent().parent().children(".putIn").val(listText);
+			$(this).parent().hide();
+			select_ld($.trim(listText),$(this).parents(".select").index());
+		  });
+		  $(document).bind('click',function(e) {
+			var clickme = $(e.target);
+			if (!clickme.parents().hasClass("dropDown")) $(".dropList-sy").hide();
+		  });
+		  //
+		  function select_ld(val,eq){
+			var icn0 = $('.icn0');
+			var icn1 = $('.icn1');
+			var icn2 = $('.icn2');
+			var icn3 = $('.icn3');
+			switch(val){
+				case '稳健为主':
+					icn1.val("A以上");
+					icn2.val("8%-12%");
+					icn3.val("不限");
+				break;
+				case '收益为主':
+					icn1.val("不限");
+					icn2.val("16%-20%");
+					icn3.val("不限");
+				break;
+				case '新手上路':
+					icn1.val("A以上");
+					icn2.val("12%-16%");
+					icn3.val("不限");
+				break;
+				case '不限':
+					if(icn0.val() == "不限" && eq == 1){
+						icn0.val("不限");
+						icn1.val("不限");
+						icn2.val("不限");
+						icn3.val("不限");
+					}
+					if(icn1.val() == "不限"||icn2.val() == "不限"||icn3.val() == "不限"){
+						icn0.val("不限");
+					}
+				break;
+				default : icn0.val("不限");
+			}
+			if((icn1.val() == "A以上" && icn2.val() == "8%-12%") || (icn1.val() == "A以上" && icn2.val() == "8%以下")){
+				icn0.val("稳健为主");
+			}else if($.trim(icn2.val()) == "16%-20%"){
+				icn0.val("收益为主");
+			}else if(icn1.val() == "A以上" && icn2.val() == "12%-16%"){
+				icn0.val("新手上路");
+			}
+
+		  }
+
+		});
+
+
+	});
+
+	//获取值
+	function serch(){
+		var sGrade="";
+		var inOverall="0";
+		var inTime="0";
+		var search = $("#select1").attr("v");
+		var qixian = $("#select2").attr("v");
+		var yusuan = $("#select3").attr("v");
+
+		/******投资偏好*******/
+		if(search=="0"){
+			var jibie="A级";
+			sGrade=jibie.substr(0,1);
+			inOverall="12%~16%";
+		}else if(search=="1"){
+			 var jibie="A级";
+			 sGrade = jibie.substr(0,1);
+		}else if(search=="2"){
+			inOverall="16%~20%";
+		}
+	  	/*******投资期限***********/
+	  	// 1个月以下
+	  	if(qixian=="1"){
+	  		inTime="1";
+	  	}else if(qixian=="3"){ // 1-3个月
+	  		inTime = "3";
+	  	}else if(qixian=="6"){  // 3-6个月
+	  	    inTime = "6";
+	  	}else if(qixian=="12"){  // 6-12个月
+	  		inTime = "12";
+	  	}else  if(qixian=="20"){ // 12个月以上
+	  		inTime = "20";
+	  	}
+	  $("input[name='sGrade']").val(sGrade);
+	  $("input[name='inTime']").val(inTime);
+	  $("input[name='inOverall']").val(inOverall);
+	  $("input[name='money']").val(yusuan);
+	  $("input[name='search']").val(search);
+	  $("#search").submit();
+	}
+/*JQ切换*/
+(function($){
+	$.fn.tabSwitch = function(options){ 
+		var defaults = {
+			tabs_nav:"_tabs_nav", 
+			tabs_cen:"_tabs_cen",
+			curclass:"cur"
+		};
+		var options = $.extend(defaults, options); 
+		this.each(function(){
+			var o = $(this);
+			var b = o.find("."+options.tabs_nav);
+			b.hover(function(){
+				var i = b.index(this);
+				var c = o.find("."+options.tabs_cen);
+				b.removeClass(options.curclass);
+				$(this).addClass(options.curclass);
+				c.hide().eq(i).show();
+			});	
+		});
+	};
+})(jQuery);
+$(function(){
+        /*圆环-首页*/
+	$(".td5-m1").each(function(index, el) {
+		var $val=parseInt($(this).find("em").text());
+		$val?$val=$val:$val=0;
+		var $key=-64*$val;
+		$(this).css({"background-position":""+($key-0)+"px 0"});
+	});
+});
+$(function(){
+	$(".rk_box2 a").hover(
+		function(){
+			$(this).find("img").animate({"top":"0"},300);
+		},
+		function(){
+			$(this).find("img").animate({"top":"-175px"},300);
+		}
+	);
+	/*数字*/
+	$(".numic").each(function(i,e){
+		var o = $(this);
+		var t = 10;
+		var val = parseInt(o.text().replace(/,/g,""))/t;
+		var setIntervalId = window.setInterval(function(){
+			if(t--){
+				var v = parseInt(val*(10-t)).toString();
+				var varr = v.split("");
+				for (var i = varr.length-4; i >= 0; i -= 3) varr[i] += ",";
+				o.text(varr.join(""));
+			}
+			else{clearInterval(setIntervalId);}
+		},100);
+	});
+	/*公告*/
+	$(".notice_ul").each(function(i,e){
+		var time = 4000;
+		var bool = true;
+		var o = $(this);
+		var li = o.find("li");
+		o.append(li.eq(0).clone());
+		var i = 0;
+		window.setInterval(function(){
+			if(bool){
+				o.animate({"scrollTop":(i+=40)},600,function(){
+					if(i>=li.length*40){o.scrollTop(0);i=0;}
+				});
+			}
+		},time);
+		o.hover(
+			function(){bool=false},
+			function(){bool=true}
+		);
+	});
+
+	$(".rk3_cen li").hover(
+		function(){$(this).find(".bc_bg").fadeIn(600);},
+		function(){$(this).find(".bc_bg").fadeOut(600);}
+	);
+});
+</script>
+
+<div class="footer_main">
+	<div class="footer">
+		<div class="navbox">
+			<div class="dbox1 fr">
+				<img src="/static/images/common/weixin.jpg" />
+				<p class="tit"><i></i>服务热线</p>
+				<p class="tel">400 883 1803</p>
+				<p>(周一至周五 9:00-17:30)</p>
+                                <p><a class="awb" href="javascript:;"></a><a class="awx" target="_blank" href="http://weibo.com/touzhijia" rel="nofollow"></a></p>
+			</div>
+		<ul>
+				<li><a href="http://www.touzhijia.com/about/company.html" title="关于我们">关于我们</a></li>
+				<li><a href="http://www.touzhijia.com/about/consultant.html" title="专家顾问">专家顾问</a></li>
+				<li><a href="http://www.touzhijia.com/about/team.html" title="媒体报道">团队介绍</a></li>
+				<li><a href="http://www.touzhijia.com/about/contactway.html" title="联系我们">联系我们</a></li>
+			</ul>
+			<i class="i"></i>
+			<ul>
+				<li><a href="http://www.touzhijia.com/about/grade.html" title="安全评级">安全评级</a></li>
+				<li><a href="http://www.touzhijia.com/topic/t1110.html" title="三重保障">三重保障</a></li>
+				<li><a href="http://www.touzhijia.com/about/required.html" title="风控管理">使用必读</a></li>
+				<li><a href="http://www.touzhijia.com/about/plan.html" title="T盾保障">T盾保障</a></li>
+			</ul>
+			<i class="i"></i>
+			<ul>
+				<li><a href="http://www.touzhijia.com/help.html" title="帮助中心">帮助中心</a></li>
+				<li><a href="http://www.touzhijia.com/about/media.html" title="媒体报道">媒体报道</a></li>
+				<li><a href="http://www.touzhijia.com/about/sitemap.html" title="网站地图">网站地图</a></li>
+                <li><a href="http://www.touzhijia.com/platform/" title="P2P平台 ">P2P平台</a></li>
+			</ul>
+			<i class="i"></i>
+			<ul>
+				<li><a href="http://www.touzhijia.com/about/join.html" title="使用必读">加入我们</a></li>
+				<li><a href="http://www.touzhijia.com/news/1-1/" title="投资攻略">投资攻略</a></li>
+				<li><a href="http://www.touzhijia.com/news/2-1/" title="行业新闻">行业新闻</a></li>
+				<li><a href="http://www.touzhijia.com/news/3-1/" title="网站公告">网站公告</a></li>
+			</ul>
+		</div>
+    </div>
+</div>
+<div class="footer_bg">
+	<div class="footer">
+    	<div class="navbox">
+    		<div class="fl">
+					 <p>版权所有：上海盈灿商务咨询有限公司 沪ICP备12033003号-2</p>
+                <p>Copyright © 2014 www.touzhijia.com . All Rights Reserved.</p>
+            </div>
+    		<div class="fr">
+                                <a href="http://www.anquan.org/authenticate/cert/?site=www.touzhijia.com&amp;at=realname" target="_blank" rel="nofollow">
+					<img class="img0" src="/static/images/common/gwyz-1.png" />
+					<img class="img1" src="/static/images/common/gwyz.png" />
+                                </a>&#12288;&#12288;&#12288;
+                                <a href="http://pinggu.zx110.org/checkWebsite.do" target="_blank" rel="nofollow">
+					<img class="img0" src="/static/images/common/zxw-1.jpg" />
+					<img class="img1" src="/static/images/common/zxw.jpg" />
+                                </a>&#12288;&#12288;&#12288;
+                                <a href="http://webscan.360.cn/index/checkwebsite?url=www.touzhijia.com" target="_blank" rel="nofollow">
+					<img class="img0" src="/static/images/common/360-1.png" />
+					<img class="img1" src="/static/images/common/360.png" />
+                                </a>
+                        </div>
+    	</div>
+    </div>
+</div>
+<div id="a_calc" class="alertbox">
+	<div class="boxbg"></div>
+	<div class="boxbody">
+		<div class="boxheight">
+			<div class="boxtop">
+				<a class="boxclose" href="javascript:;" onclick="alertBox.hide()"></a>
+			</div>
+			<div class="boxcen ovf">
+    		<div class="layer div_calc">
+	    		<div class="tit t2"><h2>计算器</h2></div>
+    			<div class="counter">
+	    			<ul>
+                      <li class="inls_til">投资金额：</li>
+                      <li class="inls_con">
+                      <input type="text" placeholder="" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" onkeyup="value=value.replace(/[^\d]/g,'') " id="amount" class="txt">&nbsp;元
+                      </li>
+                      <li class="inls_til">投入时长：</li>
+                      <li class="inls_con">
+                      <input type="text" placeholder="" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" onkeyup="value=value.replace(/[^\d]/g,'') " id="deadline" class="txt" style="width:117px;">&nbsp;<span style="vertical-align: middle;"><input type="radio" name="time" value="1" checked="checked" style="margin-top:4px;"/>月 <input type="radio" name="time" value="2" style="margin-top:4px;"/>日</span>
+                      </li>
+                      <li class="inls_til">年化利率：</li>
+                      <li class="inls_con">
+                      <input type="text" placeholder="" onbeforepaste="value=/^\d*(\d|(\.\d*))$/.test(value)?value:''" onkeyup="value=/^\d*(\d|(\.\d*))$/.test(value)?value:''" id="interestRate" class="txt">&nbsp;％
+                      </li>
+                      <li class="inls_til">奖励比率：</li>
+                      <li class="inls_con">
+                      <input type="text" placeholder="" onbeforepaste="value=/^\d*(\d|(\.\d*))$/.test(value)?value:''" onkeyup="value=/^\d*(\d|(\.\d*))$/.test(value)?value:''" id="creditRate" class="txt">&nbsp;％
+                      </li>
+                      <li class="inls_til">赎回方式：</li>
+                      <li class="inls_con">
+                      <select id="rePayWaySelect1" class="sel" style="width:190px">
+                      	  <option value="1">到期还本息</option>
+		                  <option value="2">按月还本息</option>
+		                  <option value="3">按季还本息</option>
+                      </select>
+                      <select style="display:none;" id="rePayWaySelect2" class="sel">
+                      		 <option value="1">到期还本息</option>
+                      </select>
+                      </li>
+                  </ul>
+                  <div class="count_box_btn">
+					  <a href="javascript:void(0);" id="calcBtn" onclick=";" class="btn_count" title="计算">计算</a>
+					  <a href="javascript:void(0);" id="cancelCalcBtn" onclick="" class="btn_cencel" title="重置">重置</a>
+				  </div>
+				  <div class="xi" style="font-size:12px;"><span >本息合计：<i id="sumAmount">0</i> 元</span><span >利息收入：<i id="interest">0</i> 元</span></div>
+	    		</div>
+    		</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+        $(document).ready(function(){
+
+
+		$('#calcBtn').click(function(){
+			$("#sumAmount").text("0");
+			$("#interest").text("0");
+		    if($("#amount").val()==""){
+		    	alert("请输入投资金额!");
+		    	return false;
+		    }
+		    if($("#deadline").val()==""){
+		    	alert("请输入投入时长!");
+		    	return false;
+		    }
+		    if($("#interestRate").val()==""){
+		    	alert("请输入年化利率!");
+		    	return false;
+		    }
+		    if($("#repaymentType").val()==""){
+		    	alert("请选择还款方式!");
+		    	return false;
+		    }
+			var amount = parseInt($("#amount").val()); //金额
+			var deadline = parseInt($("#deadline").val()); //月
+			var interestRate = $("#interestRate").val();//利率
+			var creditRate = $("#creditRate").val();//奖励
+			var repaymentType = $("#rePayWaySelect1").val();
+			if($("#amount").val() == ""){
+				amount = 0;
+			}
+
+			if(creditRate==""){
+				creditRate=0;
+			}
+			if(parseInt(creditRate)>=100){
+				alert("奖励比率不能超过100!");
+				$("#creditRate").val("");
+		    	return false;
+			}
+			//creditRate=parseInt(creditRate);
+		    var result="";
+		    var unitVal=$('input:radio[name="time"]:checked').val();
+		    if(unitVal=="1"){
+				if(repaymentType=='1' && $("#interestRate").val()!="" && $("#deadline").val()!=""){
+					result=calcDQHBX(amount,deadline,interestRate,creditRate);
+				}else if(repaymentType=="2" && $("#interestRate").val()!="" && $("#deadline").val()!=""){
+					result=calcAYHBX(amount,deadline,interestRate,creditRate);
+				}else if(repaymentType=="3" && $("#interestRate").val()!="" && $("#deadline").val()!=""){
+					if(deadline%3>0){
+						alert("当还款方式为【按季还本息时】投入时长必须为3的整数倍!");
+						return false;
+					}
+					result=calcAJHBX(amount,deadline,interestRate,creditRate);
+				}
+			}else{
+				result=calcDQHBXR(amount,deadline,interestRate,creditRate);
+			}
+			$("#sumAmount").text(result.toFixed(2));
+			$("#interest").text((result-amount).toFixed(2));
+		});
+
+		$('#cancelCalcBtn').click(function(){
+			$("#amount").val('');
+			$("#deadline").val('');
+			$("#interestRate").val('');
+			$("#creditRate").val('');
+			$("#repaymentType").val("0");
+			$("#sumAmount").text('0');
+			$("#interest").text('0');
+		});
+
+		// 初始化，以投之家平均利率作为初始值
+//		$('#amount').val($('#amount').attr('placeholder'));
+//		$('#deadline').val($('#deadline').attr('placeholder'));
+//		$('#interestRate').val($('#interestRate').attr('placeholder'));
+//		$('#creditRate').val($('#creditRate').attr('placeholder'));
+//		$('#calcBtn').click();
+
+		// 清空，但保留灰化提示，为用户进一步输入做准备
+//		$("#amount").val('');
+//		$("#deadline").val('');
+//		$("#interestRate").val('');
+//		$("#creditRate").val('');
+
+	});
+	//到期还本息
+	function calcDQHBX(amount,time,rate,bonus){
+		var result=amount*(1+(rate/100)*(time/12))+amount*(bonus/100);
+		return result;
+	}
+	//按月还本息
+	function calcAYHBX(amount,time,rate,bonus){
+	    //月利率
+	    rate=rate/(100*12);
+	    var result=(amount*rate*Math.pow((1+rate),time))/(Math.pow((1+rate),time)-1);
+		result=result*time+amount*(bonus/100);
+		return result;
+	}
+	//按季还本息
+	function calcAJHBX(amount,time,rate,bonus){
+		var size=time/3;
+		var result=0;
+		//月利率
+	    rate=rate/(100*12);
+		for(var i=0;i<size;i++){
+			//每一轮的前两个月还款利息
+			var tmpA=amount*(1-((3*i)/time))*rate*2;
+			//每一轮的最后一个月还款金
+			var tmpB=amount*(1-((3*i)/time))*rate+(3/time)*amount;
+			result+=tmpA+tmpB;
+		}
+		result+=amount*(bonus/100);
+		return result;
+	}
+	//到期还本息(日)
+	function calcDQHBXR(amount,time,rate,bonus){
+		var result=amount*(1+(rate/100)*(time/365))+amount*(bonus/100);
+		return result;
+	}
+</script>
+<div id="top">
+    <a class="a_qq" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=ca98975e0a87c20387eddace9aa8a92e8327464b2b4d650a1a993cb4c6842161" rel="nofollow"></a>
+    <a class="a_calc" href="javascript:;" onclick="alertBox.show('a_calc')"></a>
+    <a class="a_top" href="#"></a>
+</div>
+<script type="text/javascript">
+$(function(){
+        $("input[type=password]").val('');
+        function supports_input_placeholder(){  
+                var i = document.createElement("input");  
+                return "placeholder" in i;
+            }
+        var input_placeholder = $("input[placeholder],textarea[placeholder]"); 
+        if (input_placeholder.length !== 0 && !supports_input_placeholder()) { 
+            var color_place = "#A9A9A9";   
+            $.each(input_placeholder, function(i){  
+                var isUserEnter = 0; // 是否为用户输入内容,placeholder允许用户的输入和默认内容一样  
+                var ph = $(this).attr("placeholder");  
+                var curColor = $(this).css("color");  
+                $(this).val(ph).css("color", color_place); 
+                $(this).focus(function(){  
+                    if ($(this).val() == ph && !isUserEnter) $(this).val("").css("color", curColor);  
+                }).blur(function(){  
+                    if ($(this).val() == "") {  
+                        $(this).val(ph).css("color", color_place);  
+                        isUserEnter = 0;  
+                    }  
+                }).keyup(function(){  
+                    if ($(this).val() !== ph) isUserEnter = 1;  
+                });  
+            });  
+        }  
+});
+
+/*#top*/
+window.onscroll = function(){
+        var atop = $("#top .a_top");
+        if(window.scrollY>200){atop.css("display","block").slideDown(300);}
+        else{atop.slideUp(300);}
+};
+/*弹出框*/
+var alertBox = {
+	"show" : function(id){
+			var o = $("#"+id);
+			o.show();
+			o.find(".boxbody").height(o.find(".boxheight").height());
+		},	
+	"hide" : function(){$(".alertbox").hide();}
+};
+/* 倒计时 */
+$(function(){
+        $(".second_timing").each(function(i){
+                var secObj = $(this);
+                var sec = parseInt(secObj.attr('exp_sec'));
+                var t;
+                t = setInterval(function(){
+                        --sec;
+                        if(sec==0){
+                                clearInterval(t);
+                                if(secObj.attr('did')){
+                                        $("#btn_"+secObj.attr('did')).html("立即购买").addClass('a1');
+                                        $("#progress_"+secObj.attr('did')).html('<em>0</em>%');
+                                }else{
+                                    secObj.html('立即购买');
+                                }
+                        }else{
+                            secObj.html(timing_str(sec));
+                        }
+                }, 1000);
+        });
+});
+function timing_str(exp_sec){
+    var hour = 0, min = 0, sec = 0, timing_str = '';
+    hour = parseInt(exp_sec / 3600);
+    timing_str += (hour ? ['<b>',hour,'</b>时'] : []).join('');
+    min = parseInt((exp_sec % 3600) / 60);
+    timing_str += (min ? ['<b>',min,'</b>分'] : []).join('');
+    sec = exp_sec % 60;
+    timing_str += ['<b>',sec,'</b>秒'].join('');
+    return timing_str;
+}
+</script>
+<span style="display:none">
+	    <script type="text/javascript">
+	    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F2b3e83e93e7867e14d6725c042dcc5ae' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	  	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : "  http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5870923'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/stat.php%3Fid%3D5870923%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+		<!-- Piwik -->
+		<script type="text/javascript">
+		  var _paq = _paq || [];
+		  _paq.push(["setDomains", ["*.touzhijia.com"]]);
+		  _paq.push(['trackPageView']);
+		  _paq.push(['enableLinkTracking']);
+		  (function() {
+		    var u=(("https:" == document.location.protocol) ? "http" : "http") + "://piwik.wangdaizhijia.com/";
+		    _paq.push(['setTrackerUrl', u+'piwik.php']);
+		    _paq.push(['setSiteId', 7]);
+		    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+		    g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+		  })();
+		</script>
+		<noscript><p><img src="http://piwik.wangdaizhijia.com/piwik.php?idsite=7" style="border:0;" alt="投之家流量统计" title="投之家流量统计"/></p></noscript>
+		<!-- End Piwik Code -->
+    </span>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>测试树效果</title>
+<link rel="stylesheet" type="text/css" href="../../../../pagesys/editor/dev/x.css"/>
+<style type="text/css">
+td {
+}
+div.cell {
+	overflow: hidden;
+	text-align: center;
+	height: 30px;
+	word-break: break-all;
+}
+div.cell div {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	width: 100%;
+	word-wrap: break-word;
+	word-break: break-all;
+	overflow: hidden;
+}
+.w1 {
+	width: 100px;
+}
+.w2 {
+	width: 100px;
+}
+</style>
+</head>
+
+<body>
+<div style="height:64px">
+</div>
+<table cellpadding="0" cellspacing="0" style="border-collapse:collapse; border:1px solid #666; line-height:30px;" border="1" id="t1">
+  <tr id="r1">
+    <td style="text-align:center"><div class="cell w1" style="background-color:#966; text-align:center">
+        <div class="w1" style=" background-color:#069; width:100px">
+          序号
+        </div>
+      </div></td>
+    <td id="c1"><div class="cell">
+        <div class="w1" style="width:200px">
+          姓名
+        </div>
+      </div></td>
+    <td id="c2"><div class="cell">
+        <div>
+          性别
+        </div>
+      </div></td>
+    <td><div class="cell">
+        <div>
+          年龄
+        </div>
+      </div></td>
+    <td><div class="cell">
+        <div>
+          部门
+        </div>
+      </div></td>
+  </tr>
+  <tr>
+    <td><div class="cell w1">
+        <div class="w1">
+          1
+        </div>
+      </div></td>
+    <td><div class="cell">
+        <div>
+          刘东杰刘刘东杰东杰v刘东杰刘东杰
+        </div>
+      </div></td>
+    <td><div class="cell">
+        <div>
+          男
+        </div>
+      </div></td>
+    <td><div class="cell">
+        <div>
+          27
+        </div>
+      </div></td>
+    <td><div class="cell">
+        <div>
+          TGEAM事业部
+        </div>
+      </div></td>
+  </tr>
+  <tr>
+    <td><div class="cell">
+        <div>
+          2
+        </div>
+      </div></td>
+    <td><div class="cell">
+        <div>
+          王智华
+        </div>
+      </div></td>
+    <td><div class="cell">
+        <div>
+          男
+        </div>
+      </div></td>
+    <td><div class="cell">
+        <div>
+          27
+        </div>
+      </div></td>
+    <td><div class="cell">
+        <div>
+          TGEAM事业部
+        </div>
+      </div></td>
+  </tr>
+</table> 
+<script type="text/javascript" src="../../../../pagesys/editor/dev/x0.js"></script> 
+<script type="text/javascript" src="../../../../pagesys/editor/dev/z2.js"></script> 
+<script type="text/javascript" src="../../../../pagesys/editor/dev/z1.js"></script> 
+<script type="text/javascript" src="../../../../pagesys/editor/dev/x2.js"></script> 
+<script type="text/javascript" src="../../../../pagesys/editor/dev/x3.js"></script> 
+<script type="text/javascript" src="../../../../pagesys/editor/dev/x4.js"></script> 
+<script type="text/javascript" src="../../../../pagesys/editor/dev/x5.js"></script> 
+<script type="text/javascript" src="../../../../pagesys/editor/dev/y0.js"></script> 
+<script type="text/javascript" src="../../../../pagesys/editor/dev/y1.js"></script> 
+<script type="text/javascript" src="../../../../pagesys/editor/dev/y2.js"></script> 
+<script type="text/javascript" src="../../../../pagesys/editor/dev/y3.js"></script> 
+<script type="text/javascript" src="../../../../pagesys/editor/dev/y4.js"></script> 
+<script type="text/javascript" src="../../../../pagesys/editor/dev/y5.js"></script>
+<script type="text/javascript" src="../../../../pagesys/editor/dev/y6.js"></script> 
+
+<script type="text/javascript">
+	window.require(["../../dev/xTree.css"],init);
+	
+	function init(){/*需要有一些自定义动画效果*/
+		//out("init");
+		var dom=$("#t1");
+		//$("#c1").style.height="16px";
+		////out("c2 height:"+getStyle($("#c2")).height);
+		////out("c2 height:"+getRect($("#c2")).height);
+		////out("r1 height:"+getStyle($("#r1")).height);
+		////out("r1 height:"+getRect($("#r1")).height);
+		//uiScroll({dom:dom});
+		//uiResize({dom:dom,minWidth:0,minHeight:0});
+		//dom.style.height="64px";
+		//out(getRect($("#c1")).height)
+		uiTable({dom:dom});
+		//uiTab({dom:d,dom2:c,mode:"slide",vmode:false,pageSize:"800",evt:"mouseenter",tabChange:function(dom,p){
+				////out("tab change to "+p,dom,1,1);
+				//if(p==3)	return true;
+			//}});
+		//uiMenu({dom1:d,dom2:c});
+	
+	}
+</script>
+</body>
+</html>

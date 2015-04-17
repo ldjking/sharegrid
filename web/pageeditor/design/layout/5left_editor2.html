@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单编辑器</title>
+<link rel="stylesheet" type="text/css" href="../css/11base.css"/>
+<link rel="stylesheet" type="text/css" href="../css/13cmd.css"/>
+<link rel="stylesheet" type="text/css" href="../css/23form.css"/>
+<link rel="stylesheet" type="text/css" href="../../../src/css/29tree.css"/>
+<link rel="stylesheet" type="text/css" href="../css/dw.css"/>
+<link rel="stylesheet" type="text/css" href="../css/dw_index.css"/>
+<link rel="stylesheet" type="text/css" href="../css/right_file.css"/>
+<link rel="stylesheet" type="text/css" href="../css/editor.css"/>
+</head>
+<body>
+<div id="dwIndex" class="dwIndex">
+  <table cellpadding="0" cellspacing="0">
+    <tr>
+      <td><div class="indexContent">
+          <div class="top">
+            <div class="product_name">Form Designer</div>
+            <div class="product_name2">快速表单设计器</div>
+          </div>
+          <div class="center">
+            <div class="center_left">
+              <div class="guide">- 主要功能</div>
+              <div class="guide_item">表单定义</div>
+              <div class="guide_item">布局元素</div>
+              <div class="guide_item">操作按钮</div>
+              <div class="guide_item">自定义事件</div>
+              <div class="guide_item">运行调试</div>
+              <div class="guide">+ 入门示例</div>
+              <div class="guide">+ 使用帮助</div>
+              <div class="guide">+ 联系我们</div>
+            </div>
+            <div class="center_right">
+              <div class="guide_content">Form Designer 是三峡高科快速开发平台项目组开发的一款面向一般开发人员的表单设计工具。能够快速实现表单的设计，支持多种布局元素，包括隐藏对象、标签、文本框、日期、值列表、图像、单选框、复选框、子表格等，允许开发人员自定义事件实现输入校验，数据联动等效果；并支持在线运行调试功能。</div>
+            </div>
+          </div>
+          <div class="foot">三峡高科信息技术有限责任公司 版权所有</div>
+        </div></td>
+    </tr>
+  </table>
+</div>
+<div class="dwMain">
+  <div class="form" id="content" style="position: absolute; z-index: 20; background-color: rgb(255, 0, 0);">
+    <div class="cmdbar" id="form_0_cmdbar">
+      <div class="cmd" id="form_0_cmd">
+        <div class="save" id="form_0_cmdSave"></div>
+      </div>
+    </div>
+    <div class="formContainer" id="form_0_container">
+      <div class="paper" id="form_0_paper">
+        <div class="form_title">新增员工表单</div>
+        <table class="formTable" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td><table class="rows" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="row">
+                      <td class="cell"><div style="width: 60px; text-align: left;">姓名</div></td>
+                      <td class="cell"><div style="width: 100px; text-align: left;"></div></td>
+                      <td class="cell"><div style="width: 60px; text-align: center;">性别</div></td>
+                      <td class="cell"><div style="width: 100px; text-align: center;"></div></td>
+                      <td class="cell"><div style="width: 60px; text-align: left;">出生日期</div></td>
+                      <td class="cell"><div style="width: 100px; text-align: center;"></div></td>
+                    </tr>
+                  </tbody>
+                </table></td>
+            </tr>
+            <tr>
+              <td><table class="rows" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="row">
+                      <td class="cell"><div style="width: 100px; text-align: left;">姓名1</div></td>
+                      <td class="cell"><div style="width: 100px; text-align: left;"></div></td>
+                      <td class="cell"><div style="width: 80px; text-align: left;">性别1</div></td>
+                      <td class="cell"><div style="width: 100px; text-align: center;"></div></td>
+                      <td class="cell" rowspan="3"><div style="width: 120px; text-align: left;">个人照片</div></td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell"><div style="width: 100px; text-align: left;">学历</div></td>
+                      <td class="cell"><div style="width: 100px; text-align: left;"></div></td>
+                      <td class="cell"><div style="width: 80px; text-align: left;">政治面貌</div></td>
+                      <td class="cell"><div style="width: 100px; text-align: center;"></div></td>
+                    </tr>
+                    <tr class="row">
+                      <td class="cell"><div style="width: 100px; text-align: left;">家庭住址</div></td>
+                      <td class="cell" colspan="3"><div style="width: 300px; text-align: left;"></div></td>
+                    </tr>
+                  </tbody>
+                </table></td>
+            </tr>
+            <tr>
+              <td><table class="childTable select" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="row">
+                      <td class="cell"><div style="width: 60px;">开始时间</div></td>
+                      <td class="cell"><div style="width: 100px;">结束时间</div></td>
+                      <td class="cell"><div style="width: 60px;">单位部门</div></td>
+                      <td class="cell"><div style="width: 100px;">职务</div></td>
+                      <td class="cell"><div style="width: 180px;">主要业绩</div></td>
+                    </tr>
+                    <tr class="row">
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr class="row">
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr class="row">
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table></td>
+            </tr>
+            <tr>
+              <td><table class="rows" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="row">
+                      <td class="cell"><div style="width: 580px; text-align: left;">姓名</div></td>
+                    </tr>
+                  </tbody>
+                </table></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="dwRight" class="dwRight">
+  <div class="rightTop"><!--用户收缩-->
+    <div class="rightHide"></div>
+  </div>
+  <div class="pageTabs"><!--用于导航-->
+    <div>所有列表</div>
+    <div  class="active">列定义</div>
+    <div>按钮</div>
+    <div>事件</div>
+  </div>
+  <div class="rightContent tabContent">
+    <div class="tab normal forms">
+      <div class="forms_cmd"></div>
+      <div class="forms_list tree">
+        <div class="root open">
+          <div class="tag">所有表单-风电资产管理系统</div>
+          <div class="childs">
+            <div class="leaf file normal close">
+              <div class="tag">人员新增</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file normal close">
+              <div class="tag">账户新增</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file normal close">
+              <div class="tag">组织机构新增</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file normal close">
+              <div class="tag">角色新增</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file normal close">
+              <div class="tag">方法新增</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file normal close">
+              <div class="tag">设备新增</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file normal close">
+              <div class="tag">工作票</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file normal close">
+              <div class="tag">操作票</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file last close">
+              <div class="tag">运行日志</div>
+              <div class="childs"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="forms_edit">
+        <div  class="title">"用户表单"的所有属性</div>
+        <table cellpadding="0" cellspacing="0" class="form_propertys" border="1">
+          <tr>
+            <td>name</td>
+            <td>form1</td>
+          </tr>
+          <tr>
+            <td>cname</td>
+            <td>新增表单</td>
+          </tr>
+          <tr>
+            <td>type</td>
+            <td>add</td>
+          </tr>
+          <tr>
+            <td>des</td>
+            <td>用于新增表单</td>
+          </tr>
+          <tr>
+            <td>paper</td>
+            <td>a4</td>
+          </tr>
+          <tr>
+            <td>layout</td>
+            <td>horizen</td>
+          </tr>
+          <tr>
+            <td>title</td>
+            <td>新增表单</td>
+          </tr>
+          <tr>
+            <td>cname</td>
+            <td>新增表单</td>
+          </tr>
+          <tr>
+            <td>cname</td>
+            <td>新增表单</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="tab active forms">
+      <div class="forms_cmd"></div>
+      <div class="forms_list tree">
+        <div class="root open">
+          <div class="tag">table1</div>
+          <div class="childs">
+            <div class="leaf file normal close">
+              <div class="tag">lbl_name</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file normal close">
+              <div class="tag">name</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file normal close">
+              <div class="tag">lbl_sex</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file normal close">
+              <div class="tag">sex</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file normal close">
+              <div class="tag">lbl_birthday</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file last close">
+              <div class="tag">birthday</div>
+              <div class="childs"></div>
+            </div>
+          </div>
+        </div>
+        <div class="root open">
+          <div class="tag">table2</div>
+          <div class="childs">
+            <div class="leaf file normal close">
+              <div class="tag">lbl_dep</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file normal close">
+              <div class="tag">dep</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file normal close">
+              <div class="tag">lbl_account</div>
+              <div class="childs"></div>
+            </div>
+            <div class="leaf file last close">
+              <div class="tag">account</div>
+              <div class="childs"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="forms_edit">
+        <div  class="title">"table1"的所有属性</div>
+        <table cellpadding="0" cellspacing="0" class="form_propertys" border="1">
+          <tr>
+            <td>name</td>
+            <td>form1</td>
+          </tr>
+          <tr>
+            <td>cname</td>
+            <td>新增表单</td>
+          </tr>
+          <tr>
+            <td>type</td>
+            <td>add</td>
+          </tr>
+          <tr>
+            <td>des</td>
+            <td>用于新增表单</td>
+          </tr>
+          <tr>
+            <td>paper</td>
+            <td>a4</td>
+          </tr>
+          <tr>
+            <td>layout</td>
+            <td>horizen</td>
+          </tr>
+          <tr>
+            <td>title</td>
+            <td>新增表单</td>
+          </tr>
+          <tr>
+            <td>cname</td>
+            <td>新增表单</td>
+          </tr>
+          <tr>
+            <td>cname</td>
+            <td>新增表单</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

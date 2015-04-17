@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单编辑器</title>
+<link rel="stylesheet" type="text/css" href="release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="src/css/29tree.css"/>
+<link rel="stylesheet" type="text/css" href="pageeditor/design/css/dw_index.css"/>
+<link rel="stylesheet" type="text/css" href="pageeditor/design/css/dw.css"/>
+</head>
+<body>
+
+
+<input type="text" value="44" dt="num" title="22" id="a1"/>
+<input type="text" value="66" dt="email" title="33" id="a2"/>
+<input type="text" value="66" dt="decimal" title="33" id="a2"/>
+<input type="text" value="66" dt="url" title="33" id="a2"/>
+<input type="text" value="66" dt="mobile" title="33" id="a2"/>
+<input type="text" value="66" dt="phone" title="33" id="a2"/>
+<input type="text" value="66" dt="postcode" title="33" id="a2"/>
+
+<script type="text/javascript" src="../../../../release/base.js"></script>
+<script type="text/javascript" src="check.js"></script>
+
+<script type="text/javascript">
+	//alert(isNum(10));
+	//alert(isNum(0));
+	//alert(isNum(-1));
+	//alert(isNum(1.1));
+	//alert(isEmail("aaa@qq.com"));
+	//alert(postcode("443000"));
+	//alert(mobile("13469812672"));
+	//alert(phone("027-639121011"));
+	//alert(isUrl("http:/www.baidu.com?tt=tt"));
+	function test(t) {
+		alert(t);
+		alert("111"+t);	
+	}
+	/*
+	function init() {
+		var objs = $("input");
+		var r = "";
+		for(var i=0;i<objs.length;i++) {
+			var obj = objs[i];
+			var dt = obj.getAttribute("dt");
+			if(dt!=null&&dt=="num") {
+				bind(obj,"keypress",function() {
+						var keyCode = event.keyCode;
+						if(keyCode>=48&&keyCode<=57) {
+						} else {
+							event.returnValue = false;
+						}
+				});
+			}
+			
+			if(dt!=null&&dt=="email") {
+				bind(obj,"blur",function() {
+						alert(isEmail(this.value));
+						//return 
+				});
+			}
+			
+			if(dt!=null&&dt=="decimal") {
+				bind(obj,"blur",function() {
+						alert(isDecimal(this.value));
+				});
+			}
+			
+			if(dt!=null&&dt=="url") {
+				bind(obj,"blur",function() {
+						alert(isUrl(this.value));
+				});
+			}
+			
+			if(dt!=null&&dt=="email") {
+				bind(obj,"blur",function() {
+						alert(isEmail(this.value));
+				});
+			}
+			
+			if(dt!=null&&dt=="mobile") {
+				bind(obj,"blur",function() {
+						alert(isMobile(this.value));
+				});
+			}
+			
+		}
+		
+	}
+	*/
+	function enableCheck() {
+		var objs = $("input");
+		var r = "";
+		for(var i=0;i<objs.length;i++) {
+			var obj = objs[i];
+			var dt = obj.getAttribute("dt");
+			if(dt!=null&&dt=="num") {
+				bind(obj,"keypress",function() {
+						var keyCode = event.keyCode;
+						if(keyCode>=48&&keyCode<=57) {
+						} else {
+							event.returnValue = false;
+						}
+				});
+			}
+			
+			if(dt!=null&&dt=="email") {
+				bind(obj,"blur",function() {
+						alert(isEmail(this.value));
+						//return 
+				});
+			}
+			
+			if(dt!=null&&dt=="decimal") {
+				bind(obj,"blur",function() {
+						alert(isDecimal(this.value));
+				});
+			}
+			
+			if(dt!=null&&dt=="url") {
+				bind(obj,"blur",function() {
+						alert(isUrl(this.value));
+				});
+			}
+			
+			if(dt!=null&&dt=="email") {
+				bind(obj,"blur",function() {
+						alert(isEmail(this.value));
+				});
+			}
+			
+			if(dt!=null&&dt=="mobile") {
+				bind(obj,"blur",function() {
+						alert(isMobile(this.value));
+				});
+			}
+			
+		}
+		
+	}
+	
+	window.onload = init;
+	
+	
+</script>
+
+</body>
+</html>

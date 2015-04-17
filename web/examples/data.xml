@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <folder name="xlib">
+        <file name="表单设计说明书"/>
+    <folder name="1base">
+      <folder name="11basis">
+        <file name="111testBrowser" src="111testBrowser.html"/>
+        <file name="112testFun"/>
+      </folder>
+      <folder name="extend">
+        <file name="mouseleave"/>
+        <file name="mouseenter"/>
+      </folder>
+    </folder>
+  </folder>
+  <folder name="基础知识" class="base">
+    <folder name="JavaScript基础" class="js">
+      <folder name="Event">
+        <folder name="IE特有事件">
+          <file name="mouseleave"/>
+          <file name="mouseenter"/>
+        </folder>
+      </folder>
+	  <folder name="作用域范围" class="js">
+	  	 <file name="变量的动态绑定"/>
+	  </folder>
+    </folder>
+  </folder>
+</root>

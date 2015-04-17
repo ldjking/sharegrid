@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>方法管理</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/31grid.css"/></head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">方法</div>
+    <div class="tab hide"  	id="tab_add">新增方法</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../release/ui.js"></script> 
+<script type="text/javascript" src="../../../../release/lovdef.js"></script> 
+<script type="text/javascript" src="../../../../src/3grid/31grid.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/32cmd.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/33header.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/34content.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/35page.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/36scroll.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/37fix.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/38ui.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/39op.js"></script>
+<script type="text/javascript">
+	window.onload=init;	
+	var grid		=$("#c1");
+	var editForm	=$("#c2");
+	var addForm		=$("#c3");
+	var tabList		=$("#tab_list");
+	var tabEdit		=$("#tab_edit");
+	var tabAdd		=$("#tab_add");
+	function e_cmdAddItem_handler(target){
+		//msg(target.cmd.cmd+"用户自定义事件");
+	}
+	function fn_showNext(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showPre(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showList(evt){
+		genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	function fn_showEditForm(evt){
+		activeTab(tabEdit);
+	}
+	function fn_showAddForm(evt){/*要把新增表单显示出来*/
+	////out("showAddForm");
+		activeTab(tabAdd);
+	}
+	function fn_hideAddForm(evt){
+		cssReplace(tabAdd,"active","hide");
+		activeTab(tabList);
+	}
+	function tabChange(target,p){
+		if(p==1){
+		refreshEditForm();
+		}
+	}
+	function refreshEditForm(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.data==obj){return;}
+		else{
+			editForm.formCfg.data=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+			//;//out(obj.rownum);
+			cssRm(preCmd,"gray");
+			cssRm(nextCmd,"gray");
+			if(obj.rownum==1){
+				cssAdd(preCmd,"gray");
+			}
+			else if(obj.rownum==cfg.totalNum){
+				cssAdd(nextCmd,"gray");
+			}
+			genFormContent(editForm);/*重绘内容*/
+		}
+	}
+	function init(){/*需要有一些自定义动画效果*/	
+		grid		=$("#c1");
+		editForm	=$("#c2");
+		addForm		=$("#c3");
+		tabList		=$("#tab_list");
+		tabEdit		=$("#tab_edit");
+		tabAdd		=$("#tab_add");
+		uiApp({dom:$("#app1"),fn:tabChange});
+		var grid=$("#c1");
+		var cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"methodGets",
+				rmMethod:'methodRm',pageFlag:true,pageSize:5,pkAttr:"c2_id"};
+		var columns=[	{text:"应用程序",attr:"c2_appname",align:"center",width:80,frozen:1,type:"str",notEdit:0},
+						{text:"方法名",attr:"c2_name",align:"center",frozen:0,type:"str"},
+						{text:"执行类型",attr:"c2_target",align:"center",width:60,type:"str",notEdit:1,lov:"sex"},
+						{text:"方法类型",attr:"c2_type",align:"center",type:"str",notEdit:1,lov:"str"},
+						{text:"脚本",attr:"c2_sql",align:"left",width:600,type:"str"},
+						{text:"功能描述",attr:"c2_des",align:"left",frozen:0,type:"str"}
+					];
+		var cmds=[
+					{cmd:"cmdAdd"	},
+					{cmd:"cmdEdit"},
+					{cmd:"cmdDelete"},
+					{cmd:"cmdFilter"},
+					{cmd:"cmdRefresh"}
+				]
+		genGrid(cfg,columns,cmds,[]);	
+	}
+</script>
+</body>
+</html>

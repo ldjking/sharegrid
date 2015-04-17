@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单编辑器</title>
+<link rel="stylesheet" type="text/css" href="release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="src/css/29tree.css"/>
+<link rel="stylesheet" type="text/css" href="pageeditor/design/css/dw_index.css"/>
+<link rel="stylesheet" type="text/css" href="pageeditor/design/css/dw.css"/>
+</head>
+<body>
+
+
+<input type="text" value="44" dt="num" title="22" id="a1"/>
+<input type="text" value="66" dt="email" title="33" id="a2"/>
+<input type="text" value="66" dt="decimal" title="33" id="a2"/>
+<input type="text" value="66" dt="url" title="33" id="a2"/>
+<input type="text" value="66" dt="mobile" title="33" id="a2"/>
+<input type="text" value="66" dt="phone" title="33" id="a2"/>
+<input type="text" value="66" dt="postcode" title="33" id="a2"/>
+
+<script type="text/javascript" src="../../../../release/base.js"></script>
+<script type="text/javascript" src="check.js"></script>
+
+<script type="text/javascript">
+	window.onload = enableCheck([$("#a1"),$("#a2")],{typename:"email"});
+</script>
+
+</body>
+</html>

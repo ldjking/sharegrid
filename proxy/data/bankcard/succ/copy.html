@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>银行卡绑定——小牛在线</title>
+<link href="style/member.css?v=0929157" rel="stylesheet" type="text/css" />
+<link href="style/bankManageEmbed.css?v=20141121b" rel="stylesheet" type="text/css" />
+<link href="favicon.ico" rel="shortcut icon">
+<!--top -->
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link type="text/css" href="style/newHeader.css?v=20141218a" rel="stylesheet"/>
+<link type="text/css" rel="stylesheet" href="plugins/poshytip/tip-yellowsimple/tip-yellowsimple.css?155" />
+<link type="text/css" href="js/lhgdialog/skins/default.css?156" rel="stylesheet"/>
+<style>
+.formCon {
+	padding: 10px 22px
+}
+.formContent {
+	min-height: 100px;
+	border: 1px solid #cacaca;
+}
+.formContentTop {
+	height: 95px;
+	padding: 15px 0px 0px 249px;
+	font-size: 14px;
+	line-height: 25px;
+	position: relative;
+	z-index: 10;
+}
+.formContentTip {
+	position: absolute;
+	width: 195px;
+	height: 70px;
+	border: 1px solid #868f96;
+	box-shadow: 0px 0px 4px #cad3da;
+	background-color: #fff;
+	bottom: -25px;
+	left: 40px;
+	padding: 15px;
+	cursor: pointer;
+	background-color: #fff;
+	z-index: 10;
+}
+.listContent .formContentTip:hover {
+	background-color: rgba(0,0,0,0.1);
+	z-index: 10;
+ filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0, startColorstr = '#25000000', endColorstr = '#25000000' )\9;
+}
+.formContentFloor {
+	height: 78px;
+	border-top: 5px solid #ff6003;
+	padding-top: 40px;
+	background-color: #f3f3f3;
+	position: relative;
+}
+.hasbangding {
+	position: absolute;
+	bottom: 5px;
+	right: 20px;
+	color: #aaa;
+}
+.formContentFloor p {
+	font-size: 14px;
+	padding-left: 50px;
+	text-indent: -1em;
+}
+.formContentFloor p font {
+	font-size: 14px;
+	color: #ff6003;
+}
+.bank_icon {
+	width: 141px;
+	display: inline-block;
+*display:inline;
+*zoom:1;
+	height: 33px;
+}
+.bankOfType, .waittingformanage {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	height: 23px;
+	line-height: 23px;
+	margin: 5px 0;
+	padding: 0 5px;
+	background-color: #87abdb;
+	font-size: 12px;
+	color: #fff;
+}
+.waittingformanage {
+	top: 52px;
+	background: none;
+	color: #ff6003;
+}
+.bankCode {
+	display: block;
+}
+.order01 {
+	padding: 30px 90px;
+}
+.order02 {
+	padding: 30px 40px;
+}
+.topTops {
+	background-color: #fff9e3;
+	padding: 20px 50px;
+	border: 1px solid #ecc38f;
+	font-size: 14px;
+}
+.topTops p {
+	text-indent: 2em;
+}
+.list {
+	position: relative;
+	top: auto;
+	left: auto;
+	bottom: auto;
+	float: left;
+	margin: 5px 3px;
+}
+.listContent {
+	position: relative;
+	width: 100%;
+}
+.listContent:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.submitButton {
+	width: 142px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: url("images/submitButton.png") no-repeat 0px -10px;
+	outline: none;
+	display: block;
+	color: #fff;
+	cursor: pointer;
+	margin: 10px auto;
+	font-size: 14px;
+}
+.submitButton:hover {
+	text-decoration: none;
+	color: #fff;
+	background: url("images/submitButton.png") no-repeat -150px -10px;
+}
+.focusBorder {
+	border: 1px solid #43b333;
+	box-shadow: 0px 0px 4px #43b333;
+	background-color: rgba(0,0,0,0.1);
+	background-image: url(images/submitButton.png);
+	background-repeat: no-repeat;
+	background-position: 175px -405px;
+ filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0, startColorstr = '#25000000', endColorstr = '#25000000' )\9;
+}
+.submitContent {
+	position: relative;
+	width: 100%;
+	margin-top: 20px;
+}
+.choiceTip {
+	width: 100%;
+	text-align: center;
+	font-size: 16px;
+	padding: 20px 0;
+}
+#delBankVer2 {
+	cursor: pointer;
+	margin: 0 10px 0 20px;
+}
+</style>
+</head>
+
+<body>
+<div class='coverdiv' id='coverdiv1' style="display:none;">
+  <div class="dialogContent">
+    <div class='titleBar'>提醒</div>
+    <div class='dialogCenter'>
+      <p class='dialogTip'>请仔细核对您（<font id='realNameD'></font>）的 <font id='nameOfbank'>中国邮政储蓄银行银行</font> 卡号</p>
+      <p class='bankcode' id='bankcode'></p>
+      <p class='dialogButtons'>
+        <a class='dialogOKButton' id='submitToCheckBank'>提&nbsp;&nbsp;&nbsp;&nbsp;交</a>
+        <a href='javascript:closeDialog()' class='dialogOKButton'>取&nbsp;&nbsp;&nbsp;&nbsp;消</a>
+      </p>
+    </div>
+    <div class="dialogfloor">
+      <p>1、银行卡的开户名必须与实名登记的姓名一致；</p>
+      <p>2、为了您的资金安全，仅限绑定一张银行卡；</p>
+      <p>3、若要更改绑定银行卡，需要提交个人证明材料并人工审核。</p>
+    </div>
+  </div>
+</div>
+<div class='coverdiv' id='coverdiv2' style="display:none;">
+  <div class="dialogContent">
+    <div class='titleBar'>提醒</div>
+    <div class='dialogCenter'>
+      <p class='bigTips'>输入金额错误！请确保您输入的金额为小牛在线汇到您银行卡的金额！</p>
+      <p class='dialogTip' style="text-align:center;font-size:14px;color:#028ccb;">您还有<font id='lastTimesToManage'>3</font>次输入机会，超过最大输入次数后此卡将不可再绑定</p>
+      <p class='dialogButtons'>
+        <a href='javascript:closeDialog()' id='closeFaultDialog' class='dialogOKButton'>确&nbsp;&nbsp;&nbsp;&nbsp;定<font id="leftTime">(5)</font></a>
+      </p>
+    </div>
+  </div>
+</div>
+<div class='coverdiv' id='coverdiv3' style="display:none;">
+  <div class="dialogContent">
+    <div class='titleBar'>提醒</div>
+    <div class='dialogCenter'>
+      <div class="bankManageFalse">绑定银行卡失败</div>
+      <p class='dialogTip'>原因：您已3次提交不正确绑卡验证金额。</p>
+      <p class='dialogButtons'>
+        <a href='bankIndex.do' class='dialogOKButton'>确&nbsp;&nbsp;&nbsp;&nbsp;定</a>
+      </p>
+    </div>
+  </div>
+</div>
+<div class='coverdiv' id='coverdiv4' style="display:none;">
+  <div class="dialogContent" style="padding-bottom:8px;">
+    <div class='titleBar'>提醒</div>
+    <div class='dialogCenter'>
+      <div class="bigTips">您输入的金额必须为小牛在线汇到您银行卡的金额,请确保到账后再输入!</div>
+      <p style="text-align:center;font-size:14px;color:#028ccb;">温馨提示：完成绑卡之前您可以正常充值、投资。</p>
+      <p class='dialogButtons'>
+        <a href='javascript:closeDialog()' class='dialogOKButton'>确&nbsp;&nbsp;&nbsp;&nbsp;定</a>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="main-right-new">
+  <div id="bankEmbed" class="rightcon">
+    <input type="hidden" id="bank_id" value="">
+    <div class="contentTitle"> 我的银行卡 </div>
+    <div class="aBank">
+      <div class='form' id="form">
+        <div class='step step3'>
+          <span class='one'>填写银行卡信息</span>
+          <span class='two'>提交验证金额</span>
+          <span class='three'>绑卡成功</span>
+        </div>
+        <div class="formCon">
+          <div class="formContent">
+            <div class='formContentTop'>
+              <p class='itisok'>恭喜您，绑卡成功</p>
+              <div class="formContentTip">
+                <span class="bank-boc bank_icon"></span>
+                <span class="bankOfType">储蓄卡</span>
+                <span class="bankCode">1509******4111</span>
+                <input type="hidden" id="bank_id" value=""/>
+              </div>
+            </div>
+            <div class='formContentFloor'>
+              <table>
+                <tr>
+                  <td><a type="button" href="http://test1.xiaoniu88.com/bankIndex.do" class="submitButton" >确&nbsp;&nbsp;&nbsp;&nbsp;定</a></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aBank">
+      <div class="form" id="form">
+        <div class="step step2">
+          <span class="one">填写银行卡信息</span>
+          <span class="two">提交验证金额</span>
+          <span class="three">绑卡成功</span>
+        </div>
+        <div class="formCon">
+          <div class="formContent">
+            <div class="formContentTop">
+              <p>小牛在线已向您的银行卡汇入随机验证金额（0.50元以下），<font style="color:#ef6612">预计5分钟至3小时内到账</font>，具体时间因银行而异。请及时查询到账金额并提交，3天内有效。</p>
+              <div class="formContentTip">
+                <span class="bank-boc bank_icon"></span>
+                <span class="bankOfType">储蓄卡</span>
+                <span class="bankCode">1509******4111</span>
+              </div>
+            </div>
+            <div class="formContentFloor">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>绑卡验证金额：</td>
+                    <td><div class="inputMoney">
+                        <input type="text" id="moneyForCheck">
+                        <font>元</font></div></td>
+                    <td><a type="button" class="submitButton" id="submitButtonV">提&nbsp;&nbsp;&nbsp;&nbsp;交</a></td>
+                  </tr>
+                  <tr class="tipsLine">
+                    <td></td>
+                    <td><div class="tip" id="moneyForCheckTip"></div></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="floorTip" style="width:605px;background-color:#fff9e3;border:1px solid #e8c196;padding:10px;margin:0 auto;">
+        <p>温馨提示：</p>
+        <p>1.如果您的银行卡未开通短信功能，请通过网银或其他方式查询到账余额。</p>
+        <p>2.完成绑卡之前可正常充值、投资，到金额到账后，重新打开‘我的账户-我的银行卡’即可进行提交。</p>
+      </div>
+    </div>
+    <div class="cft clearfix">
+      <div class="order01">
+        <div class="formContent">
+          <div class="formContentTop">
+            <p style="color:#1e994c" class="hasbangding">已绑定</p>
+            <div class="formContentTip">
+              <span class="bank-icbc bank_icon"></span>
+              <span class="bankOfType">储蓄卡</span>
+              <span class="bankCode">1509******2111</span>
+            </div>
+          </div>
+          <div class="formContentFloor">
+            <p>温馨提示：</p>
+            <p>1.若操作提现，提现资金将汇入此银行卡。</p>
+            <p>2.若要更换银行卡，请联系客服并提交证明材料。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#contrainer{
+	width:300px;
+}
+#contrainer div{
+ border:1px solid #000;
+ width:200px;
+ background-color:#33FFCC;
+ float:left;
+}
+#out{
+ border:1px solid #000;
+ width:100px;
+ float:left;
+ background-color:#CCC;
+}
+#contrainer td{
+ border:1px solid #000;
+ width:200px;
+ height:10px;
+ background-color:#33FFCC;
+ 
+}
+#title{
+ border:1px solid #000;
+ width:200px;
+ float:left;
+ background-color:#CCC;
+}
+</style>
+</head>
+<body>
+<div id="title">规模100 绘制表格</div>
+<div id="out"></div>
+<div id="contrainer"></div>
+<script src="../../../../release/base.js"></script>
+<script type="text/javascript">
+function comptime(beginTime,endTime) {
+			var a = endTime.getTime() - beginTime.getTime();
+			return a;
+}
+var init =function(){
+	var starttime=new Date();
+	var contrainer=$("#contrainer");
+	var out=$("#out");
+	var tables=$table(100,2)
+	contrainer.appendChild(tables);
+	var endtime=new Date();
+	var time=comptime(starttime,endtime);
+	out.innerText="花费"+time+" 毫秒";
+}
+window.onload=init;
+</script>
+</body>
+</html>

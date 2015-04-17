@@ -1,0 +1,237 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+body {
+	position: relative;
+	overflow: hidden;
+}
+.container {
+    counter-reset: .paper;
+	background:-ms-linear-gradient(top, #cdd1d6, #bbbfc3);
+	background:-moz-linear-gradient(top, #cdd1d6, #bbbfc3);
+	background:-webkit-linear-gradient(top, #cdd1d6, #bbbfc3);
+}
+.catelog{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:240px;
+	bottom:0px;
+	height:100%;
+	border:2px solid #999ca0;;
+}
+.c1{
+	border:2px solid #999ca0;;
+	border-radius: 5px;
+	text-align:left;
+	width:80%;
+}
+.c2{
+	margin-left:20px;
+	border:2px solid #999ca0;;
+	border-radius: 5px;
+	text-align:left;
+	width:80%;
+}
+.doc {
+	text-align: left;
+	font-size: 14px;
+	outline: none;
+	position: relative;
+	z-index: 1;
+	padding-top: 32px;
+	padding-bottom: 32px;
+}
+.doc .part {
+	padding: 0;
+	margin: 0;
+	text-align: left;
+	padding-left: 64px;
+}
+.doc .thead {
+
+}
+.doc p {
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+.doc .indent {
+	padding-left: 2em;
+}
+.doc .paper {
+	counter-increment:pagerCounter 1;
+	margin-left: auto;
+	width: 800px;
+	background-color: #FFF;
+	text-align: left;
+	margin-right: auto;
+	margin-bottom: 32px;
+	border:2px solid #999ca0;
+	position: relative;
+}
+.doc .paper::after {
+	position: absolute;
+	content:"第"counter(pagerCounter)"页";
+	left: 0px;
+	width:100%;
+	text-align:center;
+	bottom: 0.5px;
+	height:32px;
+	margin-bottom: 0.8em;
+}
+.doc .paper .content {
+	margin-left: 64px;
+	margin-right: 64px;
+	margin-top: 64px;
+	margin-bottom: 64px;
+}
+.doc .paper.big {
+	width: 1122px;
+}
+.doc .title {
+	line-height: 32px;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: #C5C5C5;
+	margin-bottom: 16px;
+}
+.doc .form_title {
+	line-height: 48px;
+	font-size: 24px;
+	padding-bottom: 12px;
+	font-weight: bold;
+}
+.doc .h1 {
+	line-height: 48px;
+	font-size: 24px;
+	padding-bottom: 12px;
+	font-weight: bold;
+	text-align: center;
+}
+.doc .p1 {
+	line-height: 2.4em;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: left;
+}
+.doc .p2 {
+	line-height: 2em;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: left;
+	padding-left: 2em;
+}
+.doc .z1 {
+	text-align: left;
+	text-indent: 2em;
+	padding-left: 36px;
+	line-height: 24px;
+}
+.doc .z2 {
+	text-align: left;
+	padding-left: 60px;
+	line-height: 24px;
+}
+.doc .center {
+	text-align: center;
+}
+.doc .right {
+	text-align: right;
+}
+.doc .t {
+	border-left: 1px solid #333;
+	border-top: 1px solid #333;
+}
+.doc .t .thead{
+	line-height: 36px;
+	background-color: #069;
+	color: #FFF;
+	font-size: 14px;
+	font-weight: bold;
+	height: 36px;
+}
+.doc .t tr {
+	padding-left: 5px;
+	padding-right: 5px;
+	line-height: 24px;
+}
+.doc .t td {
+	padding-left: 5px;
+	padding-right: 5px;
+	line-height: 24px;
+	border-bottom: 1px solid #333;
+	border-right: 1px solid #333;
+}
+ol {
+	counter-reset: li; /* 创建一个计数器 */
+	list-style: none; /* 清除列表默认的编码*/
+ *list-style: decimal; /* 让IE6/7具有默认的编码 */
+	font: 15px 'trebuchet MS', 'lucida sans';
+	padding: 0;
+	margin-bottom: 4em;
+	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+ol ol {
+	margin: 0 0 0 2em; /* 给二级列表增加一定的左边距*/
+}
+/*rectangle list*/
+		.rectangle-list a {
+	position: relative;
+	display: block;
+	padding: 0.4em 0.4em 0.4em 1.8em;
+ *padding: 0.4em;
+	margin: 0.5em 0 0.5em 2em;
+	background: #ccc;
+	color: #333;
+	text-decoration: none;
+	/*transition动画效果*/
+			-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+.rectangle-list a:hover {
+	background: #999;
+}
+.rectangle-list a::before {
+	counter-increment: li;
+	position: absolute;
+	left: -2.5em;
+	top: 50%;
+	margin-top: -1em;
+	background: #fff;
+	height: 2em;
+	line-height: 2em;
+	text-align: center;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+	content: counters(li, '.');
+	width: 3em;
+}
+.rectangle-list a::after1 {
+ position: absolute;
+ content:"";
+ border: 0.5em solid transparent;
+ left: -1em;
+ top: 50%;
+ margin-top: -0.5em;
+ -webkit-transition: all 0.3s ease-out;
+ -moz-transition: all 0.3s ease-out;
+ -o-transition: all 0.3s ease-out;
+ -ms-transition: all 0.3s ease-out;
+ transition: all 0.3s ease-out;
+}
+.rectangle-list a:hover::after1 {
+ left: -0.5em;
+ border-left-color: #fa8072;
+}

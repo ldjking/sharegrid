@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>地刀地线管理</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<!--link rel="stylesheet" type="text/css" href="../../src/css/23form.css"/-->
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">地线（地刀）记录</div>
+    <div class="tab hide" id="tab_add">新建地线（地刀）登记</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script>
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+(function(){
+	var grid		    =$("#c1");
+	var editForm	    =$("#c2");
+	var addForm			=$("#c3");
+	var tabList			=$("#tab_list");
+	var tabEdit			=$("#tab_edit");
+	var tabAdd			=$("#tab_add");
+	
+		
+	var fn_showList     =function(evt){
+		//genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	var fn_showkeyList  =function(evt){
+		activeTab(keyList);
+	}
+	var fn_showNext=	function(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showPre=		function(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showEditForm=function(evt){
+		activeTab(tabEdit);
+	}
+	var fn_showAddForm=function(evt){/*要把新增表单显示出来*/
+		activeTab(tabAdd);
+	}
+	var e_refushEdit =function(target){
+		genGridCmd(grid);
+		genGridContent(grid);
+		activeTab(tabList);
+	}
+	var e_refushAdd =function(target){
+		genGridCmd(grid);
+		genGridContent(grid);/*重绘内容*/
+		activeTab(tabList);
+	}
+	var tabChange=function(target,p){
+		if(p==0)		fn_showList();
+		else if(p==1)	refreshEditForm();
+		else if(p==2)	refreshAddGrid();
+	}
+	var refreshAddGrid=function(){
+		 genFormContent(addForm);
+	}
+	var refreshEditForm =function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		
+		if(editForm.formCfg.param==obj)	return;
+		else{
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+			cssRm([preCmd,nextCmd],"gray");
+			if(obj.rownum==1)						cssAdd(preCmd,"gray");
+			else if(obj.rownum==cfg.totalNum)		cssAdd(nextCmd,"gray");
+			genFormContent(editForm);/*重绘内容*/
+			checkEdit()
+		}
+	}
+	var checkEdit=function(){
+		var data=genFormData(editForm)
+		var status=data.status;
+		//dxnum location status_name tm_dx_h per_czr_h_name per_jhr_h_name per_zz_h_name tm_dx_d per_czr_d_name per_jhr_d_name per_zz_d_name remark
+		var enterShow=["dxnum","location","remark","tm_dx_h","per_czr_h_name","per_jhr_h_name","per_zz_h_name","remark"];
+		var hsShow=["tm_dx_d","per_czr_d_name","per_jhr_d_name","per_zz_d_name","remark"];
+		var dkShow=[];
+		var texts=$("textarea",editForm);
+		var shows;
+		if(status==0)      shows=enterShow;
+		else if(status==1) shows=hsShow;
+		else if(status==2) shows=dkShow
+		for(var i=0;i<texts.length;i++){
+			var attr=texts[i].id.replace(editForm.formCfg.id+"_attr","");
+			if(contains(shows,attr)){
+				enableFormAttr(editForm,[attr])
+			}
+			else{
+				disableFormAttr(editForm,[attr]);
+			}
+		}
+	}
+	var e_hs_handler=function(evt){
+			var data=genFormData(editForm);
+			data.status=1;
+			if(data.tm_dx_h!=null&&data.per_czr_h!=null&&data.per_jhr_h!=null&&data.per_zz_h!=null){
+				var r=$$("dutydxUpdate",data);
+				if(r.flag){
+					var param={};
+					var per_czr_h=$("#"+editForm.formCfg.id+"_attrper_czr_h_name").value;
+					param.note_content="在地点：["+data.location+"] 编号为：["+data.dxnum+"] 地线(刀)于["+data.tm_dx_h+"]由["+per_czr_h+"]装设（合上）";
+					param.recordtype='安装地刀（地线）';
+				    r=$$("getOndutyingId")
+					if(r.flag){
+						param.ae_ondutyid=r.data.ae_ondutyid;
+						param.duty_id    =data.ae_dutydxid;
+						r=$$("getOnDutyAccountStepNum",{ondutyid:r.data.ae_ondutyid})
+						if(r.flag){
+							param.stepnum=r.data.num;
+							var r=$$('dutyaccountzAdd',param);
+							if(r.flag){
+								genGridCmd(grid);
+								genGridContent(grid);
+								editForm.formCfg.param.status=1;
+								genFormContent(editForm);
+								genFormCmd(editForm);
+								checkEdit();
+							}
+							else{
+								alert("插入日志失败");
+							}
+						}
+						else{
+							alert("日志编号读取失败");
+						}
+					}
+					else{
+						alert("日志主键读取失败");
+					}
+				}
+				else{
+					alert("安装设备失败");
+				}
+			}
+			else{
+				alert("请填完安装信息");
+			}
+		}
+	var e_dk_handler=function(evt){
+			var data=genFormData(editForm);
+			data.status=2;
+			if(data.tm_dx_d!=null&&data.per_czr_d!=null&&data.per_jhr_d!=null&&data.per_zz_d!=null){
+				var r=$$("dutydxUpdate",data);
+				if(r.flag){
+					var param={};
+					var per_czr_d=$("#"+editForm.formCfg.id+"_attrper_czr_d_name").value;
+					param.note_content="在地点：["+data.location+"] 编号为：["+data.dxnum+"] 地线(刀)于["+data.tm_dx_d+"]由["+per_czr_d+"]拆除";
+					param.recordtype='拆除地刀（地线）';
+				    r=$$("getOndutyingId")
+					if(r.flag){
+						param.ae_ondutyid=r.data.ae_ondutyid;
+						param.duty_id    =data.ae_dutydxid;
+						r=$$("getOnDutyAccountStepNum",{ondutyid:r.data.ae_ondutyid})
+						if(r.flag){
+							param.stepnum=r.data.num;
+							var r=$$('dutyaccountzAdd',param);
+							if(r.flag){
+								genGridCmd(grid);
+								genGridContent(grid);
+								editForm.formCfg.param.status=2;
+								genFormContent(editForm);
+								genFormCmd(editForm);
+								checkEdit();
+							}
+							else{
+								alert("插入日志失败");
+							}
+						}
+						else{
+							alert("日志编号读取失败");
+						}
+					}
+					else{
+						alert("日志主键读取失败");
+					}
+				}
+				else{
+					alert("拆除设备失败");
+				}
+			}
+			else{
+				alert("请填完拆除信息");
+			}
+		}
+		var init=function(){
+			uiApp({dom:$("#app1"),fn:tabChange});
+			cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"dutydxGets",pageFlag:false,pageSize:6,autoWidth:1,pkAttr:"ae_dutydxid"};
+			cfg.columns=[	
+							{text:"地线编号",attr:"dxnum",align:"left",type:"str",width:80,asc:1},
+							{text:"装设地点",attr:"location",align:"left",width:100,type:"str",asc:1},
+							{text:"装备日期",attr:"tm_dx_h",align:"left",width:150,type:"str",asc:1},
+							{text:"装设人",attr:"per_czr_h_name",align:"left",width:80,type:"str",asc:1},
+							{text:"值班负责人",attr:"per_zz_h_name",align:"left",width:80,type:"str",asc:1},
+							{text:"拆除日期",attr:"tm_dx_d",align:"left",width:150,type:"str",asc:1},
+							{text:"拆除人",attr:"per_czr_d_name",align:"left",width:80,type:"str",asc:1},
+							{text:"拆除值班负责人",attr:"per_zz_d_name",align:"left",width:80,type:"str",asc:1}
+						];
+			cfg.cmds=[
+							{cmd:"cmdAdd"	,fn:fn_showAddForm},
+							{cmd:"cmdEdit"	,fn:fn_showEditForm},
+							{cmd:"cmdFilter"},
+							{cmd:"cmdRefresh"}
+						]
+		genGrid(grid,cfg);		
+		//ae_dutydxid	description	dxnum	location	status	tm_dx_h	per_czr_h	per_jhr_h	per_zz_h	tm_dx_d	per_czr_d	per_jhr_d	per_zz_d	remark	site	org
+		//dxnum location status_name tm_dx_h per_czr_h_name per_jhr_h_name per_zz_h_name tm_dx_d per_czr_d_name per_jhr_d_name per_zz_d_name remark
+		var cfg2={title:"地刀地线登记信息",formType:"update",dataMethod:"dutydxGet",updateMethod:"dutydxUpdate"};
+		cfg2.tables=[	
+							{type:0,rows:1,cells:[
+									{type:"sid",attr:"ae_dutydxid",sidType:"method",width:120,align:"left",row:1},
+									{type:"txt",attr:"dxnum",width:250,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"电站",width:80,align:"center",row:1},
+									{type:"lbl",text:"化德风电",width:250,align:"left",row:1},
+									{type:"lbl",text:"编号",width:80,align:"center",row:1},
+									{type:"txt",attr:"dxnum",width:250,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"装设地点",width:80,align:"center",row:1},
+									{type:"txt",attr:"location",width:250,align:"left",row:1},
+									{type:"lbl",text:"装设状态",width:80,align:"center",row:1},
+									{type:"txt",attr:"status_name",attr2:'status',width:250,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"安装信息",width:640,align:"left",row:1,left:20}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"安装时间",width:80,align:"center",row:1},
+									{type:"txt",attr:"tm_dx_h",width:250,align:"left",row:1,lov:'datetime'},
+									{type:"lbl",text:"装设人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_czr_h_name",attr2:'per_czr_h',width:250,align:"left",row:1,lov:'stuff'}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"监护人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_jhr_h_name",attr2:'per_jhr_h',width:250,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"值班负责人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_zz_h_name",attr2:'per_zz_h',width:250,align:"left",row:1,lov:'stuff'}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"拆除信息",width:640,align:"left",row:1,left:20}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"拆除时间",width:80,align:"center",row:1},
+									{type:"txt",attr:"tm_dx_d",width:250,align:"left",row:1,lov:'datetime'},
+									{type:"lbl",text:"拆除人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_czr_d_name",attr2:'per_czr_d',width:250,align:"left",row:1,lov:'stuff'}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"监护人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_jhr_d_name",attr2:'per_jhr_d',width:250,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"值班负责人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_zz_d_name",attr2:'per_zz_d',width:250,align:"left",row:1,lov:'stuff'}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"备注",width:80,align:"center",row:1},
+									{type:"txt",attr:"remark",width:580,align:"left",row:1,height:100}
+								]
+							}
+						];
+		cfg2.cmds=[
+					{cmd:"heshang",text:"装设（合上）",checkMethod:"cmd_dx_hs_Check", checkFalse:"hide",fn:e_hs_handler},
+					{cmd:"duankai",text:"拆除（断开）",checkMethod:"cmd_dx_dk_Check", checkFalse:"hide",fn:e_dk_handler},
+					{cmd:"update",fn:e_refushEdit,checkMethod:"cmd_dx_ed_Check", checkFalse:"hide"},
+					{cmd:"pre",fn:fn_showPre},
+					{cmd:"next",fn:fn_showNext},
+				];
+		genForm(editForm,cfg2);
+		var cfg3={title:"新建地刀地线登记信息",formType:"add",addMethod:"dutydxAdd"};
+		cfg3.tables=[	
+							{type:0,rows:1,cells:[
+									{type:"sid",attr:"ae_dutydxid",sidType:"method",width:120,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"电站",width:80,align:"center",row:1},
+									{type:"lbl",text:"化德风电",width:250,align:"left",row:1},
+									{type:"lbl",text:"编号",width:80,align:"center",row:1},
+									{type:"txt",attr:"dxnum",width:250,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"装设地点",width:80,align:"center",row:1},
+									{type:"txt",attr:"location",width:250,align:"left",row:1},
+									{type:"lbl",text:"装设状态",width:80,align:"center",row:1},
+									{type:"lbl",text:"录入中",width:250,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"安装信息",width:640,align:"left",row:1,left:20}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"安装时间",width:80,align:"center",row:1},
+									{type:"txt",attr:"tm_dx_h",width:250,align:"left",row:1,lov:'datetime'},
+									{type:"lbl",text:"装设人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_czr_h_name",attr2:'per_czr_h',width:250,align:"left",row:1,lov:'stuff'}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"监护人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_jhr_h_name",attr2:'per_jhr_h',width:250,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"值班负责人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_zz_h_name",attr2:'per_zz_h',width:250,align:"left",row:1,lov:'stuff'}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"备注",width:80,align:"center",row:1},
+									{type:"txt",attr:"remark",width:580,align:"left",row:1,height:100}
+								]
+							}
+						];
+		cfg3.cmds=[
+			{cmd:"save",fn:e_refushAdd}
+		];
+	    genForm(addForm,cfg3);
+	}
+	
+	window.onload=init;
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>小牛在线—最专业安全的P2P网贷平台，网络投资理财产品首选</title>
+		<meta name="keywords" content="小牛在线,p2p贷款平台,网上贷款,网上投资,p2p网贷平台,P2P网贷,网络投资" />
+		<meta name="description" content="小牛在线提供安全有担保的网络投资理财产品，年化纯收益15%以上，100元起投。最专业安全的P2P网贷平台，首选小牛在线，详情咨询：400-777-1268" />
+		<link type="text/css" href="style/newIndex.css?20141105" rel="stylesheet" />
+		<meta property="wb:webmaster" content="47a3fc0ec7760942" />
+		<meta property="qc:admins" content="2410357064616006375636" />
+		<meta property="qc:admins" content="24103570646164216375" />
+		
+		<script text="text/javascript">
+			var real_account_total = "229,300,300";
+			var repay_will_interest = "229,300,300";
+			var repay_yes_interest = "229,300,300";
+			
+			function isMobile() {
+				if(window.sessionStorage){
+					var platformType=window.sessionStorage.getItem("platformType");
+					if(!!platformType)
+						return false;
+				}
+				var mobileAgent = [ "iphone", "ipod", "android", "mobile",
+						"blackberry", "webos", "incognito", "webmate", "bada",
+						"nokia", "lg", "ucweb", "skyfire" ];
+				var ipad="ipad";
+				var browser = navigator.userAgent.toLowerCase();
+
+				for ( var i = 0; i < mobileAgent.length; i++) {
+					if (browser.indexOf(mobileAgent[i]) != -1 && browser.indexOf(ipad) < 0) {
+						return true;
+					}
+				}
+				return false;
+			}
+			if (isMobile()) {
+				window.location.href = "weChat/index.do";
+			}else{
+				window.location.href = "/portal/index";
+			}
+		</script>
+	</head>
+	
+</html>

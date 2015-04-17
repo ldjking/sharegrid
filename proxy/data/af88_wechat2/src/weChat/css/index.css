@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document Author:snow*/
+/*首页*/
+body{background-color:#fff/* f3f3f1 */;}
+.index_box{width:100%;height:305px;margin:0px auto;padding:4px 5px;background-color:#fff;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;overflow:hidden;
+padding-bottom:50px;}
+.index_con{position:relative;width:100%;height:296px;background-color:#f3f3f1;}
+/* .more{width:0px;height:0px;border-width:22px;border-style:solid;border-color:#56b4e6 #56b4e6 #f3f3f1 #f3f3f1;top:5px;right:5px;position:absolute;}
+.more .text{width:30px;height:20px;color:#fff;font-size:12px;transform:rotateZ(40deg);-webkit-transform:rotateZ(40deg);position:absolute;top:-14px;right:-24px;}
+.more .text a{color:#fff;} */
+.more {top:5px;right:5px;position:absolute;z-index:1;width:47px;height:58px;background:url('../images/more.jpg') no-repeat;display:inline-block;background-size:47px 58px;}
+.index_container{width:90%;margin:0px auto;padding-top:10px;}
+.anxinniu_title{width:100%;height:125px;border-bottom:1px #dcdcda solid;text-align:center;position:relative;}
+.anxinniu_title h2{color:#666;font-size:14px;font-weight:normal;}
+.anxinniu_detail{padding:8px 0px 2px;height:75px;position:relative;}
+.anxinniu_rate{float:left;width:52%;height:40px;padding-left:5px;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;border-right:2px #dadada solid;}
+.anxinniu_detail span{display:block;}
+.detail_title{font-size:12px;color:#666;padding-bottom:5px;}
+.detail_time{font-size:12px;color:#666;}
+.rate_num{font-size:16px;color:#fa6b0d;padding-top:4px;}
+.amount{font-size:12px;color:#666;padding-top:10px;position:absolute;bottom:8px;}
+.anxinniu_time{width:48%;height:40px;float:left;padding-left:8px;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;}
+a.join_btn{cursor:pointer;display:block;width:100%;height:47px;line-height:47px;background-color:#ff864a;color:#fff;font-size:20px;text-align:center;}
+.join_btn:hover{color:#fff;}
+.join_end{display:block;width:100%;height:47px;line-height:47px;color:#727272;font-size:20px;text-align:center;}
+.join_num{display:block;font-size:12px;color:#666;text-align:center;padding-top:5px;}
+
+.time_num{display:inline-block;font-size:16px;color:#fff;text-align:center;width:22px;height:22px;line-height:22px;background-color:#cfa74a;border-radius:10px;-webkit-border-radius:10px;-moz-border-radius:10px;}
+.progress_text{position:absolute;top:48px;color:#666;font-size:21px;width:90px;}
+.progress_text span{font-size:12px;}
+
+.progress{width:90px;height:90px;text-align:center;margin:0px auto;}

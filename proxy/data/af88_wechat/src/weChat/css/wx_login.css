@@ -1,0 +1,98 @@
+@charset "utf-8";
+/*顶部*/
+html,body{
+	margin:0;
+	padding:0;
+	font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
+}
+
+
+.wx_top {
+	height: 45px;
+	background: #cda148;
+}
+.we_top_logo {
+	background: url('../../images/weChat/logo.png') no-repeat top center;
+	background-size: 95px 31px;
+	display: inline-block;
+	height: 33px;
+	width: 106px;
+}
+.top_con {
+	display: inline-block;
+	padding: 6px 0px 3px;
+	width: 100%;
+	height: 45px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+a.index_top_btn {
+	color: #fff;
+	font-size: 15px;
+	float: right;
+	padding: 9px 15px 5px 0px;
+}
+a.account_top_btn {
+	color: #fff;
+	font-size: 15px;
+	float: right;
+	padding: 9px 15px 5px 0px;
+}
+.wx_top_title {
+	color: #fff;
+	font-size: 14px;
+	border-left: 2px #fff solid;
+	height: 14px;
+	line-height: 14px;
+	padding-left: 5px;
+	position: absolute;
+	top: 16px;
+	left: 105px;
+}
+.top_btn {
+	display: block;
+}
+
+
+a.fpwd {
+	color: #ab6f00;
+	font-size: 16px;
+	text-decoration: none;
+	margin: 20px 0;
+	text-align: center;
+	width: auto;
+	display:inline-block;
+	float:left;
+}
+a:visited {
+	color: #333;
+	text-decoration: none;
+}
+
+.xn_login_blow{
+	background-color:#F00;
+	overflow:auto;
+}
+
+.xn_noAccount{
+	float:right;
+}
+
+
+/*forgetpassword*/
+.title_text { font-size:14px; color:#cda148; padding:15px 0; text-align:center; }
+.input-box { height:44px; border:#999 solid 2px; background:#fff; position:relative; padding-left:50px; margin-bottom:12px; }
+.input-box-focus { border-color:#cda148; }
+.input-icon { display:block; height:44px; width:50px; position:absolute; left:0; top:0; }
+.input-icon-username { background:url(../images/wx_login/wx_icon_user.png) 15px 10px no-repeat; background-size:50% 50%; }
+.input-box-focus .input-icon-username { background-image:url(../images/wx_login/wx_icon_user_yellow.png); }
+.input-text { border:none; width:100%; height:44px; line-height:normal; outline:none; padding:0; margin:0; float:left; }
+.input-error { height:35px; line-height:35px; border:#e0af48 solid 1px; background-color:#fff9e3; padding:0 15px; color:#ff864a; display:none; margin-bottom:12px; }
+
+.btn-box { }
+.btn-step { background:#ff864a; height:47px; line-height:47px; text-align:center; color:#fff; font-size:14px; display:block; }
+.btn-step:link,.btn-step:visited,.btn-step:hover,.btn-step:active { color:#fff; }
+
+
+
+

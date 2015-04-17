@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+	<div id="uploadDiv">
+		<form method="post" action="http://eamdev/eam/web/page/word/upload" enctype="multipart/form-data" >
+			<input type="hidden" name="t1_pid_upload" id="t1_pid_upload" value=""/>
+			<input type="hidden" name="t1_path_upload" id="t1_path_upload" value=""/>
+			<table id="uploadTable">
+				<tr>
+					<td>请选择文件：<input type="file" name="fileName" /></td>
+					<td><img src="rs/img/edit_add.gif" title="增加附件" alt="增加附件" style="cursor: pointer;" onclick="doc.addUpload(this)"/></td>
+					<td><img src="rs/img/edit_remove.gif" title="删除附件" style="cursor: pointer;" onclick="doc.deleteUpload(this)" /></td>
+				</tr>
+			</table>
+			<div><input type="submit" name="submit" value="提交"/></div>
+		</form>
+	</div>
+</body>
+</html>

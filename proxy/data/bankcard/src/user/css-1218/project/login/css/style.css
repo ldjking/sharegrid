@@ -1,0 +1,49 @@
+/*
+ *name:dtt
+ *time:2014.9.30
+ *content:登录页样式
+*/
+
+@import url('../../../module/head/css/style.css');
+@import url('../../../module/footer/css/style.css');
+@import url('../../../module/service/css/style.css');
+
+/*登录页*/
+.mail{ background:url(../img/c-bg.jpg) repeat-x left top; text-align:center;}
+.mail .g-o{background:url(../img/banner.jpg) no-repeat center top; padding:32px 91px;}
+.login{ margin:0 0 0 648px; width:282px; height:462px; background:#fff; padding:0 28px;}
+.lg-til{ height:45px; line-height:45px; padding-top:5px; border-bottom:1px solid #ddd; vertical-align:text-bottom; overflow:hidden;}
+.lg-til strong{ color:#757373; font-size:26px; font-weight:normal; float:left;}
+.lg-til span{ color:#969696; float:right; line-height:60px;}
+.lg-til a{color:#cda54d; float:right;line-height:60px;}
+.login ul{ margin-left:15px; padding:28px 0 10px; position:relative;}
+.login ul li{ margin-bottom:15px;height:47px;}
+.login ul li span.txt{height:21px;line-height:21px; background:url(../img/input-bg.png) no-repeat; border:3px solid #fff; border-radius:3px;font-size:14px;float:left;}
+.login ul li span.wid237{padding:10px 6px 10px 45px;width:186px;}
+.login ul li span.txt input{height:21px;line-height:21px;border:none;outline: none;}
+.login ul li span.wid237 input{width:184px;}
+.login ul li span.wid113{padding:10px 6px 10px 12px;width:95px;vertical-align:middle;}
+.login ul li span.wid113 input{width:93px;}
+.login ul li span.name{ background-position:0 0;}
+.login ul li span.pw{ background-position:0 -52px;}
+.login ul li span.cd{ background-position:0 -155px;}
+.login ul li input.sub{text-align:center;margin-left:3px; line-height:41px; font-size:18px; color:#fff; width:237px; height:43px;background:url(../img/input-bg.png) no-repeat 0 -106px; cursor:pointer; border:none;}
+.login ul li.mg,.login ul li input.cd,.login ul li img,.login ul li a.cd-a{ vertical-align:middle;}
+.login ul li span.cur{ border-color:#e7d4a6;}
+.login ul li img{margin:3px 6px 0;*margin:2px 6px 0 10px;}
+.login ul li a.cd-a{ color:#0077d2;}
+.login ul li a.pw-a{ color:#0077d2; font-size:14px; float:right; margin-right:25px;}
+.login ul li label{font-size:14px; float:left;line-height:20px;margin-left:3px;}
+.login ul li label input{margin:0 6px 0 0; vertical-align:middle;}
+.login ul li.set{height:20px;}
+.lg-qq{ width:225px; height:67px; background:#f6f5f7; display:inline-block; margin-left:18px; padding-left:12px; color:#969696; line-height:34px;}
+.lg-qq a{ background:url(../img/lg-icon.png) no-repeat left top; width:24px; height:24px; display:inline-block; overflow:hidden; font-size:0; text-indent:200px;}
+.lg-qq a:hover{background:url(../img/lg-icon.png) no-repeat left -36px;}
+.login ul li.po-input{ position:absolute;left:3px; top:10px;width:202px; height:24px;line-height:24px; background:#ffffd0 url(../img/lg-icon.png) no-repeat 8px -145px; border:1px solid #ffad77; color:#ff0000; padding-left:33px; display:none;}
+::-webkit-input-placeholder { /* WebKit browsers */color:#999;}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */color:#999;}
+::-moz-placeholder { /* Mozilla Firefox 19+ */color:#999;}
+:-ms-input-placeholder { /* Internet Explorer 10+ */color:#999;}
+
+input:-webkit-autofill {-webkit-box-shadow: 0 0 0px 1000px white inset;border:0;}
+

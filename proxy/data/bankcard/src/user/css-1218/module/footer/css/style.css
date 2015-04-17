@@ -1,0 +1,43 @@
+/*
+ *name:dtt
+ *time:2014.10.30
+ *content:版权信息样式
+*/
+
+/*版权信息*/
+.footer{background:url(../img/foot_bg.jpg) repeat-x left top; text-align:center;}
+.footer ul{ height:auto; overflow:hidden;zoom:1; padding-top:9px;}
+.footer ul li{height:173px;width:177px; padding:26px 0 0 0;float:left;background:url(../img/foot_ul_bg.jpg) no-repeat 0 1px;}
+.footer ul li.last{width:442px; text-align:left;}
+.footer ul li a{font-size:13px; height:22px; line-height:22px; color:#c6c6c6; display:block; text-align:center;}
+.footer ul li a.til{padding-bottom:14px; font-size:16px; color:#fff;}
+.footer ul li a:hover{text-decoration:none;color:#ffe4ae;}
+.footer ul li.last div{width:262px;_width:auto; height:173px; padding-left:180px; background:url(../img/weixin.jpg) no-repeat 54px 0;}
+.footer li.last p{ height:26px; line-height:26px; font-size:14px; color:#f3f3f3;}
+.footer li.last p.bd{ font-size:35px; height:42px;line-height:42px; color:#fffdfd;}
+
+.foot-bt{background:#aaa; text-align:center; padding:20px 0;color:#6c6c6d;}
+.foot-bt p a{color:#6c6c6d;}
+.foot-bt p a:hover{color:#ffe4ae;text-decoration:none;}
+.foot-bt span{ height:39px; width:auto; text-align:center; display:inline-block; padding-top:10px;}
+.foot-bt span a{display:inline-block;height:39px;margin-right:4px; width:107px; display:inline-block; background:url(../img/foot_link.png) no-repeat;}
+/*.foot-bt span a.lk06:hover{background-position:-579px 0;}
+.foot-bt span a.lk06{background-position:-579px -39px;}
+.foot-bt span a.lk06 img{ display:none;}
+.foot-bt span a.lk05:hover{background-position:0 0;}
+.foot-bt span a.lk05{background-position:0 -39px;}
+.foot-bt span a.lk04:hover{background-position:-116px 0;}
+.foot-bt span a.lk04{background-position:-116px -39px;}
+.foot-bt span a.lk03:hover{background-position:-232px 0;}
+.foot-bt span a.lk03{background-position:-232px -39px;}
+.foot-bt span a.lk02:hover{background-position:-347px 0;}
+.foot-bt span a.lk02{background-position:-347px -39px;}
+.foot-bt span a.lk01:hover{background-position:-463px 0;}
+.foot-bt span a.lk01{background-position:-463px -39px;}*/
+.foot-bt span a.lk06{background-position:-579px 0;}
+.foot-bt span a.lk06 img{ display:none;}
+.foot-bt span a.lk05{background-position:0 0;}
+.foot-bt span a.lk04{background-position:-116px 0;}
+.foot-bt span a.lk03{background-position:-232px 0;}
+.foot-bt span a.lk02{background-position:-347px 0;}
+.foot-bt span a.lk01{background-position:-463px 0;}

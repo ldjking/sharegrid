@@ -1,0 +1,185 @@
+body {
+	background-color: #fff;
+}
+.container {
+	width: 100%;
+	background: #fff;
+}
+#pageform {
+	width: 88%;
+	margin: 0px auto;
+	padding: 0px 0px 50px;
+}
+.title {
+	font-size: 14px;
+	color: #666666;
+	padding: 20px 0px 12px;
+}
+.ipt_area {
+	position: relative;
+	margin-bottom: 0px;
+}
+.ipt_area label {
+	position: absolute;
+	top: 13px;
+	left: 35px;
+	font-size: 14px;
+	color: #dfdfdf;
+}
+.ipt {
+	outline: none;
+	width: 100%;
+	height: 44px;
+	border: 2px solid #999999;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	font-size: 16px;
+	padding-left: 35px;
+}
+.input_tel {
+	background: url('../../weChat/css/images/weChat/tel.png') no-repeat 10px 10px;
+	background-size: 13px 20px;
+}
+.input_tel_cur {
+	border-color: #cda148;
+	background-image: url('../../weChat/css/images/weChat/tel_cur.png');
+}
+.input_pass, .input_pass_copy {
+	background: url('../../weChat/css/images/weChat/pass.png') no-repeat 10px 10px;
+	background-size: 13px 20px;
+}
+.input_pass_cur {
+	border-color: #cda148;
+	background-image: url('../../weChat/css/images/weChat/pass_cur.png');
+}
+.error_msg {
+	color: #ff0000;
+	font-size: 12px;
+	display: none;
+	padding-top: 10px;
+}
+.val_btn {
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	background-color: #ff864a;
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+	margin: 30px 0px 10px;
+	cursor: pointer;
+}
+a.blue {
+	font-size: 12px;
+	color: #0077d2
+}
+.check_img {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url('../../weChat/css/images/weChat/checked.png') no-repeat;
+	background-size: 15px 15px;
+	vertical-align: bottom;
+}
+.hide_btn {
+	display: inline-block;
+	width: 50px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+	color: #666;
+	background-color: #f9f0dd;
+	position: absolute;
+	right: 2px;
+	top: 2px;
+	text-align: center;
+	cursor: pointer;
+}
+.accept_tip {
+	color: #666;
+	margin-top: 18px;
+	width: 105%;
+}
+.input_pass_copy {
+	display: none;
+}
+/*增加推荐人样式*/
+.ref_area {
+	height: 44px;
+	position: relative;
+	padding-left: 106px;
+}
+.ref_area .ipt_area {
+	display: none;
+	background-color: #F00;
+}
+.ref_area.check .ipt_area {
+	display: block;
+	overflow: hidden;
+}
+.ref_area .ipt_area input {
+	padding-left: 12px;
+}
+.ref_area .ipt_area label {
+	position: absolute;
+	top: 13px;
+	left: 12px;
+	font-size: 14px;
+	color: #dfdfdf;
+	white-space: nowrap;
+	overflow: hidden;
+	max-width: 100%;
+}
+.ref_area .ref_check {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 96px;
+	padding-top: 3px;
+	height: 40px;
+	padding-bottom: 1px;
+	overflow: hidden;
+	background-color: #edece9;
+}
+.ref_area .ref_check i {
+	font-style: normal;
+	display: inline-block;
+	line-height: 30px;
+	height: 30px;
+	width: 34px;
+	overflow: hidden;
+	border: 1px solid transparent;
+	text-align: center;
+	margin: 4px;
+	font-size: 16px;
+}
+.ref_area .ref_check i:first-child {
+	background-color: #f4f3ef;
+	background-color: linear-gradient(top, #f4f3ef, #f0ede8);
+	color: #848080;
+	/*border-color:#d4d4d1 #f4f3ef #dfdeda #bbbab8;*/
+	border-radius: 2px;
+	box-shadow: -1px -1px 2px 1px #bbbab8;
+	margin-left: 9px;
+}
+.ref_area .ref_check i:last-child {
+	color: #cecece;
+}
+.ref_area.check .ref_check i:first-child {
+	background-color: transparent;
+	color: #cecece;
+	box-shadow: none;
+}
+.ref_area.check .ref_check i:last-child {
+	background-color: #ff864a;
+	color: #f7f7f7;
+	border-radius: 2px;
+	box-shadow: -1px -1px 1px #bbbab8;
+}
+input.input_curr {
+	border-color: #cda148;
+}
+.ref_check {
+	cursor: default;
+}

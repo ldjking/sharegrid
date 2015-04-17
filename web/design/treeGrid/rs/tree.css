@@ -1,0 +1,28 @@
+.tree {
+	font-size: 12px;
+	line-height: 24px;
+}
+.tree .w02{
+	display: none;
+
+}
+.tree .text{
+	background-repeat: no-repeat;
+	background-position: left center;
+	cursor: default;
+	line-height: 20px;
+	height: 20px;
+}
+.tree .open .node .text{
+	background-image: url(../../../images/tree/basic/open.png);
+	padding-left: 16px;
+}
+.tree .close .node .text{
+	background-image: url(../../../images/tree/basic/close.png);
+	padding-left: 16px;
+}
+.tree .leaf .node .text{
+	background-image: url(../../../images/tree/basic/leaf.png);
+	padding-left: 16px;
+}
+W

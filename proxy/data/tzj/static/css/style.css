@@ -1,0 +1,102 @@
+@charset "utf-8";
+/* 各页面样式 */
+
+/*首页*/
+.search_con{float:left;width:332px;height:395px;display:inline-block;background:url(../images/search_con_bg.png) no-repeat;margin-top:47px;}
+.search_con ul{padding:50px 15px 0px;}
+.search_con ul .search-li{padding-top:30px !important;}
+.search_con ul li{clear:both;}
+.search_con ul li .select{width:301px;height:53px;position:relative;margin-bottom:15px;}
+.search_con ul li .last{margin:0;}
+.search_con ul li .btn{display:block;padding-left:110px;width:301px;height:68px;line-height:65px;background:url(../images/demo_home_06.png) no-repeat;font-size:23px;color:#fff;}
+.search_con ul li .btn:hover{text-decoration:none;}
+
+.zindex-1{z-index:2;}
+.zindex-2{z-index:1;}
+.search_con .select .dropDown{position:relative;z-index:4;width:301px;background:#fff;}
+.search_con .select .dropDown input{position:absolute;z-index:5;top:0px;left:0px;width:161px;height:53px;line-height:53px;background:url(../images/demo_home_03.png) 0 0 no-repeat;border:none;font-size:16px;color:#898989;padding:0 27px 0 60px;}
+.search_con .select .dropDown .dropBtn-sy{position:absolute;z-index:6;right:0px;height:53px;width:53px;background:url("../images/dropBtn-sy-icon.png") no-repeat left top;cursor: pointer;}
+.search_con .select .dropDown .dropList-sy{position:absolute;z-index:7;display:none;clear:both;width:299px;margin-top:52px;padding:0 !important;background:#fff;border:1px solid #ccc;}
+.search_con .select .dropDown .dropList-sy li{height:30px;line-height:30px;padding-left:7px;font-size:13px;color:#7E8C8D;cursor:pointer;}
+.search_con .select .dropDown .dropList-sy li:hover{background:#369fd6;color:#fff;}
+
+.slide{width:692px;height:505px;float:right;position:relative;}
+.slide .slide-img{height:475px;overflow:hidden;}
+.slide .slide-controls{position:absolute;left:145px;bottom:10px;width:96px;height:30px;line-height:30px;}
+.slide .slide-controls a{display:inline-block;width:13px;height:13px;background:url(../images/slide-controls.png) no-repeat 0 0;padding:0 8px;}
+.slide .slide-controls a:hover{background-position:0 -13px;}
+
+.purl{height:98px;background:url(../images/purl_bg.jpg) repeat-x;text-align:center;padding-top:130px;}
+
+/*搜索框*/
+.search_box{color:#7e8c8d;}
+.search_box ul li{height:27px;line-height:27px;margin-bottom:10px;clear:both;}
+.search_box ul li .info_til{display:block;width:80px;text-align:right;float:left;margin-right:10px;}
+.search_box ul li .info_con{display:block;float:left;}
+.search_box a{float:left;margin-right:20px;color:#7e8c8d;}
+.info_conbox .checkbox input{margin-right:5px;}
+
+.plat_logo{float:left;width:205px;}
+.plat_logo .logo_img{width:200px;height:200px;overflow:hidden;}
+.plat_logo .star_pos{position:absolute;top:0;left:0;height:47px; background-position:0 center;}
+.plat_logo .plat_btn .btn_blue, .plat_logo .plat_btn .btn_green_{position:relative;}
+.plat_logo .plat_btn .btn_blue span .fl, .plat_logo .plat_btn .btn_green_ span .fl{width:195px;overflow:hidden;}
+.plat_logo .plat_btn .go{display:inline-block;position:absolute;width:25px;height:35px;background:url(../images/go.png)no-repeat 7px top;right:20px;}
+.plat_logo .plat_btn .btn_blue, .plat_logo .plat_btn .btn_green_{margin-bottom:10px;}
+.plat_logo .plat_btn .btn_blue span, .plat_logo .plat_btn .btn_green_ span{font-size:18px;font-weight:lighter;margin-bottom:10px;}
+.plat_info{float:left;width:212px;margin-left:22px;color:#7e8c8d;font-size:12px;line-height:28px;}
+.plat_info .con_til{height:30px;line-height:30px;font-size:15px;}
+.plat_info div .info_til{color:#000;width:70px;text-align:center;}
+
+/*滚动条*/
+.content{width:100%;height:320px;overflow:auto;clear:both;}
+.content a{color:#2A7AD2;}
+
+/*新闻动态*/
+.news_box .new_til{height:55px;line-height:55px;color:#147fba;padding-left:15px;}
+.news_box .new_til a{display:inline-block;font-size:18px;height:55px;line-height:55px;color:#147fba;text-decoration:none;}
+.news_box ul li{margin:10px 15px;width:370px;height:24px;overflow:hidden;}
+.news_box a{color:#636363;cursor:pointer;}
+.news_box a:hover{color:#0078b7;text-decoration:none;}
+
+/*评论*/
+.comment ul li{height:67px;position:relative;overflow:hidden;margin-bottom:33px;}
+.comment ul li img{ position:absolute;top:5px;left:0;}
+.comment ul li p{margin-left:77px;}
+.comment ul li .user_name{font-size:16px;font-weight:bold;float:left;color:#7e8c8d;}
+.comment ul li .date{font-size:12px;float:right;color:#c1c1c1;}
+.comment ul li .txt{clear:both;line-height:20px;text-align:justify;}
+
+/*弹出框*/
+.div_mask{display:none;z-index:99;margin:0 auto;width:100%;height:100%;background-color:#777;position:fixed;left:0;top:0;opacity:0.6;moz-opacity:0.6;filter:alpha(opacity=60);}
+.dialog{display:none;z-index:100;position:fixed;top:50%;left:50%;padding:0 20px;width:460px;margin:-180px 0 0 -200px;height:240px;border:1px solid #e5e5e5;background:#fff;}
+.dialog .dialog-title{font-size:16px;height:48px;line-height:48px;overflow: hidden;}
+.dialog .dialog-title .c-right{display:inline-block;float: right;color: #d0d0d0;font-family: "Comic Sans MS";}
+.dialog .dialog-con{font-size:16px;}
+.dialog .dialog-con a{display:inline-block;color:#0697da;padding:0 5px;}
+.dialog .dialog-setting{margin-top:20px;text-align:center;}
+.dialog .dialog-setting a{display:inline-block;width:120px;}
+
+/*专题页*/
+.content_m{background-color:#2A6070;overflow: hidden;}
+.content_tt{width:100%;min-width:500px;background:url(../images/bg_sp2.png) no-repeat center;height:600px;margin:0 auto;}
+.content_pi{width:1024px;height:790px;margin:0 auto;}
+.content_pi2{width:1200px;height:995px;margin:0 auto;position:relative;}
+.content_pi2 .btnn{position:absolute;top:172px;left:240px; }
+.content_pi2 .btnn a{display:block;width:340px;height:95px; text-indent:-9999px;}
+.content_pi2 .return_b{position:absolute;bottom:263px;right:93px;}
+.content_pi2 .return_b a{display:block;height:177px;width:170px;text-indent:-9999px;}
+
+/*加入我们*/
+.join{padding-left:10px;}
+.join-email,.join-us{padding-bottom:60px;}
+.join-title{height:30px;padding-left:40px;background:url(../images/join.png) no-repeat left;font-size:16px;color: #1d82b6;line-height: 30px;}
+.join-tag{clear: both;overflow: hidden;zoom: 1;}
+.join-tag a{margin-top:15px;width:129px;float:left;font-size: 14px;height:16px;line-height: 16px;overflow: hidden;color: #0066aa;}
+.join-tag a:hover{color:#0099cc;}
+.join-tag a.last{text-align: right}
+.details-list li{padding-bottom: 30px;}
+.details-list h3{height:46px;line-height: 46px;border-bottom: 1px solid #ddd;font-size: 16px;font-weight: normal;color: #666;overflow: hidden;}
+.details-list h3 .gotop{font-size: 12px;float: right;width:60px;text-align: right;cursor: pointer;}
+.details-con strong{padding-top:10px;display: block;font-weight: normal;}
+.details-con span{display: block;}

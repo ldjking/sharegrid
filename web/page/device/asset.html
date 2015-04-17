@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>设备台账</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">设备</div>
+    <div class="tab normal" id="tab_docx">附件资料</div>
+    <div class="tab normal" id="tab_jscs">技术参数</div>
+     <div class="tab hide" 	id="tab_add">新增设备</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c4"></div>
+    <div class="content normal"  id="c5"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script> 
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script> 
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+(function(){
+	var grid		    =$("#c1");
+	var editForm	    =$("#c2");
+	var addForm			=$("#c3");
+	var docxGrid	    =$("#c4");
+	var jscsGrid        =$("#c5")
+	var tabList			=$("#tab_list");
+	var tabEdit			=$("#tab_edit");
+	var tabAdd			=$("#tab_add");
+	var tabRole			=$("#tab_person");
+	var tabJscs         =$("#tab_jscs");
+		  
+	var fn_showList=	function(evt){
+		//genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	var fn_showNext=	function(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showPre=		function(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showEditForm=function(evt){
+		activeTab(tabEdit);
+	}
+	var fn_showAddForm=function(evt){/*要把新增表单显示出来*/
+		activeTab(tabAdd);
+	}
+	
+	var tabChange=function(target,p){
+		if(p==0)		fn_showList();
+		else if(p==1)	refreshEditForm();
+		else if(p==2)	refreshDocxGrid();/*刷新子对象内容*/
+		else if(p==3)   refreshJscsGrid();//技术参数
+		
+	}
+	var refreshEditForm =function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		
+		//out("editForm.formCfg",editForm);
+		if(editForm.formCfg.param==obj)	return;
+		else{
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+			cssRm([preCmd,nextCmd],"gray");
+			if(obj.rownum==1)						cssAdd(preCmd,"gray");
+			else if(obj.rownum==cfg.totalNum)		cssAdd(nextCmd,"gray");
+			genFormContent(editForm);/*重绘内容*/
+		}
+	}
+	var uploadDocxBack=function(){
+		var obj=docxGrid.gridCfg.param;
+		$("#"+docxGrid.gridCfg.id+"upfile").cfg={url:"http://eamdev/eam/web/page/word/upload?t1_obj="+obj.af_assetid,fn:function(){uploadDocxBack();}};
+		setTimeout(function(){;genGridContent(docxGrid)},1000);/*重绘内容*/
+		
+	}
+	var refreshDocxGrid=function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(docxGrid.gridCfg.param==obj){return;}
+		else{
+			docxGrid.gridCfg.param={};
+			docxGrid.gridCfg.param.af_assetid=obj.af_assetid;
+			$("#"+docxGrid.gridCfg.id+"upfile").cfg={url:"http://eamdev/eam/web/page/word/upload?t1_obj="+obj.af_assetid,fn:function(){uploadDocxBack();}};
+			////out("gen grid content");
+			genGridContent(docxGrid);
+		}
+	}
+	
+	var refreshJscsGrid = function() {
+	    var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(jscsGrid.gridCfg.param==obj){return;}
+		else{
+			jscsGrid.gridCfg.param={};
+			jscsGrid.gridCfg.param=obj;
+			var xx = jscsGrid.gridCfg.param;
+			out("====================="+xx);
+			//$("#"+docxGrid.gridCfg.id+"upfile").cfg={url:"http://eamdev/eam/web/page/word/upload?t1_obj="+obj.af_assetid,fn:function(){uploadDocxBack();}};
+			////out("gen grid content");
+			genGridContent(jscsGrid);
+		}
+	}
+
+	var init=function(){
+		uiApp({dom:$("#app1"),fn:tabChange});
+		var cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"assetGetRoot",
+			rmMethod:'assetRm',addMethod:"assetAdd",updateMethod:"assetUpdate",pageFlag:false,pageSize:6,autoWidth:1,pkAttr:"af_assetid"};
+		cfg.treeCfg={idAttr:"assetnum",pidAttr:"parentnum",loadOnDemand:1,getChildMethod:"assetGetChild"};
+		cfg.columns=[	
+						{text:"设备编码",attr:"assetnum",align:"left",width:40,type:"str",asc:1,frozen:1,treeStyle:1,autoWidth:1},
+						{text:"设备名称",attr:"description",align:"left",width:120,type:"str",asc:1,frozen:1,treeStyle:1,autoWidth:1},
+						{text:"设备型号",attr:"asset_code",align:"left",width:160,type:"str",asc:1},
+						{text:"设备规格",attr:"standards",align:"left",type:"str",width:80,asc:1},
+						{text:"设备类型",attr:"assettype",align:"left",type:"str",width:80,asc:1},
+						{text:"父级编码",attr:"parentnum",align:"left",width:120,type:"str",asc:1},
+						{text:"管理部门",attr:"asset_dept",align:"left",type:"str",width:80,asc:1}
+
+					];
+		cfg.cmds=[
+						{cmd:"cmdAdd"	,fn:fn_showAddForm},
+						{cmd:"cmdEdit"	,fn:fn_showEditForm},
+						{cmd:"cmdDelete"},
+						{cmd:"cmdFilter"},
+						{cmd:"cmdRefresh"}
+					]
+		genGrid(grid,cfg);
+			
+		var cfg1={title:"设备详细信息",formType:"update",updateMethod:"assetUpdate",dataMethod:"assetGet"};
+
+		cfg1.tables=[	{type:0,cells:[{type:"text",attr:"f0_id"}]},
+						{type:2,rows:1,cells:[
+									{type:"lbl",text:"设备编码",width:100,align:"center",row:1},
+									{type:"txt",attr:"assetnum",width:200,align:"left",row:1},
+									{type:"lbl",text:"设备名称",width:100,align:"center",row:1},
+									{type:"txt",attr:"description",width:300,align:"left",row:1}]
+									
+						},
+						
+						{type:2,rows:1,cells:[
+									{type:"lbl",text:"父级编码",width:100,align:"center",row:1},
+									{type:"txt",attr:"parentnum",width:200,align:"left",row:1},
+									{type:"lbl",text:"父级设备名称",width:100,align:"center",row:1},
+									{type:"txt",attr:"parentasset",width:300,align:"left",row:1}]
+									
+						},
+						
+						{type:2,rows:1,cells:[
+									{type:"lbl",text:"设备类型",width:100,align:"center",row:1},
+									{type:"txt",attr:"assettype",width:200,align:"left",row:1},
+									{type:"lbl",text:"使用状态",width:100,align:"center",row:1},
+									{type:"txt",attr:"status",width:300,align:"left",row:1}
+									]
+						},
+						
+						{type:2,rows:1,cells:[
+									{type:"lbl",text:"设备型号",width:100,align:"center",row:1},
+									{type:"txt",attr:"asset_code",width:200,align:"left",row:1},
+									{type:"lbl",text:"设备规格",width:100,align:"center",row:1},
+									{type:"txt",attr:"standards",width:300,align:"left",row:1}]
+						},
+						
+						
+					
+						{type:2,rows:1,cells:[
+									{type:"lbl",text:"管理部门负责人",width:100,align:"center",row:1},
+									{type:"txt",attr:"per_glbmfzr_gl",width:200,align:"left",row:1,lov:"stuff"},
+									{type:"lbl",text:"管理部门",width:100,align:"center",row:1},
+									{type:"txt",attr:"asset_dept",width:300,align:"left",row:1}]
+						},
+						{type:2,rows:1,cells:[
+									{type:"lbl",text:"班组负责人",width:100,align:"center",row:1},
+									{type:"txt",attr:"per_bzfzr_fz",width:200,align:"left",row:1,lov:"stuff"},
+									{type:"lbl",text:"检修维护班组",width:100,align:"center",row:1},
+									{type:"txt",attr:"bz_jxwh",width:300,align:"left",row:1}]
+						},
+						{type:2,rows:1,cells:[
+									{type:"lbl",text:"安装地址",width:100,align:"center",row:1},
+									{type:"txt",attr:"place_fix",width:600,align:"left",row:1}]
+						},
+						{type:2,rows:1,cells:[
+									{type:"lbl",text:"制造厂家",width:100,align:"center",row:1},
+									{type:"txt",attr:"fac_des",width:600,align:"left",row:1}]
+						},
+						
+						{type:2,rows:1,cells:[
+									{type:"lbl",text:"安装单位",width:100,align:"center",row:1},
+									{type:"txt",attr:"fac_fix",width:600,align:"left",row:1}]
+						},
+						
+						{type:2,rows:1,cells:[
+									{type:"lbl",text:"联系电话",width:100,align:"center",row:1},
+									{type:"txt",attr:"fac_phone",width:200,align:"left",row:1},
+									{type:"lbl",text:"安装日期",width:100,align:"center",row:1},
+									{type:"txt",attr:"installdate",width:300,align:"left",row:1,lov:"datetime"},
+									]
+						},
+						
+						{type:2,rows:1,cells:[
+									{type:"lbl",text:"供应商",width:100,align:"center",row:1},
+									{type:"txt",attr:"vendor_des",width:600,align:"left",row:1}]
+						},
+						{type:2,rows:1,cells:[
+									{type:"lbl",text:"是否评级",width:100,align:"center",row:1},
+									{type:"txt",attr:"bool_level",width:120,align:"left",row:1},
+									{type:"lbl",text:"评级等级",width:80,align:"center",row:1},
+									{type:"txt",attr:"pj_level",width:140,align:"left",row:1},
+									{type:"lbl",text:"投运日期",width:100,align:"center",row:1},
+									{type:"txt",attr:"tm_ty",width:160,align:"left",row:1,lov:"date"}]
+						},
+						{type:2,rows:1,cells:[
+									{type:"lbl",text:"评级周期",width:100,align:"center",row:1},
+									{type:"txt",attr:"level_period",width:120,align:"left",row:1},
+									{type:"lbl",text:"使用寿命",width:80,align:"center",row:1},
+									{type:"txt",attr:"life_used",width:140,align:"left",row:1},
+									{type:"lbl",text:"保修期限",width:100,align:"center",row:1},
+									{type:"txt",attr:"term_repair",width:160,align:"left",row:1}]
+						},
+	
+						{type:2,rows:1,cells:[
+									{type:"lbl",text:"其他信息",width:100,align:"center",row:1},
+									{type:"txt",attr:"inf_other",width:600,align:"left",row:1}]
+						},
+					];
+		cfg1.cmds=[
+					{cmd:"update"},/*表示该操作按钮式定te=1的对象上*/								
+					{cmd:"pre",fn:fn_showPre},
+					{cmd:"next",fn:fn_showNext}
+				];
+		genForm(editForm,cfg1);/*修改表单*/
+		
+		var cfg2={title:"设备信息录入",formType:"add",addMethod:"assetAdd"};
+		cfg2.tables=cfg1.tables;
+		cfg2.cmds=[
+					{cmd:"save",fn:fn_showList},/*表示该操作按钮式定te=1的对象上*/								
+					{cmd:"cancel"}
+				];
+		genForm(addForm,cfg2);/*新增表单*/
+		
+		
+		var cfg4={multiMode:0,toolbar:1,filterMode:0,data_method:"docGets",
+			//refAttr:{name:"c1_id",name2:"c4_role"},pkAttr:"c4_id",
+			pageFlag:false,pageSize:10}
+		cfg4.columns=[{text:"主键",attr:"t1_id",align:"left",width:80,frozen:1,type:"str",notEdit:0,autoWidth:1},
+						{text:"附件名称",attr:"t1_name",align:"left",width:340,type:"str",notEdit:1},
+						{text:"设备名称",attr:"asset_name",align:"center",width:280,frozen:0,type:"str"},
+						{text:"上传人",attr:"person_name",align:"center",width:100,frozen:0,type:"str"},
+						{text:"上传时间",attr:"t1_uploadtime",align:"center",width:160,frozen:0,type:"str"}
+					];
+		cfg4.cmds=[
+					{cmd:"upload",text:""},
+					{cmd:"rmDoc",text:"",class:"rmDoc",fn:e_rmDoc_handler	},
+					{cmd:"viewDoc",text:"",class:"viewDoc",fn:e_viewDoc_handler},
+					{cmd:"download",text:"",class:"download",fn:e_down_handler},
+					{cmd:"cmdRefresh"	}
+				]
+		genGrid(docxGrid,cfg4);/*子对象*/
+		
+			var cfg5={multiMode:0,toolbar:1,filterMode:0,data_method:"jscszGets",
+			refAttr:{name:"af_assetid",name2:"af_asset"},pkAttr:"af_jscs_zid",
+			rmMethod:'jscszRm',addMethod:"jscszAdd",updateMethod:"jscszUpdate",pageFlag:false,pageSize:10};
+			
+			
+			cfg5.columns=[	
+						{text:"设备编码",attr:"assetnum",align:"center",type:"str",notEdit:1,frozen:1},
+						{text:"设备名称",attr:"description",align:"center",type:"str",notEdit:0,frozen:1},
+						{text:"参数值",attr:"param_exp",align:"center",width:120,type:"str"},
+						{text:"参数名称",attr:"param_name",align:"center",width:120,type:"str"},
+						{text:"参数类别",attr:"param_type",align:"center",width:120,type:"str"},
+						{text:"单位",attr:"param_unit",align:"center",width:120,type:"str"}
+					];
+		  cfg5.cmds=[
+					{cmd:"cmdLock",text:""	},
+				  	{cmd:"cmdAddItem",class:"rmDoc",text:""	},
+					{cmd:"cmdRmItem",class:"rmDoc",text:""	},
+					{cmd:"cmdCommit",class:"rmDoc",text:""	},
+				  	{cmd:"cmdRefresh"	}
+
+				]
+		genGrid(jscsGrid,cfg5);	
+		
+	}
+	
+	function e_rmDoc_handler(target){
+		var cfg=docxGrid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(docxGrid,1);
+		obj=cfg.activeRow.obj;
+		////out("obj",obj);
+		var param = {};
+		param.cmd = "delete";
+		param.t1_id = obj.t1_id;
+		var result = $$("cy_excute", param, false);
+		if (result.flag) {
+			refreshDocxGrid();
+		}else{
+			////out("result",result);
+			//out("error",result.errorText);
+		}
+	}
+	function e_viewDoc_handler(target){
+		var cfg=docxGrid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(docxGrid,1);
+		obj=cfg.activeRow.obj;
+		////out("obj",obj);
+		if(obj.t1_name.indexOf(".docx")>=0){
+			var url="http://localhost/eam/web/pagesys/word/word_new.html";
+			url+="?id="+obj.t1_id;
+			window.open(url);
+		}else{
+			//out("msg","暂时只支持word文档在线查看！");
+		}
+	}
+	function e_down_handler(target){
+		var cfg=docxGrid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(docxGrid,1);
+		obj=cfg.activeRow.obj;
+		////out("obj",obj);
+		window.location.href="http://eamdev/eam/web/page/word/download?t1_id="+obj.t1_id;
+	}
+	window.onload=init;
+})();
+	
+</script>
+</body>
+</html>

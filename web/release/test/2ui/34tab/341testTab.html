@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="../../../css/0base.css"/>
+<style type="text/css">
+.tabContainer {
+height: 28px;
+background-image: url(img/tab_bg.png);
+background-repeat: repeat-x;
+background-color: #E3E6E8;
+padding-top: 32px;
+background-position: center bottom;
+cursor: default;
+}
+.tabContainer div {
+float: left;
+padding-left: 26px;
+padding-right: 26px;
+line-height: 31px;
+text-align: center;
+margin-left: 4px;
+margin-right: 4px;
+}
+.tabContainer .active {
+height:28px;
+background-image:   url(img/tab_left.png) , url(img/tab_right.png) , url(img/tab_center.png);
+background-repeat:no-repeat, no-repeat, repeat-x;
+background-position:left center, right center, center center;
+}
+.tabContainer .normal:hover {
+height:28px;
+background-image:   url(img/tab_hover_left1.png) , url(img/tab_hover_right1.png) , url(img/tab_hover_center.png);
+background-repeat:no-repeat, no-repeat, repeat-x;
+background-position:left center, right center, center center;
+}
+.content {
+clear: both;
+width: 800px;
+overflow: hidden;
+}
+.content .container {
+display: block;
+width: 3200px;
+}
+.content .page  {
+width: 800px;
+float: left;
+display: block;
+height: 800px;
+}
+.content  .normal{
+display: block;
+}
+.content  .active{
+display: block;
+}
+</style>
+</head>
+<body>
+<div class="tabContainer" id="tabContainer">
+<div class="tab normal">
+首页
+</div>
+<div class="tab active">
+应用程序
+</div>
+<div class="tab normal">
+我的文档
+</div>
+<div class="tab normal">
+布局
+</div>
+</div>
+<div class="content" id="content">
+<div class="container">
+<div class="page normal">
+1 首页
+</div>
+<div class="page active">
+2 应用程序
+</div>
+<div class="page normal">
+3 我的文档
+</div>
+<div class="page normal">
+4 布局
+</div>
+</div>
+</div>
+<script type="text/javascript" src="../../../base.js"></script>
+<script type="text/javascript" src="../../../2ui/31core.js"></script>
+<script type="text/javascript" src="../../../2ui/32layout.js"></script>
+<script type="text/javascript" src="../../../2ui/33spliter.js"></script>
+<script type="text/javascript" src="../../../2ui/34tab.js"></script>
+<script type="text/javascript">
+window.onload=init;
+function init(){/*需要有一些自定义动画效果*/
+;////out("init");
+var d=$("#tabContainer");
+var c=$1("#content .container");
+//;////out("c",c);
+uiTab({dom:d,dom2:c,mode:"slide",vmode:false,pageSize:"800",evt:"mouseover",tabChange:function(dom,p){
+//;////out("tab change to "+p,dom,1,1);
+if(p==3)	return false;
+}});
+}
+</script>
+</body>
+</html>

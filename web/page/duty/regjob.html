@@ -1,0 +1,411 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>定期任务管理</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<!--link rel="stylesheet" type="text/css" href="../../src/css/23form.css"/-->
+<style>
+#dfd{
+	background-color:#666666
+	}
+</style>
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">定期任务</div>
+    <div class="tab hide" id="tab_add">新建定期任务</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script>
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+(function(){
+	var grid		    =$("#c1");
+	var editForm	    =$("#c2");
+	var addForm			=$("#c3");
+	var tabList			=$("#tab_list");
+	var tabEdit			=$("#tab_edit");
+	var tabAdd			=$("#tab_add");
+	
+		
+	var fn_showList     =function(evt){
+		//genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	var fn_showkeyList  =function(evt){
+		activeTab(keyList);
+	}
+	var fn_showNext=	function(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showPre=		function(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showEditForm=function(evt){
+		activeTab(tabEdit);
+	}
+	var fn_showAddForm=function(evt){/*要把新增表单显示出来*/
+		activeTab(tabAdd);
+	}
+	var e_refushEdit =function(target){
+		genGridCmd(grid);
+		genGridContent(grid);
+		activeTab(tabList);
+	}
+	var e_refushAdd =function(target){
+		cssReplace(tabAdd,"active","hide");
+		cssReplace(tabAdd,"normal","hide");
+		genGridCmd(grid);
+		genGridContent(grid);/*重绘内容*/
+		activeTab(tabList);
+	}
+	var tabChange=function(target,p){
+		if(p==0)		fn_showList();
+		else if(p==1)	refreshEditForm();
+		else if(p==2)	refreshAddGrid();
+	}
+	var refreshAddGrid=function(){
+		 addForm.formCfg.data={type:2}
+		 genFormContent(addForm);
+	}
+	var refreshEditForm =function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.param==obj)	return;
+		else{
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			cssRm([preCmd,nextCmd],"gray");
+			if(obj.rownum==1)						cssAdd(preCmd,"gray");
+			else if(obj.rownum==cfg.totalNum)		cssAdd(nextCmd,"gray");
+			genFormContent(editForm);
+		}
+	}
+	var setchange=function(target,data){
+		var t=target.id.split(addForm.formCfg.id+"_attris")[1];
+		var ts=['secondname','minutename','hourname','dayname','weekname','monthname','monthdayname','monthweekname','yearname','yearmonthname','yearweekname'];
+		if(target.value2==1){
+			cssRm(target.parentNode.parentNode,'disable');
+			var texts=$('textarea',target.parentNode.parentNode)
+			for(var i=0;i<texts.length;i++){
+				texts[i].disabled=false;
+			}
+			target.disabled=true;
+			for(var i=0;i<ts.length;i++){
+				if(ts[i]!=t){
+					if((t=='monthdayname'||t=='monthweekname')&&ts[i]=='monthname') continue;
+					if((t=='yearmonthname'||t=='yearweekname')&&ts[i]=='yearname') continue;
+					var tsid=addForm.formCfg.id+"_attris"+ts[i];
+					cssAdd($("#"+addForm.formCfg.id+"_attris"+ts[i]).parentNode.parentNode,'disable');
+					$("#"+addForm.formCfg.id+"_attris"+ts[i]).disabled=false;
+					$("#"+addForm.formCfg.id+"_attris"+ts[i]).value='否';
+					$("#"+addForm.formCfg.id+"_attris"+ts[i]).value2=0;
+					$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')).value='';
+					$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')).disabled="disabled"
+					if(ts[i]=='hourname'){
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'min').value='';
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'min').disabled="disabled"
+					}
+					if(ts[i]=='dayname'){
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'time').value='';
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'time').disabled="disabled"
+					}
+					if(ts[i]=='weekname'){
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'dayname').value='';
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'dayname').disabled="disabled"
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'time').value='';
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'time').disabled="disabled"
+					}
+					if(ts[i]=='monthdayname'){
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','').replace('day','time')).value='';
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','').replace('day','time')).disabled="disabled"
+					}
+					if(ts[i]=='monthweekname'){
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'time').value='';
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'time').disabled="disabled"
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','dayname')).value='';
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','dayname')).value2='';
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','dayname')).disabled="disabled"
+					}
+					if(ts[i]=='yearmonthname'){
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'time').value='';
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'time').disabled="disabled"
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'day').value='';
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'day').disabled="disabled"
+					}
+					if(ts[i]=='yearweekname'){
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'time').value='';
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','')+'time').disabled="disabled"
+						var id=addForm.formCfg.id+"_attr"+ts[i].replace('name','dayname');
+						var d=$("#"+id);
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','dayname')).value='';
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','dayname')).value2='';
+						$("#"+addForm.formCfg.id+"_attr"+ts[i].replace('name','dayname')).disabled="disabled"
+					}
+					
+				}
+			}
+		}
+		
+	}
+	var e_qidong_task_handler=function(evt){
+		var obj=grid.gridCfg.activeRow.obj;
+		if(obj!=null){
+			var r=$$("startTask",{name:obj.jobcode});
+			if(r.flag)
+			{
+				fn_showList();
+			}
+		}
+	}
+	var e_guanbi_task_handler=function(evt){
+		var obj=grid.gridCfg.activeRow.obj;
+		if(obj!=null){
+			var r=$$("stopTask",{name:obj.jobcode});
+			if(r.flag)
+			{
+				fn_showList();
+			}
+		}
+	}
+	var fn_test=function(evt){
+		var data=genFormData(addForm);
+		var settime="";
+		var second=data.second;
+		var minute=data.minute;
+		var hour=data.hour;
+		var hourmin=data.hourmin;
+		var day=data.day;
+		var daytime=data.daytime;
+		var week=data.week;
+		var weekday=data.weekday;
+		var weektime=data.weektime;
+		//按月设置
+		var month=data.month;
+		var monthday=data.monthday;
+		var monthtime=data.monthtime;
+		
+		var monthweek=data.monthweek;
+		var monthweekday=data.monthweekday;
+		var monthweektime=data.monthweektime;
+		//按年设置
+		var year=data.year;
+		var yearmonth=data.yearmonth;
+		var yearmonthday=data.yearmonthday;
+		var yearmonthtime=data.yearmonthtime;
+		
+		var yearweek=data.yearweek;
+		var yearweekday=data.yearweekday;
+		var yearweektime=data.yearweektime;
+		if(second!=null){
+			settime=second+"S * * * * * *";
+		}
+		if(minute!=null){
+			settime=minute+"MI * * * * * *";
+		}
+		if(hour!=null){
+			
+			settime=hour+"H "+hourmin+" * * * * *";
+		}
+		if(day!=null){
+			var time=daytime.split(":");
+			settime=day+"D "+time[0]+" "+time[1]+" "+time[2]+" * * *";
+		}
+		if(week!=null){
+			var time=weektime.split(":");
+			settime=week+"W "+weekday+" "+time[0]+" "+time[1]+" "+time[2]+" * *";
+		}
+		if(month!=null){
+			if(monthday!=null){
+				var time=monthtime.split(":");
+				settime=month+"M 1 "+monthday+" "+time[0]+" "+time[1]+" "+time[2]+" *";
+			}
+			if(monthweek!=null){
+				var time=monthweektime.split(":");
+				settime=month+"M 2 "+monthweek+" "+monthweekday+" "+time[0]+" "+time[1]+" "+time[2];
+			}
+		}
+		if(year!=null){
+			if(yearmonth!=null){
+				var time=yearmonthtime.split(":");
+				settime=year+"Y 1 "+yearmonth+" "+yearmonthday+" "+time[0]+" "+time[1]+" "+time[2];
+			}
+			if(yearweek!=null){
+				var time=yearweektime.split(":");
+				settime=year+"Y 1 "+yearweek+" "+yearweekday+" "+time[0]+" "+time[1]+" "+time[2];
+			}
+		}
+		
+		var r=$$("testJob",{settime:settime});
+		$("#"+addForm.formCfg.id+"_attrdatatest").value=r.data.test;
+	}
+	var init=function(){
+		uiApp({dom:$("#app1"),fn:tabChange});
+		cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"regjobsetGets",pageFlag:false,pageSize:6,autoWidth:1,pkAttr:"ae_regjobsetid"};
+		cfg.columns=[	
+						{text:"任务编号",attr:"jobcode",align:"left",type:"str",width:150,asc:1},
+						{text:"任务描述",attr:"description",align:"left",type:"str",width:250,asc:1},
+						{text:"计划",attr:"settime",align:"left",type:"str",width:250,asc:1}
+					];
+		cfg.cmds=[
+					{cmd:"qidong"	,text:"启动",fn:e_qidong_task_handler},
+					{cmd:"guanbi"	,text:"关闭",fn:e_guanbi_task_handler},
+					{cmd:"cmdAdd"	,fn:fn_showAddForm},
+					{cmd:"cmdEdit"	,fn:fn_showEditForm},
+					{cmd:"cmdFilter"},
+					{cmd:"cmdRefresh"}
+				]
+		genGrid(grid,cfg);
+	 	var cfg2={title:"定期任务设置",bigPaper:1,formType:"add",addMethod:'regjobsetAddJar'};
+		cfg2.tables=[	
+							{type:0,rows:1,cells:[
+									{type:"sid",attr:"ae_regjobsetid",sidType:"method",width:120,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"任务编号",width:100,align:"center",row:1},
+									{type:"txt",attr:"jobcode",width:280,align:"left",row:1},
+									{type:"lbl",text:"任务名称",width:100,align:"center",row:1},
+									{type:"txt",attr:"description",width:280,align:"left",row:1}
+								]
+							},
+							{type:2,rows:2,cells:[
+									{type:"lbl",text:"是否按秒",width:100,align:"center",row:1},
+									{type:"txt",attr:"issecondname",attr2:"issecond",width:60,align:"left",row:1,lov:'is',onchange:setchange},
+									{type:"lbl",text:"秒数",width:100,align:"center",row:1},
+									{type:"txt",attr:"second",width:500,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"是否按分",width:100,align:"center",row:1},
+									{type:"txt",attr:"isminutename",ttr2:"isminute",width:60,align:"left",row:1,lov:'is',onchange:setchange},
+									{type:"lbl",text:"分钟数",width:100,align:"center",row:1},
+									{type:"txt",attr:"minute",width:500,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"是否按小时",width:100,align:"center",row:1},
+									{type:"txt",attr:"ishourname",attr2:"ishour",width:60,align:"left",row:1,lov:'is',onchange:setchange},
+									{type:"lbl",text:"小时数",width:100,align:"center",row:1},
+									{type:"txt",attr:"hour",width:100,align:"left",row:1},
+									{type:"lbl",text:"小时分钟数",width:100,align:"center",row:1},
+									{type:"txt",attr:"hourmin",width:300,align:"left",row:1},
+									
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"是否按天",width:100,align:"center",row:1},
+									{type:"txt",attr:"isdayname",attr2:"isday",width:60,align:"left",row:1,lov:'is',onchange:setchange},
+									{type:"lbl",text:"天数",width:100,align:"center",row:1},
+									{type:"txt",attr:"day",width:100,align:"left",row:1},
+									{type:"lbl",text:"天时间",width:100,align:"center",row:1},
+									{type:"txt",attr:"daytime",width:300,align:"left",row:1},
+									
+									
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"是否按周",width:100,align:"center",row:1},
+									{type:"txt",attr:"isweekname",attr2:"isweek",width:60,align:"left",row:1,lov:'is',onchange:setchange},
+									{type:"lbl",text:"周数",width:100,align:"center",row:1},
+									{type:"txt",attr:"week",width:100,align:"left",row:1},
+									{type:"lbl",text:"第几日",width:100,align:"center",row:1},
+									{type:"txt",attr:"weekdayname",attr2:'weekday',width:100,align:"left",row:1,lov:'week'},
+									{type:"lbl",text:"天时间",width:100,align:"center",row:1},
+									{type:"txt",attr:"weektime",width:100,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"是否按月",width:100,align:"center",row:1},
+									{type:"txt",attr:"ismonthname",attr2:"ismonth",width:60,align:"left",row:1,lov:'is',onchange:setchange},
+									{type:"lbl",text:"月数",width:100,align:"center",row:1},
+									{type:"txt",attr:"month",width:500,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"是否按月日",width:100,align:"center",row:1},
+									{type:"txt",attr:"ismonthdayname",attr2:"ismonthday",width:60,align:"left",row:1,lov:'is',onchange:setchange},
+									{type:"lbl",text:"月日",width:100,align:"center",row:1},
+									{type:"txt",attr:"monthday",width:100,align:"left",row:1},
+									{type:"lbl",text:"天时间",width:100,align:"center",row:1},
+									{type:"txt",attr:"monthtime",width:300,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"是否按月星期",width:100,align:"center",row:1},
+									{type:"txt",attr:"ismonthweekname",attr2:"ismonthweek",width:60,align:"left",row:1,lov:'is',onchange:setchange},
+									{type:"lbl",text:"月星期",width:100,align:"center",row:1},
+									{type:"txt",attr:"monthweek",width:100,align:"left",row:1},
+									{type:"lbl",text:"第",width:100,align:"center",row:1},
+									{type:"txt",attr:"monthweekdayname",attr2:'monthweekday',width:100,align:"left",row:1,lov:'week'},
+									{type:"lbl",text:"天时间",width:100,align:"center",row:1},
+									{type:"txt",attr:"monthweektime",width:100,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"是否按年",width:100,align:"center",row:1},
+									{type:"txt",attr:"isyearname",attr2:"isyear",width:60,align:"left",row:1,lov:'is',onchange:setchange},
+									{type:"lbl",text:"年数",width:100,align:"center",row:1},
+									{type:"txt",attr:"year",width:500,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"是否按年月",width:100,align:"center",row:1},
+									{type:"txt",attr:"isyearmonthname",attr2:"isyearmonth",width:60,align:"left",row:1,lov:'is',onchange:setchange},
+									{type:"lbl",text:"年月",width:100,align:"center",row:1},
+									{type:"txt",attr:"yearmonth",width:100,align:"left",row:1},
+									{type:"lbl",text:"天",width:100,align:"center",row:1},
+									{type:"txt",attr:"yearmonthday",width:100,align:"left",row:1},
+									{type:"lbl",text:"天时间",width:100,align:"center",row:1},
+									{type:"txt",attr:"yearmonthtime",width:100,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"是否按年周",width:100,align:"center",row:1},
+									{type:"txt",attr:"isyearweekname",attr2:"isyearweek",width:60,align:"left",row:1,lov:'is',onchange:setchange},
+									{type:"lbl",text:"年周",width:100,align:"center",row:1},
+									{type:"txt",attr:"yearweek",width:100,align:"left",row:1},
+									{type:"lbl",text:"天",width:100,align:"center",row:1},
+									{type:"txt",attr:"yearweekdayname",attr2:"yearweekday",width:100,align:"left",row:1,lov:'week'},
+									{type:"lbl",text:"天时间",width:100,align:"center",row:1},
+									{type:"txt",attr:"yearweektime",width:100,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"日期预览",width:100,align:"center",row:1},
+									{type:"txt",attr:"datatest",width:660,align:"left",row:1,height:200}
+								]
+							}
+						];
+		cfg2.data={issecondname:'否',issecond:0,isminutename:'否',isminute:0,ishourname:'否',ishour:0,isdayname:'否',isday:0,isweekname:'否',isweek:0,ismonthname:'否',ismonth:0,ismonthdayname:'否',ismonthday:0,ismonthweekname:'否',ismonthweek:0,isyearname:'否',isyear:0,isyearmonthname:'否',isyearmonth:0,isyearweekname:'否',isyearweek:0}
+		cfg2.cmds=[
+					{cmd:'test',text:"预览",fn:fn_test},
+					{cmd:"save"},
+					{cmd:"cancel",fn:fn_showList}
+				];
+		genForm(addForm,cfg2);
+		
+	}
+	
+	window.onload=init;
+})();
+</script>
+</body>
+</html>

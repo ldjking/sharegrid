@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">    
+<html>    
+<script type="text/javascript" src="../ichart/release/base.js"></script>
+<script type="text/javascript">    
+window.onload = function() {    
+        
+    var container = document.getElementById('container');    
+    var svgns = 'http://www.w3.org/2000/svg';    
+    var svg = document.createElementNS(svgns, 'svg');    
+    svg.setAttribute('width', '300px');    
+    svg.setAttribute('height', '300px');    
+         
+        
+    // our example circle    
+    var circle = document.createElementNS(svgns, 'circle');    
+    circle.setAttribute('cx', '50%');    
+    circle.setAttribute('cy', '50%');    
+    circle.setAttribute('r', 120);    
+    circle.setAttribute('fill', 'url(#myGradient)');    
+    circle.setAttribute('stroke-color', 'red');    
+    svg.appendChild(circle);
+    container.appendChild(svg); 
+	var cx=circle.getAttribute("cx");
+	var ellipse = document.createElementNS(svgns, 'ellipse');
+	//svg.onclick=function(){alert(1)};   
+        
+};    
+    
+</script>    
+    
+<body>    
+    <div id="container">    
+            
+    </div>    
+</body>    
+</html>    

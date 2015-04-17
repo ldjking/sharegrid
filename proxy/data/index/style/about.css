@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+
+#subleftbar {
+	float: left;
+	width: 198px;
+	border-left:1px solid #ddd;
+	border-right:1px solid #ddd;
+}
+
+#leftmenu {
+	margin: 0 auto;
+	width: 198px;
+}
+#leftmenu li a {
+    background:url(../../images/fxuc_qna_sprite.png) no-repeat scroll -200px 0 transparent;
+    display: block;
+	height:39px;
+	line-height:39px;
+    text-indent: 35px;
+}
+#leftmenu li a:hover {
+
+    text-decoration: none;
+}
+#leftmenu li a.sed {
+	background:url(../../images/fxuc_qna_sprite.png) no-repeat scroll -401px 0 transparent;
+	text-decoration: none;
+	color: #ab6f00;
+}
+.aboutcon{
+	line-height:25px;
+	margin:20px 15px
+}
+
+#subleftbar1 {
+	float: left;
+	min-height: 115px;
+	width: 198px;
+	border-left:1px solid #ddd;
+	border-right:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+}

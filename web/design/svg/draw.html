@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">    
+<html>    
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="svg.js"></script>
+<script type="text/javascript">  
+var l;  
+window.onload = function() {    
+    var svg = document.getElementById('svg'); 
+	var cfg={
+				x:200,
+				y:200,
+				r:50,
+				s:0,
+				e:30,
+				f:false,
+				z:false,
+				c:true,
+				style:{
+					fill:'green',
+					stroke:'black'
+				}
+			}
+    var a=new gfx.Arc(cfg);
+	a.draw(svg);
+	var r=document.getElementById("rotate");
+	var s=document.getElementById("scale");
+	var m=document.getElementById("move");
+	var rm=document.getElementById("moverotate");
+	rm.onclick=function(){
+		var rect=a.dom.getBoundingClientRect();
+		out('rect',jsonStr(rect))
+		a.move(50,0);
+		a.rotate(10);
+	}
+	r.onclick=function(){
+		a.rotate(10);
+	}
+	s.onclick=function(){
+		a.scale(0.9);
+		//a.scale(1.1);
+	}
+	m.onclick=function(){
+		a.move(50,0);
+	}
+	var cfg={
+				x1:100,
+				y1:300,
+				x2:200,
+				y2:400,
+				style:{
+					strokeWidth:200,
+					stroke:'red'
+				}
+			}
+    var l=new gfx.Line(cfg);
+	l.draw(svg);
+	var lr=document.getElementById("lrotate");
+	var ls=document.getElementById("lscale");
+	var lm=document.getElementById("lmove");
+	var lrm=document.getElementById("lmoverotate");
+	lrm.onclick=function(){
+		l.move(50,0);
+		l.rotate(10);
+	}
+	lr.onclick=function(){
+		l.rotate(10);
+	}
+	ls.onclick=function(){
+		l.scale(1.1);
+	}
+	lm.onclick=function(){
+		l.move(50,0);
+	}
+	var cfg={
+				x:200,
+				y:600,
+				r:50,
+				s:0,
+				e:140,
+				w:20,
+				f:false,
+				style:{
+					fill:'red',
+					stroke:'blue'
+				}
+			}
+	var r=new gfx.Ring(cfg);
+	r.draw(svg);
+	var rr=document.getElementById("rrotate");
+	var rs=document.getElementById("rscale");
+	var rm=document.getElementById("rmove");
+	var rrm=document.getElementById("rmoverotate");
+	rrm.onclick=function(){
+		r.move(50,0);
+		r.rotate(10);
+	}
+	rr.onclick=function(){
+		r.rotate(10);
+	}
+	rs.onclick=function(){
+		r.scale(1.1);
+	}
+	rm.onclick=function(){
+		r.move(50,0);
+	}
+	var cfg={
+				x:500,
+				y:300,
+				r:50,
+				s:0,
+				e:140,
+				w:20,
+				f:false,
+				style:{
+					fill:'red',
+					stroke:'blue'
+				}
+			}
+	
+	var r1=new gfx.Ring(cfg);
+	r1.draw(svg);
+	var trm=document.getElementById("trotate");
+	trm.onclick=function(){
+		r1.rotate(30,500,500);
+	}
+};    
+    
+</script>    
+    
+<body>    
+    <div id="container">    
+        <svg  id='svg'width="100%" height="100%" version="1.1">
+				<circle id="rmoverotate"cx="300" cy="600" r="5" stroke="black"
+				stroke-width="2" fill="red"/>
+				<circle id="rscale"cx="250" cy="600" r="5" stroke="black"
+				stroke-width="2" fill="red"/>
+				<circle id="rrotate" cx="200" cy="600" r="5" stroke="black"
+				stroke-width="2" fill="green"/>
+				<circle id="rmove" cx="150" cy="600" r="5" stroke="black"
+				stroke-width="2" fill="red"/>
+		
+		
+				<circle id="lmoverotate"cx="300" cy="400" r="5" stroke="black"
+				stroke-width="2" fill="red"/>
+				<circle id="lscale"cx="250" cy="400" r="5" stroke="black"
+				stroke-width="2" fill="red"/>
+				<circle id="lrotate" cx="200" cy="400" r="5" stroke="black"
+				stroke-width="2" fill="green"/>
+				<circle id="lmove" cx="150" cy="400" r="5" stroke="black"
+				stroke-width="2" fill="red"/>
+				
+				<circle id="moverotate"cx="300" cy="200" r="5" stroke="black"
+				stroke-width="2" fill="red"/>
+				<circle id="scale"cx="250" cy="200" r="5" stroke="black"
+				stroke-width="2" fill="red"/>
+				<circle id="rotate" cx="200" cy="200" r="5" stroke="black"
+				stroke-width="2" fill="green"/>
+				<circle id="move" cx="150" cy="200" r="5" stroke="black"
+				stroke-width="2" fill="red"/>
+				
+				
+				<circle id="trotate" cx="500" cy="500" r="5" stroke="black"
+				stroke-width="2" fill="yellow"/>
+				
+				
+		</svg> 
+    </div>    
+</body>    
+</html>    

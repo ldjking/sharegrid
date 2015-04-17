@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>库存管理</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">库存详细信息</div>
+    <div class="tab hide"  	id="tab_add">新增库存</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script> 
+<script type="text/javascript" src="../../release/ui.js"></script> 
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script> 
+<script type="text/javascript">
+	window.onload=init;	
+	var grid		=$("#c1");
+	var editForm	=$("#c2");
+	var tabList		=$("#tab_list");
+	var tabEdit		=$("#tab_edit");
+	function e_cmdAddItem_handler(target){
+		//msg(target.cmd.cmd+"用户自定义事件");
+	}
+	function fn_showNext(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showPre(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showList(evt){
+		genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	function fn_showEditForm(evt){
+		activeTab(tabEdit);
+	}
+	
+	function fn_hideAddForm(evt){
+		//cssReplace(tabAdd,"active","hide");
+		activeTab(tabList);
+	}
+	
+	function tabChange(target,p){
+		if(p==1){
+			refreshEditForm();
+		}
+	}
+	function refreshAddForm(){
+		genFormCmd(addForm);
+		genFormContent(addForm);
+	}
+	function refreshEditForm(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.data==obj){return;}
+		else{
+			//editForm.formCfg.param={c2_id:"1554"};
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+			//;//out(obj.rownum);
+			cssRm(preCmd,"gray");
+			cssRm(nextCmd,"gray");
+			if(obj.rownum==1){
+				cssAdd(preCmd,"gray");
+			}
+			else if(obj.rownum==cfg.totalNum){
+				cssAdd(nextCmd,"gray");
+			}
+			genFormContent(editForm);/*重绘内容*/
+		}
+	}
+	function init(){/*需要有一些自定义动画效果*/	
+		grid		=$("#c1");
+		editForm	=$("#c2");
+		tabList		=$("#tab_list");
+		tabEdit		=$("#tab_edit");
+		uiApp({dom:$("#app1"),fn:tabChange});
+		var grid=$("#c1");
+		var cfg={multiMode:0,toolbar:1,filterMode:0,data_method:"inventoryGets",
+				rmMethod:'storeRm',pageFlag:true,pageSize:5,pkAttr:"ag_storeid"};
+		cfg.columns=[	{text:"仓库编码",attr:"store_num",align:"center",width:100,frozen:1,type:"str",notEdit:0},
+						{text:"仓库描述",attr:"storedesp",align:"center",width:160,type:"str"},
+						{text:"物资编码",attr:"itemnum",align:"center",width:100,type:"str"},
+						{text:"物资描述",attr:"itemdesp",align:"center",width:160,type:"str"},
+						{text:"货柜号",attr:"binnum",align:"center",width:100,type:"str"},
+						{text:"货柜描述",attr:"bindesp",align:"center",width:100,type:"str"},
+						{text:"当前余量",attr:"curbal",align:"center",width:100,type:"str"}
+					];
+		cfg.cmds=[
+					{cmd:"cmdFilter",fn:e_cmdAddItem_handler},
+					{cmd:"cmdRefresh",fn:e_cmdAddItem_handler}
+				]
+		genGrid(grid,cfg);	
+		
+		var tables=[	{type:0,cells:[
+									{type:"text",attr:"ag_storeid",sidType:"store"}
+									]
+						},
+						{type:2,rows:6,cells:[
+								{type:"lbl",text:"仓库编码",width:120,align:"center",row:1},
+								{type:"txt",attr:"store_num",width:180,align:"left",row:1},/*txt代表单行元素*/
+								{type:"lbl",text:"仓库描述",width:120,align:"center",row:1},
+								{type:"txt",attr:"storedesp",width:180,align:"left",row:1},
+								{type:"lbl",text:"物资编码",width:120,align:"center",row:2},
+								{type:"txt",attr:"itemnum",width:180,align:"left",row:2},/*txt代表单行元素*/
+								{type:"lbl",text:"物资描述",width:120,align:"center",row:2},
+								{type:"txt",attr:"itemdesp",width:180,align:"left",row:2},
+								{type:"lbl",text:"规格型号",width:120,align:"center",row:3},
+								{type:"txt",attr:"models",width:180,align:"left",row:3},
+								{type:"lbl",text:"品牌厂家",width:120,align:"center",row:3},
+								{type:"txt",attr:"brand",width:180,align:"left",row:3},/*txt代表单行元素*/
+								{type:"lbl",text:"使用地点",width:120,align:"center",row:4},
+								{type:"txt",attr:"uses",width:180,align:"left",row:4},
+								{type:"lbl",text:"计量单位",width:120,align:"center",row:4},
+								{type:"txt",attr:"unit",width:180,align:"left",row:4},
+								{type:"lbl",text:"货柜号",width:120,align:"center",row:5},
+								{type:"txt",attr:"binnum",width:180,align:"left",row:5},
+								{type:"lbl",text:"当前余量",width:120,align:"center",row:5},
+								{type:"txt",attr:"curbal",width:180,align:"left",row:5},
+								{type:"lbl",text:"预留数量",width:120,align:"center",row:6},
+								{type:"txt",attr:"reservedqty",width:180,align:"left",row:6},
+								{type:"lbl",text:"可用数量",width:120,align:"center",row:6},
+								{type:"txt",attr:"usableqty",width:180,align:"left",row:6}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"库存余量",width:580,align:"left",left:20,row:1}
+							]
+						},
+						{type:3,rows:1,refAttr:{name:"ag_storeid",name2:"ag_storeid"},rmMethod:'binnum_zRm',updateMethod:"binnum_zUpdate",addMethod:"binnum_zAdd",dataMethod:"binnum_zGets",
+							columns:[
+								{type:"txt",attr:"binnum",name:"货柜号",width:120,align:"center"},
+								{type:"txt",attr:"lotnum",name:"批次",width:240,align:"center"},
+								{type:"txt",attr:"unitcost",name:"单价",width:120,align:"center"},
+								{type:"txt",attr:"curbal",name:"当前余量",width:120,align:"center"}
+							]
+						}
+				];
+		var cmds=[							
+			{cmd:"pre",fn:fn_showPre},
+			{cmd:"next",fn:fn_showNext},
+			{cmd:"cancel",fn:fn_hideAddForm}/*表示该操作按钮式定义在c0_state=1的对象上*/			
+		];
+		var cfg={title:"物资详细信息",formType:"update",dataMethod:"inventoryGet"};
+		cfg.tables=tables;
+		cfg.cmds=cmds;
+		genForm(editForm,cfg);
+		
+	}
+</script>
+</body>
+</html>

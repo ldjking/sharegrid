@@ -1,0 +1,296 @@
+body {
+	background-color: #d6d6d6;
+}
+.dwMain {
+	position: absolute;
+	top: 0px;
+	left: 1px;
+	right: 260px;
+	background-color: #333;
+	bottom: 1px;
+	z-index: 30;
+	border: 1px solid #333333;
+	display: none;
+}
+.dwIndex {
+	position: absolute;
+	top: 0px;
+	left: 1px;
+	right: 260px;
+	background-color: #7f7f7f;
+	bottom: 1px;
+	z-index: 10;
+	border: 1px solid #333333;
+	background-image: url(../../../images/dw/dw_index.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.pageTabs {
+	background-color: #8a8a8a;
+	height: 22px;
+	line-height: 22px;
+	font-size: 12px;
+	color: #000;
+	background-image: url(../../../images/dw/hline.png);
+	background-repeat: repeat-x;
+	background-position: bottom;
+}
+.pageTabs div{
+	background-color: #939393;
+	height: 22px;
+	line-height: 22px;
+	padding-left: 10px;
+	padding-right: 10px;
+	float: left;
+	border-right: 1px solid #555;
+	cursor: default;
+	background-repeat: repeat-x;
+	background-position: right bottom;
+	background-image: url(../../../images/dw/hline.png);
+	display: table-cell;
+	vertical-align: middle;
+}
+.pageTabs div .close{
+	display: inline-block;
+	margin-left: 6px;
+	width: 12px;
+	background-image: url(../../../images/dw/page_close.png);
+	background-repeat: no-repeat;
+	height: 12px;
+	background-position: center center;
+	opacity: 0.5;
+}
+.pageTabs div .close:hover{
+	display: inline-block;
+	margin-left: 6px;
+	width: 12px;
+	background-image: url(../../../images/dw/page_close_hover.png);
+	background-repeat: no-repeat;
+	height: 12px;
+	background-position: center center;
+	opacity: 1;
+}
+.pageTabs div:hover{
+	background-color: #bbbbbb;
+
+}
+.pageTabs div.active{
+	background-color: #d6d6d6;
+	background-image: none;
+}
+.subPages {
+	background-color: #d6d6d6;
+	height: 24px;
+	line-height: 24px;
+	font-size: 12px;
+	border-bottom: 1px solid #a0a0a0;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+.subPages div{
+	background-color: transparent;
+	height: 16px;
+	line-height: 16px;
+	padding-left: 6px;
+	padding-right: 6px;
+	float: left;
+	border-right: 0px solid #666;
+	cursor: default;
+	margin-top: 5px;
+	margin-left: 4px;
+	margin-right: 4px;
+	position: relative;
+	z-index: 3;
+}
+.subPages div:hover{
+	background-color: #bbbbbb;
+		border-radius: 5px;
+
+}
+.subPages div.active{
+	background-color: #666;
+	color: #FFF;
+	border-radius: 5px;
+}
+.subPages .preview{
+	right: 6px;
+	position: absolute;
+	z-index: 6;
+	top: 2px;
+}
+.subPages .format{
+	right: 60px;
+	position: absolute;
+	z-index: 6;
+	top: 2px;
+}
+.editors {
+	background-color: #d6d6d6;
+	height: 621px;
+	line-height: 26px;
+	font-size: 12px;
+	border-top: 1px solid #ffffff;
+}
+.editors .editor{
+	height: 100%;
+	background-color: #FFF;
+	overflow: auto;
+	display: none;
+
+}
+.editors .editor.active{
+	display: block;
+
+}
+.editors .editorTable{
+	line-height: 16px;
+}
+.editors .editorTable pre{
+	line-height: 16px;
+	margin: 0;
+	padding: 0;
+}
+.editors .editorTable tr td:first-child{
+	background-color: #3399ff;
+	color: #FFF;
+
+}
+.editors td{
+	vertical-align: middle;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 20px;
+}
+.editors .c1{
+	background-color: #3399ff;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #FFF;
+}
+.editors .c2{
+	background-color: #FFFFFF;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.editors .w1{
+	text-align: right;
+	color: #FFFFFF;
+	min-width: 30px;
+}
+.editors .w2{
+	text-align: left;
+	color: #000099;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	outline: none;
+	overflow: hidden;
+	background-color: #FFF;
+	width: 1030px;
+	line-height: 20px;
+}
+.editors .text{
+	text-align: left;
+}
+.dwRight {
+	position: absolute;
+	top: 0px;
+	right: 1px;
+	background-color: #FFFFFF;
+	bottom: 1px;
+	z-index: 30;
+	width: 258px;
+	border: 1px solid #333333;
+	border-left:0px;
+	overflow: hidden;
+}
+
+.btn {
+	background-color:#F09;
+	border-radius:4px;
+	border:1px solid #7a7a7a;
+	font-size:12px;
+	display:inline-block;
+	height:18px;
+	line-height:18px;
+	text-decoration:none;
+	color:#000000;
+	padding:0 12px 0 12px;
+	background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+	background: -ms-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #fcfcfc 0%,#ebebeb 50%,#dddddd 51%,#cfcfcf 100%); /* W3C */
+	cursor: default;
+}
+.btn:hover {
+	background-color:#F09;
+	border-radius:4px;
+	border:1px solid #3c7fb1;
+	font-size:12px;
+	display:inline-block;
+	height:18px;
+	line-height:18px;
+	text-decoration:none;
+	color:#000000;
+	padding:0 12px 0 12px;
+	background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+	background: -ms-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #fafdfe 0%,#d9f0fc 50%,#bee6fd 51%,#a7d9f5 100%); /* W3C */
+}
+.rightTop {
+	border-bottom: 1px solid #000000;
+	height: 11px;
+	background-image: url(../../../images/dw/right_top_bg.png);
+	background-repeat: repeat-x;
+	background-position: center center;
+}
+.rightHide {
+	height: 11px;
+	background-image: url(../../../images/dw/right_hide_btn.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 13px;
+	float: right;
+}
+.rightContent {
+
+}
+
+.files {
+}
+.files_cmd {
+	background-color: #d6d6d6;
+	height: 34px;
+	line-height: 34px;
+	background-image: url(../../../images/dw/file_cmd_bg.png);
+	background-repeat: no-repeat;
+	background-position: 12px bottom;
+	border-bottom: 1px solid #333;
+
+}
+.files_content {
+	background-color: #FFF;
+	height: 614px;
+	overflow: auto;
+	width: 100%;
+}
+.tree  .tag > .icon {
+	background-image: url(../../../images/tree/1.0/file.png);
+
+}
+.tree  .xml> .tag >.icon{
+	background-image: url(../../../images/tree/1.0/file.png);
+
+}
+.tree  .css> .tag >.icon{
+	background-image: url(../../../images/tree/1.0/file.png);
+
+}
+.tree  .js> .tag >.icon{
+	background-image: url(../../../images/tree/1.0/file.png);
+
+}

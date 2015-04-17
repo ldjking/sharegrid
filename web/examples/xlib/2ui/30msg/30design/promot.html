@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="../../../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../../src/css/71button.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../../src/css/81msg.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../../release/bootstrap/css/font-awesome.css"/>
+</head>
+
+<body>
+<div style="z-index:20; color:#FF0000">我在私募生存的十二年</div>
+<div id="msgMask"> </div>
+<table class="msg" id="msgContainer">
+  <tr>
+    <td><div id="msgDialog">
+        <div id="msgTop">
+          <div id="msgTitle">输入对话框</div>
+          <div id="msgClose">&#xf00d;</div>
+        </div>
+        <div id="msgMain" class="wfform">
+          <table cellpadding="0" cellspacing="0">
+            <tr>
+              <td class="td1">下一环节</td>
+              <td class="td2"><div class="node"><span>
+                  <input type="radio" value="checked" name="wf_next_node"/><label>总经理审批</label>
+                  </span><span>
+                  <input type="radio" value="checked" name="wf_next_node"/><label>技术条款审核</label>
+                  </span><span>
+                  <input type="radio" value="checked" name="wf_next_node"/><label>商务条款审核</label>
+                  </span></div></td>
+            </tr>
+            <tr>
+              <td class="td1">下一环节处理人</td>
+              <td class="td2"><div class="person">
+                <span>
+                <input type="checkbox" value="checked" name="wf_next_person"/><label>陈旭</label>
+                </span><span>
+                <input type="checkbox" value="checked" name="wf_next_person"/><label>刘晓青</label>
+                </span><span>
+                <input type="checkbox" value="checked" name="wf_next_person"/><label>顾伟</label>
+                </span><span>
+                <input type="checkbox" value="checked" name="wf_next_person"/><label>谭业贵</label>
+                </span></td>
+            </tr>
+            <tr>
+              <td class="td1">处理意见</td>
+              <td class="td2"><textarea name="wf_comment" class="comment"></textarea></td>
+            </tr>
+          </table>
+        </div>
+        <div id="msgFoot">
+          <button  class="button blue" id="msg_ok">确认</button>
+          <button class="button gray" id="msg_cancel">取消</button>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

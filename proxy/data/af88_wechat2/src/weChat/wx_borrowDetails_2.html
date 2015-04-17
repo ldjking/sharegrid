@@ -1,0 +1,79 @@
+<!--jsp--<%@ page language="java" pageEncoding="UTF-8"%>-->
+<!--jsp--<%@include file="/include/taglib.jsp"%>-->
+<!documentTYPE html>
+<html>
+<head>
+<title>小牛在线</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="css/wx_common.css">
+<link rel="stylesheet" type="text/css" href="css/wx_detail.css">
+<link rel="stylesheet" type="text/css" href="css/dialog.css">
+</head>
+<body>
+<div class='wx_top'> <a class="wx_top_logo" href="index.do"> </a> <span class="wx_top_gap"></span> <span class='wx_top_title'>我要投资</span> <span class="wx_top_balance">
+  <p>可用余额</p>
+  <p><em>2000.00元</em></p>
+  </span>
+</div>
+<input type="hidden" id="idStr" value="3110" />
+<div class="wx_detail">
+	<form id="form" action="wx_ainvest.do" target="_self">
+    <input type="hidden" name="paramMap.repayDate"value="" />
+    <input type="hidden" name="paramMap.borrowWay"value="5" />
+    <input type="hidden" name="paramMap.id" value="3110" />
+    <input type="hidden" name="paramMap.borrowTitle" value="安居宝D20141202-565" />
+    <input type="hidden" name="paramMap.accrualTime" value="" />
+    <input type="hidden" id="typeCode" value="0" />
+    <input type="hidden" name="paramMap.minTenderedSum" value="100.00" />
+    <ul class="wx_detail_info">
+        <li class="wx_detail_title"><strong>安居宝D20141106-449</strong></li>
+        <li>
+          <p><span><em>11.1-15.5</em>%</span><span>6个月</span><span>2,000,000元</span><span>一次性还款</span></p>
+        </li>
+        <li class="wx_flex_btw"><span>保障方式：<i>本息 + 利息</i></span><span>成立日期：<i>2014-08-19</i></span></li>
+        <li><span>发布时间：<i>2014-12-03 15:00:00</i></span></li>
+        <li><span>加入人数：<i>17人</i></span></li>
+        <li class="wx_flex_btw"><span>到期时间：<i>2014-08-19</i></span><span>加入人数：<i>17人</i></span></li>
+        <li><div class="wx_progress"><span style="width:30%"></span></div></li>
+        <li class="wx_flex_btw"><span>项目进度<strong>30<i>%</i></strong></span><span class="wx_detail_account">剩余金额<em>185,890.00</em>元</span></li>
+        <li class="wx_detail_invest">
+      <div class="wx_detail_btn"><input type="tel" id="amount" value="" class="input_text" placeholder="100元起投" /><label>元</label><p><a href="javascript:void(0);" class="wx_btn_org" id="wx_BtnInvest">立即投资</a></p></div>
+       <div class="wx_tip" style="display:none"></div>
+        </li>
+		<!--已经满额-->        
+        <li class="wx_detail_complete">
+            已满额
+            <span><i>成功交易时间：</i><br/>2014-08-18 12:56:35</span>
+    	</li>
+        <!--end 已经满额-->
+        <!--收益中-->
+        <li class="wx_detail_complete">
+            收益中
+            <span><i>累计收益：</i><br/>12,000,000&nbsp;元</span>
+        </li>
+        <!--end 收益中-->
+    </ul>
+    <input type="hidden" name="struts.token.name" value="token" />
+    <input type="hidden" name="token" value="NTYZOK67V611NSG8FX5WVJV2WVKZK0GC" />
+    </form>
+  <div class="wx_list_tab"> <a href="/weChat/borrowDetails.do?id=3045"><span>产品详情</span></a><a href="/weChat/borrowDetails_2.do" class="select"><span>交易记录</span></a> </div>
+  <div class="wx_trade_record">
+  	<ul>
+    	<li><strong>共26笔</strong></li>
+        <li>s****0<span><i>5,405.00</i>元<br/>2014-11-13 16:07:33</span></li>
+    </ul>
+  </div>
+  
+</div>
+<div class="foot">
+  <div class="foot_nav_list"> <span class="foot_nav"><a href="http://www.xiaoniu88.com/weChat/index.do" class="foot_nav nav_index">首页</a></span> <span class="foot_nav"><a href="http://www.xiaoniu88.com/weChat/financeTendering.do" class="foot_nav nav_invest nav_invest_cur">我要投资</a></span> <span class="foot_nav"><a href="http://www.xiaoniu88.com/weChat/wx_accountIndex.do" class="foot_nav nav_account">我的账户</a></span> <span class="foot_nav"><a href="http://www.xiaoniu88.com/weChat/company-profile.jsp" class="foot_nav nav_about">关于小牛</a></span> </div>
+</div>
+<script type="text/javascript" src="js/lib/zepto.min.js"></script> 
+<script type="text/javascript" src="js/lib/pwd/security.js?v=0.0.1"></script>
+<script type="text/javascript" src="js/wx_detail.js"></script>
+</body>
+</html>

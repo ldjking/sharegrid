@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>仓库管理</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">修改仓库</div>
+    <div class="tab hide"  	id="tab_add">新增仓库</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script> 
+<script type="text/javascript" src="../../release/ui.js"></script> 
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script> 
+<script type="text/javascript">
+	window.onload=init;	
+	var grid		=$("#c1");
+	var editForm	=$("#c2");
+	var addForm		=$("#c3");
+	var tabList		=$("#tab_list");
+	var tabEdit		=$("#tab_edit");
+	var tabAdd		=$("#tab_add");
+	function e_cmdAddItem_handler(target){
+		//msg(target.cmd.cmd+"用户自定义事件");
+	}
+	function fn_showNext(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showPre(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showList(evt){
+		genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	function fn_showEditForm(evt){
+		activeTab(tabEdit);
+	}
+	function fn_showAddForm(evt){/*要把新增表单显示出来*/
+	////out("showAddForm");
+		activeTab(tabAdd);
+	}
+	function fn_hideAddForm(evt){
+		cssReplace(tabAdd,"active","hide");
+		activeTab(tabList);
+	}
+	function fn_updateStatus(evt){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(obj.status=='0'){
+			obj.status="1";
+			var result=$$("itemnumGetByType",{type_code:obj.type_code});
+			if(result.flag){
+				obj.itemnum=obj.type_code+"-"+result.data.num;
+				obj.tm_stopitem=dt2Str(1);
+				result=$$("itemUpdate",obj);
+				//out("result:",result);
+				if(result.flag){
+					genGridContent(grid);/*重绘内容*/
+				}
+			}
+		}else{
+			var activeButton=$("#"+cfg.id+"_active");
+			cssAdd(activeButton,"gray");
+		}
+	}
+	function fn_disabledStatus(evt){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		obj.status="2";
+		obj.tm_stopitem=dt2Str(1);
+		var result=$$("itemUpdate",obj);
+		if(result.flag){
+			genGridContent(grid);/*重绘内容*/
+		}
+	}
+	function tabChange(target,p){
+		if(p==1){
+			refreshEditForm();
+		}
+		else if(p==2){
+			refreshAddForm();
+		}
+	}
+	
+	function refreshAddForm(){
+		genFormCmd(addForm);
+		genFormContent(addForm);
+	}
+	function refreshEditForm(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.data==obj){return;}
+		else{
+			//editForm.formCfg.param={c2_id:"1554"};
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+			//;//out(obj.rownum);
+			cssRm(preCmd,"gray");
+			cssRm(nextCmd,"gray");
+			if(obj.rownum==1){
+				cssAdd(preCmd,"gray");
+			}
+			else if(obj.rownum==cfg.totalNum){
+				cssAdd(nextCmd,"gray");
+			}
+			genFormContent(editForm);/*重绘内容*/
+		}
+	}
+	function init(){/*需要有一些自定义动画效果*/	
+		grid		=$("#c1");
+		editForm	=$("#c2");
+		addForm		=$("#c3");
+		tabList		=$("#tab_list");
+		tabEdit		=$("#tab_edit");
+		tabAdd		=$("#tab_add");
+		uiApp({dom:$("#app1"),fn:tabChange});
+		var grid=$("#c1");
+		var cfg={multiMode:0,toolbar:1,filterMode:0,data_method:"storeGets",
+				rmMethod:'storeRm',pageFlag:true,pageSize:5,pkAttr:"ag_storeid"};
+		cfg.columns=[	{text:"仓库编码",attr:"storenum",align:"center",width:120,frozen:1,type:"str",notEdit:0},
+						{text:"仓库描述",attr:"description",align:"center",frozen:0,width:260,type:"str"},
+						{text:"序号",attr:"stepnum",align:"center",width:60,type:"str",notEdit:1},
+						{text:"电话",attr:"site",align:"center",width:100,type:"str"},
+						{text:"公司",attr:"org",align:"center",width:260,type:"str"}
+					];
+		cfg.cmds=[
+					{cmd:"cmdAdd"	,fn:fn_showAddForm},
+					{cmd:"cmdEdit"	,fn:fn_showEditForm},
+					{cmd:"active",text:"启用",fn:fn_updateStatus},
+					{cmd:"disabled",text:"停用",fn:fn_disabledStatus},
+					{cmd:"cmdDelete",fn:e_cmdAddItem_handler},
+					{cmd:"cmdFilter",fn:e_cmdAddItem_handler},
+					{cmd:"cmdRefresh",fn:e_cmdAddItem_handler}
+				]
+		genGrid(grid,cfg);	
+		
+		var tables=[	{type:0,cells:[
+									{type:"text",attr:"ag_storeid",sidType:"store"}
+									]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"仓库编码",width:80,align:"center",row:1},
+								{type:"txt",attr:"storenum",width:120,align:"left",row:1},/*txt代表单行元素*/
+								{type:"lbl",text:"仓库描述",width:80,align:"center",row:1},
+								{type:"txt",attr:"description",width:320,align:"left",row:1}
+							]
+						},{type:2,rows:1,cells:[
+								{type:"lbl",text:"电话",width:80,align:"center",row:1},
+								{type:"txt",attr:"site",width:120,align:"left",row:1},
+								{type:"lbl",text:"公司",width:80,align:"center",row:1},
+								{type:"txt",attr:"org",width:180,align:"left",row:1},
+								{type:"lbl",text:"序号",width:60,align:"center",row:1},
+								{type:"txt",attr:"stepnum",width:80,align:"left",row:1}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"货柜子表",width:580,align:"left",left:20,row:1}
+							]
+						},
+						{type:3,rows:1,refAttr:[{name:"ag_storeid"}],rmMethod:'binnum_zRm',updateMethod:"binnum_zUpdate",addMethod:"binnum_zAdd",dataMethod:"binnum_zGets",
+							columns:[
+								{type:"txt",attr:"binnum",name:"货柜号",width:120,align:"center"},
+								{type:"txt",attr:"description",name:"描述",width:480,align:"center"}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"仓库管理员",width:580,align:"left",left:20,row:1}
+							]
+						},
+						{type:3,rows:1,refAttr:[{name:"ag_storeid"}],rmMethod:'storeadm_zRm',updateMethod:"storeadm_zUpdate",addMethod:"storeadm_zAdd",dataMethod:"storeadm_zGets",
+							columns:[
+								{type:"txt",attr:"per_storeadm",name:"仓库管理员",width:100,align:"center"},
+								{type:"txt",attr:"site",name:"地点",width:120,align:"center"},
+								{type:"txt",attr:"org",name:"公司",width:120,align:"center"},
+								{type:"txt",attr:"remark",name:"备注",width:260,align:"center"}
+							]
+						}
+				];
+		var cmds=[
+			{cmd:"addItem"},
+			{cmd:"rmItem"},
+			{cmd:"update",fn:fn_showList},
+			/*表示该操作按钮式定te=1的对象上*/								
+			{cmd:"pre",fn:fn_showPre},
+			{cmd:"next",fn:fn_showNext}
+		];
+		var cfg={title:"物资详细信息",updateMethod:"storeUpdate",formType:"update",dataMethod:"storeGet"};
+		cfg.tables=tables;
+		cfg.cmds=cmds;
+		genForm(editForm,cfg);
+		var tables2=[	
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"仓库编码",width:80,align:"center",row:1},
+								{type:"txt",attr:"storenum",width:120,align:"left",row:1},/*txt代表单行元素*/
+								{type:"lbl",text:"仓库描述",width:80,align:"center",row:1},
+								{type:"txt",attr:"description",width:320,align:"left",row:1}
+							]
+						},{type:2,rows:1,cells:[
+								{type:"lbl",text:"电话",width:80,align:"center",row:1},
+								{type:"txt",attr:"site",width:120,align:"left",row:1},
+								{type:"lbl",text:"公司",width:80,align:"center",row:1},
+								{type:"txt",attr:"org",width:180,align:"left",row:1},
+								{type:"lbl",text:"序号",width:60,align:"center",row:1},
+								{type:"txt",attr:"stepnum",width:80,align:"left",row:1}
+							]
+						}
+				];
+		var cmds2=[
+			{cmd:"save",fn:fn_showList},
+			{cmd:"cancel",fn:fn_hideAddForm}/*表示该操作按钮式定义在c0_state=1的对象上*/								
+		];
+		var cfg2={title:"新增仓库",type:"add",addMethod:"storeAdd"};
+		cfg2.tables=tables2;
+		cfg2.cmds=cmds2;
+		genForm(addForm,cfg2);
+	}
+</script>
+</body>
+</html>

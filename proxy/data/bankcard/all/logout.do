@@ -1,0 +1,1 @@
+<script>parent.location.href='/index.jsp';</script>

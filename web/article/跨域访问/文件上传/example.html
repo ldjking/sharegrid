@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link rel="stylesheet" type="text/css" href="../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../src/css/23form.css"/>
+
+</head>
+<body>
+  <div id="content" style=" background-color:#FF0000; position:absolute; z-index:20">
+  </div>
+  <iframe src="../../../examples/xlib/4form/44hint/test.html" id="jUploadFrame" name="jUploadFrame"></iframe>
+<script type="text/javascript" src="../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../src/2ui/21body.js"></script> 
+<script type="text/javascript" src="../../../src/2ui/22layout.js"></script> 
+<script type="text/javascript" src="../../../src/2ui/23spliter.js"></script>
+<script type="text/javascript" src="../../../src/2ui/25panel.js"></script> 
+<script type="text/javascript" src="../../../src/2ui/26table.js"></script> 
+<script type="text/javascript" src="../../../src/4form/41form.js"></script>
+<script type="text/javascript" src="../../../src/4form/42cmd.js"></script> 
+<script type="text/javascript" src="../../../src/4form/43content.js"></script>
+<script type="text/javascript" src="../../../src/4form/44attr.js"></script>
+<script type="text/javascript" src="../../../src/2ui/27lov.js"></script>
+<script type="text/javascript" src="../../../src/2ui/28calendar.js"></script>
+<script type="text/javascript" src="../../../release/lovdef.js"></script> 
+<script type="text/javascript">
+	//window.require([""],init);
+	var onmessage = function(e) {    
+	  var data = e.data;    
+	  var origin = e.origin;    
+	  alert("接收数据"+data);
+	  //document.getElementById('c2').innerHTML = "内页接受信息"+data;    
+	};    
+  
+	if (typeof window.addEventListener != 'undefined') {    
+	  window.addEventListener('message', onmessage, false);    
+	} else if (typeof window.attachEvent != 'undefined') {    
+	  window.attachEvent('onmessage', onmessage);    
+	}   
+	
+	var fn_save=function(){
+		msg("保存成功！");
+	}
+	window.onload=init;
+	function init(){/*需要有一些自定义动画效果*/
+		var content=$("#content");
+		//var conditions=$("#conditions");
+		
+		/*布局的配置  target  参照物  容器一定要有准确的高度 */
+		/*100行才能把一个表单定义清楚，很不方便  能不能用更短的把表单定义清楚*/
+		uiLayout({dom:content,container:document.body,dx:0,dy:0,xdoms:[]});	
+		/*form是由table组成 table有3种类别 1 单行 2 固定多行  3 不固定多行*/
+		/*表单是靠绘制出来，然后设置一些标准化的属性*/
+		//uiForm({dom:form});/*这样一个form的事件就标准化了，比如值列表的出现，校验的出现*/
+		
+		/*grid是由conf columns datas组成*/
+		/*form是由conf talbes  data组成  tables是由cells组成*/	  /*宽度就按600定 以后移动要更短*/
+		var tables=[	{type:2,rows:1,cells:[
+								{type:"lbl",text:"姓名",width:80,align:"left",row:1},
+								{type:"txt",attr:"name",width:120,align:"left",row:1,hint:"数字必填",dt:"num",minval:1,maxval:100},/*txt代表单行元素*/
+								{type:"lbl",text:"性别",width:80,align:"center",row:1},
+								{type:"lov",attr:"sex",lov:"sex",width:120,align:"center",row:1,disable:1,hint:"必填"},
+								{type:"lbl",text:"出生日期",width:80,align:"left",row:1},
+								{type:"lov",attr:"birthday",lov:"date",width:120,align:"center",row:1,disable:1,hint:"必填"}
+							]
+						},
+						{type:2,rows:3,cells:[
+								{type:"lbl",text:"姓名1",width:120,align:"left",row:1},
+								{type:"txt",attr:"name1",width:120,align:"left",row:1,disable:0,hint:"必填",dt:"str",minlen:6,maxlen:8},/*txt代表单行元素*/
+								{type:"lbl",text:"性别1",width:100,align:"left",row:1},
+								{type:"lov",attr:"sex1",lov:"sex",width:120,align:"center",row:1},
+								{type:"img",attr:"photo",text:"个人照片",width:140,align:"left",rowspan:3,row:1,uploadurl:"http://10.68.105.166/eam/upload"},
+								{type:"lbl",text:"学历",width:120,align:"left",row:2},
+								{type:"txt",attr:"name2",width:120,align:"left",row:2},/*txt代表单行元素*/
+								{type:"lbl",text:"政治面貌",width:100,align:"left",row:2},
+								{type:"lov",attr:"sex2",lov:"sex",width:120,align:"center",row:2},
+								{type:"lbl",text:"家庭住址",width:120,align:"left",row:3},
+								{type:"txt",attr:"name3",attr2:"name3_2",width:320,align:"left",colspan:3,row:3}
+							]
+						},
+						{type:3,rows:3,columns:[
+								{type:"lov",attr:"start_time",name:"开始时间",lov:"sex",width:80,align:"center"},
+								{type:"lov",attr:"end_time",name:"结束时间",lov:"date",width:120,align:"center"},/*txt单行*/
+								{type:"lov",attr:"company",name:"单位部门",lov:"stuff",width:80,align:"center"},
+								{type:"txt",attr:"title",name:"职务",width:120,align:"left"},
+								{type:"txt",attr:"des",name:"主要业绩",width:200,align:"left"}
+							]
+						}
+					];
+		var cmds=[{cmd:"save",fn:fn_save}];
+		var cfg={title:"新增员工表单",type:"add",fn:genFormBack};
+		cfg.tables=tables;
+		cfg.cmds=cmds;
+		//cfg.param="";
+		cfg.data={name3:"abc",name3_2:"name2"};
+		genForm($("#content"),cfg);
+		genFormBack($("#content"));
+	}
+	
+	function genFormBack(form){
+		enableFormAttr(form,["sex","sex2","birthday"]);
+		//disableFormAttr(form,["sex","sex2"]);
+
+		//disableFormAttr(form,["sex","sex2"]);
+	}
+</script>
+</body>
+</html>

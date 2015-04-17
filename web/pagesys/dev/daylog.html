@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>每日工作日志</title>
+<link href="../../release/css/all.css" rel="stylesheet" type="text/css" />
+<link href="../../src/css/29tree.css" rel="stylesheet" type="text/css" />
+<link href="../../release/css/chm.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="chm">
+  <div id="dwIndex" class="dwIndex">
+    <table cellpadding="0" cellspacing="0">
+      <tr>
+        <td><div class="indexContent">
+            <div class="top">
+              <div class="product_name">Daily Work Plan</div>
+              <div class="product_name2">每日工作计划</div>
+            </div>
+            <div class="center">
+              <div class="center_left">
+                <div class="guide">- 每日工作计划</div>
+                <div class="guide_item">人员</div>
+                <div class="guide_item">年月周</div>
+                <div class="guide_item">日工作计划安排</div>
+                <div class="guide_item">自定义事件</div>
+                <div class="guide_item">运行调试</div>
+                <div class="guide">+ 任务安排</div>
+                <div class="guide">+ 使用帮助</div>
+                <div class="guide">+ 联系我们</div>
+              </div>
+              <div class="center_right">
+                <div class="guide_content">每日工作计划安排由导航栏加内容组成，其中导航栏位于右侧，内容位于左侧，导航栏共分四个级别第一级是人员，第二级是年，第三级是月，第四级是天。</div>
+              </div>
+            </div>
+            <div class="foot">三峡高科信息技术有限责任公司 版权所有</div>
+          </div></td>
+      </tr>
+    </table>
+  </div>
+  <div class="content" id="editForm"> </div>
+  <div class="nav" id="nav">
+    <div class="top"><!--用户收缩-->
+      <div class="title">每日工作计划</div>
+    </div>
+    <div class="rightContent tabContent">
+      <div class="tab active forms">
+        <div class="forms_list" id="list"> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script> 
+<script type="text/javascript" src="../../release/ui.js"></script> 
+<script type="text/javascript" src="../../release/form.js"></script> 
+<script type="text/javascript" src="../../release/tree.js"></script> 
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+	window.onload=init;
+	function init(){/*初始化生成导航树  最近10日工作计划  呈现倒序排序*/
+		var dom=$("#list");
+		uiLayout({dom:$("#list"),container:document.body,dy:48});
+		uiLayout({dom:$("#editForm"),container:document.body,dx:263,dy:0});
+
+		var cfg={clickHandler:fn_tree_click,dblHandler:fn_tree_dbl,exclusive:1,formatFlag:1,openAll:0,
+				idAttr:"",pidAttr:"",nameAttr:"name",allowDrag:0,allowEdit:1};
+		/*排他设置exclusive  formatFlag是否需要格式化数据	idAttr主键	pidAttr父键	nameAttr名称属性*/
+		/*需要人为构造数据*/
+		var result=$$("daylogGets4");
+		out("result",result);/*利用服务器数据构造成树状结构*/
+		if(result.flag){
+			var data=result.data;
+			cfg.data=[];
+			var persons=[];
+		}
+		else{
+			cfg.data=[
+					{id:11,name:"刘东杰",pid:1,type:"folder"},
+					{id:12,name:"王智华",pid:1,type:"folder"},
+					{id:13,name:"张进",pid:1,type:"folder"},
+					{id:14,name:"陈赟",pid:1,type:"folder"},
+					
+					//{id:22,name:"2013年",pid:11,type:"folder"},
+					//{id:221,name:"4月",pid:22,type:"folder"},
+					{id:2211,name:"4月3日",pid:11,type:"file"},
+					{id:2212,name:"4月2日",pid:11,type:"file"},
+					{id:2213,name:"4月1日",pid:11,type:"file"},
+	
+					//{id:21,name:"2012年",pid:11,type:"folder"},
+					{id:2211,name:"4月3日",pid:12,type:"file"},
+					{id:2212,name:"4月2日",pid:12,type:"file"},
+					{id:2213,name:"4月1日",pid:12,type:"file"},
+					{id:2211,name:"3月31日",pid:12,type:"file"},
+					{id:2212,name:"4月2日",pid:13,type:"file"},
+					{id:2213,name:"4月1日",pid:13,type:"file"},
+				
+					];
+		}
+		cfg.cmds=[	{cmd:"nodeOpen"},
+					{cmd:"nodeClose"},
+					{cmd:"nodeRefresh"},
+					{cmd:"nodeAdd",fn:fn_tree_add},
+					{cmd:"nodeEdit"},
+					{cmd:"nodeRm"}
+				 ];
+		var formCfg=[
+					];/*表单的配置，包含各个属性  相当于是目录的管理*/
+		cfg.map={	folder:{},/*对于类型是folder的对象  使用的表单  
+								和下属节点允许新增的元素类型  这套体系太复杂  适用于使用较复杂的对象  简单的场景下不应该这样*/
+					id:{name:"主键",hide:0,num:1},/*树的编辑器映射  应该说是比较复杂的*/
+				  	pid:{name:"父键",hide:0,num:2},
+				 	name:{name:"名称",num:3},
+				 	type:{name:"类型",lov:"type",num:4},
+				 	rootFlag:{hide:1},
+				 	flag:{hide:1},
+				 	child:{hide:1}
+				};
+		
+		genTree(dom,cfg);
+		//$("#dwIndex").style.display="none";;
+	}
+	function genAddForm(){
+		var cfg={title:"新增工作日志",addMethod:"methodAdd",updateMethod:"methodUpdate",formType:"add"};
+		cfg.tables=[	{type:0,cells:[
+									{type:"text",attr:"c2_id",sidType:"method",valueMethod:""}/*隐藏字段的获取工作*/
+									]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"姓名",width:80,align:"center",row:1},
+								{type:"txt",attr:"c2_name",width:120,align:"left",row:1},/*txt代表单行元素*/
+								{type:"lbl",text:"日期",width:80,align:"center",row:1},
+								{type:"txt",attr:"c2_des",width:320,align:"left",row:1}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"工作细项",width:600,align:"left",row:1,padding:20}
+							]
+						},
+						{type:3,rows:3,refAttr:{name:"c2_name",name2:"c3_method"},addMethod:"paramAdd",
+							dataMethod:"paramGets",updateMethod:"paramUpdate",rmMethod:"paramRm",
+							columns:[
+								{type:"txt",attr:"c3_name",name:"序号",width:80,align:"center"},
+								{type:"txt",attr:"c3_type",name:"计划内容",width:420,align:"left"},/*txt单行*/
+								{type:"txt",attr:"c3_length",name:"完成情况",width:100,align:"left"}
+							]
+						}
+				];
+		
+		cfg.cmds=[
+			{cmd:"addItem"},
+			{cmd:"rmItem"},
+			{cmd:"update",stateAttr:"c0_state",stateValue:1}
+			/*表示该操作按钮式定te=1的对象上*/								
+		];
+		genForm($("#editForm"),cfg);
+		$("#dwIndex").style.display="none";;
+	}
+	
+	function fn_tree_add(tree){/**/
+		//out("add"); 打开一个新增表单 用于填写工作内容
+		genAddForm();
+	}
+	
+	
+	function fn_tree_click(sender,evt){
+		//out("tree fn");
+	}
+	function fn_tree_dbl(sender,evt){
+		//alert("tree fn dbl");
+	}
+	
+</script>
+</body>
+</html>

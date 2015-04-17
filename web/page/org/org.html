@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>组织机构管理</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="file:///D|/dev/myeclipsespace/31eam_v1/WebRoot/css/31grid.css"/>
+<link rel="stylesheet" type="text/css" href="file:///D|/dev/myeclipsespace/31eam_v1/WebRoot/css/32tree.css"/>
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">组织机构</div>
+    <div class="tab normal" id="tab_org">机构人员</div>
+    <div class="tab hide" id="tab_add">新增组织机构</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+    <div class="content normal"  id="c4"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+
+<script type="text/javascript" src="../../release/base.js"></script> 
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script> 
+<script type="text/javascript" src="../../release/form.js"></script> 
+<script type="text/javascript" src="../../release/lovdef.js"></script>
+<script type="text/javascript">
+(function(){	
+        var grid            =$("#c1");
+		var editForm	    =$("#c2");
+	    var addForm			=$("#c4");
+	    var orgPersonGrid	        =$("#c3");
+	    var tabList			=$("#tab_list");
+		var tabOrg          =$("#tab_org");
+		var tabEdit			=$("#tab_edit");
+		var tabAdd			=$("#tab_add");
+		
+		
+		var tabChange=function(target,p){
+		  if(p==0)		 fn_showList();
+		  else if(p==1)	 refreshEditForm();
+		  else if(p==2)	 refreshOrgPersonGrid();/*注册*/
+		  else if(p==3)	 refreshAddForm();/*注册*/
+	    }
+		
+		var fn_showList=function(evt){
+		       genGridContent(grid);/*要刷新内容*/
+		       activeTab(tabList);
+	     }
+		 
+		var fn_showNext=function(evt){
+		   selectGridRow(grid,1);
+		   refreshEditForm();/*重绘内容*/
+	    }
+	    var fn_showPre=function(evt){
+		  selectGridRow(grid,-1);
+		  refreshEditForm();/*重绘内容*/
+	    }
+	
+	var fn_showEditForm=function(evt){
+		activeTab(tabEdit);
+	}
+	
+	var fn_showAddForm=function(evt){/*要把新增表单显示出来*/
+		activeTab(tabAdd);
+		  
+	}
+		 
+   
+	var refreshEditForm =function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		
+		if(editForm.formCfg.param==obj)	return;
+		else{
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+			cssRm([preCmd,nextCmd],"gray");
+			if(obj.rownum==1)						cssAdd(preCmd,"gray");
+			else if(obj.rownum==cfg.totalNum)		cssAdd(nextCmd,"gray");
+			genFormContent(editForm);/*重绘内容*/
+		}
+	}
+	var refreshAddForm=function(){
+	      var obj=null;
+		  var cfg=grid.gridCfg;
+		  if(cfg.activeRow==null)			selectGridRow(grid,1);
+		  obj=cfg.activeRow.obj;
+		  ////out("obj",obj);
+		  addForm.formCfg.data={d1_parent_code:obj.d1_code,d1_pid:obj.d1_id,d1_parent_name:obj.d1_name};
+		  genFormContent(addForm);/*重绘内容*/
+	}
+	var refreshOrgPersonGrid=function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		////out("obj",obj);
+		if(orgPersonGrid.gridCfg.param==obj){return;}
+		else{
+			orgPersonGrid.gridCfg.param=obj;
+			genGridContent(orgPersonGrid);/*重绘内容*/
+		}
+	}
+		
+	function init(){/*需要有一些自定义动画效果*/	
+	    
+		uiApp({dom:$("#app1"),fn:tabChange});
+		uiLayout({dom:grid,container:document.body,dx:0,dy:0,xdoms:[]});
+		var cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"orgGets",
+			rmMethod:'orgRm',addMethod:"orgAdd",updateMethod:"orgUpdate",pageFlag:false,pageSize:6,pkAttr:"d1_id"};
+		cfg.treeCfg={idAttr:"d1_id",pidAttr:"d1_pid"};
+		var columns=[	
+						{text:"组织机构编码",attr:"d1_code",align:"left",width:120,frozen:1,type:"str",asc:1,treeStyle:1,autoWidth:1},
+						{text:"组织机构名称",attr:"d1_name",align:"left",width:260,frozen:1,type:"str",asc:1,treeStyle:1,autoWidth:1},
+						{text:"简称",attr:"d1_shortname",align:"left",type:"str",width:160,notEdit:1,asc:1},
+						{text:"类别",attr:"d1_type",align:"center",width:80,type:"str",asc:1},
+						{text:"类别222",attr:"d1_type",align:"center",width:80,type:"str",asc:1}
+
+					];
+			var cmds=[/*grid 默认有10个左右按钮*/
+					//{cmd:"cmdLock"},
+					{cmd:"cmdAdd",fn:fn_showAddForm},
+					{cmd:"cmdEdit",fn:fn_showEditForm},
+					{cmd:"cmdDelete"},
+				  	//{cmd:"cmdCommit"},
+				  	{cmd:"cmdFilter"},
+				  	{cmd:"cmdRefresh"}					
+				]
+		genGrid(cfg,columns,cmds,[]);	
+		
+		
+		
+		var tables=[	{type:0,cells:[{type:"text",attr:"d1_id"}]},/*type=0 代表隐藏*/
+						{type:0,cells:[{type:"text",attr:"d1_pid"}]},/*type=0 代表隐藏*/
+						{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"组织编码",width:80,align:"center",row:1},
+									{type:"txt",attr:"d1_code",width:120,align:"left",row:1},
+									{type:"lbl",text:"组织机构简称",width:80,align:"center",row:1},
+									{type:"txt",attr:"d1_shortname",width:120,align:"left",row:1},
+									{type:"lbl",text:"类型",width:80,align:"center",row:1},
+									{type:"txt",attr:"d1_type",width:120,align:"left",row:1,lov:'orgType'}]
+						},
+						{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"组织机构描述",width:80,align:"center",row:1},
+									{type:"txt",attr:"d1_name",width:520,align:"left",row:1}]
+						},
+						{type:2,rowNum:1,cells:[
+									{type:"lbl",text:"父级编码",width:80,align:"center",row:1},
+									{type:"txt",attr:"d1_parent_code",attr2:"d1_parent_code_2",width:120,align:"left",row:1},
+									{type:"lbl",text:"父级组织机构名称",width:120,align:"center",row:1},
+									{type:"txt",attr:"d1_parent_name",width:280,align:"left",row:1}]
+						}
+							
+					];
+		var cmds1=[
+					{cmd:"update",method:"orgUpdate"},/*表示该操作按钮式定te=1的对象上*/								
+					{cmd:"pre",fn:fn_showPre},
+					{cmd:"next",fn:fn_showNext}
+				];
+		var cfg1={dom:editForm,title:"组织机构信息",formType:"update",updateMethod:"orgUpdate",dataMethod:"orgGet"};
+		//genForm(cfg1,tables,cmds1);/*修改表单*/
+	
+	    cmds2=[
+					{cmd:"save",method:"orgAdd",fn:fn_showList},/*表示该操作按钮式定te=1的对象上*/								
+					{cmd:"cancel"}
+				];
+		  var cfg2={dom:addForm,title:"组织机构录入",formType:"add",addMethod:"orgAdd"};
+		  //genForm(cfg2,tables,cmds2);/*新增表单*/
+		}
+		
+		
+		var cfg4={dom:orgPersonGrid,multiMode:0,toolbar:1,filterMode:0,data_method:"orgPersonGets",
+			refAttr:{name:"d1_id",name2:"d3_org"},pkAttr:"d3_id",
+			rmMethod:'orgPersonRm',addMethod:"orgPersonAdd",updateMethod:"orgPersonUpdate",pageFlag:false,pageSize:10}
+		var columns4=[ 
+						//{text:"主键",attr:"d3_id",align:"left",width:80,frozen:1,type:"num",notEdit:1},
+						{text:"组织机构",attr:"org_name",align:"center",width:120,type:"str",notEdit:1},
+						{text:"人员",attr:"person_name",attr2:"d3_person",lov:"stuff",align:"center",frozen:0,type:"str"}
+					];
+		var cmds4=[
+					{cmd:"cmdLock"		},
+					{cmd:"cmdAddItem"	},
+					{cmd:"cmdRmItem"	},
+					{cmd:"cmdCommit"	},
+					{cmd:"cmdFilter"	},
+					{cmd:"cmdRefresh"	}
+				]
+		genGrid(cfg4,columns4,cmds4,[]);/*子对象*/
+		window.onload=init;
+})();
+</script>
+</body>
+</html>

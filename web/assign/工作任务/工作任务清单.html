@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工作安排模版</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../release/css/doc.css"/>
+</head>
+<body>
+<div class="container"  id="doc" style="background-color:#000" >
+<div class="doc scroll_content">
+  <div class="paper">
+    <div class="content" id="paperContent">
+      <div class="p1">第一章、功能模块</div>
+      <div class="p2">1. 运行模块</div>
+      <div class="p2">2. 设备模块</div>
+      <div class="p2">3. 物资模块</div>
+      <div class="p2">4. 工作流模块</div>
+      <div class="p1">第二章、运行模块</div>
+      <div class="p2">1. 对象构成</div>
+      <div class="z2"> 
+         <table cellpadding="0" cellspacing="0" border="0" class="t">
+          <tr class="thead">
+            <td width="119">应用</td>
+            <td width="315">应用构成</td>
+          </tr>
+          <tr>
+            <td rowspan="9">运行日志</td>
+            <td>值班日志【主表】</td>
+          </tr><tr>
+            <td>值班记录【子表】</td>
+          </tr><tr>
+            <td>开停机【子表】</td>
+          </tr>
+          <tr>
+            <td>调度指令【子表】</td>
+          </tr>
+          <tr>
+            <td>绝缘检测记录【子表】</td>
+          </tr>
+          <tr>
+            <td>有载调压分接开关记录【子表】</td>
+          </tr>
+          <tr>
+            <td>开关分合闸记录【子表】</td>
+          </tr>
+          <tr>
+            <td>继电保护及自动装置动作记录【子表】</td>
+          </tr>
+          <tr>
+            <td>巡检记录【子表】</td>
+          </tr><tr>
+            <td rowspan="2">钥匙管理</td>
+            <td>钥匙信息库</td>
+          </tr><tr>
+            <td>钥匙借用登记【主表】</td>
+          </tr>
+          <tr>
+            <td rowspan="2">定期工作</td>
+            <td>定期工作设置</td>
+          </tr>
+          <tr>
+            <td>定期工作</td>
+          </tr>
+          <tr>
+            <td rowspan="3">倒闸操作票</td>
+            <td><p align="center">电气倒闸操作前标准检查项目表 </p></td>
+          </tr>
+          <tr>
+            <td>电气倒闸操作票</td>
+          </tr>
+          <tr>
+            <td><p align="center">电气倒闸操作后应完成的工作项目表 </p></td>
+          </tr>
+          <tr>
+            <td>解锁钥匙管理</td>
+            <td>解锁钥匙管理</td>
+          </tr>
+          <tr>
+            <td>地线登记</td>
+            <td>地线登记</td>
+          </tr>
+          <tr>
+            <td>测温记录</td>
+            <td>测温记录</td>
+          </tr>
+          <tr>
+            <td>GIS室SF6气压巡检记录表</td>
+            <td>GIS室SF6气压巡检记录表主表</td>
+          </tr>
+          <tr>
+            <td>直流系统巡检记录表</td>
+            <td>直流系统巡检记录表</td>
+          </tr>
+          <tr>
+            <td>机组油位监视监测记录表</td>
+            <td>机组油位监视监测记录表</td>
+          </tr>
+          <tr>
+            <td>巡回检查记录管理</td>
+            <td>巡回检查记录表</td>
+          </tr>
+          <tr>
+            <td>消防设备检查记录管理</td>
+            <td>消防设备检查记录表</td>
+          </tr>
+          <tr>
+            <td>微机保护定期巡查记录</td>
+            <td>微机保护定期巡查记录表</td>
+          </tr>
+          <tr>
+            <td>柴油定期启动记录管理</td>
+            <td>柴油定期启动记录表</td>
+          </tr>
+          <tr>
+            <td>避雷器放电记录</td>
+            <td>避雷器放电记录</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+         </table>
+      </div>
+      <div class="p2">2. 表设计</div>
+      <div class="z2"> <table cellpadding="0" cellspacing="0" border="0" class="t">
+          <tr class="thead">
+            <td width="118">应用程序名</td>
+            <td width="240">对象名称</td>
+            <td width="253">表名</td>
+          </tr>
+          <tr>
+            <td rowspan="9">运行日志</td>
+            <td>运行日志主表</td>
+            <td><strong>AE_ONDUTY</strong></td>
+          </tr>
+          <tr>
+            <td>值班记录</td>
+            <td><strong>AE_DUTYACCOUNT_Z</strong></td>
+          </tr>
+          <tr>
+            <td>开停机</td>
+            <td><strong>AE_DUTYKTJ_Z</strong></td>
+          </tr>
+          <tr>
+            <td>调度指令</td>
+            <td><strong>AE_DUTYDD_Z</strong></td>
+          </tr>
+          <tr>
+            <td>设备绝缘检测记录</td>
+            <td><strong>AE_DUTYJYJC_Z</strong></td>
+          </tr>
+          <tr>
+            <td>有载调压分接开关操作记录</td>
+            <td><strong>AE_DUTYFJKG_Z</strong></td>
+          </tr>
+          <tr>
+            <td>开关分合闸记录薄</td>
+            <td><strong>AE_DUTYKGFH_Z</strong></td>
+          </tr>
+          <tr>
+            <td>继电保护及自动装置动作记录薄</td>
+            <td><strong>AE_DUTYBH_Z</strong></td>
+          </tr>
+          <tr>
+            <td>巡检记录薄</td>
+            <td><strong>AE_DUTYXJJL_Z</strong></td>
+          </tr>
+          <tr>
+            <td rowspan="3">钥匙管理</td>
+            <td>钥匙借用主表</td>
+            <td><strong>AE_DUTYKEY</strong></td>
+          </tr>
+          <tr>
+            <td>钥匙借用子表</td>
+            <td><strong>AE_DUTYKEY_Z</strong></td>
+          </tr>
+          <tr>
+            <td>钥匙库</td>
+            <td><strong>AE_DUTYKEYINFO</strong></td>
+          </tr>
+          <tr>
+            <td rowspan="2">定期工作</td>
+            <td>定期工作主表</td>
+            <td><strong>AE_REGJOB</strong></td>
+          </tr>
+          <tr>
+            <td>定期工作设置表</td>
+            <td><strong>AE_REGJOBSET</strong></td>
+          </tr>
+          <tr>
+            <td rowspan="4">电气倒闸操作</td>
+            <td>电气倒闸操作票</td>
+            <td><strong>AE_DZCZP</strong></td>
+          </tr>
+          <tr>
+            <td>倒闸操作票子项</td>
+            <td><strong>AE_DZCZITEM_Z</strong></td>
+          </tr>
+          <tr>
+            <td>电气倒闸操作检查项目表</td>
+            <td><strong>AE_DZCZCHECK</strong></td>
+          </tr>
+          <tr>
+            <td>电气倒闸操作检查项目子表</td>
+            <td><strong>AE_DZCZCHECK_Z</strong></td>
+          </tr>
+          <tr>
+            <td>解锁钥匙管理</td>
+            <td>解锁钥匙</td>
+            <td><strong>AE_JSKEY</strong></td>
+          </tr>
+          <tr>
+            <td>地线登记</td>
+            <td>地线地刀登记表</td>
+            <td><strong>AE_DUTYDX</strong></td>
+          </tr>
+          <tr>
+            <td>测温记录</td>
+            <td>测温记录</td>
+            <td><strong>AE_TESTWD</strong></td>
+          </tr>
+          <tr>
+            <td>GIS室SF6气压巡检记录表</td>
+            <td>GIS室SF6气压巡检记录表</td>
+            <td><strong>AE_GISSF6</strong></td>
+          </tr>
+          <tr>
+            <td>直流系统巡检记录表</td>
+            <td>直流系统巡检记录表</td>
+            <td><strong>AE_ZLXTCHECK</strong></td>
+          </tr>
+          <tr>
+            <td>机组油位监视监测记录表</td>
+            <td>机组油位监视监测记录表</td>
+            <td><strong>AE_YWCHECK</strong></td>
+          </tr>
+          <tr>
+            <td>巡回检查记录管理</td>
+            <td>巡回检查记录管理表</td>
+            <td><strong>AE_XHCHECK</strong></td>
+          </tr>
+          <tr>
+            <td>消防设备检查记录管理</td>
+            <td>消防设备检查记录管理表</td>
+            <td><strong>AE_XFCHECK</strong></td>
+          </tr>
+          <tr>
+            <td>微机保护定期巡查记录</td>
+            <td>微机保护定期巡查记录表</td>
+            <td><strong>AE_WJBHCHECK</strong></td>
+          </tr>
+          <tr>
+            <td>柴油定期启动记录</td>
+            <td>柴油定期启动记录表</td>
+            <td><strong>AE_CYDQCHECK</strong></td>
+          </tr>
+          <tr>
+            <td>避雷器放电记录</td>
+            <td>避雷器放电记录</td>
+            <td><strong>AE_BLQFDCHECK</strong></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr></table>
+      </div>
+       <div class="p2">3. 页面开发</div>
+      <div class="z2">  <table cellpadding="0" cellspacing="0" border="0" class="t">
+          <tr class="thead">
+            <td width="135">目录</td>
+            <td width="152">页面名称</td>
+            <td width="165">管理对象</td>
+            <td width="159">对应的表结构</td>
+          </tr>
+          <tr>
+            <td width="135" rowspan="4">page/duty/duty.html</td>
+            <td rowspan="4">运行日志</td>
+            <td>值班记录</td>
+            <td><strong>AE_ONDUTY，AE_DUTYACCOUNT_Z</strong></td>
+          </tr>
+          <tr>
+            <td>设备绝缘检测记录</td>
+            <td><strong>AE_DUTYJYJC_Z</strong></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>page/duty/ktj.html</td>
+            <td>开停机</td>
+            <td>开停机</td>
+            <td><strong>AE_DUTYKTJ_Z</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/ddzl.html</td>
+            <td>调度指令</td>
+            <td>调度指令</td>
+            <td><strong>AE_DUTYDD_Z</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/fjkg.html</td>
+            <td>有载调压分接开关操作记录</td>
+            <td>有载调压分接开关操作记录</td>
+            <td><strong>AE_DUTYFJKG_Z</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/kgfh.html</td>
+            <td>开关分合闸记录薄</td>
+            <td>开关分合闸记录薄</td>
+            <td><strong>AE_DUTYKGFH_Z</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/bh.html</td>
+            <td>继电保护及自动装置动作记录薄</td>
+            <td>继电保护及自动装置动作记录薄</td>
+            <td><strong>AE_DUTYBH_Z</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/xjjl.html</td>
+            <td>巡检记录薄</td>
+            <td>巡检记录薄</td>
+            <td><strong>AE_DUTYXJJL_Z</strong></td>
+          </tr>
+          <tr>
+            <td rowspan="3">page/duty/key.html</td>
+            <td rowspan="3">钥匙借用登记管理</td>
+            <td>钥匙借用登记记录</td>
+            <td><strong>AE_DUTYKEY，</strong><strong>AE_DUTYKEY_Z</strong></td>
+          </tr>
+          <tr>
+            <td>未归还的钥匙</td>
+            <td><strong>AE_DUTYKEY_Z</strong></td>
+          </tr>
+          <tr>
+            <td>钥匙库</td>
+            <td><strong>AE_DUTYKEYINFO</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/ regjob.html</td>
+            <td>定期工作设置</td>
+            <td>定期工作设置</td>
+            <td><strong>AE_REGJOBSET</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/dzczcheck_q.html</td>
+            <td>电气倒闸操作前标准检查项目表</td>
+            <td>电气倒闸操作前标准检查项目表</td>
+            <td><p><strong>AE_DZCZCHECK</strong>，</p>
+            <p><strong>AE_DZCZCHECK_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>page/duty/dzczp.html</td>
+            <td>倒闸操作票</td>
+            <td>倒闸操作票</td>
+            <td><p><strong>AE_DZCZP，</strong></p>
+            <p><strong>AE_DZCZITEM_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>page/duty/dzczcheck_h.html</td>
+            <td>电气倒闸操作后应完成的工作项目表 </td>
+            <td>电气倒闸操作后应完成的工作项目表 </td>
+            <td><p><strong>AE_DZCZCHECK</strong>，</p>
+            <p><strong>AE_DZCZCHECK_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>page/duty/deblock.html</td>
+            <td>解锁钥匙管理</td>
+            <td>解锁钥匙管理</td>
+            <td><strong>AE_JSKEY</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/dx.html</td>
+            <td>地线登记</td>
+            <td>地线登记</td>
+            <td><strong>AE_DUTYDX</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/testwd.html</td>
+            <td>测温记录</td>
+            <td>测温记录</td>
+            <td><strong>AE_TESTWD</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/gissf6.html</td>
+            <td>GIS室SF6气压巡检记录表</td>
+            <td>GIS室SF6气压巡检记录表</td>
+            <td><strong>AE_GISSF6</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/zlxtcheck.html</td>
+            <td>直流系统巡检记录表</td>
+            <td>直流系统巡检记录表</td>
+            <td><strong>AE_ZLXTCHECK</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/ywcheck.html</td>
+            <td>机组油位监视监测记录表</td>
+            <td>机组油位监视监测记录表</td>
+            <td><strong>AE_YWCHECK</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/xhcheck.html</td>
+            <td>巡回检查记录管理</td>
+            <td>巡回检查记录管理</td>
+            <td><strong>AE_XHCHECK</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/xfcheck.html</td>
+            <td>消防设备检查记录管理</td>
+            <td>消防设备检查记录管理</td>
+            <td><strong>AE_XFCHECK</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/cydqcheck.html</td>
+            <td>柴油定期启动记录</td>
+            <td>柴油定期启动记录</td>
+            <td><strong>AE_CYDQCHECK</strong></td>
+          </tr>
+          <tr>
+            <td>page/duty/blqfd.html</td>
+            <td>避雷器放电记录</td>
+            <td>避雷器放电记录</td>
+            <td><strong>AE_BLQFDCHECK</strong></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td width="135">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+      </table>
+      </div>
+      <div class="p2"></div>
+      <div class="p1">第三章、设备模块</div>
+            <div class="p2">1. 对象构成</div>
+        <div class="z2"> 
+         <table cellpadding="0" cellspacing="0" border="0" class="t">
+          <tr class="thead">
+            <td width="119">应用</td>
+            <td width="315">应用构成</td>
+          </tr>
+          <tr>
+            <td rowspan="9">设备管理</td>
+            <td>设备台账【主表】</td>
+          </tr><tr>
+            <td>设备技术参数【子表】</td>
+          </tr><tr>
+            <td>缺陷信息【子表】</td>
+          </tr>
+          <tr>
+            <td>工作票【子表】</td>
+          </tr>
+          <tr>
+            <td>备品备件【子表】</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr><tr>
+            <td>缺陷管理</td>
+            <td>缺陷管理</td>
+          </tr>
+          <tr>
+            <td>第一种工作票</td>
+            <td>第一种工作票</td>
+          </tr>
+          <tr>
+            <td>第二种工作票</td>
+            <td>第二种工作票</td>
+          </tr>
+          <tr>
+            <td>动火工作票</td>
+            <td>动火工作票</td>
+          </tr>
+          <tr>
+            <td>设备维修保养计划</td>
+            <td>设备维修保养计划</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+         </table>
+      </div>
+      <div class="p2">2. 表设计</div>
+      <div class="z2"> <table cellpadding="0" cellspacing="0" border="0" class="t">
+          <tr class="thead">
+            <td width="118">应用程序名</td>
+            <td width="240">对象名称</td>
+            <td width="253">表名</td>
+          </tr>
+          <tr>
+            <td rowspan="9">设备管理</td>
+            <td>设备台账</td>
+            <td><strong>AF_ASSET</strong></td>
+          </tr>
+          <tr>
+            <td>设备技术参数</td>
+            <td><strong>AF_JSCS_Z</strong></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td rowspan="3">缺陷管理</td>
+            <td>缺陷管理 </td>
+            <td><strong>AF_DEBUG</strong></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>第一种工作票</td>
+            <td>第一种工作票</td>
+            <td><strong>AF_WORKORDER</strong></td>
+          </tr>
+          <tr>
+            <td>第二种工作票</td>
+            <td>第二种工作票</td>
+            <td><strong>AF_WORKORDER</strong></td>
+          </tr>
+          <tr>
+            <td>动火工作票</td>
+            <td>动火工作票</td>
+            <td><strong>AF_WORKORDER</strong></td>
+          </tr>
+          <tr>
+            <td>设备维修保养计划</td>
+            <td>设备维修保养计划</td>
+            <td><p><strong>AF_ASSET_BYJH,</strong></p>
+            <p><strong>AF_ASSET_BYJH_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr></table>
+      </div>
+       <div class="p2">3. 页面开发</div>
+      <div class="z2">  <table cellpadding="0" cellspacing="0" border="0" class="t">
+          <tr class="thead">
+            <td width="135">目录</td>
+            <td width="152">页面名称</td>
+            <td width="165">管理对象</td>
+            <td width="159">对应的表结构</td>
+          </tr>
+          <tr>
+            <td width="135" rowspan="4">page/device/asset.html</td>
+            <td rowspan="4">设备管理</td>
+            <td>设备台账</td>
+            <td><strong>AF_ASSET</strong></td>
+          </tr>
+          <tr>
+            <td>设备技术参数</td>
+            <td><strong>AF_JSCS_Z</strong></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>page/device/debug.html</td>
+            <td>缺陷管理</td>
+            <td>缺陷管理</td>
+            <td><strong>AF_DEBUG</strong></td>
+          </tr>
+          <tr>
+            <td>page/device/writ1.html</td>
+            <td>第一种工作票</td>
+            <td>第一种工作票</td>
+            <td><strong>AF_WORKORDER</strong></td>
+          </tr>
+          <tr>
+            <td>page/device/writ2.html</td>
+            <td>第二种工作票</td>
+            <td>第二种工作票</td>
+            <td><strong>AF_WORKORDER</strong></td>
+          </tr>
+          <tr>
+            <td>page/device/fire.html</td>
+            <td>动火工作票</td>
+            <td>动火工作票</td>
+            <td><strong>AF_WORKORDER</strong></td>
+          </tr>
+          <tr>
+            <td>page/device/byjh.html</td>
+            <td>设备维修保养计划</td>
+            <td>设备维修保养计划</td>
+            <td><p><strong>AF_ASSET_BYJH,</strong></p>
+            <p><strong>AF_ASSET_BYJH_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          </table>
+      </div>
+    <div class="p1">第四章、物资模块</div>
+            <div class="p2">1. 对象构成</div>
+        <div class="z2"> 
+         <table cellpadding="0" cellspacing="0" border="0" class="t">
+          <tr class="thead">
+            <td width="119">应用</td>
+            <td width="315">应用构成</td>
+          </tr>
+          <tr>
+            <td rowspan="9">物资台账</td>
+            <td>物资台账【主表】</td>
+          </tr><tr>
+            <td>供应商信息【关联表】</td>
+          </tr><tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr><tr>
+            <td>供应商管理</td>
+            <td>供应商管理</td>
+          </tr>
+          <tr>
+            <td>仓库管理</td>
+            <td>仓库管理</td>
+          </tr>
+          <tr>
+            <td>库存管理</td>
+            <td>库存管理</td>
+          </tr>
+          <tr>
+            <td>需求计划</td>
+            <td><p>需求计划【主表】</p>
+            <p>需求计划行【子表】</p></td>
+          </tr>
+          <tr>
+            <td>采购单</td>
+            <td><p>采购单【主表】</p>
+            <p>采购单行【子表】</p></td>
+          </tr>
+          <tr>
+            <td>发票</td>
+            <td><p>发票【主表】</p>
+            <p>发票行【子表】</p></td>
+          </tr>
+          <tr>
+            <td>入库单</td>
+            <td><p>入库单【主表】</p>
+            <p>入库单行【子表】</p></td>
+          </tr>
+          <tr>
+            <td>领料单</td>
+            <td><p>领料单【主表】</p>
+            <p>领料单行【子表】</p></td>
+          </tr>
+          <tr>
+            <td>发料单</td>
+            <td><p>发料单【主表】</p>
+            <p>发料单行【子表】</p></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+         </table>
+      </div>
+      <div class="p2">2. 表设计</div>
+      <div class="z2"> <table cellpadding="0" cellspacing="0" border="0" class="t">
+          <tr class="thead">
+            <td width="118">应用程序名</td>
+            <td width="240">对象名称</td>
+            <td width="253">表名</td>
+          </tr>
+          <tr>
+            <td rowspan="9">物资管理</td>
+            <td>物资台账</td>
+            <td><strong>AG_ITEM</strong></td>
+          </tr>
+          <tr>
+            <td>物资供应商信息</td>
+            <td><strong>AG_COMP_ITEM</strong></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td rowspan="3">物资分类</td>
+            <td>物资分类</td>
+            <td><strong>AG_ITEMTYPE</strong></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td rowspan="2">仓库信息</td>
+            <td rowspan="2">仓库信息</td>
+            <td><strong>AG_STORE</strong></td>
+          </tr>
+          <tr>
+            <td><strong>AG_STOREADM_Z</strong></td>
+          </tr>
+          <tr>
+            <td>库存信息</td>
+            <td>库存信息</td>
+            <td><strong>AG_INVENTORY</strong></td>
+          </tr>
+          <tr>
+            <td>需求计划</td>
+            <td>需求计划</td>
+            <td><p><strong>AG_PR,</strong></p>
+            <p><strong>AG_PRLINE_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>采购单</td>
+            <td>采购单</td>
+            <td><p><strong>AG_PO,</strong></p>
+            <p><strong>AG_POLINE_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>入库单</td>
+            <td>入库单</td>
+            <td><p><strong>AG_RKD,</strong></p>
+            <p><strong>AG_RKDLINE_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>发票</td>
+            <td>发票</td>
+            <td><p><strong>AG_INVOICE,</strong></p>
+            <p><strong>AG_INVOICELINE_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>领料单</td>
+            <td>领料单</td>
+            <td><p><strong>AG_MRF,</strong></p>
+            <p><strong>AG_MRFLINE_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>发料单</td>
+            <td>发料单</td>
+            <td><p><strong>AG_FLD,</strong></p>
+            <p><strong>AG_FLDLINE_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr></table>
+      </div>
+       <div class="p2">3. 页面开发</div>
+      <div class="z2">  <table cellpadding="0" cellspacing="0" border="0" class="t">
+          <tr class="thead">
+            <td width="135">目录</td>
+            <td width="152">页面名称</td>
+            <td width="165">管理对象</td>
+            <td width="159">对应的表结构</td>
+          </tr>
+          <tr>
+            <td width="135" rowspan="4">page/material/item.html</td>
+            <td rowspan="4">物资管理</td>
+            <td>物资台账</td>
+            <td><strong>AG_ITEM</strong></td>
+          </tr>
+          <tr>
+            <td>物资供应商信息</td>
+            <td><strong>AG_COMP_ITEM</strong></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>page/material/company.html</td>
+            <td>供应商管理</td>
+            <td>供应商管理</td>
+            <td><strong>AG_COMPANY</strong></td>
+          </tr>
+          <tr>
+            <td>page/material/store.html</td>
+            <td>仓库管理</td>
+            <td>仓库管理</td>
+            <td><strong>AG_STORE</strong></td>
+          </tr>
+          <tr>
+            <td>page/material/inventory.html</td>
+            <td>库存管理</td>
+            <td>库存管理</td>
+            <td><p><strong>AG_INVENTORY，</strong></p>
+            <p><strong>AG_INVLOT</strong></p></td>
+          </tr>
+          <tr>
+            <td>page/material/pr.html</td>
+            <td>需求计划</td>
+            <td>需求计划</td>
+            <td><p><strong>AG_PR,</strong></p>
+            <p><strong>AG_PRLINE_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>page/material/po.html</td>
+            <td>采购单</td>
+            <td>采购单</td>
+            <td><p><strong>AG_PO,</strong></p>
+            <p><strong>AG_POLINE_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>page/material/invoice.html</td>
+            <td>发票</td>
+            <td>发票</td>
+            <td><p><strong>AG_INVOICE,</strong></p>
+            <p><strong>AG_INVOICELINE_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>page/material/rkd.html</td>
+            <td>入库单</td>
+            <td>入库单</td>
+            <td><p><strong>AG_RKD,</strong></p>
+            <p><strong>AG_RKDLINE_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>page/material/mrf.html</td>
+            <td>领料单</td>
+            <td>领料单</td>
+            <td><p><strong>AG_MRF,</strong></p>
+            <p><strong>AG_MRFLINE_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>page/material/fld.html</td>
+            <td>发料单</td>
+            <td>发料单</td>
+            <td><p><strong>AG_FLD,</strong></p>
+            <p><strong>AG_FLDLINE_Z</strong></p></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><p>&nbsp;</p></td>
+          </tr>
+          </table>
+      </div>
+
+      <div class="z2">工时使用小时</div>
+      <div class="z2">
+        <table cellpadding="0" cellspacing="0" border="0" class="t">
+          <tr>
+            <td width="62">角色</td>
+            <td width="82">人员</td>
+            <td width="72">计划工时</td>
+            <td width="80">实际工时</td>
+            <td width="315">评价</td>
+          </tr>
+          <tr>
+            <td>用户</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="28">数据库设计</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>需求</td>
+            <td>刘东杰</td>
+            <td>0.1</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>开发</td>
+            <td>陈赟</td>
+            <td>8</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>测试</td>
+            <td>刘东杰</td>
+            <td>1</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../src/other/docs.js"></script>
+</html>

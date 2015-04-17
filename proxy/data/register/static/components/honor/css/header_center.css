@@ -1,0 +1,11 @@
+/* CSS Document */
+
+
+.head_center .head_center_content .logo {
+display: inline-block;
+zoom: 1;
+width: 386px;
+height: 60px;
+margin-top: 12px;
+background: url(../../../temp/images/indexNew/logo.png) no-repeat center left;
+}

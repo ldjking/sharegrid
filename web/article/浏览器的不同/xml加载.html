@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>XML加载</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../release/css/doc.css"/>
+</head>
+<body>
+<div class="container"  id="doc" style="background-color:#000" >
+  <div class="doc scroll_content">
+    <div class="paper">
+      <div class="content" id="paperContent">
+        <div class="p1">第一章、IE浏览器</div>
+        <div class="z2">xmlDoc = new ActiveXObject('Microsoft.XMLDOM');<br />
+          xmlDoc.async = false;<br />
+          xmlDoc.load(xmlFile);</div>
+        <div class="p1">第二章、Chrome浏览器</div>
+        <div class="z2">
+          <p>var xmlhttp = new window.XMLHttpRequest();  </p>
+          <p>xmlhttp.open(&quot;GET&quot;,file,false);   </p>
+          <p>xmlhttp.send(null);  </p>
+          <p>xmlDoc = xmlhttp.responseXML.documentElement;  </p>
+        </div>
+        <div class="p1">第三章、其他浏览器</div>
+        <div class="z2">xmlDoc = document.implementation.createDocument('', '', null);<br />
+          xmlDoc.load(xmlFile);</div>
+        <div class="p1">第四章、xLib兼容性写法</div>
+        <div class="z2">var data=$xml(&quot;file.xml&quot;);</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../src/other/docs.js"></script>
+</html>

@@ -1,0 +1,463 @@
+.grid {
+
+}
+.grid .desc:hover{
+	background-image: url(../../images/grid/desc.png);
+	background-repeat: no-repeat;
+	background-position: 1px center;
+
+}
+.grid .asc:hover{
+	background-image: url(../../images/grid/asc.png);
+	background-repeat: no-repeat;
+	background-position: 1px center;
+
+}
+.grid .gridContainer{
+	position: relative;
+	text-align: left;
+	overflow: hidden;
+	font-size: 12px;
+	background-color: transparent;
+	float: left;
+}
+.grid .gridNav{
+	text-align: left;
+	overflow: hidden;
+	font-size: 12px;
+	background-color: #DCDCDC;
+	float: right;
+	width: 239px;
+	border-left: 1px solid #333;
+	height: 100%;
+}
+.grid .gridNav .navTop{
+	height: 7px;
+	line-height: 7px;
+	background-color: #474747;
+	overflow: hidden;
+	cursor: default;
+}
+.grid .gridNav .navTitle{
+	height: 26px;
+	line-height: 26px;
+	background-color: #474747;
+	overflow: hidden;
+	cursor: default;
+	padding-top: 7px;
+}
+.grid .gridNav .nav{
+	text-align: center;
+	height: 26px;
+	line-height: 26px;
+	float: left;
+	border-right: 1px solid #686868;
+}
+.grid .gridNav .nav div{
+	padding-left: 12px;
+	padding-right: 12px;
+	text-align: center;
+	background-color: #939393;
+	height: 25px;
+	line-height: 25px;
+	border-bottom: 1px solid #686868;
+}
+.grid .gridNav .nav .active {
+	background-color: #d6d6d6;
+	border-bottom: 1px solid #d6d6d6;
+}
+.grid .gridNav .nav div:hover{
+	background-color: #ababab;
+}
+.grid .gridNav .nav div.active:hover{
+	background-color: #d6d6d6;
+}
+.grid .gridNav .navfix{
+	padding-left: 0px;
+	padding-right: 0px;
+	text-align: center;
+	background-color: #909090;
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	border-bottom: 1px solid #686868;
+}
+.grid .gridNav .navMain{
+}
+.grid .gridNav .panel{
+	height: 100%;
+}
+.grid .checkbox{
+	dis.gridplay: none
+	visibility: hidden;
+	display: none;
+}
+.grid.multiMode .checkbox{
+	display: inline;
+
+}
+.grid .filter {
+}
+.grid.filterMode .center_left{
+	top: 66px;
+
+}
+.grid.filterMode .center_right{
+	top: 66px;
+
+}
+.grid.filterMode .scroll_v{
+	top: 66px;
+
+}
+.gridContainer td {
+	vertical-align: middle;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 26px;
+}
+.gridContainer .top_left {
+	background-color: #777;
+	color: #fff;
+	position: absolute;
+	z-index: 5;
+	left: 0px;
+	top: 0px;
+	height: 33px;
+	overflow: hidden;
+}
+
+.gridContainer .top_right {
+	position: absolute;
+	z-index: 4;
+	top: 0px;
+	background-color: #777;
+	color: #fff;
+	height: 33px;
+	overflow: hidden;
+}
+.grid.filterMode .top_left{
+	height: 66px;
+	overflow: hidden;
+}
+.grid.filterMode .top_right{
+	height: 66px;
+}
+.gridContainer .top_left td{
+	vertical-align: middle;
+	overflow: hidden;
+	text-align: center;
+	border-right: 1px solid #8a948c;
+	border-bottom: 1px solid #000;
+	height: 32px;
+	line-height: 32px;
+	margin-left: 0px;
+}
+.gridContainer .top_right td {
+	height: 32px;
+	overflow: hidden;
+	text-align: center;
+	vertical-align: middle;
+	border-right: 1px solid #8a948c;
+	border-bottom: 1px solid #000;
+	line-height: 32px;
+}
+.gridContainer .query {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	height: 16px;
+	line-height: 16px;
+	background-color: transparent;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	width: 100%;
+	text-align: left;
+	display: block;
+	color: #FFF;
+}
+.text{
+	outline:none;
+}
+.gridContainer .center_left {
+	border-right: 0px solid #b1b5ba;
+	border-bottom: 0px solid #b1b5ba;
+	vertical-align: middle;
+	background-color: #E3E6E8;
+	color: #363636;
+	line-height: 26px;
+	position: absolute;
+	z-index: 2;
+	top: 33px;
+	overflow: hidden;
+}
+.gridContainer .center_right {
+	border-right: 0px solid #b1b5ba;
+	border-bottom: 0px solid #b1b5ba;
+	color: #000;
+	position: absolute;
+	z-index: 1;
+	top: 33px;
+	left: 100px;
+}
+.gridContainer .top_left  .cell{
+	overflow: hidden;
+	white-space: nowrap;
+}
+.gridContainer .top_right  .cell{
+	overflow: hidden;
+	white-space: nowrap;
+}
+.gridContainer .center_left td {
+	border-right: 1px solid #b1b5ba;
+	border-bottom: 1px solid #b1b5ba;
+	vertical-align: middle;
+}
+.gridContainer .center_right td {
+	border-right: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	line-height: 26px;
+	vertical-align: middle;
+	height: 26px;
+}
+.gridContainer .center_left tr.hover {
+	background-color: #ffeb91;
+}
+.gridContainer .center_left tr.active {
+	background-color: #ffdc61;
+}
+.gridContainer .center_left tr.active td{
+	background-color: #ffdc61;
+	border-bottom: 1px solid #333;
+}
+.gridContainer .center_left tr.active_top td{
+	border-bottom: 1px solid #333;
+}
+.gridContainer .center_right tr.hover {
+	background-color: #ebf3fd;
+}
+.gridContainer .center_right tr.active {
+	background-color: #c2dcfc;
+}
+.gridContainer .center_right tr.active td{
+	background-color: #c2dcfc;
+	border-bottom: 1px solid #333;
+
+}
+.gridContainer .center_right tr.active td:last-child{
+	border-right: 1px solid #333;
+}
+.gridContainer .center_right tr.active_top td{
+	border-bottom: 1px solid #333;
+
+}
+.gridContainer .header_bg {
+	position: absolute;
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	z-index: 3;
+	top: 0px;
+	right: 0px;
+	background-color: #777;
+	border-bottom:1px solid #000;
+}
+.gridContainer .header_bg2 {
+	position: absolute;
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	z-index: 3;
+	top: 33px;
+	right: 0px;
+	background-color: #777;
+	border-bottom:1px solid #000;
+	display: none;
+}
+.grid.filterMode .header_bg2{
+	position: absolute;
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	z-index: 3;
+	top: 33px;
+	right: 0px;
+	background-color: #777;
+	border-bottom:1px solid #000;
+	display: block;
+}
+
+.gridContainer .pager {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 22px;
+	z-index: 7;
+	color: #CCC;
+	right: 0px;
+	-moz-user-select: none;
+	line-height: 22px;
+}
+.gridContainer .pageInfo {
+	line-height: 22px;
+	height: 22px;
+	vertical-align: middle;
+	font-size: 13px;
+	float: left;
+	cursor: default;
+}
+.gridContainer .pageTable {
+	line-height: 22px;
+	height: 22px;
+	vertical-align: middle;
+	font-size: 13px;
+	float: right;
+}
+.gridContainer .pageTable td{
+	padding-left: 5px;
+	padding-right: 5px;
+	cursor: pointer;
+
+}
+.gridContainer .pageInfo:hover{
+	color: #FFF;
+}
+.gridContainer .rowNum {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.gridContainer .pageNum {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.gridContainer .pagebtn {
+	cursor: pointer;
+	text-align: center;
+	width: 42px;
+	font-size: 12px;
+}
+.gridContainer .pagebtn:hover {
+	cursor: pointer;
+	text-align: center;
+	width: 42px;
+	color: #FFFFFF;
+}
+.gridContainer .cell {
+	text-align: center;
+}
+.gridContainer .text {
+	border: 0;
+	line-height: 20px;
+	padding: 0px;
+	white-space: pre;
+	background-color: transparent;
+	cursor: default;
+	word-break: break-all;
+	overflow: hidden;
+	resize: none;
+	min-height: 20px;
+}
+.gridContainer .autoWidth .text{
+	border: 0;
+	line-height: 20px;
+	padding: 0px;
+	white-space: nowrap;
+	background-color: transparent;
+	cursor: default;
+	word-break: keep-all;
+	overflow: hidden;
+	resize: none;
+	height: 20px;
+}
+.gridContainer .text.autoWidth {
+	border: 0;
+	line-height: 20px;
+	padding: 0px;
+	white-space: nowrap;
+	background-color: transparent;
+	cursor: default;
+	word-break: keep-all;
+	overflow: hidden;
+	resize: none;
+	height: 20px;
+}
+.gridContainer.editMode .text{
+	cursor: text;
+}
+.gridContainer .txt {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	height: 16px;
+	line-height: 16px;
+	background-color: transparent;
+	width: 100%;
+	display: block;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.gridContainer .w01 {
+	width: 24px;
+	text-align: center;
+	overflow: hidden;
+	padding: 0px;
+}
+.gridContainer .w02 {
+	width: 30px;
+	text-align: center;
+	overflow: hidden;
+}
+.gridContainer .footer_bg{
+	position: absolute;
+	z-index: 6;
+	height: 26px;
+	bottom: 0px;
+	background-color: #4c4c4c;
+	right: 0px;
+	left: 0px;
+}
+.gridContainer .scroll_v{
+	position: absolute;
+	width: 12px;
+	z-index: 7;
+	display: none;
+	right: 0px;
+	background-color: #ababab;
+	opacity: 1;
+	top: 33px;
+}
+.gridContainer .scroll_h{
+	position: absolute;
+	z-index: 9;
+	height: 12px;
+	display: none;
+	bottom: 20px;
+	background-color: transparent;
+	right: 12px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+.gridContainer .scrollbar_v{
+	position: absolute;
+	width: 8px;
+	z-index: 8;
+	top: 69px;
+	display: none;
+	right: 2px;
+	height: 200px;
+	background-color: #DBDBDB;
+	border: 0px solid #c3c3c3;
+	border-radius: 4px;
+}
+.gridContainer .scrollbar_h {
+	position: absolute;
+	z-index: 10;
+	height: 8px;
+	display: none;
+	bottom: 22px;
+	width: 100px;
+	background-color: #ababab;
+	border: 0px solid #7d7d7d;
+	border-radius: 4px;
+	left: 760px;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>简单树</title>
+<link rel="stylesheet" type="text/css" href="../../../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../../src/css/29tree.css">
+</head>
+<body>
+<div id="c1"></div>
+<script type="text/javascript" src="../../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../../release/ui.js"></script> 
+<script type="text/javascript" src="../../../../../release/lovdef.js"></script> 
+<script type="text/javascript" src="../../../../../src/5tree/51tree.js"></script>
+<script type="text/javascript">	
+	window.onload=init;
+	function init(){/*需要有一些自定义动画效果*/	
+		var dom=$("#c1");
+		var cfg={clickHandler:fn_tree_click,dblHandler:fn_tree_dbl};
+		var data=[{name:"XLib",type:"folder",
+			child:[
+				{name:"base",type:"folder",
+					child:[
+						{name:"basis",type:"txt"},
+						{name:"extend",type:"txt"},
+						{name:"core",type:"txt"},
+						{name:"out",type:"txt"},
+						{name:"dom",type:"txt"},
+						{name:"css",type:"txt"},
+						{name:"createdom",type:"txt"}
+					]
+				},
+				{name:"ui",type:"folder",
+					child:[
+						{name:"basis",type:"txt"},
+						{name:"extend",type:"txt"},
+						{name:"core",type:"txt"},
+						{name:"out",type:"txt"},
+						{name:"dom",type:"txt"},
+						{name:"css",type:"txt"},
+						{name:"createdom",type:"txt"}
+					]
+				},
+				{name:"grid",type:"folder",
+					child:[
+						{name:"basis",type:"txt"},
+						{name:"extend",type:"txt"},
+						{name:"core",type:"txt"},
+						{name:"out",type:"txt"},
+						{name:"dom",type:"txt"},
+						{name:"css",type:"txt"},
+						{name:"createdom",type:"txt"}
+					]
+				}
+			]	
+			}];
+		genTree(cfg,data,dom);
+	}
+	
+	function fn_tree_click(sender,evt){
+		out("tree fn");
+	}
+	function fn_tree_dbl(sender,evt){
+		//alert("tree fn dbl");
+	}
+</script>
+</body>
+</html>

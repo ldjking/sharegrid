@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>采购单</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">采购单</div>
+    <div class="tab hide"  	id="tab_add">新增采购单</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script> 
+<script type="text/javascript" src="../../release/ui.js"></script> 
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script> 
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+	window.onload=init;	
+	var grid		=$("#c1");
+	var editForm	=$("#c2");
+	var addForm		=$("#c3");
+	var tabList		=$("#tab_list");
+	var tabEdit		=$("#tab_edit");
+	var tabAdd		=$("#tab_add");
+	function e_cmdAddItem_handler(target){
+		//msg(target.cmd.cmd+"用户自定义事件");
+	}
+	function fn_showNext(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showPre(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showList(evt){
+		genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	function fn_showEditForm(evt){
+		activeTab(tabEdit);
+	}
+	function fn_showAddForm(evt){/*要把新增表单显示出来*/
+	////out("showAddForm");
+		activeTab(tabAdd);
+	}
+	function fn_hideAddForm(evt){
+		cssReplace(tabAdd,"active","hide");
+		activeTab(tabList);
+	}
+	
+	function tabChange(target,p){
+		if(p==1){
+			refreshEditForm();
+		}
+		else if(p==2){
+			refreshAddForm();
+		}
+	}
+	function refreshAddForm(){
+		genFormCmd(addForm);
+		genFormContent(addForm);
+	}
+	function refreshEditForm(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.data==obj){return;}
+		else{
+			//editForm.formCfg.param={c2_id:"1554"};
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+			//;//out(obj.rownum);
+			cssRm(preCmd,"gray");
+			cssRm(nextCmd,"gray");
+			if(obj.rownum==1){
+				cssAdd(preCmd,"gray");
+			}
+			else if(obj.rownum==cfg.totalNum){
+				cssAdd(nextCmd,"gray");
+			}
+			genFormContent(editForm);/*重绘内容*/
+		}
+	}
+	
+	function item_change(target,data) {
+		//out("data",data);
+	    var td=getChilds(target.parentNode.parentNode,getDomIndex(target.parentNode)+1);
+		var text=td.childNodes[0];
+		text.value=data.description;
+		td=getChilds(target.parentNode.parentNode,getDomIndex(target.parentNode)+2);
+		text=td.childNodes[0];
+		text.value=data.models;
+		td=getChilds(target.parentNode.parentNode,getDomIndex(target.parentNode)+3);
+		text=td.childNodes[0];
+		text.value=data.brand;
+		td=getChilds(target.parentNode.parentNode,getDomIndex(target.parentNode)+4);
+		text=td.childNodes[0];
+		text.value=data.uses;
+		
+		//out(text.innerHTML);
+		//text2.value = data.models;
+		
+
+		/*var text1=td.childNodes[1];
+		var text2=td.childNodes[2];
+		var text3=td.childNodes[3];
+		
+		text1.value=data.models;
+		text2.value=data.brand;
+		text3.value=data.uses;*/
+	}
+	
+	function init(){/*需要有一些自定义动画效果*/	
+		grid		=$("#c1");
+		editForm	=$("#c2");
+		addForm		=$("#c3");
+		tabList		=$("#tab_list");
+		tabEdit		=$("#tab_edit");
+		tabAdd		=$("#tab_add");
+		uiApp({dom:$("#app1"),fn:tabChange});
+		var grid=$("#c1");
+		var cfg={multiMode:0,toolbar:1,filterMode:0,data_method:"poGets",
+				rmMethod:'poRm',pageFlag:true,pageSize:5,pkAttr:"ag_poid"};
+		cfg.columns=[	{text:"采购单编号",attr:"ponum",align:"center",width:100,frozen:1,type:"str",notEdit:0},
+						{text:"采购单描述",attr:"description",align:"center",width:150,frozen:0,type:"str"},
+						{text:"采购员",attr:"cgy_name",align:"center",width:100,type:"str",notEdit:1},
+						{text:"制表人",attr:"zbr_name",align:"center",width:120,type:"str"},
+						{text:"供应商",attr:"companydesp",align:"center",width:120,type:"str"},
+						{text:"状态",attr:"status",align:"left",frozen:0,type:"str"}
+					];
+		cfg.cmds=[
+					{cmd:"cmdAdd"	,fn:fn_showAddForm},
+					{cmd:"cmdEdit"	,fn:fn_showEditForm},
+					{cmd:"cmdDelete",fn:e_cmdAddItem_handler},
+					{cmd:"cmdFilter",fn:e_cmdAddItem_handler},
+					{cmd:"cmdRefresh",fn:e_cmdAddItem_handler}
+				]
+		genGrid(grid,cfg);	
+		
+		var tables=[	{type:0,cells:[
+									{type:"text",attr:"ag_poid",sidType:"po"}
+									]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"采购单编号",width:100,align:"center",row:1},
+								{type:"txt",attr:"ponum",width:300,align:"left",row:1},/*txt代表单行元素*/
+								{type:"lbl",text:"采购单描述",width:100,align:"center",row:1},
+								{type:"txt",attr:"description",width:400,align:"left",row:1}
+								]
+						},
+						
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"供应商",width:100,align:"center",row:1},
+								{type:"txt",attr:'companydesp',attr2:"company_code",width:300,align:"left",row:1,lov:"company"},/*txt代表单行元素*/
+								{type:"lbl",text:"采购员",width:100,align:"center",row:1},
+								{type:"txt",attr:"cgy_name",attr2:"per_cgy",width:400,align:"left",lov:"stuff",row:1}
+								]
+						},
+						
+					    {type:2,rows:1,cells:[
+							{type:"lbl",text:"制表人",width:100,align:"center",row:1},
+								{type:"txt",attr:"zbr_name",width:300,align:"left",row:1,lov:"stuff"},/*txt代表单行元素*/
+								{type:"lbl",text:"状态",width:100,align:"center",row:1},
+								{type:"txt",attr:"status",width:400,align:"left",row:1}
+								]
+						},
+					
+						
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"采购行",width:880,align:"left",row:1,left:20}
+							]
+						},
+						{type:3,rows:1,refAttr:[{name:"ag_poid"}],rmMethod:'polineRm',updateMethod:"polineUpdate",addMethod:"polineAdd",dataMethod:"polineGets",
+							columns:[
+								{type:"txt",name:"序号",width:60,align:"center"},
+								{type:"txt",attr:"itemnum",name:"物资编码",width:100,align:"center",lov:"itemnum",onchange:item_change},
+								{type:"txt",attr:"description",name:"物资名称",width:120,align:"center"},
+								{type:"txt",attr:"models",name:"规格型号",width:100,align:"center"},
+								{type:"txt",attr:"brand",name:"品牌厂家",width:120,align:"center"},
+								{type:"txt",attr:"uses",name:"使用地点",width:100,align:"center"},
+								{type:"txt",attr:"quantity",name:"采购数量",width:100,align:"center"},
+								{type:"txt",attr:"reqnum",name:"需求数量",width:100,align:"center"},
+								{type:"txt",attr:"remark",name:"备注",width:100,align:"center"}
+							]
+						}
+				];
+		var cmds=[
+			{cmd:"addItem"},
+			{cmd:"rmItem"},
+			{cmd:"update",fn:fn_showList},
+			/*表示该操作按钮式定te=1的对象上*/								
+			{cmd:"pre",fn:fn_showPre},
+			{cmd:"next",fn:fn_showNext}
+		];
+		var cfg={title:"采购单信息",bigPaper:1,updateMethod:"poUpdate",formType:"update",dataMethod:"poGet"};
+		cfg.tables=tables;
+		cfg.cmds=cmds;
+		genForm(editForm,cfg);
+		var cmds2=[
+			{cmd:"save",fn:fn_showList},
+			{cmd:"cancel",fn:fn_hideAddForm}/*表示该操作按钮式定义在c0_state=1的对象上*/								
+		];
+		var tables2=[	{type:0,cells:[
+									{type:"text",attr:"ag_poid",sidType:"po"}
+									]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"采购单编号",width:100,align:"center",row:1},
+								{type:"txt",attr:"ponum",width:260,align:"left",row:1},/*txt代表单行元素*/
+								{type:"lbl",text:"采购单描述",width:100,align:"center",row:1},
+								{type:"txt",attr:"description",width:260,align:"left",row:1}
+								]
+						},
+						
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"供应商",width:100,align:"center",row:1},
+								{type:"txt",attr:'',attr2:"company_code",width:260,align:"left",row:1,lov:"company"},/*txt代表单行元素*/
+								{type:"lbl",text:"采购员",width:100,align:"center",row:1},
+								{type:"txt",attr:"c0_name",attr2:"per_cgy",width:260,align:"left",lov:"stuff",row:1}
+								]
+						},
+						
+					    {type:2,rows:1,cells:[
+							{type:"lbl",text:"制表人",width:100,align:"center",row:1},
+								{type:"txt",attr:"c0_name",attr2:"per_zbr",width:260,align:"left",lov:"stuff",row:1},/*txt代表单行元素*/
+								{type:"lbl",text:"状态",width:100,align:"center",row:1},
+								{type:"txt",attr:"status",width:260,align:"left",row:1}
+								]
+						},
+					
+				];
+		var cfg2={title:"新增采购单",type:"add",addMethod:"poAdd"};
+		cfg2.tables=tables2;
+		cfg2.cmds=cmds2;
+		genForm(addForm,cfg2);
+	}
+</script>
+</body>
+</html>

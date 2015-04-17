@@ -1,0 +1,85 @@
+@charset "utf-8";
+.tree  {
+	line-height: 24px;
+	cursor: default;
+}
+.tree  .css{
+	background-image: url(../../images/tree/file_gif.png);
+	background-repeat: no-repeat;
+}
+.root  {
+	padding-left: 16px;
+
+}
+.activeFile  {
+	padding-left: 16px;
+	position: absolute;
+	right: 1px;
+	width: 200px;
+	height: 24px;
+	background-color: #009;
+	z-index: 11;
+
+}
+.childs  {
+	padding-left: 16px;
+
+}
+.node.normal .childs{
+	background-image: url(../../images/tree/vline.png);
+	background-repeat: repeat-y;
+	background-position: left center;
+}
+.tag  {
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 38px;
+}
+.root.open  .tag{
+	background-image: url(../../images/tree/root_open.png);
+
+}
+.root.close  .tag{
+	background-image: url(../../images/tree/root_close.png);
+}
+.node  {
+
+}
+.tag:hover  {
+	color: #FFF;
+	background-color: #474747;
+}
+.node.normal.open  .tag{
+	background-image: url(../../images/tree/node_normal_open.png);
+}
+.node.normal.close .tag{
+	background-image: url(../../images/tree/node_normal_close.png);
+}
+.node.last.open .tag {
+	background-image: url(../../images/tree/node_last_open.png);
+}
+.node.last.close .tag {
+	background-image: url(../../images/tree/node_last_close.png);
+}
+.leaf  {
+}
+.leaf.normal.folder .tag  {
+	background-image: url(../../images/tree/leaf_normal_folder.png);
+}
+.leaf.normal.file .tag  {
+	background-image: url(../../images/tree/leaf_normal_file.png);
+}
+.leaf.last.folder .tag  {
+	background-image: url(../../images/tree/leaf_last_folder.png);
+}
+.leaf.last.file .tag  {
+	background-image: url(../../images/tree/leaf_last_file.png);
+}
+.tree .open .childs {
+	display: block;
+
+}
+.tree .close .childs {
+	display: none;
+
+}

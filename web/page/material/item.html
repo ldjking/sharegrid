@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>物资台账</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">修改物资</div>
+    <div class="tab hide"  	id="tab_add">新增物资</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script> 
+<script type="text/javascript" src="../../release/ui.js"></script> 
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script> 
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+	window.onload=init;	
+	var grid		=$("#c1");
+	var editForm	=$("#c2");
+	var addForm		=$("#c3");
+	var tabList		=$("#tab_list");
+	var tabEdit		=$("#tab_edit");
+	var tabAdd		=$("#tab_add");
+	function e_cmdAddItem_handler(target){
+		//msg(target.cmd.cmd+"用户自定义事件");
+	}
+	function fn_showNext(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showPre(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showList(evt){
+		genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	function test(evt){
+		var data=genFormData(addForm);
+		var type_code = data.type_code;
+		var itemnum = $("#"+addForm.formCfg.id+"_attritemnum").value;
+		var brand =  $("#"+addForm.formCfg.id+"_attrbrand").value;
+		var models = $("#"+addForm.formCfg.id+"_attrmodels").value;
+		var uses = $("#"+addForm.formCfg.id+"_attruses").value;
+		if(type_code=='') {
+			type_code = null;
+		}
+		if(itemnum=='') {
+			itemnum = null;
+		}
+		if(type_code=='') {
+			type_code = null;
+		}
+		if(brand=='') {
+			brand = null;
+		}
+		if(models=='') {
+			models = null;
+		}
+		if(uses=='') {
+			uses = null;
+		}
+		var result=$$("itemExist",{type_code:type_code,itemnum:itemnum,brand:brand,models:models,uses:uses});
+		if(result.flag&&result.data!=null&&result.data.length>0){
+			alert("该编码已存在");
+			return false;
+		} else {
+			return true;
+		}
+		
+		
+	}
+	
+	function fn_showEditForm(evt){
+		activeTab(tabEdit);
+	}
+	function fn_showAddForm(evt){/*要把新增表单显示出来*/
+	////out("showAddForm");
+		activeTab(tabAdd);
+	}
+	function fn_hideAddForm(evt){
+		cssReplace(tabAdd,"active","hide");
+		activeTab(tabList);
+	}
+	function fn_updateStatus(evt){
+		var obj=null;
+		var cfg=editForm.formCfg;
+		obj=cfg.data;
+		var data1 = genFormData(editForm);
+		if(obj.status=='0'||obj.status=='2'){
+				obj.status="1";
+				obj.tm_stopitem=dt2Str(12);
+				data1.status = obj.status;
+				data1.tm_stopitem = obj.tm_stopitem;
+				result=$$("itemUpdate",data1);
+				if(result.flag){
+					var activeButton=$("#"+cfg.id+"active");
+					var disabledButton=$("#"+cfg.id+"disabled");
+					disabledButton.disable = false;
+					activeButton.disable = true;
+					cssAdd(activeButton,"gray");
+					cssRm(disabledButton,"gray");
+					var texts=$("textarea",editForm);
+					for(var i=0;i<texts.length;i++){
+						var attr=texts[i].id.replace(editForm.formCfg.id+"_attr","");
+						disableFormAttr(editForm,[attr]);
+					}
+					
+				}
+		}
+		
+	}
+	function fn_disabledStatus(evt){
+		var obj=null;
+		var cfg=editForm.formCfg;
+		obj=cfg.data;
+		if(obj.status=='1') {
+			var data1 = genFormData(editForm);
+			obj.status="2";
+			obj.tm_stopitem=dt2Str(12);
+			data1.status = obj.status;
+			data1.tm_stopitem = obj.tm_stopitem;
+			var result=$$("itemUpdate",data1);
+			if(result.flag){
+				var activeButton=$("#"+cfg.id+"active");
+				var disabledButton=$("#"+cfg.id+"disabled");
+				activeButton.disable = false;
+				disabledButton.disable = true;
+				cssRm(activeButton,"gray");
+				cssAdd(disabledButton,"gray");
+				var texts=$("textarea",editForm);
+				for(var i=0;i<texts.length;i++){
+					var attr=texts[i].id.replace(editForm.formCfg.id+"_attr","");
+					disableFormAttr(editForm,[attr]);
+				}
+			}
+		}
+		
+	}
+	function tabChange(target,p){
+		if(p==1){
+			refreshEditForm();
+		}
+		else if(p==2){
+			refreshAddForm();
+		}
+	}
+	function initAddItem() {
+		var type_code = $("#"+addForm.formCfg.id+"_attrtype_code_desc").value;
+		var data1 = genFormData(addForm);
+		var id = data1.type_code;
+		type_code  = type_code.split("--")[0];
+		var result=$$("itemnumGetByType",{type_code:id});
+		if(result.flag){
+			$("#"+addForm.formCfg.id+"_attritemnum").value =type_code+"-"+result.data.num;
+		}
+	}
+	function initEditItem() {
+		var type_code = $("#"+editForm.formCfg.id+"_attrtype_code_desc").value;
+		var data1 = genFormData(editForm);
+		var id = data1.type_code;
+		type_code  = type_code.split("--")[0];
+		var result=$$("itemnumGetByType",{type_code:id});
+		if(result.flag){
+			$("#"+editForm.formCfg.id+"_attritemnum").value =type_code+"-"+result.data.num;
+		}
+	}
+	
+	
+	function refreshAddForm(){
+		genFormCmd(addForm);
+		genFormContent(addForm);
+	}
+	
+	var checkEdit=function(){
+		
+		var cfg = editForm.formCfg;
+		var data = cfg.data;
+		var status=data.status;
+		var texts=$("textarea",editForm);
+		if(status==1||status==2)  {
+			for(var i=0;i<texts.length;i++){
+				var attr=texts[i].id.replace(editForm.formCfg.id+"_attr","");
+				disableFormAttr(editForm,[attr]);
+			}
+		}
+		
+	}
+	
+	
+	function refreshEditForm(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.data==obj){return;}
+		else{
+			//editForm.formCfg.param={c2_id:"1554"};
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+			//;//out(obj.rownum);
+			cssRm(preCmd,"gray");
+			cssRm(nextCmd,"gray");
+			if(obj.rownum==1){
+				cssAdd(preCmd,"gray");
+			}
+			else if(obj.rownum==cfg.totalNum){
+				cssAdd(nextCmd,"gray");
+			}
+			//genFormCmd(editForm);
+			genFormContent(editForm);/*重绘内容*/
+			if(obj.status=='0'||obj.status=='2') {
+				var activeButton=$("#"+editForm.formCfg.id+"active");
+				var disabledButton=$("#"+editForm.formCfg.id+"disabled");
+				disabledButton.disable = true;
+				activeButton.disable = false;
+				cssRm(activeButton,"gray");
+				cssAdd(disabledButton,"gray");
+			} else if(obj.status=='1') {
+				var activeButton=$("#"+editForm.formCfg.id+"active");
+				var disabledButton=$("#"+editForm.formCfg.id+"disabled");
+				activeButton.disable = true;
+				disabledButton.disable = false;
+				cssAdd(activeButton,"gray");
+				cssRm(disabledButton,"gray");
+			}
+			checkEdit();
+		}
+	}
+	function init(){/*需要有一些自定义动画效果*/	
+		grid		=$("#c1");
+		editForm	=$("#c2");
+		addForm		=$("#c3");
+		tabList		=$("#tab_list");
+		tabEdit		=$("#tab_edit");
+		tabAdd		=$("#tab_add");
+		uiApp({dom:$("#app1"),fn:tabChange});
+		var grid=$("#c1");
+		var cfg={multiMode:0,toolbar:1,filterMode:0,data_method:"itemGets",
+				rmMethod:'itemRm',pageFlag:true,pageSize:5,pkAttr:"ag_itemid",dblHandler:fn_showEditForm};
+		cfg.columns=[	{text:"物资编码",attr:"itemnum",align:"center",width:120,frozen:1,type:"str",notEdit:0},
+						{text:"物资描述",attr:"description",align:"center",frozen:0,type:"str"},
+						{text:"分类",attr:"type_desc",align:"center",width:120,type:"str",notEdit:1},
+						{text:"计量单位",attr:"unit",align:"center",width:60,type:"str"},
+						{text:"使用地址",attr:"uses",align:"center",width:260,type:"str"},
+						{text:"状态",attr:"statusname",align:"center",frozen:0,type:"str"}
+					];
+		cfg.cmds=[
+					{cmd:"cmdAdd"	,fn:fn_showAddForm},
+					{cmd:"cmdEdit"	,fn:fn_showEditForm},
+					{cmd:"cmdDelete",fn:e_cmdAddItem_handler},
+					{cmd:"cmdFilter",fn:e_cmdAddItem_handler},
+					{cmd:"cmdRefresh",fn:e_cmdAddItem_handler}
+				]
+		genGrid(grid,cfg);	
+		
+		var tables=[	{type:0,cells:[
+									{type:"text",attr:"ag_itemid",sidType:"item"}
+									]
+						},
+						{type:2,rows:8,cells:[
+								{type:"lbl",text:"分类",width:120,align:"center",row:1},
+								{type:"txt",attr:"type_code_desc",attr2:"type_code",width:260,align:"left",row:1,lov:"itemTypeGets",onchange:initAddItem},/*txt代表单行元素*/
+								{type:"lbl",text:"物资编码",width:120,align:"center",row:2},
+								{type:"txt",attr:"itemnum",width:260,align:"left",row:2,disable:true},
+								{type:"img",attr:"url",text:"物资图片",width:280,height:290,path:"web/upload/images/",uploadurl:"http://localhost/eam/upload",align:"center",rowspan:8,row:1},
+								{type:"lbl",text:"物资描述",width:120,align:"center",row:3},
+								{type:"txt",attr:"description",width:260,align:"left",row:3},
+								{type:"lbl",text:"计量单位",width:120,align:"center",row:4},
+								{type:"txt",attr:"unit",width:260,align:"left",row:4,lov:"getUnit"},
+								{type:"lbl",text:"品牌厂家",width:120,align:"center",row:5},
+								{type:"txt",attr:"brand",width:260,align:"left",row:5},
+								{type:"lbl",text:"规格型号",width:120,align:"center",row:6},
+								{type:"txt",attr:"models",width:260,align:"left",row:6},
+								{type:"lbl",text:"使用地址",width:120,align:"center",row:7},
+								{type:"txt",attr:"uses",width:260,align:"left",row:7},
+								{type:"lbl",text:"启用/停用时间",width:120,align:"center",row:8},
+								{type:"txt",attr:"tm_stopitem",width:260,align:"left",row:8,lov:"datetime"}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"供应商",width:640,align:"left",left:20,row:1}
+							]
+						},
+						{type:3,rows:0,columns:[
+								{type:"txt",name:"供应商编码",width:100,align:"left",row:1},
+								{type:"txt",name:"供应商名称",width:120,align:"left",row:1},
+								{type:"txt",name:"网址",width:240,align:"left",row:1},
+								{type:"txt",name:"联系人",width:100,align:"left",row:1},
+								{type:"txt",name:"联系方式",width:100,align:"left",row:1}
+							]
+						}
+				];
+				
+				var tables2=[	{type:0,cells:[
+									{type:"text",attr:"ag_itemid",sidType:"item"}
+									]
+						},
+						{type:2,rows:8,cells:[
+								{type:"lbl",text:"分类",width:120,align:"center",row:1},
+								{type:"txt",attr:"type_code_desc",attr2:"type_code",width:260,align:"left",row:1,lov:"itemTypeGets",onchange:initEditItem},/*txt代表单行元素*/
+								{type:"lbl",text:"物资编码",width:120,align:"center",row:2},
+								{type:"txt",attr:"itemnum",width:260,align:"left",row:2,disable:true},
+								{type:"img",attr:"url",text:"物资图片",width:280,height:290,path:"web/upload/images/",uploadurl:"http://localhost/eam/upload",align:"center",rowspan:8,row:1},
+								{type:"lbl",text:"物资描述",width:120,align:"center",row:3},
+								{type:"txt",attr:"description",width:260,align:"left",row:3},
+								{type:"lbl",text:"计量单位",width:120,align:"center",row:4},
+								{type:"txt",attr:"unit",width:260,align:"left",row:4,lov:"getUnit"},
+								{type:"lbl",text:"品牌厂家",width:120,align:"center",row:5},
+								{type:"txt",attr:"brand",width:260,align:"left",row:5},
+								{type:"lbl",text:"规格型号",width:120,align:"center",row:6},
+								{type:"txt",attr:"models",width:260,align:"left",row:6},
+								{type:"lbl",text:"使用地址",width:120,align:"center",row:7},
+								{type:"txt",attr:"uses",width:260,align:"left",row:7},
+								{type:"lbl",text:"启用/停用时间",width:120,align:"center",row:8},
+								{type:"txt",attr:"tm_stopitem",width:260,align:"left",row:8,lov:"datetime"}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"供应商",width:640,align:"left",left:20,row:1}
+							]
+						},
+						{type:3,rows:0,columns:[
+								{type:"txt",name:"供应商编码",width:100,align:"left",row:1},
+								{type:"txt",name:"供应商名称",width:120,align:"left",row:1},
+								{type:"txt",name:"网址",width:240,align:"left",row:1},
+								{type:"txt",name:"联系人",width:100,align:"left",row:1},
+								{type:"txt",name:"联系方式",width:100,align:"left",row:1}
+							]
+						}
+				];
+		var cmds=[
+			{cmd:"active",text:"启用",fn:fn_updateStatus,checkMethod:"cmd_qiyong", checkFalse:"gray"},
+			{cmd:"disabled",text:"停用",fn:fn_disabledStatus,checkMethod:"cmd_tingyong", checkFalse:"gray"},
+			{cmd:"update",fn:fn_showList},
+			/*表示该操作按钮式定te=1的对象上*/						
+			{cmd:"pre",fn:fn_showPre},
+			{cmd:"next",fn:fn_showNext}
+		];
+		var cfg={title:"物资详细信息",updateMethod:"itemUpdate",formType:"update",dataMethod:"itemGet"};
+		cfg.tables=tables2;
+		cfg.cmds=cmds;
+		genForm(editForm,cfg);
+		var cmds2=[
+			{cmd:"save",fn:fn_showList,bf:test},
+			{cmd:"cancel",fn:fn_hideAddForm}/*表示该操作按钮式定义在c0_state=1的对象上*/								
+		];
+		var cfg2={title:"新增物资表单",formType:"add",addMethod:"itemAdd"};
+		cfg2.tables=tables;
+		cfg2.cmds=cmds2;
+		genForm(addForm,cfg2);
+	}
+</script>
+</body>
+</html>

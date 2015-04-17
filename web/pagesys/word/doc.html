@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" href="../../lib/zTree/zTreeStyle/zTreeStyle.css" type="text/css"/>
+<link rel="stylesheet" href="rs/css/main.css" type="text/css"/>
+</head>
+
+<body>
+<input type="hidden" name="t1_pid" id="t1_pid" value=""/>
+<input type="hidden" name="t1_path" id="t1_path" value=""/>
+<input type="hidden" name="t2_auths" id="t2_auths" value=""/>
+<input type="hidden" name="t1_pageflag" id="t1_pageflag" value="0"/>
+	<table>
+		<tr>
+			<td valign="top">
+				<div><span id="personal" class="border4">个人目录</span><span id="share" class="border4">共享目录</span></div>
+				<div>
+					<ul id="treeDemo" class="ztree"></ul>
+				</div>
+			</td>
+			<td valign="top">
+				<input type="button" value="创建文件夹" name="makeDir" disabled="disabled" id="makeDir"/>
+				<input type="button" value="创建文件" name="makeFile" disabled="disabled" id="makeFile"/>
+				<input type="button" value="上传" name="upload" disabled="disabled" id="upload"/>
+				<input type="button" value="删除" name="del"  disabled="disabled" id="del"/>
+				<input type="button" value="共享" name="shareFile"  disabled="disabled" id="shareFile"/>
+				<input type="button" value="下载" name="download" disabled="disabled" id="download"/>
+				<input type="button" value="查看" name="view" disabled="disabled" id="view"/>
+				<input type="button" value="编辑" name="editContent"  disabled="disabled" id="editContent"/>
+				<div id="tableDemo"></div>
+			</td>
+			<td valign="top">
+				<input type="hidden" name="share_t1_id" id="share_t1_id" value=""/>
+				<input type="button" value="保存" name="shareSave"  disabled="disabled" id="shareSave"/>共享人与共享角色必须选择一个，不然会过滤掉，共享是至少要有读权限
+				<div id="shareTable"></div>
+			</td>
+		</tr>
+	</table>
+	<!-- <div style="position:absolute;z-index:2;text-align:center;width:400px;height:400px;top:100px;border:1px solid #000000"></div> -->
+	<div id="uploadDiv" style="display:none">
+		<form method="post" action="upload" enctype="multipart/form-data" >
+			<input type="hidden" name="t1_pid_upload" id="t1_pid_upload" value=""/>
+			<input type="hidden" name="t1_path_upload" id="t1_path_upload" value=""/>
+			<table id="uploadTable">
+				<tr>
+					<td>请选择文件：<input type="file" name="fileName" /></td>
+					<td><img src="rs/img/edit_add.gif" title="增加附件" alt="增加附件" style="cursor: pointer;" onclick="doc.addUpload(this)"/></td>
+					<td><img src="rs/img/edit_remove.gif" title="删除附件" style="cursor: pointer;" onclick="doc.deleteUpload(this)" /></td>
+				</tr>
+			</table>
+			<div><input type="submit" name="submit" value="提交"/></div>
+		</form>
+	</div>
+	<div id="docContent" style="display:none">
+		<select id="fontsize" >
+			<option>==字体大小==</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <select id="fontname" >
+       		<option>==字体==</option>
+            <option value="宋体">宋体</option>
+            <option value="黑体">黑体</option>
+        </select>
+        <select id="color">
+			<option>==颜色==</option>
+			<option value="red">Red</option>
+			<option value="blue">Blue</option>
+			<option value="green">Green</option>
+			<option value="black">Black</option>
+		</select>
+		<select id="background">
+			<option>==背景颜色==</option>
+			<option value="red">Red</option>
+			<option value="green">Green</option>
+			<option value="black">Black</option>
+		</select>
+		<input type="button" value="粗体" id="bold"/><input type="button" value="斜体" id="italic"/><input type="button" value="下划线" id="underline"/>
+		<input type="button" value="剪切" id="cut"/>
+		<input type="button" value="拷贝" id="copy"/>
+		<input type="button" value="粘贴" id="paste"/>
+		<input type="button" value="撤消" id="undo"/>
+		<input type="button" value="重做" id="redo"/>
+		<input type="button" value="删除" id="delete"/>
+		<iframe name="content" id="content"  width="790" height="300" scrolling="auto"></iframe>
+		<table>
+			<tr>
+                   <td id="xPagingInfo" style="height: 25px;">
+                     <span id="xPagingAnalyse">启用数据分页</span>
+                     <span id="xPagingList"></span>
+                     <span id="xPagingCreate" style="display:none;">添加新页</span>
+                     <span id="xPagingDelete" style="display:none;">删除当前页</span>
+                     <span id="xPagingUnite" style="display:none;">合并数据</span>
+                     <span id="xPagingMessage" >点击这里执行数据分页</span></td>
+               </tr>
+		</table>
+		<input type="button" value="保存" id="saveContent"/>
+	</div>
+	<div id="selectContent"></div>
+	<script type="text/javascript" src="../../lib/jquery1.7/jquery-1.7.2.min.js"></script> 
+	<script type="text/javascript" src="../../release/base.js"></script>
+    <script type="text/javascript" src="../../lib/zTree/jquery.ztree.core-3.3.min.js"></script>
+    <script type="text/javascript" src="../../lib/zTree/jquery.ztree.exedit-3.3.min.js"></script>
+    <script type="text/javascript" src="rs/js/doc.js"></script>
+</body>
+</html>

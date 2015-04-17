@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>方法管理</title>
+<link href="../../../../../release/css/all.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../src/css/29tree.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../release/css/chm.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../release/css/doc.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="../../../../../src/css/11base.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../../src/css/20ui.css"/>
+</head>
+<body>
+<div class="chm">
+  <div id="dwIndex" class="dwIndex">
+    <table cellpadding="0" cellspacing="0">
+      <tr>
+        <td><div class="indexContent">
+            <div class="top">
+              <div class="product_name">Work Assignment</div>
+              <div class="product_name2">工作任务安排</div>
+            </div>
+            <div class="center">
+              <div class="center_left">
+                <div class="guide">- 所有工作内容</div>
+                <div class="guide_item">表单定义</div>
+                <div class="guide_item">布局元素</div>
+                <div class="guide_item">操作按钮</div>
+                <div class="guide_item">自定义事件</div>
+                <div class="guide_item">运行调试</div>
+                <div class="guide">+ 任务安排</div>
+                <div class="guide">+ 使用帮助</div>
+                <div class="guide">+ 联系我们</div>
+              </div>
+              <div class="center_right">
+                <div class="guide_content">工作任务安排由工作任务清单和工作安排组成。其中工作任务清单分为数据库设计、XLib开发、开发辅助开发、业务模块开发四个部分，业务模块又划分为运行模块、设备管理模块、物资模块。开发人员包括刘东杰、张进、王智华、陈赟、陈利林共五位，刘东杰负责XLib开发和开发辅助开发,张进负责数据库设计和数据初始化，王智华负责运行模块和设备管理模块，陈赟和陈利林共同负责物资模块开发。</div>
+              </div>
+            </div>
+            <div class="foot">三峡高科信息技术有限责任公司 版权所有</div>
+          </div></td>
+      </tr>
+    </table>
+  </div>
+  <div class="content" id="editForm"> </div>
+  <div class="tabContainer" style="position:absolute; top:20px;left:20px; width:200px; height:200px; background-color:#000099"></div>
+  <input type="hidden" id="nodeId" />
+  <div class="nav" id="nav">
+    <div class="top"><!--用户收缩-->
+      <div class="title">方法管理</div>
+    </div>
+    <div class="pageTabs"><!--用于导航-->
+      <div  class="active" id="method">所有方法</div>
+      <div id="param">参数</div>
+    </div>
+    <div class="rightContent tabContent">
+      <div class="tab active forms">
+        <div class="forms_cmd"><span onclick="nodeRm()">&nbsp;&nbsp;删除节点</span><span onclick="nodeAdd()">&nbsp;&nbsp;增加节点</span><span onclick="nodeEdit()">&nbsp;&nbsp;修改节点</span></div>
+        <div class="forms_list tree" id="list" style="height:400px"> </div>
+        
+        <div style="border:1px solid red;height:200px">
+        	<div class="area_top active">xx的所有属性</div>
+            <table cellpadding="0" width="100%" cellspacing="0" border="1">
+              <tr>
+                <td width="50%">节点名</td>
+                <td width="50%"><input type="text" value="" id="name1" style="border:0px"></td>
+              </tr>
+            </table>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="../../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../../release/ui.js"></script> 
+<script type="text/javascript" src="../../../../../release/form.js"></script> 
+<script type="text/javascript" src="../../../../../release/lovdef.js"></script> 
+
+<script type="text/javascript" src="../../../../../src/2ui/21body.js"></script>
+<script type="text/javascript" src="../../../../../src/2ui/22layout.js"></script>
+<script type="text/javascript" src="../../../../../src/2ui/23spliter.js"></script>
+<script type="text/javascript">
+	window.onload=init;
+	
+	var relLeft;
+	var relTop;
+	var currentObj = null;
+	
+	function f_mdown(evt) 
+	{
+	    var target = evt.target;
+		var obj ;
+	    if(target.parentNode!=null) {
+			obj = target.parentNode;
+		} else {
+			obj = target;
+		}
+	   cssAdd(obj,"divBackColor");
+	   currentObj = target.parentNode;
+	   
+	  // out("currentObj",currentObj);
+	   //alert(currentObj);
+	   $("#list").style.cursor="pointer";
+	   stopEvt(evt);
+	}
+	
+	function f_up(evt) {
+		var target = evt.target;
+		var obj ;
+		obj = target.parentNode;
+		if(currentObj!=null&&target!=null&&target.outerHTML!=currentObj.outerHTML) {
+			cssRm(currentObj,"divBackColor");
+			nodeRm();
+			
+			obj.parentNode.insertBefore(currentObj,obj.nextSibling);
+		}
+		
+	};
+	
+	function f_move(evt) {
+		if(currentObj!=null) {
+			//alert("11");
+			var d=$(".tabContainer")[0];
+		//uiResize({dom:d,minWidth:0,maxWidth:800,minHeight:0,maxHeight:300});
+			uiMove({dom:d,area:"all",gap:10});
+		}
+		/*
+		if(currentObj!=null) {
+			var target = evt.target;
+			currentObj.style.left = event.clientX-relLeft +"px";
+			currentObj.style.top = event.clientY-relTop +"px";
+		}
+		*/
+	}
+	
+	
+
+	function showEditForm(tree,evt){
+		var target=evt.target;
+		bind(target,"mousedown",f_mdown);
+		
+		bind(target,"mousemove",f_move);
+		var obj ;
+		if(target.parentNode!=null) {
+			obj = target.parentNode;
+		}  else {
+			obj = target;
+		}
+		 if(target.parentNode.parentNode!=null) {
+			obj = target.parentNode.parentNode;
+		}  else {
+			obj = target;
+		}
+		var hobj = $("#nodeId");
+		$("#name1").value = target.innerHTML;
+		
+		hobj.obj = obj;
+	
+	}
+	function nodeRm() {
+		var obj = $("#nodeId").obj;
+		if(cssContain(obj,"last")) {
+			cssAdd(getPreNode(obj),"last");
+		}
+		clearDom(obj);
+		$("#nodeId").obj = null;
+	}
+	
+	function moveNodeAdd(str,tobj) {
+		if(tobj!=null) {
+			if(str!=""&&tobj!=null) {
+				var obj = tobj;
+				var tnode=$div();
+				var tag=$div(null,"tag");
+				var text=$div(null,"icon");
+				tnode.appendChild(tag);
+				tag.appendChild(text);
+				text.innerHTML=""+str;
+				cssAdd(tag,"tag");
+				cssAdd(text,"icon");
+				if(cssContain(obj,"last")) {
+					cssRm(obj,"last");
+				}
+				
+				obj.parentNode.insertBefore(tnode,obj.nextSibling);//
+				if(getNextNode(tnode)==null) {
+					cssAdd(tnode,"last");
+				}
+				out("obj11mmm",obj);
+				cssAdd(tnode,"leaf");
+				cssAdd(tnode,"file");
+			}
+		}
+		
+	}
+	
+	function nodeAdd() {
+		var str = $("#name1").value;
+		if(str!=""&&$("#nodeId").obj!=null) {
+			var obj = $("#nodeId").obj;
+			var tnode=$div();
+			var tag=$div(null,"tag");
+			var text=$div(null,"icon");
+			tnode.appendChild(tag);
+			tag.appendChild(text);
+			text.innerHTML=""+str;
+			cssAdd(tag,"tag");
+			cssAdd(text,"icon");
+			if(cssContain(obj,"last")) {
+				cssRm(obj,"last");
+			}
+			obj.parentNode.insertBefore(tnode,obj.nextSibling);//
+			if(getNextNode(tnode)==null) {
+				cssAdd(tnode,"last");
+			}
+			cssAdd(tnode,"leaf");
+			cssAdd(tnode,"file");
+		}
+	}
+	
+	function nodeEdit() {
+		var str = $("#name1").value;
+		if(str!=""&&$("#nodeId").obj!=null) {
+			var obj = $("#nodeId").obj;
+			out("obj",obj.childNodes[0].childNodes[0]);
+			obj.childNodes[0].childNodes[0].innerHTML= str;
+		}
+	}
+	
+	
+	function refreshMethodTree(){
+		$$("methodGets",null,null,function(result){
+			var data=[];
+			var appname="";
+			for(var i in result.data){
+				var obj=result.data[i];
+				if(appname!=obj.c2_appname){
+					appname=obj.c2_appname;
+					var root={};
+					root.name=obj.c2_appname;
+					root.type="folder";
+					root.child=[];
+					var child={};
+					child.name=obj.c2_name;
+					child.type="file";
+					child.obj=obj;
+					root.child.push(child);
+					data.push(root);
+				}else{
+					var child={};
+					child.name=obj.c2_name;
+					child.type="file";
+					child.obj=obj;
+					root.child.push(child);
+				}
+			}
+			clearDom($("#list"));
+			genTree({clickHandler:showEditForm},data,$("#list"));
+		});
+	}
+	function refreshParamTree(){
+		var dom=$("#editForm");
+		if(dom.obj!=null){
+			var data=getParamData(dom.obj);
+			clearDom($("#list"));
+			genTree({clickHandler:showParamEditForm},data,$("#list"));
+		}
+	}
+	function init(){
+		refreshMethodTree();
+		$("#list").onmouseup = f_up;
+	}
+</script>
+</body>
+</html>

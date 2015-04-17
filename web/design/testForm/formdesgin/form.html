@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="../../../release/css/all.css"/>
+<style type="text/css">
+.designer{
+	border: 1px solid #666; 
+	width:60%;
+	height:100%;
+	background-color:#999;
+}
+.designer .rows{
+	margin-left:64px;
+	margin-top:64px;
+	margin-bottom:64px;
+	width:700px;
+	border:1px solid #000;
+	background-color:#FFF;
+	padding-top:64px;
+	padding-bottom:64px;
+	padding-left:64px;
+}
+.designerTable{
+	border-left:1px solid #999;
+	border-top:1px solid #999;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+.designerTable td table td{
+	background-image: url(../../../images/form/form_td_border_right_bg_999.png);
+	background-repeat: repeat-y;
+	background-position: right;
+	vertical-align: middle;
+	line-height: 24px;
+	border-bottom: 0px solid #999;
+	border-bottom: 1px solid #999;
+}
+.designerTable td{
+	background-image: url(../../../images/form/form_td_border_right_bg_999.png);
+	background-repeat: repeat-y;
+	background-position: right;
+	vertical-align: middle;
+	line-height: 24px;
+	border-bottom: 1px solid #999;
+}
+
+#selector{
+	display:none;
+	position: absolute;
+	z-index: 998;
+	left:0px;
+	top:0px;
+	border:2px solid #C30;
+}
+#selector .right{
+	float:right;
+	width:5px;
+	height:90%;
+}
+#selector .right:hover{
+	cursor: ew-resize;
+}
+#selector .bottom{
+	clear:both;
+	width:100%;
+	height:10%;
+}
+#selector .bottom:hover{
+	cursor: ns-resize;
+}
+#mergebox{
+	width:70px;
+	position: absolute;
+	z-index: 1000;
+	left:0px;
+	top:0px;
+	border:2px solid #30F;
+	border-bottom:0px solid #30F;
+}
+#mergebox div{
+	padding:5px;
+	border-bottom:2px solid #30F;
+}
+</style>
+</head>
+<body oncontextmenu="return false">
+<div id="selector" >
+<div class="right" id="selright"></div>
+<div class="bottom" id="selbottom"></div>
+</div>
+<div id="mergebox">
+<div id="merge">合并</div>
+<div id="recover">恢复合并</div>
+<div id="">取消</div>
+</div>
+<div id="designer" class="designer">
+<div  class="rows">
+<table class="designerTable"cellspacing="0" cellpadding="0">
+	<tr>
+    	<td>
+        	<table cellspacing="0" cellpadding="0">
+            	<tr>
+    				<td style="width:200px;height:30px">
+                    </td>
+                    <td style="width:200px;height:30px">
+                    </td>
+                     <td style="width:200px;height:30px">
+                    </td>
+                </tr>
+                <tr>
+    				<td style="width:200px;height:30px">
+                    </td>
+                    <td style="width:200px;height:30px">
+                    </td>
+                    <td style="width:200px;height:30px">
+                    </td>
+                </tr>
+                <tr>
+    				<td style="width:200px;height:30px">
+                    </td>
+                    <td style="width:200px;height:30px">
+                    </td>
+                    <td style="width:200px;height:30px">
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        	<table cellspacing="0" cellpadding="0">
+            	<tr>
+    				<td style="width:200px;height:30px">
+                    </td>
+                    <td style="width:200px;height:30px">
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</div>
+</div>
+<script src="../../../release/base.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(){
+	var selector=$("#selector");
+	selector.rightCfg={issel:false};
+	selector.bottomCfg={issel:false};
+	selector.merge={issel:false,doms:[]};
+	var popSeletor=function(doms){
+			var firstdom=doms[0].dom;
+			var r=0,c=0;
+			for(var i=0;i<doms.length;i++){
+				if(doms[i].row>r){
+					r=doms[i].row;
+				}
+			}
+			for(var i=0;i<doms.length;i++){
+				if(doms[i].cell>c){
+					c=doms[i].cell;
+				}
+			}
+			var tr=getChilds(firstdom.parentNode.parentNode,r);
+			var lastdom=getChilds(tr,c);
+			var frect=getRect(firstdom);
+			var lrect=getRect(lastdom);
+			selector.style.display="block";
+			selector.style.top=(frect.top-2)+"px";
+			selector.style.left=(frect.left-3)+"px";
+			selector.style.width=(lrect.right-frect.left)+"px";
+			selector.style.height=(lrect.bottom-frect.top)+"px";
+		}
+	var e_sel_right_mousedown_handler=function(evt){
+		selector.rightCfg.issel=true;
+		selector.rightCfg.orgX=evt.clientX;
+		selector.rightCfg.w=getRect(selector).width;
+	}
+	var e_sel_bottom_mousedown_handler=function(evt){
+		selector.bottomCfg.issel=true;
+		selector.bottomCfg.orgY=evt.clientY;
+		selector.bottomCfg.h=getRect(selector).height;
+	}
+	var e_sel_mouseup_handler=function(evt){
+		if(selector.merge.issel==true){
+			selector.merge.issel=false;
+			var r=getRect(selector);
+			mergebox.style.display="block";
+			mergebox.style.top=(r.top+r.height/2)+"px";
+			mergebox.style.left=(r.left+r.width/2)+"px";
+		}
+		if(selector.rightCfg.issel==true){
+			selector.rightCfg.issel=false;
+			selector.rightCfg.orgX=null;
+			
+		}
+		if(selector.bottomCfg.issel==true){
+			selector.bottomCfg.issel=false;
+			selector.bottomCfg.orgY=null;
+		}
+	}
+	var e_sel_mousemove_handler=function(evt){
+		if(selector.merge.issel==true){
+			var target=getTarget(evt)
+			if(target.nodeName=="TD"){
+				var posi={};
+				posi.dom=target;
+				posi.cell=getDomIndex(target);
+				posi.row=getDomIndex(target.parentNode);
+				var ispush=true;
+				for(var i=0;i<selector.merge.doms.length;i++){
+					var dom=selector.merge.doms[i];
+					if(posi.cell==dom.cell&&posi.row==dom.row){
+						ispush=false;
+					}
+				}
+				if(ispush==true){selector.merge.doms.push(posi);popSeletor(selector.merge.doms);}
+			}
+		}
+		if(selector.rightCfg.issel==true){
+			var w=selector.rightCfg.w+(evt.clientX-selector.rightCfg.orgX);
+			selector.style.width=w+"px";
+			var tds=getSameTd(selector.target)
+			for(var i=0;i<tds.length;i++){
+				tds[i].style.width=w+"px";
+			}
+		}
+		if(selector.bottomCfg.issel==true){
+			var h=selector.bottomCfg.h+(evt.clientY-selector.bottomCfg.orgY);
+			selector.style.height=h+"px";
+			selector.target.style.height=h+"px";
+			var tds=$("td",selector.target.parentNode);
+			for(var i=0;i<tds.length;i++){
+				tds[i].style.width=w+"px";
+			}
+		}
+	}
+	var e_mer_mousedown_handler=function(evt){
+		var target=getTarget(evt)
+		if(target.nodeName=="TD"){
+				
+			selector.merge.issel=true;
+			var posi={};
+			posi.dom=target;
+			posi.cell=getDomIndex(target);
+			posi.row=getDomIndex(target.parentNode);
+			selector.merge.doms.push(posi);
+			out("length",selector.merge.doms.length);
+		}
+	}
+	var getSameTd=function(dom){
+		var p=getDomIndex(dom);
+		var trs=$("tr",dom.parentNode.parentNode);
+		var cells=[];
+		for(var i=0;i<trs.length;i++){
+			cells.push(getChilds(trs[i],p));
+		}
+		return cells;
+	}
+	bind($("#selbottom") ,"mousedown",e_sel_bottom_mousedown_handler);
+	bind($("#selright") ,"mousedown" ,e_sel_right_mousedown_handler);
+	bind($("#designer") ,"mouseup"   ,e_sel_mouseup_handler);
+	bind(selector       ,"mouseup"   ,e_sel_mouseup_handler);
+	bind(selector       ,"mousemove" ,e_sel_mousemove_handler);
+	bind($("#designer") ,"mousemove" ,e_sel_mousemove_handler);
+	bind($("#designer") ,"mousedown" ,e_mer_mousedown_handler);
+	var e_td_select_handler=function(evt){
+		var target=getTarget(evt)
+		if(target.nodeName=="TD"){
+			var r=getRect(target)
+			selector.style.display="block";
+			selector.style.top=(r.top-2)+"px";
+			selector.style.left=(r.left-3)+"px";
+			selector.style.width=r.width+"px";
+			selector.style.height=r.height+"px";
+			selector.target=target;
+			out("rdrect",r);
+		}
+		else {
+			selector.style.display="none";
+			selector.target=null;
+			return;
+		}
+	}
+	var init=function(){
+		bind($("#designer"),"click",e_td_select_handler);
+	}
+	window.onload=init;
+})();
+</script>
+</body>
+</html>

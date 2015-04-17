@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>继电保护及自动装置动作记录</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script>
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+(function(){
+	var grid		    =$("#c1");
+	var fn_showList     =function(evt){
+		//genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	var fn_showkeyList  =function(evt){
+		activeTab(keyList);
+	}
+	var fn_showNext=	function(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showPre=		function(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showEditForm=function(evt){
+		activeTab(tabEdit);
+	}
+	var fn_showAddForm=function(evt){/*要把新增表单显示出来*/
+		activeTab(tabAdd);
+	}
+	var e_refushEdit =function(target){
+		genGridCmd(grid);
+		genGridContent(grid);
+		activeTab(tabList);
+	}
+	var e_refushAdd =function(target){
+		cssReplace(tabAdd,"active","hide");
+		cssReplace(tabAdd,"normal","hide");
+		genGridCmd(grid);
+		genGridContent(grid);/*重绘内容*/
+		activeTab(tabList);
+	}
+	var tabChange=function(target,p){
+		if(p==0)		fn_showList();
+		else if(p==1)	refreshEditForm();
+		else if(p==2)	refreshAddGrid();
+	}
+	var refreshAddGrid=function(){
+		 addForm.formCfg.data={type:2}
+		 genFormContent(addForm);
+	}
+	var refreshEditForm =function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.param==obj)	return;
+		else{
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			cssRm([preCmd,nextCmd],"gray");
+			if(obj.rownum==1)						cssAdd(preCmd,"gray");
+			else if(obj.rownum==cfg.totalNum)		cssAdd(nextCmd,"gray");
+			genFormContent(editForm);
+		}
+	}
+	var init=function(){
+		uiApp({dom:$("#app1"),fn:tabChange});
+		// 	ae_dutybh_zid	ae_ondutyid	stepnum	assetname	baowen	tm_start	result	reason	per_enter per_zz	isload	remark	site	org
+		cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"dutybhzGets",rmMethod:'dutybhzRm',addMethod:"dutybhzDoAdd",updateMethod:"dutybhzUpdate",pageFlag:false,pageSize:6,autoWidth:1,pkAttr:"ae_dutybh_zid"};
+		cfg.columns=[	
+						{text:"设备名称",attr:"assetname",align:"left",type:"str",width:80,asc:1},
+						{text:"报文",attr:"baowen",align:"left",width:150,type:"str",asc:1},
+						{text:"动作时间",attr:"tm_start",align:"left",width:150,type:"str",asc:1,lov:'datetime'},
+						{text:"动作后果",attr:"result",align:"left",width:150,type:"str",asc:1},
+						{text:"动作原因",attr:"reason",align:"left",width:150,type:"str",asc:1},
+						{text:"记录人",attr:"per_enter_name",attr2:'per_enter',align:"left",width:80,type:"str",asc:1,lov:'stuff'},
+						{text:"值班负责人",attr:"per_zz_name",attr2:'per_zz',align:"left",width:80,type:"str",asc:1,lov:'stuff'},
+						{text:"是否插入记录",attr:"isloadname",attr2:"isload",align:"left",width:80,type:"str",asc:1,lov:"is"},
+						{text:"备注",attr:"remark",align:"left",width:150,type:"str",asc:1}
+					];
+		cfg.cmds=[
+					{cmd:"cmdLock"},
+					{cmd:"cmdAddItem"},
+					{cmd:"cmdRmItem"},
+				  	{cmd:"cmdCommit"},
+				  	{cmd:"cmdFilter"},
+				  	{cmd:"cmdRefresh"}
+				]
+		$$("getOndutyingId",null,null,function(r3){
+			if(r3){
+				cfg.param={ae_ondutyid:r3.data.ae_ondutyid}
+				genGrid(grid,cfg);
+			}
+		});
+	}
+	
+	window.onload=init;
+})();
+</script>
+</body>
+</html>

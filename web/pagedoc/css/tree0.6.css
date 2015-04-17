@@ -1,0 +1,88 @@
+@charset "utf-8";
+.tree  {
+	width: 200px;
+	height: 300px;
+
+}
+.tree div {
+	line-height: 18px;
+	font-size: 12px;
+}
+.tree div span{
+	display: block;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 18px;
+
+}
+.tree .a{
+	background-image: url(../editor4/img/style2/link_bg2.png);
+	background-position: 4px 0px;
+}
+.tree .b{
+	background-image: url(../editor4/img/style2/open.png);
+	background-position: 0px 5px;
+}
+.tree .c  {
+	background-image: url(../editor4/img/style2/folder.png);
+	background-position: 18px 0px;
+}
+.root .a{
+	background-image: none;
+}
+.root .b{
+	background-image: url(../editor4/img/style2/open.png);
+}
+.root .c {
+	background-image: url(../editor4/img/style2/folder.png);
+}
+.bl .a{
+	background-image: url(../editor4/img/style2/link_bg2.png);
+}
+.bl .b{
+	background-image: url(../../pagesys/editor/design/tree/css/none);
+}
+.bl .c {
+	background-image: url(../editor4/img/style2/folder_empty.png);
+}
+.open .b{
+	background-image: url(../editor4/img/style2/open.png);
+}
+.open .c {
+	background-image: url(../editor4/img/style2/folder_open.png);
+}
+.close .b{
+	background-image: url(../editor4/img/style2/close.png);
+}
+.close .c {
+	background-image: url(../editor4/img/style2/folder.png);
+}
+.child {
+	padding-left: 21px;
+	background-image: url(../editor4/img/style2/line_bg.png);
+	background-repeat: repeat-y;
+	background-position: 4px;
+}
+.end {
+	background-image: url(../../pagesys/editor/design/tree/css/none);
+}
+.hidden {
+	display: none;
+
+}
+.show {
+	display: block;
+
+}
+.leaf .a{
+	background-image: url(../editor4/img/style2/link_bg2.png);
+}
+.leaf .b{
+	background-image: url(../../pagesys/editor/design/tree/css/none);
+}
+.leaf .c {
+	background-image: url(../editor4/img/style2/file_bg.png);
+}
+.last .a{
+	background-image: url(../editor4/img/style2/link_bg1.png);
+}

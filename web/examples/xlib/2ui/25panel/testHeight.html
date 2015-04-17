@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="c1" style="background-color:#ccc; position:absolute; left:100px; top:40px; width:400px; height:600px; overflow:hidden">
+	<div id="c2" style="background-color:#fff; position:relative; margin-left:10px; margin-top:10px">
+    	<div id="c3" style="background-color:#000; width:1000px; height:800px; position:absolute; top:-60px; left:20px">
+        	<div style="height:1600px;"></div>
+        </div>
+    </div>
+</div>
+<div id="c4"></div>
+<script type="text/javascript">
+	window.onload=init;
+	function init(){
+		var c1=document.getElementById("c1");
+
+		var c2=document.getElementById("c2");
+
+		var c3=document.getElementById("c3");
+
+		var c4=document.getElementById("c4");
+		c4.innerHTML=c1.clientHeight;
+		c4.innerHTML+="<br/>"+c1.scrollHeight;
+		c4.innerHTML+="<br/>"+c2.clientHeight;
+		c4.innerHTML+="<br/>"+c2.scrollHeight;
+		c4.innerHTML+="<br/>"+c3.clientHeight;
+		c4.innerHTML+="<br/>"+c3.scrollHeight;
+
+
+	}
+</script>
+</body>
+</html>

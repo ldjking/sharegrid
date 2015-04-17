@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="container"></div>
+<script type="text/javascript">
+	window.onload=init;
+	function init(){
+		var startTime=new Date();
+		var container=document.getElementById("container");
+
+		var str="";
+		var dom="";
+		for(var i=0;i<10000;i++){
+			//str+="拼接xxy字符串拼接xxy字符串拼接xxy字符串拼接xxy字符串拼接xxy字符串拼接xxy字符串拼接xxy字符串拼接xxy字符串拼接xxy字符串"+i;<br />
+			//dom=document.createElement("div");
+			//var text=document.createElement("textarea");
+			//var label=document.createElement("label");
+
+			//dom.innerHTML="i";
+			
+			//container.appendChild(dom);
+			
+			str+="<div>"+i+"</div>";
+			//dom.appendChild(text);
+			//dom.appendChild(label);
+
+		}
+		container.innerHTML=str;
+
+		var endTime=new Date();
+		var cost=endTime.getTime()-startTime.getTime();
+		//container.innerHTML=str;
+		alert("cost"+cost);
+	}
+</script>
+</body>
+</html>

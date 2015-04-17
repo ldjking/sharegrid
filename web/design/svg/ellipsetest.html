@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+ <div id="container">    
+       <svg id='svg'width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg">
+<line x1="100" y1="100" x2="340" y2="340"
+style="stroke:rgb(99,99,99);stroke-width:2"/>
+<line x1="300" y1="300" x2="340" y2="300"
+style="stroke:rgb(99,99,99);stroke-width:2"/>
+</svg>     
+    </div>  
+<script type="text/javascript" src="svg.js"></script>
+<script type="text/javascript">
+  	var svg = document.getElementById('svg'); 
+	var cfg={
+				x1:300,
+				y1:300,
+				x2:100,
+				y2:50,
+				e:30,
+				style:{
+					fill:'red',
+					stroke:'blue'
+				}
+			}
+	var ex = Math.abs(300 - 100);
+    var ey = Math.abs(300 - 100);
+    var ez = Math.sqrt(ex*ex + ey*ey);
+	nv2=Math.round((Math.asin(ey/ez)/Math.PI*180))
+    ex = Math.abs(340 - 300);
+    ey = Math.abs(300 - 300);
+    ez = Math.sqrt(ex*ex + ey*ey);
+	nv1=Math.round((Math.asin(ey/ez)/Math.PI*180))
+	nv=Math.abs(nv2-nv1);
+	var r=Math.sqrt(ex*ex+ey*ey)
+	var xr=r*Math.cos(nv*(Math.PI/180));
+	var yr=r*Math.sin(nv*(Math.PI/180));
+	alert("r:"+r+"x:"+xr+"y:"+yr)
+	
+	alert(Math.cos(nv2*(Math.PI/180)))
+	alert("xr"+xr)
+	var x=300+xr*Math.cos(nv2*(Math.PI/180));
+	var svgns = 'http://www.w3.org/2000/svg'; 
+	var cir = document.createElementNS(svgns, 'circle'); 
+	
+	cir.setAttribute('cx',x);
+	cir.setAttribute('cy',x);
+	cir.setAttribute('r',2	);
+	svg.appendChild(cir)
+	
+    var line1= new gfx.Line(cfg);
+	line1.draw(svg)
+</script> 
+</body>
+</html>

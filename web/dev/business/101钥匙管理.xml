@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<business>
+	<des>钥匙登记</des>
+	<entitis>
+		<entity>钥匙库</entity>
+		<entity>钥匙</entity>
+		<entity>钥匙借用记录</entity>
+		<entity>钥匙借用记录细项</entity>
+	</entitis>
+	<des>钥匙登记</des>
+</business>

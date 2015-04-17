@@ -1,0 +1,241 @@
+@charset "utf-8";
+
+/* CSS Document */
+*{padding:0px;margin:0px;}
+body{font-family:"微软雅黑"}
+.aBank {
+	margin:0 0 0 0;
+	padding:10px 70px;
+}
+.aBank{min-height:470px;}
+.topTip{
+	background:#fff9e3 url(../images/warnTips.png) no-repeat 32px 11px;
+	padding:10px 40px 10px 60px;
+	font-size:14px;
+	border:1px solid #e8c196;
+}
+.floorTip{
+	background:#faf6f5;
+	border:1px solid #e7e6e4;
+	padding:10px 0px;
+	margin-top:30px;
+}
+.floorTipLeft{
+	width:120px;
+	float:left;
+	padding-right:5px;
+	text-align:right;
+}
+.floorTipRight{
+	margin-left:125px;
+}
+.floorTipLeft p,.floorTipRight p{line-height:22px;font-size:14px;}
+
+.step{width:612px;height:50px;margin:10px auto;}
+.step1{background:url(../images/bankManageEmbedStep.png) no-repeat 0 -9px;}
+.step2{background:url(../images/bankManageEmbedStep.png) no-repeat 0 -69px;}
+.step3{background:url(../images/bankManageEmbedStep.png) no-repeat 0 -129px;}
+.step span{
+	line-height:51px;
+	height:50px;
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+	padding-left:50px;
+	font-size:14px;
+}
+.step1 .one{color:#fff;}
+.step2 .two,.step2 .one{color:#fff;}
+.step3 .three,.step3 .two,.step3 .one{color:#fff;}
+.step span.one{width:177px}
+.step span.two{width:150px}
+
+.form{position:relative;}
+.formTable table{width:100%;}
+.formTable table td{line-height:50px;height:50px;}
+.formTable table .first{width:160px;text-align:right;padding-right:10px; }
+.formTable table .secend{width:235px;}
+.secend input,.ad_city{
+	height:38px;line-height:38px\9;border:1px solid #ccc;width:220px;padding:0 5px;
+}
+.ad_city{line-height:38px}
+.form table .three{width:230px;}
+.form table .bankManageSubmit{margin:0 auto;padding:5px 10px;display: block;}
+
+.choiceTheCityTag:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+.choiceTheCityTag{
+	width:100%;
+	border-bottom: 1px solid #e5e5e5;
+}
+.choiceTheCityTag li{
+	float:left;
+	cursor:pointer;
+	line-height:35px;
+	padding:0px 10px;
+	background-color: #f7f7f7;
+	border: 1px solid #e5e5e5;
+	margin-bottom: -1px;
+}
+.choiceTheCityTag li.cur{border-bottom:1px solid #fff;background-color:#fff;}
+
+.choiceTheCity {position:absolute;top:214px;left:170px;background: #fff;display:none;}
+.choiceTheCity table{margin:5px 10px;}
+.choiceTheCity table td.first{width:50px;color:#aaa;}
+.choiceTheCity table td span{padding:2px 8px;margin:2px 0px;cursor:pointer;display:inline-block;*display:inline;*zoom:1;}
+.choiceTheCity span.focus{background-color:#fc966d;color:#fff;}
+.choiceTheCityContent{position:relative;width:400px;border:1px solid #cdcdcd;}
+.city{display:none;margin:5px 10px;}
+.city span{padding:4px 8px;display:inline-block;*display:inline;*zoom:1;cursor:pointer;}
+
+.mainContent{overflow: inherit;overflow-x:hidden;position:relative;}
+.branchList{
+	position:absolute;
+	padding:5px 0;
+	width:230px;
+	max-height:300px;
+	overflow-x:hidden;
+	overflow-y:auto;
+	border:1px solid #ccc;
+	border-top:none;
+	background-color:#fff;
+}
+
+#subbranch{outline: none;}
+
+.branchList ul li{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;cursor:pointer;}
+.branchList ul li:hover{background:#ccc;}
+
+.role_select{position:relative;width:230px;padding:0 5px;height:38px;line-height:38px;border:1px solid #ccc;padding:0px;}
+.role_select span{display:block;overflow:hidden;padding:0 5px;width:220px;}
+.role_select ul{padding:0px;margin:0px;display:none;width:100%;background:#fff;position:absolute;left:-1px;border:1px solid #ccc;border-top:none;height: 200px;
+overflow-y: scroll;overflow-x: hidden;}
+.role_select ul li{margin:0px;padding:0px;list-style-type:none;width:220px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding:0 5px;height:20px;line-height:20px;}
+.role_select ul li:hover{background:#ccc;}
+
+.formCon{padding:10px 22px}
+.formContent{
+	min-height:100px;
+	border:1px solid #cacaca;
+}
+.formContentTop{
+	height: 85px;
+	padding: 35px 0px 0px 249px;
+	font-size: 14px;
+	line-height:25px;
+	position:relative;
+	z-index:10;
+}
+.formContentTip{
+	position:absolute;
+	width:195px;
+	height:70px;
+	border:1px solid #868f96;
+	box-shadow:0px 0px 4px #cad3da;
+	background-color:#fff;
+	bottom:-14px;
+	left:10px;
+	padding:15px;
+	z-index:10;
+}
+.formContentFloor{
+	position:relative;
+	height:88px;
+	border-top:5px solid #ff6003;
+	padding-top:30px;
+}
+.formContentFloor td{padding:5px;}
+.formContentFloor .tipsLine td{padding:0px;}
+
+.bank_icon{width:141px;display:inline-block;*display:inline;*zoom:1;height: 33px;}
+.bankOfType{position:absolute;top:15px;right:15px;height:23px;line-height:23px;margin:5px 0;padding:0 5px;background-color:#87abdb;font-size:12px;color:#fff;}
+.bankCode{display:block;padding:5px 0px;}
+
+#moneyForCheck{height:36px;line-height:36px\9;border:1px solid #ccc;width:150px;padding:0 5px;outline:none;}
+.inputMoney{position:relative;}
+.inputMoney font{position:absolute;line-height:36px;top:0px;right:5px;}
+
+.submitButton{
+	width:142px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	background:url("../images/submitButton.png") no-repeat 0px -10px;
+	outline:none;display:block;
+	color:#fff;
+	cursor:pointer;
+	font-size:14px;
+}
+.submitButton:hover{
+	text-decoration: none;
+	color:#fff;
+	background:url("../images/submitButton.png") no-repeat -150px -10px;
+}
+
+/*dialog*/
+.coverdiv{position:fixed;width:100%;height:100%;background-color:rgba(0,0,0,0.3);filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#50000000', endColorstr = '#50000000' )\9;z-index:10000;}
+.dialogContent{position:relative;margin:-170px auto 0 auto;top:50%;background-color:#fff;width:540px;height:260px;padding:8px 8px 88px 8px;background-color:rgba(0,0,0,0.6);filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#80000000', endColorstr = '#80000000' )\9;}
+.titleBar{height:42px;line-height:42px;padding:0 10px;background-color:#e0af48;color:#fff;font-size:14px;}
+.dialogCenter{background-color: #fff;min-height:218px;}
+.dialogfloor{position:relative;width:500px;height:70px;background-color:#fefaf1;padding: 7px 0 3px 40px;}
+.dialogTip{text-align:center;font-size:14px;padding:20px 0px;}
+.dialogTip font{text-align:center;font-size:14px;color:#e0af48;}
+.bankcode{text-align:center;font-size:25px;padding:10px 0px;}
+.dialogButtons{width:100%;text-align:center;padding-top:20px;}
+.dialogOKButton,.dialogCancelButton{display:inline-block;*display:inline;*zoom:1;width:131px;height:45px;line-height:45px;font-size:16px;color:#fff;margin:10px;cursor:pointer;}
+.dialogOKButton{background:url("../images/submitButton.png") no-repeat -3px -130px;}
+.dialogOKButton:hover{background:url("../images/submitButton.png") no-repeat -151px -130px;text-decoration: none;color:#fff;}
+.dialogCancelButton{background:url("../images/submitButton.png") no-repeat -3px -70px;}
+.dialogCancelButton:hover{background:url("../images/submitButton.png") no-repeat -151px -68px;text-decoration: none;color:#fff;}
+
+#coverdiv2 .dialogContent,#coverdiv3 .dialogContent{padding-bottom:8px;margin:-130px auto 0 auto;}
+#coverdiv2 .bankcode{padding:30px 0px;}
+#coverdiv3 .dialogTip,#coverdiv2 .dialogTip{padding:0px;}
+
+.itisok{font-size:30px;line-height:80px;padding-left:30px;}
+
+.tip{position:relative;max-height:50px;line-height:20px;padding-left:5px;}
+.onError{padding-left:20px;background:url(../images/onError.png) no-repeat 0px 0px;}
+
+.choiceTheCityTag i{
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+	width:15px;
+	height:15px;
+	background:url(../images/submitButton.png) no-repeat -16px -268px;
+}
+
+.selectIcon{
+	background:url(../images/submitButton.png) no-repeat 194px -258px;
+}
+
+.branchLine{display:none;}
+
+.bankManageFalse{
+	position:relative;
+	width:100%;
+	height:50px;
+	line-height:50px;
+	padding:20px 0px;
+	font-size:20px;
+	text-align:center;
+	background:url(../images/submitButton.png) no-repeat 137px -175px;;
+}
+.disabledButton2{
+	background:#ccc;
+	border:1px solid #232323;
+}
+.disabledButton2:hover{
+	background:#ccc;
+	border:1px solid #232323;
+}
+
+.bigTips{
+	margin:0 auto;max-width:400px;font-size:20px;color:#333;line-height:30px;text-align:center;padding:20px 0;
+}
+
+

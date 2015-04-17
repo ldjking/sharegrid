@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="../../../../../src/css/29tree.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!--树的结构
+	结构1  顶点只有一个
+    root folder open[close] 
+    ----node folder close
+    --------node folder close
+    --------leaf js
+    --------left js last
+    ----node folder close
+    ----node folder last close
+    
+    结构2  顶点有多个
+    ----node folder first close
+    ----node folder close
+    ----node folder last close
+-->
+<div class="tree" id="c1">
+</div>
+<script type="text/javascript" src="../../../../../release/base.js"></script>
+<script type="text/javascript" src="../../../../../src/9other/29tree.js"></script>
+<script type="text/javascript">
+	var dom=$("#c1");
+	var cfg={};
+	var data=[{name:"XLib",type:"folder",
+			child:[
+				{name:"base",type:"folder",
+					child:[
+						{name:"basis",type:"file"},
+						{name:"extend",type:"file"},
+						{name:"core",type:"file"},
+						{name:"out",type:"file"},
+						{name:"dom",type:"file"},
+						{name:"css",type:"file"},
+						{name:"createdom",type:"file"}
+					]
+				},
+				{name:"ui",type:"folder",
+					child:[
+						{name:"basis",type:"file"},
+						{name:"extend",type:"file"},
+						{name:"core",type:"file"},
+						{name:"out",type:"file"},
+						{name:"dom",type:"file"},
+						{name:"css",type:"file"},
+						{name:"createdom",type:"file"}
+					]
+				},
+				{name:"grid",type:"folder",
+					child:[
+						{name:"basis",type:"file"},
+						{name:"extend",type:"file"},
+						{name:"core",type:"file"},
+						{name:"out",type:"file"},
+						{name:"dom",type:"file"},
+						{name:"css",type:"file"},
+						{name:"createdom",type:"file"}
+					]
+				}
+			]	
+		}];
+	genTree(cfg,data,dom);
+</script>
+</body>
+</html>

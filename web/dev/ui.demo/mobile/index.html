@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>风电管理系统</title>
+<LINK href="images/icon/favicon.ico" type="image/x-icon" rel=icon>
+<LINK HREF="images/icon/favicon.ico" rel="shortcut icon" >
+<LINK HREF="images/icon/favicon.ico" rel="bookmark" >
+<link rel="apple-touch-icon" href="images/icon/mylogo2.png">
+<link rel="stylesheet" type="text/css" href="src/css/ui.css">
+<link rel="stylesheet" type="text/css" href="src/css/page.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0"/>
+</head>
+
+<body>
+<div class="container" id="container">
+  <table class="cover" cellpadding="0" cellspacing="0" id="cover">
+    <tr>
+      <td><img src="images/icon/40.gif" width="37" height="37" alt="加载中"></td>
+    </tr>
+  </table>
+</div>
+</div>
+<div id="debug_console"></div>
+<script type="text/javascript" src="src/xlib.js"></script> 
+<script type="text/javascript" src="src/pageLoader.js"></script> 
+<script type="text/javascript" src="src/ichart-1.0.js"></script>
+<script type="text/javascript">
+	/*xlib 移动版将提供更多的内容供其他页面使用  比如loginUser对象  screen对象*/
+	var clientWidth=document.body.clientWidth;
+	var clientHeight=document.body.clientHeight;
+	function loadPageBack(){
+		//alert("loadPageBack");
+		var loginPage=apps.login;
+		loginPage.init();
+		//var dom=loginPage.dom;
+		//alert(dom);
+		//var panel=document.createElement("div");
+		//panel.innerHTML=dom;
+		//panel.className="panel index active";
+		//alert(panel.outerHTML);
+		//var container=$("container");
+		//container.appendChild(panel);
+		//alert(container.innerHTML);
+	}
+	function init(){
+		/**/
+		require(["src/login.js"],loadPageBack);
+		//loadPage("login",loadPageBack);
+		//var clientHeight=document.body.clientHeight;
+		//var downHeight=clientHeight-60;
+		//$("down").style.height=downHeight+"px";
+		//$("down").style.visibility="visible";
+		//alert("document.clientHeight"+);
+		//out("init");
+		//jumpUrl("test/test3d/test1.html");/*包含进来   iframe        login  css js  页面上的dom元素*/
+		//fixScroll($("down"));
+		/**/
+	}
+	window.onload=init;
+</script>
+</body>
+</html>

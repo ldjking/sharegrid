@@ -1,0 +1,156 @@
+/* CSS Document */
+
+
+/*活动期牛*/
+.xn_p_list{
+	position:relative;
+	width:970px;
+	margin:0px auto 0px auto;
+	background-color:#254582;
+}
+.xn_p_list:after{
+	content:"";
+	clear:both;
+	display:block;
+	height:0px;
+}
+
+.xn_p_msg{
+	width:100%;
+}
+.xn_p_msg li{
+	width:25%;
+	float:left;
+	height:125px;
+	padding:10px 0px;
+	position:relative;
+	background-image:url(../../../../images/p_msg_line.png);
+	background-image:none;
+	background-repeat:no-repeat;
+	background-position:center right;
+}
+.xn_p_msg li:last-child{
+	background-image:none;
+}
+.xn_p_msg li a{
+	color:#666666;
+	color:#d6c6a1;;
+		cursor:text;
+
+}
+/* .p_msg li a:hover{
+	color:#FF0000;
+} */
+.xn_m_list{
+	position:relative;
+	width:100%;
+	margin:13px auto 0px auto;
+}
+.xn_m_list:after{
+	content:"";
+	clear:both;
+	display:block;
+	height:0px;
+}
+.xn_icon{
+	display:block;
+	margin:0 auto;
+	width:110px;
+	padding:0 0 20px 80px;
+	background-repeat:no-repeat;
+	background-position:5px 50%;
+	height:65px;
+	font-size:18px;
+	line-height:83px;
+	font-weight:700;
+	color:#595959;
+	cursor:pointer;
+	cursor:text;
+}
+.xn_p_msg a:hover{
+	text-decoration:none;
+	color:#595959;
+	color:#d6c6a1;
+	cursor:text;
+}
+.xn_p_msg p a:hover{
+	color:#FF0000;
+	color:#d6c6a1;
+	cursor:text;
+}
+.xn_p_msg_icon{
+	width:66px;
+	height:66px;
+	position:absolute;
+	top:20px;
+	left:30px;
+	cursor:pointer;
+}
+.xn_p_msg1{
+	background-image:url(../../../../images/p_msg_1.png);
+}
+.xn_p_msg12{
+	background-image:url(../../../../images/indexNew/p_msg1.png);
+	display:none; 
+}
+.xn_p_msg2{
+	background-image:url(../../../../images/p_msg_3.png);
+}
+.xn_p_msg22{
+	background-image:url(../../../../images/indexNew/p_msg2.png);
+	display:none;
+}
+.xn_p_msg3{
+	background-image:url(../../../../images/p_msg_2.png);
+}
+.xn_p_msg32{
+	background-image:url(../../../../images/indexNew/p_msg3.png);
+	display:none;
+}
+.xn_p_msg4{
+	background-image:url(../../../../images/p_msg_4.png);
+}
+.xn_p_msg42{
+	background-image:url(../../../../images/indexNew/p_msg4.png);
+	display:none;
+}
+.xn_p_msg1{
+	background-image:url(../../../../images/xn_register/img_1.png);
+}
+.xn_p_msg2{
+	background-image:url(../../../../images/xn_register/img_2.png);
+}
+.xn_p_msg3{
+	background-image:url(../../../../images/xn_register/img_3.png);
+}
+.xn_p_msg4{
+	background-image:url(../../../../images/xn_register/img_4.png);
+}
+.xn_p_msg li p{
+	padding:0 0 0 33px;
+	font-size:12px;
+	line-height:20px;
+	color:#666;
+	color:#d6c6a1;
+}
+.xn_p_msg li p font{
+	font-size:16px;
+	/* color:#d2af60; */
+	padding:0 5px;
+	font-weight:700;
+	color:#ff6006;
+	color:#d6c6a1;
+}
+.xn_li_modle_a{
+	padding:6px 0px;
+		cursor:text;
+
+}
+.xn_licaishiBar{
+	position:relative;
+	margin-top:13px;
+}
+.xn_licaishiBar img{
+	width:100%;
+	height:100%;
+}

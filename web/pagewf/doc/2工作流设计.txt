@@ -1,0 +1,40 @@
+工作流的起点
+发起流程   
+	不同的流程使用不同的表单
+	填完表单后可以选择保存 或者启动
+
+工作流切入点
+处理流程
+	工作任务			待办事项   已办事项   
+	工作流程
+	
+	
+流程 	需要知道它使用哪个表单
+     	需要知道它各个环节允许编辑的内容
+		需要知道它各个环节允许的操作
+		
+wf={
+		form:form1,
+		saveMethod:"save",
+		startMethod:"start",
+		/*状态为空时，表示正在填写*/
+		/*启动操作*/
+		startOp:{name:"启动",submitMethod:"start",requiredPersons:"",persons:"",onlySingle:flase,showForm:false,},
+		nodes:[
+				{state:1,name:"已发起，待审批",ops:[
+												{name:"批准",submitMethod:"approve",requiredPersons:"",persons:"",onlySingle:false},
+												/*必选人  候选人  单选模式*/
+												{name:"拒绝",submitMethod:"reject"},
+											]
+				},
+				{state:2,name:"已审批，待归档",ops:[
+												{name:"归档",submitMethod:"store"}											
+											]
+				},
+				{state:99,name:"失败归档状态",ops:[]
+				},
+				{state:100,name:"成功归档状态",ops:[]
+				},
+			]
+   }
+			

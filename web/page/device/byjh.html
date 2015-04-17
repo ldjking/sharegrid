@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>设备维修保养计划</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">设备维修保养计划</div>
+    <div class="tab hide"  	id="tab_add">新增设备维修保养计划</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script> 
+<script type="text/javascript" src="../../release/ui.js"></script> 
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script> 
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+	window.onload=init;	
+	var grid		=$("#c1");
+	var editForm	=$("#c2");
+	var addForm		=$("#c3");
+	var tabList		=$("#tab_list");
+	var tabEdit		=$("#tab_edit");
+	var tabAdd		=$("#tab_add");
+	function e_cmdAddItem_handler(target){
+		//msg(target.cmd.cmd+"用户自定义事件");
+	}
+	function fn_showNext(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showPre(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showList(evt){
+		genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	function fn_showEditForm(evt){
+		activeTab(tabEdit);
+	}
+	function fn_showAddForm(evt){/*要把新增表单显示出来*/
+	////out("showAddForm");
+		activeTab(tabAdd);
+	}
+	function fn_hideAddForm(evt){
+		cssReplace(tabAdd,"active","hide");
+		activeTab(tabList);
+	}
+	
+	function tabChange(target,p){
+		if(p==1){
+			refreshEditForm();
+		}
+		else if(p==2){
+			refreshAddForm();
+		}
+	}
+	function refreshAddForm(){
+		genFormCmd(addForm);
+		genFormContent(addForm);
+	}
+	function refreshEditForm(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.data==obj){return;}
+		else{
+			//editForm.formCfg.param={c2_id:"1554"};
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+			//;//out(obj.rownum);
+			cssRm(preCmd,"gray");
+			cssRm(nextCmd,"gray");
+			if(obj.rownum==1){
+				cssAdd(preCmd,"gray");
+			}
+			else if(obj.rownum==cfg.totalNum){
+				cssAdd(nextCmd,"gray");
+			}
+			genFormContent(editForm);/*重绘内容*/
+		}
+	}
+	function init(){/*需要有一些自定义动画效果*/	
+		grid		=$("#c1");
+		editForm	=$("#c2");
+		addForm		=$("#c3");
+		tabList		=$("#tab_list");
+		tabEdit		=$("#tab_edit");
+		tabAdd		=$("#tab_add");
+		uiApp({dom:$("#app1"),fn:tabChange});
+		var grid=$("#c1");
+		var cfg={multiMode:0,toolbar:1,filterMode:0,data_method:"assetbyjhGets",
+				rmMethod:'assetbyjhRm',pageFlag:true,pageSize:5,pkAttr:"af_asset_byjhid"};
+		cfg.columns=[	{text:"年度",attr:"by_year",align:"center",width:100,frozen:1,type:"str",notEdit:0},
+						{text:"制表人",attr:"per_zbr_name",align:"center",width:150,frozen:0,type:"str"},
+						{text:"制表日期",attr:"tm_zb",align:"center",width:160,type:"str",notEdit:1},
+						{text:"审批",attr:"per_sp_name",align:"center",width:120,type:"str"},
+						{text:"审批日期",attr:"tm_sp",align:"center",width:160,type:"str"},
+						{text:"状态",attr:"status",align:"left",width:200,type:"str"}
+					];
+		cfg.cmds=[
+					{cmd:"cmdAdd"	,fn:fn_showAddForm},
+					{cmd:"cmdEdit"	,fn:fn_showEditForm},
+					{cmd:"cmdDelete",fn:e_cmdAddItem_handler},
+					{cmd:"cmdFilter",fn:e_cmdAddItem_handler},
+					{cmd:"cmdRefresh",fn:e_cmdAddItem_handler}
+				]
+		genGrid(grid,cfg);	
+		
+		var tables=[	{type:0,cells:[
+									{type:"text",attr:"af_asset_byjhid",sidType:"af_asset_byjh"}
+									]
+						},
+						{type:2,rows:2,cells:[
+								{type:"lbl",text:"年度",width:100,align:"center",row:1},
+								{type:"txt",attr:"by_year",width:260,align:"left",row:1},/*txt代表单行元素*/
+								{type:"lbl",text:"状态",width:100,align:"center",row:1},
+								{type:"txt",attr:"status",width:270,align:"left",row:1},
+								{type:"lbl",text:"制表人",width:100,align:"center",row:1},
+								{type:"txt",attr:"per_zbr_name",attr2:"per_zbr",width:260,align:"left",row:1,lov:"stuff"},/*txt代表单行元素*/
+								{type:"lbl",text:"制表日期",width:100,align:"center",row:2},
+								{type:"txt",attr:"tm_zb",width:260,align:"left",row:2,lov:"datetime"},
+								{type:"lbl",text:"审批人",width:100,align:"center",row:2},
+								{type:"txt",attr:"per_sp_name",attr2:"per_sp",width:270,align:"left",row:2,lov:"stuff"},/*txt代表单行元素*/
+								{type:"lbl",text:"审批时间",width:100,align:"center",row:2},
+								{type:"txt",attr:"tm_sp",width:260,align:"left",row:2,lov:"datetime"}
+							]
+						},
+						{type:3,rows:1,refAttr:[{name:"af_asset_byjhid"}],rmMethod:'assetbyjhzRm',updateMethod:"assetbyjhzUpdate",addMethod:"assetbyjhzAdd",dataMethod:"assetbyjhzGets",
+							columns:[
+								{type:"txt",name:"序号",attr:"stepnum",width:60,align:"center"},
+								{type:"txt",attr:"description",name:"设备名称",width:180,align:"center"},
+								{type:"txt",attr:"assetnum",name:"编号",width:120,align:"center"},
+								{type:"txt",attr:"dept",name:"所在部门",width:160,align:"center"},
+								{type:"txt",attr:"content",name:"维修保养内容",width:250,align:"center"},
+								{type:"txt",attr:"tm_wb",name:"维保日期",width:160,align:"center",lov:"datetime"},
+								{type:"txt",attr:"yj_cost",name:"预计费用",width:80,align:"center"},
+								{type:"txt",attr:"per_wb_name", attr2:"per_wb",name:"维修保养人",width:80,align:"center",lov:"stuff"}
+							]
+						}
+				];
+		var cmds=[
+			{cmd:"addItem"},
+			{cmd:"rmItem"},
+			{cmd:"update",fn:fn_showList},
+			/*表示该操作按钮式定te=1的对象上*/								
+			{cmd:"pre",fn:fn_showPre},
+			{cmd:"next",fn:fn_showNext}
+		];
+		var cfg={title:"设备维修保养计划",bigPaper:1,updateMethod:"assetbyjhUpdate",formType:"update",dataMethod:"assetbyjhGet"};
+		cfg.tables=tables;
+		cfg.cmds=cmds;
+		genForm(editForm,cfg);
+		
+		var cmds2=[
+			{cmd:"save",fn:fn_showList},
+			{cmd:"cancel",fn:fn_hideAddForm}/*表示该操作按钮式定义在c0_state=1的对象上*/								
+		];
+		var tables2=[	{type:0,cells:[
+									{type:"text",attr:"af_asset_byjhid",sidType:"af_asset_byjh"}
+									]
+						},
+						{type:2,rows:3,cells:[
+								{type:"lbl",text:"年度",width:100,align:"center",row:1},
+								{type:"txt",attr:"by_year",width:260,align:"left",row:1},/*txt代表单行元素*/
+								{type:"lbl",text:"状态",width:100,align:"center",row:1},
+								{type:"txt",attr:"status",width:260,align:"left",row:1},
+								{type:"lbl",text:"制表人",width:100,align:"center",row:2},
+								{type:"txt",attr:"per_zbr_name",attr2:"per_zbr",width:260,align:"left",row:2,lov:"stuff"},/*txt代表单行元素*/
+								{type:"lbl",text:"制表日期",width:100,align:"center",row:2},
+								{type:"txt",attr:"tm_zb",width:260,align:"left",row:2,lov:"datetime"},
+								{type:"lbl",text:"审批人",width:100,align:"center",row:3},
+								{type:"txt",attr:"per_sp_name",attr2:"per_sp",width:260,align:"left",row:3,lov:"stuff"},/*txt代表单行元素*/
+								{type:"lbl",text:"审批时间",width:100,align:"center",row:3},
+								{type:"txt",attr:"tm_sp",width:260,align:"left",row:3,lov:"datetime"}
+							]
+						}
+				];
+		var cfg2={title:"年度维修保养计划",type:"add",addMethod:"assetbyjhAdd"};
+		cfg2.tables=tables2;
+		cfg2.cmds=cmds2;
+		genForm(addForm,cfg2);
+	}
+</script>
+</body>
+</html>

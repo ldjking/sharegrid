@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>测试常用函数</title>
+</head>
+
+<body>
+<div id="container"></div>
+<script type="text/javascript" src="../../../../src/1base/11basis.js"></script>
+<script type="text/javascript">
+	window.onload=init();
+	function init(){
+		var fnNames=["isNull","isEmpty","isNum","isInt","isDate","isBool","isStr","isArray","isFun","isObj","isWin","isElement","isDom","isPlainObj","isSimple"];
+		var dom=document.getElementById("container");
+		var index=14;/*在此处修改要测试的函数*/
+		testJudgeFun(dom,window,fnNames,index,[1,0,null,"字符串","",undefined,{},[],["数组1"],new Date(),true,false,1.1,NaN,f1,Infinity,-Infinity,window,document,document.body]);
+	}
+	
+	function testJudgeFun(dom,obj,fnNames,num,attrs){/*测试一个方法  attrs是它的参数*/
+		var trueStr="";
+		var falseStr=""
+		for(var i=0;i<attrs.length;i++){
+			var fnName=fnNames[num];
+			var fn=obj[fnName];
+			if(fn(attrs[i])){
+				trueStr+="方法："+fnName+"("+attrs[i]+")\t\t 结果："+fn(attrs[i])+"<br/>";
+			}
+			else{
+				falseStr+="方法："+fnName+"("+attrs[i]+")\t\t 结果："+fn(attrs[i])+"<br/>";
+			}
+		}
+		dom.innerHTML+=trueStr;
+		dom.innerHTML+=falseStr;
+	}
+	function f1(){
+		var f='1';
+	}
+</script>
+</body>
+</html>

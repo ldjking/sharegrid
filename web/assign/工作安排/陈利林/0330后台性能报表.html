@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工作安排模版</title>
+<link rel="stylesheet" type="text/css" href="../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../release/css/doc.css"/>
+</head>
+<body>
+<div class="container"  id="doc" style="background-color:#000" >
+<div class="doc scroll_content">
+  <div class="paper">
+    <div class="content" id="paperContent">
+      <div class="p1">第一章、后台性能说明</div>
+      <div class="p2">1. 10000条数据测试</div>
+      <div class="z2">
+        <table cellpadding="0" cellspacing="0" border="0" class="t">
+          <tr class="thead">
+            <td width="47"><div align="center">序号</div></td>
+            <td width="178">测试描述</td>
+            <td width="115">第一次</td>
+            <td width="103">第二次</td>
+            <td width="90">第三次</td>
+            <td width="78">机器型号</td>
+          </tr>
+          <tr>
+            <td><div align="center">1</div></td>
+            <td>数据库连接需要多长时间</td>
+            <td>352毫秒</td>
+            <td>207毫秒</td>
+            <td>353毫秒</td>
+            <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">2</div></td>
+            <td>删除10000条数据</td>
+            <td>438毫秒</td>
+            <td>522毫秒</td>
+            <td>399毫秒</td>
+            <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">3</div></td>
+            <td>新增10000条数据</td>
+            <td>44017毫秒</td>
+            <td>41933毫秒</td>
+            <td>44296毫秒</td>
+             <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">4</div></td>
+            <td>查询10000条数据-单表</td>
+            <td>3646毫秒</td>
+            <td>3939毫秒</td>
+            <td>3282毫秒</td>
+            <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">5</div></td>
+            <td>查询10000条数据-左连接</td>
+            <td>3543毫秒</td>
+            <td>3359毫秒</td>
+            <td>3693毫秒</td>
+            <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">6</div></td>
+            <td>查询10000条数据-左连接-like</td>
+            <td>3427毫秒</td>
+            <td>3412毫秒</td>
+            <td>3428毫秒</td>
+            <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">7</div></td>
+            <td>10000查询带group by </td>
+            <td>310毫秒</td>
+            <td>315毫秒</td>
+            <td>317毫秒</td>
+            <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">8</div></td>
+            <td>10000条非主键带索引</td>
+            <td>3546毫秒</td>
+            <td>3839毫秒</td>
+            <td>3382毫秒</td>
+            <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">9</div></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      
+       <div class="p2">2. 1000条数据测试</div>
+      <div class="z2">
+        <table cellpadding="0" cellspacing="0" border="0" class="t">
+          <tr class="thead">
+            <td width="47"><div align="center">序号</div></td>
+            <td width="178">测试描述</td>
+            <td width="115">第一次</td>
+            <td width="103">第二次</td>
+            <td width="90">第三次</td>
+            <td width="78">机器型号</td>
+          </tr>
+          <tr>
+            <td><div align="center">1</div></td>
+            <td>数据库连接需要多长时间</td>
+            <td>352毫秒</td>
+            <td>207毫秒</td>
+            <td>353毫秒</td>
+            <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">2</div></td>
+            <td>删除1000条数据</td>
+            <td>298毫秒</td>
+            <td>273毫秒</td>
+            <td>277毫秒</td>
+            <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">3</div></td>
+            <td>新增1000条数据</td>
+            <td>4616毫秒</td>
+            <td>4539毫秒</td>
+            <td>4300毫秒</td>
+             <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">4</div></td>
+            <td>查询1000条数据-单表</td>
+            <td>635毫秒</td>
+            <td>619毫秒</td>
+            <td>621毫秒</td>
+            <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">5</div></td>
+            <td>查询1000条数据-左连接</td>
+            <td>645毫秒</td>
+            <td>683毫秒</td>
+            <td>695毫秒</td>
+            <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">6</div></td>
+            <td>查询1000条数据-左连接-like</td>
+            <td>746毫秒</td>
+            <td>783毫秒</td>
+            <td>731毫秒</td>
+            <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">7</div></td>
+            <td>1000查询带group by </td>
+            <td>293毫秒</td>
+            <td>301毫秒</td>
+            <td>279毫秒</td>
+            <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">8</div></td>
+            <td>1000条非主键带索引</td>
+            <td>625毫秒</td>
+            <td>629毫秒</td>
+            <td>623毫秒</td>
+            <td>Win7 2GB</td>
+          </tr> <tr>
+            <td><div align="center">9</div></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+      <div class="p2"></div>
+      <div class="p1"></div>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript" src="../../../release/base.js"></script>
+<script type="text/javascript" src="../../../release/ui.js"></script>
+<script type="text/javascript" src="../../../src/other/docs.js"></script>
+</html>

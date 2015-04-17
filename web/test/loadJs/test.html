@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<script type="text/javascript">
+	window.onload=init;
+	function init(){
+		var a=require("a.js",loadDataBack);
+		//alert(a.length);
+	}
+	function loadDataBack(d){
+		alert("loadDataback"+d);
+	}
+	var srcs=[];
+	var datas=[];
+	var callbacks=[];
+	function define(data){
+		/*每次执行data */
+		datas.push(data);/*装进去*/
+		callbacks[0](data);
+	}
+	function require(src,callback){
+		/*require是异步的,加载完要把加载后的资源作为参数传递给回调函数*/
+		/**/
+		srcs.push(src);/*建立了src和*/
+		callbacks.push(callback);
+		loadJs(src);
+		//return datas;
+	}
+	function loadJs(src){
+		var t =document.createElement("script");
+		t.setAttribute("type","text/javascript");
+		t.async = false;
+		t.onreadystatechange = t.onload =  function(){
+			if(!t.readyState || t.readyState == 'loaded' || t.readyState == 'complete'){/*装载完成*/
+				//alert("complete");
+				//t.onreadystatechange = t.onload = t.onerror = null;
+				//t = null;
+				//alert("complete");
+				//alert(document.body.outerHTML);
+				var t1=t;
+				var dom=document.body;
+				//var c=t1.normalize();
+				var a=10;
+				var b=10;
+			}
+		};
+		document.body.appendChild(t);
+		t.src=src;
+	}
+</script>
+</body>
+</html>

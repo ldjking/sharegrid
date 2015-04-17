@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>注册</title>
+<base  href="http://dev.xiaoniu88.com/">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<link rel="stylesheet" type="text/css" href="weChat/css/base.css"/>
+<link rel="stylesheet" type="text/css" href="weChat/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="weChat/css/element.css"/>
+<link rel="stylesheet" type="text/css" href="weChat/css/include.css"/>
+<link rel="stylesheet" type="text/css" href="weChat/css/inline.css">
+</head>
+<body>
+<!--顶部 -->
+<link type="text/css" href="weChat/css/include.css?v=20141022" rel="stylesheet"/>
+<div class='top'>
+  <span class='top_con'>
+  <a class="we_logo" href="http://www.xiaoniu88.com/weChat/index.do">
+  </a>
+  <!-- 登陆前 -->
+  <!-- 首页 -->
+  <a class='index_top_btn top_btn' href='http://www.xiaoniu88.com/weChat/wx_login.do'>
+  登录
+  </a>
+  <a class='index_top_btn top_btn' href='http://www.xiaoniu88.com/weChat/wx_reg.do'>
+  免费注册
+  </a>
+  <!-- 其他页面 -->
+  <span class='top_title top_btn'></span>
+  <!-- 登陆后 -->
+  </span>
+</div>
+<div class='container'>
+  <form action='weChat/wx_regtwo.do' method="post" name="pageform" id="pageform">
+    <div class='title'>手机号码</div>
+    <div class='ipt_area'>
+      <input class='ipt input_tel input_tel_cur' type='text' maxlength="11" name="paramMap.m" id="m"/>
+      <label>11位长度手机号码</label>
+    </div>
+    <div class='error_msg' id="tel_msg">手机号码为11位长度</div>
+    <div class='title'>登录密码</div>
+    <div class='ipt_area'>
+      <input class='ipt input_pass' type='text' maxlength="20" name="paramMap.p" id="p" onpaste="return false" oncontextmenu="return false" oncopy="return false" oncut="return false"/>
+      <label>输入密码</label>
+      <span class="hide_btn">隐藏</span>
+    </div>
+    <div class='error_msg' id="pass_msg">登录密码必须为6-16位</div>
+    <div class='title'>推荐人</div>
+    <div class="ref_area">
+      <div class="ref_check" id="ref_check"><i>无</i><i>有</i></div>
+      <div class='ipt_area'>
+        <input class='ipt input_referer' type='text' maxlength="20" name="paramMap.r" id="r"/>
+        <label>推荐人用户名或手机号</label>
+      </div>
+    </div>
+    <div class='error_msg' id="ref_msg">推荐人不存在</div>
+    <div class='val_btn'>获取短信验证码</div>
+    <div class="accept_tip">
+      <input type='checkbox' id='agre' name='agre' checked style='display:none;'>
+      <span class="check_img"></span> 我已阅读并同意
+      <a href="javascript: void(0);"onclick="fff()" class="blue">
+      《使用条款》
+      </a>
+      和
+      <a href="javascript: void(0);" onclick="ffftip()" class="blue">
+      《隐私条款》
+      </a>
+    </div>
+  </form>
+</div>
+<script type="text/javascript">
+	var basePath = "http://www.xiaoniu88.com/";
+</script>
+<script type="text/javascript" src="weChat/js/lib/pwd/security.js?v=0.0.1"></script>
+<script type="text/javascript" src="weChat/js/lib/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="weChat/js/lib/swipe.js"></script>
+<script type="text/javascript" src="weChat/js/lib/popom.js"></script>
+<script type="text/javascript" src="weChat/js/lib/lhgdialog/lhgdialog.js"></script>
+<script type="text/javascript" src="weChat/js/wx_reg.js"></script>
+</body>
+</html>

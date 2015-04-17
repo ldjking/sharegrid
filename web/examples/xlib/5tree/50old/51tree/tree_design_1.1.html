@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="../../../../../src/css/29tree.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!--树的结构
+	结构1  顶点只有一个
+    root folder open[close] 
+    ----node folder close
+    --------node folder close
+    --------leaf js
+    --------left js last
+    ----node folder close
+    ----node folder last close
+    
+    结构2  顶点有多个
+    ----node folder first close
+    ----node folder close
+    ----node folder last close
+-->
+<div class="tree" id="c1">
+  <div class="node folder close first">
+    <div class="tag">
+      <div class="icon">XLib</div>
+    </div>
+    <div class="childs">
+      <div class="node folder open last">
+        <div class="tag">
+          <div class="icon">base</div>
+        </div>
+        <div class="childs">
+          <div class="leaf file">
+            <div class="tag">
+              <div class="icon">basis</div>
+            </div>
+            <div class="childs"></div>
+          </div>
+          <div class="leaf file">
+            <div class="tag">
+              <div class="icon">extend</div>
+            </div>
+            <div class="childs"></div>
+          </div>
+          <div class="leaf folder">
+            <div class="tag">
+              <div class="icon">core</div>
+            </div>
+            <div class="childs"></div>
+          </div>
+          <div class="leaf file">
+            <div class="tag">
+              <div class="icon">out</div>
+            </div>
+            <div class="childs"></div>
+          </div>
+          <div class="leaf folder">
+            <div class="tag">
+              <div class="icon">dom</div>
+            </div>
+            <div class="childs"></div>
+          </div>
+          <div class="leaf file">
+            <div class="tag">
+              <div class="icon">css</div>
+            </div>
+            <div class="childs"></div>
+          </div>
+          <div class="leaf file last">
+            <div class="tag">
+              <div class="icon">createdom</div>
+            </div>
+            <div class="childs"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="node folder open last">
+    <div class="tag">
+      <div class="icon">XLib</div>
+    </div>
+    <div class="childs">
+      <div class="node folder close last">
+        <div class="tag">
+          <div class="icon">base</div>
+        </div>
+        <div class="childs">
+          <div class="leaf file">
+            <div class="tag">
+              <div class="icon">basis</div>
+            </div>
+            <div class="childs"></div>
+          </div>
+          <div class="leaf file">
+            <div class="tag">
+              <div class="icon">extend</div>
+            </div>
+            <div class="childs"></div>
+          </div>
+          <div class="leaf folder">
+            <div class="tag">
+              <div class="icon">core</div>
+            </div>
+            <div class="childs"></div>
+          </div>
+          <div class="leaf file">
+            <div class="tag">
+              <div class="icon">out</div>
+            </div>
+            <div class="childs"></div>
+          </div>
+          <div class="leaf folder">
+            <div class="tag">
+              <div class="icon">dom</div>
+            </div>
+            <div class="childs"></div>
+          </div>
+          <div class="leaf file">
+            <div class="tag">
+              <div class="icon">css</div>
+            </div>
+            <div class="childs"></div>
+          </div>
+          <div class="leaf file last">
+            <div class="tag">
+              <div class="icon">createdom</div>
+            </div>
+            <div class="childs"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>测试AJAX1——普通</title>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/javascript" src="../../../1base/11base.js"></script>
+<script type="text/javascript" src="../../../1base/12extend.js"></script>
+<script type="text/javascript" src="../../../1base/13core.js"></script>
+<script type="text/javascript" src="../../../1base/19ajax.js"></script>
+<script type="text/javascript">
+window.onload=init();
+function init(){
+var result=$$("personGets2");
+testResult(result);
+}
+function testResult(result){
+var container=document.getElementById("container");
+container.innerHTML+="方法名："+result.method+"<br/>";
+container.innerHTML+="执行结果："+result.flag+"<br/>";
+container.innerHTML+="消耗时间："+result.cost+"<br/>";
+if(result.flag)
+container.innerHTML+="返回数据条数："+result.data.length+"<br/>";
+else{
+container.innerHTML+="错误代码："+result.errorCode+"<br/>";
+container.innerHTML+="错误描述："+result.errorText+"<br/>";
+}
+}
+</script>
+</body>
+</html>

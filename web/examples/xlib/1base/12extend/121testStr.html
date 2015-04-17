@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>测试浏览器</title>
+</head>
+
+<body>
+<div id="container"></div>
+<script type="text/javascript" src="../../../../src/1base/11basis.js"></script>
+<script type="text/javascript" src="../../../../src/1base/12extend.js"></script>
+
+<script type="text/javascript">
+	window.onload=init();
+	function init(){
+		var dom=document.getElementById("container");
+		var fnName="strSub"
+		testFn(dom,window,fnName,["helloStr",-2,2]);
+	}
+	
+	function testFn(dom,obj,fnName,param){
+		var str="方法："+fnName+"(";
+		var fn=obj[fnName]
+		for(var i=0;i<param.length;i++){
+			str+=param[i];;
+			if(i<param.length-1)	str+=",";
+		}
+		
+		str+=")<br/>";
+		str+="执行结果："+fn.apply(null,param);
+		dom.innerHTML=str;
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>风电管理系统</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0"/>
+<style type="text/css">
+.container {
+	width: 300px;
+	height: 300px;
+	background-color: #8fcbff;
+	position: relative;
+}
+.content {
+	width: 300px;
+	height: 300px;
+	-webkit-transform-origin: 50% 50%;
+	-webkit-transform: perspective(540px) rotateY(60deg) scale(0.75);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+#content1 {
+	background-color: #0087ff;
+	color: #FFF;
+}
+#content2 {
+	color: #CCC;
+	background-color: #333;
+	transform: perspective(540px) rotateY(-90deg) scale(0.7);
+	-webkit-transform: perspective(540px) rotateY(-90deg) scale(0.75);
+
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="content" id="content1">我是A面，CSS 3D transition are supported by IE10</div>
+  <div class="content" id="content2">我是B面，CSS 3D transition are supported by IE10</div>
+</div>
+<script type="text/javascript" src="../../src/xlib.js"></script>
+<script type="text/javascript">
+function rotateBack(){
+	fx3dRotate($("content2"),-90,0,0.7,1,null,800)
+}
+function init(){/*完成一个动画 3D变换*/
+	fx3dRotate($("content1"),0,90,1,0.7,null,800,rotateBack)
+}
+window.onload=init;
+</script>
+</body>
+</html>

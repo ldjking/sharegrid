@@ -1,0 +1,12 @@
+e0_onduty
+业务1 交班
+业务2 撤销交班
+业务3 接班
+
+交班   update
+撤销交班
+接班  shell  第一步  update
+           	第二步 insert
+
+
+

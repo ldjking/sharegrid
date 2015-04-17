@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/23form.css"/>
+</head>
+<body>
+<div id="content" style=" background-color:#FF0000; position:absolute; z-index:20"> </div>
+<script type="text/javascript" src="../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/21body.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/22layout.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/30msg.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/23spliter.js"></script>
+<script type="text/javascript" src="../../../../src/2ui/25panel.js"></script> 
+<script type="text/javascript" src="../../../../src/2ui/26table.js"></script> 
+<script type="text/javascript" src="../../../../src/4form/41form.js"></script> 
+<script type="text/javascript" src="../../../../src/4form/42cmd.js"></script> 
+<script type="text/javascript" src="xlib/432content.js"></script> 
+<script type="text/javascript" src="../../../../src/4form/44attr.js"></script>
+<script type="text/javascript" src="../../../../src/4form/45check.js"></script>
+<script type="text/javascript" src="../../../../src/4form/46scroll.js"></script>
+<script type="text/javascript" src="../../../../src/4form/47fix.js"></script>
+<script type="text/javascript" src="../../../../src/4form/48ui.js"></script>
+<!--script type="text/javascript" src="../../../../release/form.js"></script-->
+<script type="text/javascript" src="../../../../src/2ui/27lov.js"></script>
+<script type="text/javascript" src="../../../../src/2ui/28calendar.js"></script> 
+<script type="text/javascript" src="../../../../release/lovdef.js"></script> 
+<script type="text/javascript">
+	//window.require([""],init);
+	window.onload=init;
+	var e_check1=function(dependecell,cell){
+		if(dependecell.value2=="0")	return true;
+		else                        return false;
+	}
+	var e_check2=function(dependecell,cell){
+		if(dependecell.value2=="1")	return true;
+		else                        return false;
+	}
+	function init(){/*需要有一些自定义动画效果*/
+		var content=$("#content");
+		//var conditions=$("#conditions");
+		
+		/*布局的配置  target  参照物  容器一定要有准确的高度 */
+		/*100行才能把一个表单定义清楚，很不方便  能不能用更短的把表单定义清楚*/
+		uiLayout({dom:content,container:document.body,dx:0,dy:0,xdoms:[]});	
+		/*form是由table组成 table有3种类别 1 单行 2 固定多行  3 不固定多行*/
+		/*表单是靠绘制出来，然后设置一些标准化的属性*/
+		//uiForm({dom:form});
+		/*这样一个form的事件就标准化了，比如值列表的出现，校验的出现*/
+		/*grid是由conf columns datas组成*/
+		/*form是由conf talbes  data组成  tables是由cells组成*/	  
+		/*宽度就按600定 以后移动要更短*/
+		var cfg={title:"type4测试",formType:"update",bigPaper:1,dataMethod:"rukuGet",updateMethod:"rukuUpdate"};
+		//,refAttr:[{name:"ae_ondutyid",name2:"ae_ondutyid"}],rmMethod:'dutyaccountzRm',updateMethod:"dutyaccountzUpdate",addMethod:"dutyaccountzAdd",
+		cfg.param={id:1} 
+		var tables=[
+						{type:0,rows:1,cells:[/*隐藏字段  在提交时方获得值，该值可能对子表产生影响*/
+									{type:"sid",attr:"id",sidType:"method",width:120,align:"left",row:1}
+								]
+						},
+						{type:2,rows:1,cells:[
+									{type:"lbl",text:"采购单",width:170,align:"center",row:1},
+									{type:"txt",attr:"cgwz_id_name",attr2:'cgwz_id',width:170,align:"left",row:1,lov:"cg"}
+									
+								]
+						},
+						{type:4,rows:3,dataMethod:"testRkGets",pkAttr:"rk_num",addMethod:"testRkAdd",rmMethod:"testRkRm",updateMethod:"testRkUpdate",
+						refAttr:[{name:"id",name2:"rk_id"},{name:"cgwz_id",name2:"cgwz_id"}],dependeAttr:'cgwz_id_name',cleanMethod:"testRkClean",
+								columns:[
+									{type:"hide",attr:"cgwz_id",name:"物资id",width:60,align:"center"},
+									{type:"hide",attr:"cg_id",name:"采购id",width:60,align:"center"},
+									{type:"txt",attr:"cgwz_name",name:"物质名称",width:180,align:"center"},
+									{type:"hide",attr:"rk_id",name:"入库id",width:80,align:"center"},
+									{type:"txt",attr:"rk_num",name:"入库数量",width:80,align:"center"},
+									{type:"hide",attr:"rkwz_id",name:"入库物资id",width:80,align:"left"},
+									{type:"txt",attr:"remain",name:"剩余数量",width:80,align:"center"}
+								]
+							}
+					];
+		
+		var cmds=[
+					{cmd:"update"},/*在新系统中，我打算干掉复杂方法，一个复杂表单的提交，将分步骤实施，主id如果需要，提供一个getsid的方法*/
+					{cmd:"cancel"}
+				];
+		cfg.tables=tables;
+		cfg.cmds=cmds;
+		genForm($("#content"),cfg);
+	}
+</script>
+</body>
+</html>

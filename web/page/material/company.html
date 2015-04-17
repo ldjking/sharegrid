@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>供应商管理</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">修改供应商</div>
+    <div class="tab hide"  	id="tab_add">新增供应商</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script> 
+<script type="text/javascript" src="../../release/ui.js"></script> 
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script> 
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+	window.onload=init;	
+	var grid		=$("#c1");
+	var editForm	=$("#c2");
+	var addForm		=$("#c3");
+	var tabList		=$("#tab_list");
+	var tabEdit		=$("#tab_edit");
+	var tabAdd		=$("#tab_add");
+	function e_cmdAddItem_handler(target){
+		//msg(target.cmd.cmd+"用户自定义事件");
+	}
+	function fn_showNext(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showPre(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	function fn_showList(evt){
+		genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	function fn_showEditForm(evt){
+		activeTab(tabEdit);
+	}
+	function fn_showAddForm(evt){/*要把新增表单显示出来*/
+	////out("showAddForm");
+		activeTab(tabAdd);
+	}
+	function fn_hideAddForm(evt){
+		cssReplace(tabAdd,"active","hide");
+		activeTab(tabList);
+	}
+	function fn_updateStatus(evt){
+		var obj=null;
+		var cfg=editForm.formCfg;
+		obj=cfg.data;
+		var data1 = genFormData(editForm);
+		if(obj.status=='0'||obj.status=='2'){
+				obj.status="1";
+				data1.status = obj.status;
+				result=$$("companyUpdate",data1);
+				if(result.flag){
+					var activeButton=$("#"+cfg.id+"active");
+					var disabledButton=$("#"+cfg.id+"disabled");
+					disabledButton.disable = false;
+					activeButton.disable = true;
+					cssAdd(activeButton,"gray");
+					cssRm(disabledButton,"gray");
+					var texts=$("textarea",editForm);
+					for(var i=0;i<texts.length;i++){
+						var attr=texts[i].id.replace(editForm.formCfg.id+"_attr","");
+						disableFormAttr(editForm,[attr]);
+					}
+				}
+		}
+		//genFormContent(editForm);/*重绘内容*/
+	}
+	function fn_disabledStatus(evt){
+		var obj=null;
+		var cfg=editForm.formCfg;
+		obj=cfg.data;
+		if(obj.status=='1') {
+			var data1 = genFormData(editForm);
+			obj.status="2";
+			data1.status = obj.status;
+			var result=$$("companyUpdate",data1);
+			if(result.flag){
+				var activeButton=$("#"+cfg.id+"active");
+				var disabledButton=$("#"+cfg.id+"disabled");
+				activeButton.disable = false;
+				disabledButton.disable = true;
+				cssRm(activeButton,"gray");
+				cssAdd(disabledButton,"gray");
+				var texts=$("textarea",editForm);
+				for(var i=0;i<texts.length;i++){
+					var attr=texts[i].id.replace(editForm.formCfg.id+"_attr","");
+					disableFormAttr(editForm,[attr]);
+				}
+			}
+		}
+		//genFormContent(editForm);/*重绘内容*/
+	}
+	function tabChange(target,p){
+		if(p==1){
+			refreshEditForm();
+		}
+		else if(p==2){
+			refreshAddForm();
+		}
+	}
+	function refreshAddForm(){
+		genFormCmd(addForm);
+		var result=$$("initCompanyCode");
+		//out("result",result);
+		var num = result.data.num;
+		addForm.formCfg.data={company_code:num};
+		genFormContent(addForm);
+	}
+	var checkEdit=function(){
+		var cfg = editForm.formCfg;
+		var data = cfg.data;
+		var status=data.status;
+		var texts=$("textarea",editForm);
+		if(status==1||status==2)  {
+			for(var i=0;i<texts.length;i++){
+				var attr=texts[i].id.replace(editForm.formCfg.id+"_attr","");
+				disableFormAttr(editForm,[attr]);
+			}
+		}
+	}
+	
+	function refreshEditForm(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.data==obj){return;}
+		else{
+			//editForm.formCfg.param={c2_id:"1554"};
+			editForm.formCfg.param=obj;
+			
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+			//;//out(obj.rownum);
+			cssRm(preCmd,"gray");
+			cssRm(nextCmd,"gray");
+			if(obj.rownum==1){
+				cssAdd(preCmd,"gray");
+			}
+			else if(obj.rownum==cfg.totalNum){
+				cssAdd(nextCmd,"gray");
+			}
+			genFormContent(editForm);/*重绘内容*/
+			if(obj.status=='0'||obj.status=='2') {
+				var activeButton=$("#"+editForm.formCfg.id+"active");
+				var disabledButton=$("#"+editForm.formCfg.id+"disabled");
+				disabledButton.disable = true;
+				activeButton.disable = false;
+				cssRm(activeButton,"gray");
+				cssAdd(disabledButton,"gray");
+			} else if(obj.status=='1') {
+				var activeButton=$("#"+editForm.formCfg.id+"active");
+				var disabledButton=$("#"+editForm.formCfg.id+"disabled");
+				activeButton.disable = true;
+				disabledButton.disable = false;
+				cssAdd(activeButton,"gray");
+				cssRm(disabledButton,"gray");
+			}
+			checkEdit();
+		}
+	}
+	function init(){/*需要有一些自定义动画效果*/	
+		grid		=$("#c1");
+		editForm	=$("#c2");
+		addForm		=$("#c3");
+		tabList		=$("#tab_list");
+		tabEdit		=$("#tab_edit");
+		tabAdd		=$("#tab_add");
+		uiApp({dom:$("#app1"),fn:tabChange});
+		var grid=$("#c1");
+		var cfg={multiMode:0,toolbar:1,filterMode:0,data_method:"companyGets",
+				rmMethod:'companyRm',pageFlag:true,pageSize:5,pkAttr:"ag_companyid",dblHandler:fn_showEditForm};
+		cfg.columns=[	{text:"供应商编码",attr:"company_code",align:"center",width:120,frozen:1,type:"str",notEdit:0},
+						{text:"供应商描述",attr:"description",align:"center",width:150,frozen:0,type:"str"},
+						{text:"联系人",attr:"contact",align:"center",width:60,type:"str",notEdit:1},
+						{text:"联系方式",attr:"phone",align:"center",type:"str"},
+						{text:"传真",attr:"fax",align:"left",width:60,type:"str"},
+						{text:"状态",attr:"statusname",align:"left",frozen:0,type:"str"}
+					];
+		cfg.cmds=[
+					{cmd:"cmdAdd"	,fn:fn_showAddForm},
+					{cmd:"cmdEdit"	,fn:fn_showEditForm},
+					
+					{cmd:"cmdDelete",fn:e_cmdAddItem_handler},
+					{cmd:"cmdFilter",fn:e_cmdAddItem_handler},
+					{cmd:"cmdRefresh",fn:e_cmdAddItem_handler}
+				]
+		genGrid(grid,cfg);	
+		var tables=[	{type:0,cells:[
+									{type:"text",attr:"ag_companyid",sidType:"company"}
+									]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"供应商编码",width:80,align:"center",row:1},
+								{type:"txt",attr:"company_code",width:120,align:"left",row:1,disable:true},/*txt代表单行元素*/
+								{type:"lbl",text:"供应商名称",width:80,align:"center",row:1},
+								{type:"txt",attr:"description",width:320,align:"left",row:1}
+							]
+						},
+
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"企业性质",width:80,align:"center",row:1},
+								{type:"txt",attr:"qualificationname",attr2:"qualification",width:120,align:"left",row:1,lov:"getQualification"},
+								{type:"lbl",text:"公司网页",width:80,align:"center",row:1},
+								{type:"txt",attr:"web",width:120,align:"left",row:1},
+								{type:"lbl",text:"当前状态",width:80,align:"center",row:1},
+								{type:"txt",attr2:"status",attr:"statusname",width:120,align:"left",row:1}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"联系人",width:80,align:"center",row:1},
+								{type:"txt",attr:"contact",width:120,align:"left",row:1},
+								{type:"lbl",text:"联系方式",width:80,align:"center",row:1},
+								{type:"txt",attr:"phone",width:120,align:"left",row:1,dt:"mobile",maxlen:50},
+								{type:"lbl",text:"传真",width:80,align:"center",row:1},
+								{type:"txt",attr:"fax",width:120,align:"left",row:1,dt:"mobile",maxlen:50}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"供应商地址",width:80,align:"center",row:1},
+								{type:"txt",attr:"address",width:520,align:"left",row:1,height:60}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"经营范围",width:80,align:"center",row:1},
+								{type:"txt",attr:"bussiscope",width:520,align:"left",row:1,height:100}
+							]
+						}
+				];
+		
+		
+		var tables2=[	{type:0,cells:[
+									{type:"text",attr:"ag_companyid",sidType:"company"}
+									]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"供应商编码",width:80,align:"center",row:1},
+								{type:"txt",attr:"company_code",width:120,align:"left",row:1,disable:true},/*txt代表单行元素*/
+								{type:"lbl",text:"供应商名称",width:80,align:"center",row:1},
+								{type:"txt",attr:"description",width:320,align:"left",row:1}
+							]
+						},
+
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"企业性质",width:80,align:"center",row:1},
+								{type:"txt",attr:"qualificationname",attr2:"qualification",width:120,align:"left",row:1,lov:"getQualification"},
+								{type:"lbl",text:"公司网页",width:80,align:"center",row:1},
+								{type:"txt",attr:"web",width:120,align:"left",row:1},
+								{type:"lbl",text:"当前状态",width:80,align:"center",row:1},
+								{type:"lbl",text:"未启用",width:120,align:"left",row:1,disable:true}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"联系人",width:80,align:"center",row:1},
+								{type:"txt",attr:"contact",width:120,align:"left",row:1},
+								{type:"lbl",text:"联系方式",width:80,align:"center",row:1},
+								{type:"txt",attr:"phone",width:120,align:"left",row:1,dt:"mobile",maxlen:50},
+								{type:"lbl",text:"传真",width:80,align:"center",row:1},
+								{type:"txt",attr:"fax",width:120,align:"left",row:1,dt:"mobile",maxlen:50}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"供应商地址",width:80,align:"center",row:1},
+								{type:"txt",attr:"address",width:520,align:"left",row:1,height:60}
+							]
+						},
+						{type:2,rows:1,cells:[
+								{type:"lbl",text:"经营范围",width:80,align:"center",row:1},
+								{type:"txt",attr:"bussiscope",width:520,align:"left",row:1,height:100}
+							]
+						}
+				];
+		var cmds=[
+			{cmd:"active",text:"启用",fn:fn_updateStatus,checkMethod:"cmd_qiyong", checkFalse:"gray"},
+			{cmd:"disabled",text:"停用",fn:fn_disabledStatus,checkMethod:"cmd_tingyong", checkFalse:"gray"},
+			{cmd:"update",fn:fn_showList},
+			/*表示该操作按钮式定te=1的对象上*/								
+			{cmd:"pre",fn:fn_showPre},
+			{cmd:"next",fn:fn_showNext}
+		];
+		var cfg={title:"供应商详细信息",updateMethod:"companyUpdate",formType:"update",dataMethod:"companyGet"};
+		cfg.tables=tables;
+		cfg.cmds=cmds;
+		genForm(editForm,cfg);
+		var cmds2=[
+			{cmd:"save",fn:fn_showList},
+			{cmd:"cancel",fn:fn_hideAddForm}/*表示该操作按钮式定义在c0_state=1的对象上*/								
+		];
+		var cfg2={title:"新增供应商表单",type:"add",addMethod:"companyAdd"};
+		cfg2.tables=tables2;
+		cfg2.cmds=cmds2;
+		genForm(addForm,cfg2);
+	}
+</script>
+</body>
+</html>

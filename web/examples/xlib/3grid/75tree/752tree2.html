@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>渐进树</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/31grid.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/32tree.css"/>
+</head>
+<body>
+<div id="c1" style="position:absolute; z-index:30; background-color:#FFFFFF"></div>
+
+<script type="text/javascript" src="../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../release/ui.js"></script> 
+<script type="text/javascript" src="../../../../release/lovdef.js"></script> 
+<script type="text/javascript" src="../../../../src/3grid/31grid.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/32cmd.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/33header.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/34content.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/35page.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/36scroll.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/37fix.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/38ui.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/39op.js"></script>
+<script type="text/javascript">
+	window.onload=init;
+	function init(){/*需要有一些自定义动画效果*/	
+		var grid=$("#c1");
+		uiLayout({dom:grid,container:document.body,dx:0,dy:0,xdoms:[]});	
+		
+		var cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"assetGetRoot",
+			rmMethod:'personRm',addMethod:"personAdd",updateMethod:"personUpdate",pageFlag:false,pageSize:6,autoWidth:1};
+		cfg.treeCfg={idAttr:"d1_id",pidAttr:"d1_pid",loadOnDemand:1,getChildMethod:"assetGetChild"};
+		var columns=[	
+						{text:"设备编码",attr:"f0_code",align:"left",width:40,type:"str",asc:1,frozen:1,treeStyle:1,autoWidth:1},
+						{text:"设备名称",attr:"f0_des",align:"left",width:120,type:"str",asc:1,frozen:1,treeStyle:1,autoWidth:1},
+						{text:"设备型号",attr:"f0_model",align:"left",width:160,type:"str",asc:1},
+						{text:"设备规格",attr:"f0_specification",align:"left",type:"str",width:80,asc:1},
+						{text:"设备类型",attr:"f0_type",align:"left",type:"str",width:80,asc:1},
+						{text:"父级编码",attr:"f0_parent",align:"left",width:120,type:"str",asc:1},
+						{text:"管理部门",attr:"f0_dept",align:"left",type:"str",width:80,asc:1}
+
+					];
+		var cmds=[/*grid 默认有10个左右按钮*/
+					{cmd:"cmdLock",		check:"personCheck"},
+					{cmd:"cmdAddItem"},
+					{cmd:"cmdRmItem"},
+				  	{cmd:"cmdCommit"},
+				  	{cmd:"cmdFilter"},
+				  	{cmd:"cmdRefresh"}					
+				]
+		genGrid(cfg,columns,cmds,[]);	
+	}
+</script>
+</body>
+</html>

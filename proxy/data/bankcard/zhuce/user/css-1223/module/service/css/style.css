@@ -1,0 +1,12 @@
+/*
+ *name:dtt
+ *time:2014.9.30
+ *content:右则客服浮动区
+*/
+
+/*客服*/
+body{_background-image:url(about:blank);_background-attachment:fixed;}
+.service{width:127px;_width:158px; height:180px;_height:254px; background:url(../img/kf.png) no-repeat left top;_background:url(../img/kf6.png) no-repeat left top; padding:96px 0 0 31px; text-align:center; position:fixed; top:20%; right:-127px;_position:absolute; _top:20%;}
+.service span{color:#ab6f00;display:block;line-height:20px; font-size:14px; margin-top:2px;}
+.service span.sz{ font-size:15px; font-weight:700;display:block;margin-top:0;}
+.service img{ width:75px; height:22px;}

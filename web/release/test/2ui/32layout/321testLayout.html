@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#top {
+height: 60px;
+background-color: #03F;
+}
+#main {
+background-color: #C36;
+}
+#foot {
+background-color: #666;
+height: 60px;
+}
+#left {
+background-color: #CCC;
+height: 100%;
+width: 260px;
+float: left;
+}
+#content {
+background-color: #0F3;
+height: 100%;
+width: 260px;
+float: left;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="../../../css/0base.css"/>
+</head>
+<body id="body">
+<div id="top"></div>
+<div id="main">
+<div id="left"></div>
+<div id="content"></div>
+</div>
+<div id="foot"></div>
+<script type="text/javascript" src="../../../base.js"></script>
+<script type="text/javascript" src="../../../2ui/31core.js"></script>
+<script type="text/javascript" src="../../../2ui/32layout.js"></script>
+<script type="text/javascript">
+window.onload=init;
+function init(){
+var top=$("#top");
+var main=$("#main");
+var foot=$("#foot");
+var left=$("#left");
+var content=$("#content");
+//uiLayout({dom:main,container:document.body,dx:0,dy:0,xdoms:[],ydoms:[top,foot]});
+uiLayout({dom:main,container:document.body,dx:0,dy:0,xdoms:[],ydoms:[top,foot]});
+uiLayout({dom:content,container:main,dx:0,dy:0,xdoms:[left],ydoms:[]});
+/*布局要素  	目标
+容器
+dx		水平差值
+dy		垂直差值
+xdoms	水平目标
+ydoms	垂直目标
+布局未考虑margin值 和padding值  作为容器 不允许有padding值
+布局对象允许有margin值和padding值，这些值需要在dx和dy中体现
+布局时尽量不使用浮动布局的方式，采用relative+absolute的相对布局
+容器对象overflow：hidden或者auto,不允许超出
+*/
+}
+</script>
+</body>
+</html>

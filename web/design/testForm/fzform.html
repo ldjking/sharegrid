@@ -1,0 +1,330 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="all.css"/>
+<style>
+.dd{
+	background-color:#FF66CC
+}
+</style>
+<title>避雷器放电记录</title>
+</head>
+
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">避雷器放电记录</div>
+    <div class="tab hide" id="tab_add">新建避雷器放电记录</div>
+  	</div>
+        <div class="appContent">
+    	<div class="content active grid" id="c1" style="width: 1600px; height: 774px;">
+        <div class="cmdbar" id="grid_0_cmdbar">
+            <div class="cmd" id="grid_0_cmd">
+                <div class="add" id="grid_0_cmdAdd"></div>
+                <div class="edit" id="grid_0_cmdEdit"></div>
+                <div class="delete" id="grid_0_cmdDelete"></div>
+                <div class="filterData" id="grid_0_cmdFilter"></div>
+                <div class="refresh" id="grid_0_cmdRefresh"></div>
+            </div>
+        </div>
+    	<div class="gridContainer" id="grid_0_container" style="width: 1600px; height: 735px;">
+            <div class="top_right" id="grid_0_2" style="height: 60px;">
+            	<table id="grid_0_2table" border="0" cellspacing="0" cellpadding="0">
+                	<tbody>
+                    	<tr>
+                        	<td class="asc" ><div class="cell" style="width: 150px;">日期</div></td>
+                            <td class="asc" ><div class="cell" style="width: 200px;">避雷安装位置</div></td>
+                            <td class="asc" style="padding-left: 0px;padding-right: 0px;"><div class="cell" style="width: 150px;">上次记录数</div><div style="width: 150px;display:block;"><div style="width: 49px;float:left;border-top:1px solid #8a948c;border-right:1px solid #8a948c;">A项</div><div style="width:49px;float:left;border-right:1px solid #8a948c;border-top:1px solid #8a948c;">B项</div><div style="width: 49px;float:left;border-top:1px solid #8a948c;">C项</div></div></td>
+                            <td class="asc" style="padding-left: 0px;padding-right: 0px;"><div class="cell" style="width: 150px;">本次记录数</div><div style="width: 150px;display:block;"><div style="width: 49px;float:left;border-top:1px solid #8a948c;border-right:1px solid #8a948c;">A项</div><div style="width:49px;float:left;border-right:1px solid #8a948c;border-top:1px solid #8a948c;">B项</div><div style="width: 49px;float:left;border-top:1px solid #8a948c;">C项</div></div></td>
+                            <td class="asc" ><div class="cell" style="width: 300px;">避雷器及其他检测情况</div></td>
+                        </tr>
+                        <tr class="filter">
+                        	<td><input class=" query cell" style="width: 80px;" type="text"></td>
+                            <td><input class=" query cell" style="width: 80px;" type="text"></td>
+                            <td><input class=" query cell" style="width: 80px;" type="text"></td>
+                            <td><input class=" query cell" style="width: 150px;" type="text"></td>
+                            <td><input class=" query cell" style="width: 150px;" type="text"></td>
+                       </tr>
+                     </tbody>
+                 </table>
+            </div>
+            <div class="center_right" style="top:60px" id="grid_0_4" style="margin: 0px; left: 76px;">
+            	<table id="grid_0_4table" border="0" cellspacing="0" cellpadding="0"><tbody>
+                    	
+                    </tbody></table>
+			</div>
+			<div class="header_bg" style="height:60px" id="grid_0_header"></div>
+			<div class="header_bg2" id="grid_0_header"></div>
+			<div class="pager" id="grid_0_pager">
+				<table class="pageInfo" border="0" cellspacing="0" cellpadding="0">
+                	<tbody>
+                     <tr>
+                     	<td class="rowNum" id="grid_0_rowNum"></td>
+                        <td class="pageNum" id="grid_0_pageNum"></td>
+                     </tr>
+                    </tbody>
+                </table>
+                <table class="pageTable" border="0" cellspacing="0" cellpadding="0">
+                	<tbody>
+                    	<tr>
+                        <td class="pagebtn" id="grid_0_firstPage" >首页</td>
+                        <td class="pagebtn" id="grid_0_prePage">上一页</td>
+                        <td class="pagebtn" id="grid_0_nextPage" >下一页</td>
+                        <td class="pagebtn" id="grid_0_lastPage" >尾页</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="footer_bg" id="grid_0_footer">
+                </div>
+                    <div class="scroll_h" id="grid_0_scroll_h" style="display: none;">
+                    </div>
+                    <div class="scrollbar_h" id="grid_0_scrollbar_h" style="display: none;">
+                    </div><div class="scroll_v" id="grid_0_scroll_v" style="display: none;">
+                    </div><div class="scrollbar_v" id="grid_0_scrollbar_v" style="display: none;">
+                    </div>
+                </div>
+            </div>
+            <div class="content normal"  id="c2"></div>
+    		<div class="content normal"  id="c3"></div>
+        </div>
+        
+ 	</div>
+  <div class="appBg"></div>
+</div>
+
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script>
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript" src="fzform.js"></script> 
+<script type="text/javascript">
+(function(){
+	var tabList			=$("#tab_list");
+	var tabEdit			=$("#tab_edit");
+	var tabAdd			=$("#tab_add");
+	var grid		    =$("#c1");
+	var editForm	    =$("#c2");
+	var addForm			=$("#c3");
+	
+	var pagesize=4;
+	var pagenum=1;
+	var total;
+	var priid=1;
+	var e_firstpage=function(){
+		pagenum=1;
+		genMyGrid();
+	}
+	var e_prepage=function(){
+		pagenum-=1;
+		genMyGrid();
+	}
+	var e_nextpage=function(){
+		pagenum+=1;
+		genMyGrid();
+	}
+	var e_lastpage=function(){
+		pagenum=Math.ceil(total/pagesize);
+		genMyGrid();
+	}
+	var fn_showList     =function(evt){
+		//genMyGrid();
+	    cssReplace(grid,"normal","active");
+		cssReplace(editForm,"active","normal");
+		cssReplace(addForm,"active","normal");
+	}
+	var fn_showEditForm=function(evt){
+		activeTab(tabEdit);
+	}
+	var fn_showAddForm=function(evt){/*要把新增表单显示出来*/
+		activeTab(tabAdd);
+	}
+	var e_selectRow=function(evt){
+		var target=this;
+		this.style.backgroundColor="#FF66CC"
+		priid=this.defid;
+		var index=getDomIndex(target);
+		var childs=target.parentNode.childNodes
+		for(var i=0;i<childs.length;i++){
+			if(index!=getDomIndex(childs[i])){
+				childs[i].style.backgroundColor="";
+			}
+		}
+	}
+	var genMyGrid=function(){
+		var param={pageflag:true,pagesize:pagesize,pagenum:pagenum};
+		var fp=$("#grid_0_firstPage");
+		bind(fp,'click',e_firstpage);
+		var pp=$("#grid_0_prePage");
+		bind(pp,'click',e_prepage);
+		var np=$("#grid_0_nextPage");
+		bind(np,'click',e_nextpage);
+		var lp=$("#grid_0_lastPage");
+		bind(lp,'click',e_lastpage);
+		lp.style.display="";
+	    np.style.display="";
+		fp.style.display="";
+		pp.style.display="";
+		$$('blqfdcheckGets',param,false,function(result){
+					var ps=['tm_jc','gisposition','banposition','hinposition','tgisa','tgisb','tgisc','tbana','tbanb','tbanc','thina','thinb','thinc','sgisa','sgisb','sgisc','sbana','sbanb','sbanc','shina','shinb','shinc','result','per_enter_name','per_zz_name'];
+					if(result.flag){
+						total=result.total;
+						var table=$('#grid_0_4table')
+						var tbody=table.childNodes[0];
+						tbody.innerHTML="";
+						var erowcount=$('#grid_0_rowNum');
+						var epageNum=$('#grid_0_pageNum');
+						erowcount.innerHTML="共"+result.total+"条数据"
+						epageNum.innerHTML="第"+pagenum+"页";
+						for(var j=0;j<result.data.length;j++){
+							var html=template;
+							var tr=$e("tr");
+							for(var i=0;i<ps.length;i++){
+								if(ps[i]=='gisposition'){html=html.replace("${"+ps[i]+"}",'GIS室 115kv母线');}
+								else if(ps[i]=='banposition'){html=html.replace("${"+ps[i]+"}",'115kv bandon 线');}
+								else if(ps[i]=='hinposition'){html=html.replace("${"+ps[i]+"}",'115kv hin heup 线');}
+								else html=html.replace("${"+ps[i]+"}",result.data[j][ps[i]]);
+							}
+							tr.style.height="20px";
+							tr.defid=result.data[j].ae_blqcheckid;
+							tr.className="green";
+							tbody.appendChild(tr);
+							tr.innerHTML=html;
+							bind(tr,'click',e_selectRow);
+						}
+						if(total>5){
+							if(pagenum==1){
+								fp.style.display="none";
+								pp.style.display="none";
+							}
+							else if(pagenum==Math.ceil(total/pagesize)){
+								lp.style.display="none";
+								np.style.display="none";
+							}
+						}
+					}
+					
+			});
+	}
+	var e_refushEdit =function(target){
+		activeTab(tabList);
+		genMyGrid();
+	}
+	var e_refushAdd =function(target){
+		activeTab(tabList);
+		genMyGrid();
+	}
+	var tabChange=function(target,p){
+		if(p==0)		fn_showList();
+		else if(p==1)	refreshEditForm();
+		else if(p==2)	refreshAddGrid();
+	}
+	var refreshAddGrid  =function(){
+	}
+	var refreshEditForm =function(){
+		//grid.style.display="none";
+		editForm.formCfg.param={ae_blqcheckid:priid};
+		var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+		var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+		/*如果是第一条  将按钮上一条关闭  如果是最后一条 将按钮上下一条关闭*/
+		cssRm([preCmd,nextCmd],"gray");
+		genFormContent(editForm);/*重绘内容*/
+	}
+	var init=function(){
+		uiApp({dom:$("#app1"),fn:tabChange});
+		genMyGrid();
+		bind($('#grid_0_cmdAdd'),'click',fn_showAddForm);
+		bind($('#grid_0_cmdEdit'),'click',fn_showEditForm);
+		var cfg2={title:"避雷器放电记录",formType:"update",dataMethod:"blqfdcheckGet",updateMethod:"blqfdcheckUpdate"};
+		cfg2.tables=[	
+							{type:0,rows:1,cells:[
+									{type:"sid",attr:"ae_blqcheckid",sidType:"method",width:120,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"录入人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_enter_name",attr2:"per_enter",width:220,align:"center",row:1,lov:'stuff'},
+									{type:"lbl",text:"值长",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_zz_name",attr2:"per_zz",width:220,align:"center",row:1,lov:'stuff'}								
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"检测日期",width:80,align:"center",row:1},
+									{type:"txt",attr:"tm_jc",width:520,align:"left",row:1,lov:"date"}								
+								]
+							},
+							{type:2,rows:2,cells:[
+									{type:"lbl",text:"避雷器安装位置",width:200,align:"center",row:1,rowspan:2},
+									{type:"lbl",text:"上次记录",width:200,align:"center",row:1,colspan:3},
+									{type:"lbl",text:"本次记录",width:200,align:"center",row:1,colspan:3},	
+									{type:"lbl",text:"A",width:67,align:"center",row:2},	
+									{type:"lbl",text:"B",width:67,align:"center",row:2},	
+									{type:"lbl",text:"C",width:66,align:"center",row:2},	
+									{type:"lbl",text:"A",width:67,align:"center",row:2},	
+									{type:"lbl",text:"B",width:67,align:"center",row:2},	
+									{type:"lbl",text:"C",width:66,align:"center",row:2}
+														
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"GIS室 115kv母线",width:200,align:"center",row:1},	
+									{type:"txt",attr:"tgisa",width:67,align:"left",row:1},	
+									{type:"txt",attr:"tgisb",width:67,align:"left",row:1},	
+									{type:"txt",attr:"tgisc",width:66,align:"left",row:1},		
+									{type:"txt",attr:"sgisa",width:67,align:"left",row:1},	
+									{type:"txt",attr:"sgisb",width:67,align:"left",row:1},	
+									{type:"txt",attr:"sgisc",width:66,align:"left",row:1}		
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"115kv bandon 线",width:200,align:"center",row:1},	
+									{type:"txt",attr:"tbana",width:67,align:"left",row:1},	
+									{type:"txt",attr:"tbanb",width:67,align:"left",row:1},	
+									{type:"txt",attr:"tbanc",width:66,align:"left",row:1},		
+									{type:"txt",attr:"sbana",width:67,align:"left",row:1},	
+									{type:"txt",attr:"sbanb",width:67,align:"left",row:1},	
+									{type:"txt",attr:"sbanc",width:66,align:"left",row:1}			
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"115kv hin heup 线",width:200,align:"center",row:1},	
+									{type:"txt",attr:"thina",width:67,align:"left",row:1},	
+									{type:"txt",attr:"thinb",width:67,align:"left",row:1},	
+									{type:"txt",attr:"thinc",width:66,align:"left",row:1},		
+									{type:"txt",attr:"shina",width:67,align:"left",row:1},	
+									{type:"txt",attr:"shinb",width:67,align:"left",row:1},	
+									{type:"txt",attr:"shinc",width:66,align:"left",row:1}			
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"设备检测情况",width:580,align:"left",left:20,row:1}			
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"txt",attr:"result",width:600,height:150,align:"left",row:1}		
+								]
+							}
+						];
+						
+						//	ae_dutykey_zid	ae_dutykeyid	stepnum	keynum	keyname	address	used	site	org
+			cfg2.cmds=[
+						{cmd:"update",fn:e_refushEdit}
+					  ];
+			genForm(editForm,cfg2);
+			
+			
+			var cfg3={title:"新建避雷器放电记录",formType:"add",addMethod:"blqfdcheckAdd"};
+			cfg3.tables=cfg2.tables;
+			cfg3.cmds=[
+					{cmd:"save",fn:e_refushAdd}
+			];
+			genForm(addForm,cfg3);
+	}
+	window.onload=init;
+})();
+</script>
+</body>
+</html>

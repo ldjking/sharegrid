@@ -1,0 +1,1698 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=7;IE=9" />
+<title>小牛在线—最专业安全的P2P网贷平台，网络投资理财产品首选</title>
+<meta name="keywords" content="小牛在线,p2p贷款平台,网上贷款,网上投资,p2p网贷平台,P2P网贷,网络投资">
+<meta name="description" content="小牛在线提供安全有担保的网络投资理财产品，年化纯收益15%以上，100元起投。最专业安全的P2P网贷平台，首选小牛在线，详情咨询：400-777-1268">
+<meta property="wb:webmaster" content="47a3fc0ec7760942">
+<meta property="qc:admins" content="2410357064616006375636">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="/portal/css-0.0.1/plugIn/lhgdialog/skins/default.css?v=2">
+<link rel="stylesheet" type="text/css" href="/portal/css-0.0.1/plugIn/poshytip-1.2/src/tip-yellow/tip-yellow.css?v=2">
+<link rel="stylesheet" type="text/css" href="/portal/css-0.0.1/project/list/css/product_icon.css?v=2">
+<link rel="stylesheet" type="text/css" href="/portal/css-0.0.1/project/portal/css/aio.css?v=4">
+<link rel="stylesheet" type="text/css" href="/portal/css-0.0.1/project/portal/css/icomoon/style.css">
+
+<script>var ctx = "/portal/resources";</script>
+</head><body>
+
+<!--start 头部-->
+<div class="header">
+	<div class="hd-content">
+		<span class="tel">全国理财热线：<strong>400-777-1268</strong>关注我们：</span>
+		<a class="weibo" href="http://www.weibo.com/af88" title=""></a>
+		<span class="weixin"><i></i></span>
+		<!--start 已登录状态-->
+		
+			
+			
+				<span class="help hp-mg">|<a target="_blank" href="http://test1.xiaoniu88.com/help/helpIndex.jsp">帮助中心</a></span>
+				<div class="login-grey">
+					<a class="login" href="javascript:gotoLogin('http://test1.xiaoniu88.com/user/login')">登录</a>
+					<a class="grey" href="http://test1.xiaoniu88.com/reg.do">注册</a>
+				</div>
+			
+		
+		<!--end 未登录状态-->
+	</div>
+</div>
+
+<div class="box">
+  	<div class="flash_con" id="flash_con"><div class="flash_inner"></div></div>
+	<div class="g-o nav-c">
+    	<div class="flash"><div id="flash"></div></div>
+		<a class="logo" href="http://test1.xiaoniu88.com/" title="小牛资本旗下互联网金融平台">小牛资本旗下互联网金融平台</a>
+		<div class="nav">
+			<a class="idx" href="http://test1.xiaoniu88.com/index.jsp">首页</a>
+			<div class="set-list idx">
+				<a class="nv-set">我要投资<i>&nbsp;</i></a>
+				<span class="my-set">
+					<a href="http://test1.xiaoniu88.com/product/relieved">安心牛</a>
+					<a href="http://test1.xiaoniu88.com/product/index">散标列表</a>
+				</span>
+			</div>
+			<a class="idx" href="http://test1.xiaoniu88.com/myloan.do">借款咨询</a>
+			<a class="idx" href="http://test1.xiaoniu88.com/about/about_ptjj.jsp">关于我们</a>
+			<a class="idx" href="javascript:gotoLogin('http://test1.xiaoniu88.com/accountIndex.do',0,'http://test1.xiaoniu88.com/accountIndex.do')">我的账户</a>
+			<span class="nav-bg-line"></span></div>
+            <div class="login_form">
+            
+            
+            
+                <!-- 未登录 -->
+                <div class="login_form_cont">
+                    <p class="login_title">小牛在线年化收益率</p>
+                <p class="login_content">最高&nbsp;<span style="font-size:40px;">15%</span>&nbsp;&nbsp;项目期限最短<span ><font style='font-size:20px;'>5</font>天</span></p>
+                <p></p>
+                <a class="login_btn" href="http://test1.xiaoniu88.com/login.do">登录</a>
+                <a class="reg_btn" href="http://test1.xiaoniu88.com/reg.do">免费注册</a>
+                </div>
+                <div class="opacity"></div>
+            
+            
+		</div>
+	</div>
+</div>
+<!--end 头部-->
+<input type="hidden" value="index" id="menuCur">
+<!-- 当前选中菜单 -->
+<!--顶部主导航 结束-->
+<div class="contaner">
+
+	<!-- 导入首页banner页面 -->
+	
+<div id="focus">
+	<ul class="banner">
+		
+			<li
+				style="background: url(/upload/fund/20141220/201412201402523376.jpg) 50% 50% no-repeat;">
+				<a href="http://www.xiaoniu88.com/activity/nba/index.jsp" target="_blank"></a>
+			</li>
+		
+			<li
+				style="background: url(/upload/fund/20141220/201412201403332239.jpg) 50% 50% no-repeat;">
+				<a href="http://www.xiaoniu88.com/frontNewsDetails.do?id=141" target="_blank"></a>
+			</li>
+		
+			<li
+				style="background: url(/upload/fund/20141220/201412201403585460.jpg) 50% 50% no-repeat;">
+				<a href="http://www.xiaoniu88.com/frontNewsDetails.do?id=142" target="_blank"></a>
+			</li>
+		
+			<li
+				style="background: url(/upload/fund/20141220/201412201403463667.jpg) 50% 50% no-repeat;">
+				<a href="http://www.xiaoniu88.com/activity/jinbohui/jinbohui.html" target="_blank"></a>
+			</li>
+		
+			<li
+				style="background: url(/upload/fund/20141220/201412201404107556.jpg) 50% 50% no-repeat;">
+				<a href="http://www.xiaoniu88.com/activity/wealthKey/wealthKeyActivity.jsp" target="_blank"></a>
+			</li>
+		
+	</ul>
+</div>
+
+</div>
+<div class="a1">
+	<!-- 导入最新公告 -->
+	
+
+
+<table class="b11" cellpadding="0" cellspacing="0" id="notice">
+	<tr>
+		<td><div class="c111">最新公告</div></td>
+		<td><div class="c112"><a href="/portal/article/detail/335" target="_blank">关于提现自动处理功能上线的公告</a></div></td>
+		<td><div class="c113">
+				2014-12-23
+			</div></td>
+		<td><div class="c114" id="close_notice"></div></td>
+	</tr>
+</table>
+
+
+	<!-- 导入首页信息栏 -->
+	
+<div class="b12b13">
+	<div class="b12">
+		<div class="c121">
+        	<div>一分钟了解小牛在线</div>
+        	<a href="/portal/gui" target="_blank">了解更多&gt;&gt;</a>
+		</div>
+		<div class="c122">
+			<div>
+				<a target="_blank" href="/product/index"><i>•</i><span>10%-15%预期年化收益率</span><span>100元起投
+						期限灵活</span></a>
+			</div>
+			<div>
+				<a target="_blank" href="/callcenterrecharge.do?cid=20"><i>•</i><span>
+						0 充值费用</span><span> 0 管理费用</span><span>所见收益即所得</span></a>
+			</div>
+			<div>
+				<a target="_blank" href="/help/securityGuarantee.jsp"><i>•</i><span>100%适用本息保障计划</span><span>专业管理团队保驾护航</span></a>
+			</div>
+			<div>
+				<a target="_blank" href="/about/about_zzry.jsp"><i>•</i><span>协会理事单位</span><span>社科院A级平台</span><span>荣获多项荣誉</span></a>
+			</div>
+		</div>
+	</div>
+	<div class="b13">
+		<div class="c131">
+			运营里程
+		</div>
+		<div class="c132">
+			累计成交 <i>14亿9867万元</i>
+		</div>
+		<div class="c133">
+			运营时间 <i>555</i> 天
+		</div>
+	</div>
+</div>
+
+</div>
+
+<!-- 导入安心牛首页推荐项目页面 -->
+
+<div class="a2">
+	<div class="b21">
+		<div class="c211">安心牛</div>
+		<div class="c212">
+			自动投资<i>•</i>收益复投<i>•</i>安全省心
+		</div>
+		<div class="c213">
+			<a target="_blank" href="/activity/preferredPlan/preferredPlan.jsp"></a>
+		</div>
+		<div class="c214">
+			<a href="/product/relieved" target="_blank">更多&gt;&gt;</a>
+		</div>
+	</div>
+	<div class="b22">
+		
+			<div class="c22 month3 active  " data-countdown="0">
+				<div class="c221">
+					<p></p>
+					<a target="_blank" href="http://test1.xiaoniu88.com/pdtDetail.do?id=26368"><span>安心牛V-20141222</span></a>
+					<div>
+						<i class="color">3个月</i> 安心牛
+					</div>
+				</div>
+				<table class="c22_table" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td><div class="c222">
+								<span class="color">11.7-12.4</span> <label><i
+									class="color">%</i>年化</label>
+							</div>
+							<div class="c223">
+								还款方式<i>:</i>一次性还款
+							</div>
+							<div class="c224">
+								计划金额<i>:</i>
+								30,000
+								元
+							</div>
+							<div class="c225">
+								<span><i style="width:3%"></i></span> <label>3%</label>
+							</div></td>
+					</tr>
+				</table>
+				<div class="c226">
+					
+					
+					
+						<a target="_blank" href="http://test1.xiaoniu88.com/pdtDetail.do?id=26368"><span>加入该计划</span></a>
+						<label>1人已加入</label>
+					
+				</div>
+			</div>
+		
+			<div class="c22 month6   " data-countdown="0">
+				<div class="c221">
+					<p></p>
+					<a target="_blank" href="http://test1.xiaoniu88.com/pdtDetail.do?id=26366"><span>安心陈-20141220</span></a>
+					<div>
+						<i class="color">6个月</i> 安心牛
+					</div>
+				</div>
+				<table class="c22_table" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td><div class="c222">
+								<span class="color">10.0-15.0</span> <label><i
+									class="color">%</i>年化</label>
+							</div>
+							<div class="c223">
+								还款方式<i>:</i>一次性还款
+							</div>
+							<div class="c224">
+								计划金额<i>:</i>
+								60,000
+								元
+							</div>
+							<div class="c225">
+								<span><i style="width:98%"></i></span> <label>98%</label>
+							</div></td>
+					</tr>
+				</table>
+				<div class="c226">
+					
+					
+					
+						<a target="_blank" href="http://test1.xiaoniu88.com/pdtDetail.do?id=26366"><span>加入该计划</span></a>
+						<label>1人已加入</label>
+					
+				</div>
+			</div>
+		
+			<div class="c22 month1   " data-countdown="0">
+				<div class="c221">
+					<p></p>
+					<a target="_blank" href="http://test1.xiaoniu88.com/pdtDetail.do?id=26362"><span>安心陈-20141220-001</span></a>
+					<div>
+						<i class="color">1个月</i> 安心牛
+					</div>
+				</div>
+				<table class="c22_table" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td><div class="c222">
+								<span class="color">10.0-15.0</span> <label><i
+									class="color">%</i>年化</label>
+							</div>
+							<div class="c223">
+								还款方式<i>:</i>一次性还款
+							</div>
+							<div class="c224">
+								计划金额<i>:</i>
+								50,000
+								元
+							</div>
+							<div class="c225">
+								<span><i style="width:60%"></i></span> <label>60%</label>
+							</div></td>
+					</tr>
+				</table>
+				<div class="c226">
+					
+					
+					
+						<a target="_blank" href="http://test1.xiaoniu88.com/pdtDetail.do?id=26362"><span>加入该计划</span></a>
+						<label>1人已加入</label>
+					
+				</div>
+			</div>
+		
+			<div class="c22 month1  late " data-countdown="0">
+				<div class="c221">
+					<p></p>
+					<a target="_blank" href="http://test1.xiaoniu88.com/pdtDetail.do?id=23476"><span>安心牛D20141217-245</span></a>
+					<div>
+						<i class="color">1个月</i> 安心牛
+					</div>
+				</div>
+				<table class="c22_table" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td><div class="c222">
+								<span class="color">11.0-11.5</span> <label><i
+									class="color">%</i>年化</label>
+							</div>
+							<div class="c223">
+								还款方式<i>:</i>一次性还款
+							</div>
+							<div class="c224">
+								计划金额<i>:</i>
+								500,000
+								元
+							</div>
+							<div class="c225">
+								<span><i style="width:100%"></i></span> <label>100%</label>
+							</div></td>
+					</tr>
+				</table>
+				<div class="c226">
+					
+					
+						<span>您来晚了,已满额</span><label>42人已加入</label>
+					
+					
+				</div>
+			</div>
+		
+	</div>
+</div>
+
+<!-- 导入安心牛首页VIP专区页面 -->
+
+
+<div class="a2 aa">
+  <div class="b21 ba1">
+    <div class="c211">VIP专享</div>
+    <div class="c212">超额获利<i>•</i>尊贵体验</div>
+    <div class="c213">
+      <a target="_blank" href="http://test1.xiaoniu88.com/callcenterAnswer.do?id=99&cid=7"></a>
+    </div>
+  </div>
+  <div class="ba2">
+  
+  	 
+    
+    	
+	  	
+	  		<table class="c32 ca2 border active" cellpadding="0" cellspacing="0" border="0">
+	  	
+    
+    
+
+	      <tr>
+	        <td>
+	        	<div class="ca21">
+	        		
+	            	
+	            		<a target="_blank" href="http://test1.xiaoniu88.com/financeDetail.do?id=26376">安心牛MV-20141223-001</a>
+	            	
+
+	        	</div>
+	        </td>
+	        <td>
+		        <div class="ca22">
+		        	
+					
+						年化<i>12.00</i>%
+					
+		        </div>
+	        </td>
+	        <td>
+		        <div class="ca23">
+					<i>12</i>
+					
+					
+						个月
+					
+				</div>
+			</td>
+	        <td>
+	        	<div class="ca25">
+	        		借款金额 : <i>100,000</i>元
+				</div>
+			</td>
+	        <td>
+	        	<div class="ca26">
+					
+						等额本息
+					
+					
+				</div>
+			</td>
+	        <td>
+	        	<div class="ca27">
+	        		<i>20,000</i>元起
+	        	</div>
+	        </td>
+	        <td class="c322 ca28">
+	            <p class="c322_1"><span><i style="width:40%"></i></span>
+	              <label>40%</label>
+	            </p>
+	            <p class="c322_2">
+	            	
+	            	
+	            		<a target="_blank" href="http://test1.xiaoniu88.com/financeDetail.do?id=26376">购买</a>
+	            	
+	            </p>
+				<p class="c322_3">
+					
+					</p><!--如果是倒计时 显示倒计时-->
+				<p class="c322_4">
+				 
+	              
+				</p>
+	          </td>
+	      </tr>
+    </table>
+    
+  	 
+    
+    	
+	  	
+	  		<table class="c32 ca2 border active" cellpadding="0" cellspacing="0" border="0">
+	  	
+    
+    
+
+	      <tr>
+	        <td>
+	        	<div class="ca21">
+	        		
+	            		<a target="_blank" href="http://test1.xiaoniu88.com/pdtDetail.do?id=26375">TESTVIP安心牛001</a>
+	            	
+	            	
+
+	        	</div>
+	        </td>
+	        <td>
+		        <div class="ca22">
+		        	
+						年化<i>12.6-13.2</i>%
+					
+					
+		        </div>
+	        </td>
+	        <td>
+		        <div class="ca23">
+					<i>3</i>
+					
+					
+						个月
+					
+				</div>
+			</td>
+	        <td>
+	        	<div class="ca25">
+	        		借款金额 : <i>20,000</i>元
+				</div>
+			</td>
+	        <td>
+	        	<div class="ca26">
+					
+					
+						一次性还款
+					
+				</div>
+			</td>
+	        <td>
+	        	<div class="ca27">
+	        		<i>1,000</i>元起
+	        	</div>
+	        </td>
+	        <td class="c322 ca28">
+	            <p class="c322_1"><span><i style="width:25%"></i></span>
+	              <label>25%</label>
+	            </p>
+	            <p class="c322_2">
+	            	
+	            		<a target="_blank" href="http://test1.xiaoniu88.com/pdtDetail.do?id=26375">加入</a>
+	            	
+	            	
+	            </p>
+				<p class="c322_3">
+					
+					</p><!--如果是倒计时 显示倒计时-->
+				<p class="c322_4">
+				 
+	              
+				</p>
+	          </td>
+	      </tr>
+    </table>
+    
+  	 
+    
+    
+    	
+	  		<table class="c32 ca2 no_border late" cellpadding="0" cellspacing="0" border="0" >
+	  	
+	  	
+    
+
+	      <tr>
+	        <td>
+	        	<div class="ca21">
+	        		
+	            	
+	            		<a target="_blank" href="http://test1.xiaoniu88.com/financeDetail.do?id=26367">散标陈V-20141220-001</a>
+	            	
+
+	        	</div>
+	        </td>
+	        <td>
+		        <div class="ca22">
+		        	
+					
+						年化<i>15.00</i>%
+					
+		        </div>
+	        </td>
+	        <td>
+		        <div class="ca23">
+					<i>12</i>
+					
+					
+						个月
+					
+				</div>
+			</td>
+	        <td>
+	        	<div class="ca25">
+	        		借款金额 : <i>50,000</i>元
+				</div>
+			</td>
+	        <td>
+	        	<div class="ca26">
+					
+						等额本息
+					
+					
+				</div>
+			</td>
+	        <td>
+	        	<div class="ca27">
+	        		<i>1,000</i>元起
+	        	</div>
+	        </td>
+	        <td class="c322 ca28">
+	            <p class="c322_1"><span><i style="width:100%"></i></span>
+	              <label>100%</label>
+	            </p>
+	            <p class="c322_2">
+	            	
+	            	
+	            		<a target="_blank" href="http://test1.xiaoniu88.com/financeDetail.do?id=26367">购买</a>
+	            	
+	            </p>
+				<p class="c322_3">
+					<!--如果如果满标  显示成功交易时间 其他不显示任何内容-->
+	                	成功交易时间
+	                
+					</p><!--如果是倒计时 显示倒计时-->
+				<p class="c322_4">
+				 
+	              
+	              		2014-12-23 8:29:57
+	              
+				</p>
+	          </td>
+	      </tr>
+    </table>
+    
+  </div>
+</div>
+
+<div class="a3a8">
+  <div class="a3a4">
+
+    <!-- 导入新手首页推荐项目页面 -->
+    
+<div class="a3">
+	<div class="b31 b21">
+		<div class="c311 c211">新手专享</div>
+		<div class="c312 c212">仅限<i>3次</i>购买记录以内的用户购买。</div>
+		<div class="c313 c213">
+			<a target="_blank"  href="/callcenterAnswer.do?id=76&cid=7"></a>
+		</div>
+	</div>
+	<div class="b32">
+		
+			
+		    
+		    	
+			  	
+			  		<table class="c32 border active" cellpadding="0" cellspacing="0" border="0">
+			  	
+		    
+		    
+				<tr>
+					<td colspan="4"><div class="c321">
+						
+		            	
+		            		<a target="_blank" href="http://test1.xiaoniu88.com/financeDetail.do?id=26374">安商信-20141222-004</a>
+		            	
+                    	<div class="icons">
+                        	<div class="sytip xs" title="本项目为新手专享项目">新手</div>
+				 			
+				              	
+				                
+				                
+                        </div>
+                    </div></td>
+					<td rowspan="2" class="c322"><div>
+							<p class="c322_1"><span><i style="width:100%"></i></span><label>100%</label></p>
+							<p class="c322_2">
+								
+				            	
+				            		<a target="_blank" href="http://test1.xiaoniu88.com/financeDetail.do?id=26374">购买</a>
+				            	
+							</p>
+							<p class="c322_3">
+                            	</p><!--如果是倒计时 显示倒计时-->
+							<p class="c322_4">
+							 	
+				              	
+							</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td><div class="c323">
+							
+							
+								年化<i>14.30</i>%
+							
+						</div></td>
+					<td><div class="c324">
+							<i>12</i>
+							
+							
+								个月
+							
+						</div></td>
+					<td><div class="c325">
+							借款金额:<i>3,000,000</i>元
+						</div></td>
+					<td><div class="c326">
+							
+							
+								一次性还款
+							
+						</div></td>
+				</tr>
+			</table>
+		
+			
+		    
+		    	
+			  		<table class="c32 no_border active" cellpadding="0" cellspacing="0" border="0">
+			  	
+			  	
+		    
+		    
+				<tr>
+					<td colspan="4"><div class="c321">
+						
+		            	
+		            		<a target="_blank" href="http://test1.xiaoniu88.com/financeDetail.do?id=26355">周游游D20141220-001</a>
+		            	
+                    	<div class="icons">
+                        	<div class="sytip xs" title="本项目为新手专享项目">新手</div>
+				 			
+				              	
+					                <div title="<div class='forTransfer' ><p>持有3个月后可转让</p><a href='/callcenterAnswer.do?id=56&cid=7' target='_blank'>了解详情</a>" class="sytip zr">转
+					                </div>
+				                
+				                
+				                
+                        </div>
+                    </div></td>
+					<td rowspan="2" class="c322"><div>
+							<p class="c322_1"><span><i style="width:99%"></i></span><label>99%</label></p>
+							<p class="c322_2">
+								
+				            	
+				            		<a target="_blank" href="http://test1.xiaoniu88.com/financeDetail.do?id=26355">购买</a>
+				            	
+							</p>
+							<p class="c322_3">
+                            	</p><!--如果是倒计时 显示倒计时-->
+							<p class="c322_4">
+							 	
+				              	
+							</p>
+						</div></td>
+				</tr>
+				<tr>
+					<td><div class="c323">
+							
+							
+								年化<i>14.20</i>%
+							
+						</div></td>
+					<td><div class="c324">
+							<i>12</i>
+							
+							
+								个月
+							
+						</div></td>
+					<td><div class="c325">
+							借款金额:<i>10,000</i>元
+						</div></td>
+					<td><div class="c326">
+							
+								等额本息
+							
+							
+						</div></td>
+				</tr>
+			</table>
+		
+	</div>
+</div>
+
+
+    <!-- 导入首页推荐项目页面 -->
+    
+<div class="a4">
+  <div class="b41 b21">
+    <div class="c411 c211">散标列表</div>
+    <div class="c412"> 工作时间<i>整点</i>发布新项目 周末及其余时间随机 </div>
+    <div class="c413">
+      <a href="http://test1.xiaoniu88.com/product/index" target="_blank">更多&gt;&gt;</a>
+    </div>
+  </div>
+  <div class="b32 b42">
+    
+    
+	    
+	  	
+	  		<table class="c32 border wait" cellpadding="0" cellspacing="0" border="0" data-countdown=101460 >
+	  	
+    
+    
+    
+
+        <tr>
+          <td colspan="4"><div class="c321">
+
+          		
+            	
+            		<a target="_blank" href="http://test1.xiaoniu88.com/financeDetail.do?id=26357">安居宝D20141219-619</a>
+            	
+
+              <div class="icons">
+                
+              	
+                
+                
+              </div>
+            </div></td>
+          <td rowspan="2" class="c322"><div>
+              <p class="c322_1"><span><i style="width:0%"></i></span>
+                <label>
+                	0%
+                </label>
+              </p>
+              <p class="c322_2">
+              	
+            	
+            		<a target='_blank' href="http://test1.xiaoniu88.com/financeDetail.do?id=26357">购买</a>
+            	
+
+              </p>
+              <p class="c322_3">
+              	
+              </p><!--如果是倒计时 显示倒计时-->
+              <p class="c322_4">
+             	  
+	              		开始抢购
+	              
+	              
+              </p>
+            </div></td>
+        </tr>
+        <tr>
+          <td><div class="c323">
+              
+               年化
+              	<i>
+              		
+              		12.70
+              		
+              		
+              	</i>% 
+            </div></td>
+          <td><div class="c324">
+
+          	  	
+          			<i>12</i>
+              		
+              		 个月 
+          		
+          		
+
+            </div></td>
+          <td><div class="c325"> 借款金额:<i>
+          		
+            	
+            		 90,000
+            	
+              </i>元 </div></td>
+          <td><div class="c326">
+              
+               一次性还款 
+            </div></td>
+        </tr>
+      </table>
+    
+    
+    
+    	
+	  	
+	  		<table class="c32 border active" cellpadding="0" cellspacing="0" border="0">
+	  	
+    
+    
+
+        <tr>
+          <td colspan="4"><div class="c321">
+
+          		
+            	
+            		<a target="_blank" href="http://test1.xiaoniu88.com/financeDetail.do?id=26372">安商信-20141222-002</a>
+            	
+
+              <div class="icons">
+                
+              	
+	                <div title="<div class='forTransfer' ><p>持有2个月后可转让</p><a href='/callcenterAnswer.do?id=56&cid=7' target='_blank'>了解详情</a>" class="sytip zr">转
+	                </div>
+                
+                
+                
+              </div>
+            </div></td>
+          <td rowspan="2" class="c322"><div>
+              <p class="c322_1"><span><i style="width:100%"></i></span>
+                <label>
+                	100%
+                </label>
+              </p>
+              <p class="c322_2">
+              	
+            	
+            		<a target='_blank' href="http://test1.xiaoniu88.com/financeDetail.do?id=26372">购买</a>
+            	
+
+              </p>
+              <p class="c322_3">
+              	
+              </p><!--如果是倒计时 显示倒计时-->
+              <p class="c322_4">
+             	  
+	              
+              </p>
+            </div></td>
+        </tr>
+        <tr>
+          <td><div class="c323">
+              
+               年化
+              	<i>
+              		
+              		14.30
+              		
+              		
+              	</i>% 
+            </div></td>
+          <td><div class="c324">
+
+          	  	
+          			<i>12</i>
+              		
+              		 个月 
+          		
+          		
+
+            </div></td>
+          <td><div class="c325"> 借款金额:<i>
+          		
+            	
+            		 200,000
+            	
+              </i>元 </div></td>
+          <td><div class="c326">
+               等额本息 
+              
+            </div></td>
+        </tr>
+      </table>
+    
+    
+    
+    	
+	  	
+	  		<table class="c32 border active" cellpadding="0" cellspacing="0" border="0">
+	  	
+    
+    
+
+        <tr>
+          <td colspan="4"><div class="c321">
+
+          		
+            	
+            		<a target="_blank" href="http://test1.xiaoniu88.com/financeDetail.do?id=26371">安居宝V-20141222-001</a>
+            	
+
+              <div class="icons">
+                
+              	
+	                <div title="<div class='forTransfer' ><p>持有3个月后可转让</p><a href='/callcenterAnswer.do?id=56&cid=7' target='_blank'>了解详情</a>" class="sytip zr">转
+	                </div>
+                
+                
+                
+              </div>
+            </div></td>
+          <td rowspan="2" class="c322"><div>
+              <p class="c322_1"><span><i style="width:97%"></i></span>
+                <label>
+                	97%
+                </label>
+              </p>
+              <p class="c322_2">
+              	
+            	
+            		<a target='_blank' href="http://test1.xiaoniu88.com/financeDetail.do?id=26371">购买</a>
+            	
+
+              </p>
+              <p class="c322_3">
+              	
+              </p><!--如果是倒计时 显示倒计时-->
+              <p class="c322_4">
+             	  
+	              
+              </p>
+            </div></td>
+        </tr>
+        <tr>
+          <td><div class="c323">
+              
+               年化
+              	<i>
+              		
+              		14.20
+              		
+              		
+              	</i>% 
+            </div></td>
+          <td><div class="c324">
+
+          	  	
+          			<i>12</i>
+              		
+              		 个月 
+          		
+          		
+
+            </div></td>
+          <td><div class="c325"> 借款金额:<i>
+          		
+            	
+            		 103
+            	
+              </i>元 </div></td>
+          <td><div class="c326">
+              
+               一次性还款 
+            </div></td>
+        </tr>
+      </table>
+    
+    
+    
+    	
+	  	
+	  		<table class="c32 border active" cellpadding="0" cellspacing="0" border="0">
+	  	
+    
+    
+
+        <tr>
+          <td colspan="4"><div class="c321">
+
+          		
+            	
+            		<a target="_blank" href="http://test1.xiaoniu88.com/financeDetail.do?id=26369">安车信-20141222-002</a>
+            	
+
+              <div class="icons">
+                
+              	
+	                <div title="<div class='forTransfer' ><p>持有3个月后可转让</p><a href='/callcenterAnswer.do?id=56&cid=7' target='_blank'>了解详情</a>" class="sytip zr">转
+	                </div>
+                
+                
+                
+              </div>
+            </div></td>
+          <td rowspan="2" class="c322"><div>
+              <p class="c322_1"><span><i style="width:3%"></i></span>
+                <label>
+                	3%
+                </label>
+              </p>
+              <p class="c322_2">
+              	
+            	
+            		<a target='_blank' href="http://test1.xiaoniu88.com/financeDetail.do?id=26369">购买</a>
+            	
+
+              </p>
+              <p class="c322_3">
+              	
+              </p><!--如果是倒计时 显示倒计时-->
+              <p class="c322_4">
+             	  
+	              
+              </p>
+            </div></td>
+        </tr>
+        <tr>
+          <td><div class="c323">
+              
+               年化
+              	<i>
+              		
+              		14.20
+              		
+              		
+              	</i>% 
+            </div></td>
+          <td><div class="c324">
+
+          	  	
+          			<i>12</i>
+              		
+              		 个月 
+          		
+          		
+
+            </div></td>
+          <td><div class="c325"> 借款金额:<i>
+          		
+            	
+            		 30,000
+            	
+              </i>元 </div></td>
+          <td><div class="c326">
+               等额本息 
+              
+            </div></td>
+        </tr>
+      </table>
+    
+    
+    
+    	
+	  	
+	  		<table class="c32 border active" cellpadding="0" cellspacing="0" border="0">
+	  	
+    
+    
+
+        <tr>
+          <td colspan="4"><div class="c321">
+
+          		
+	            	<a target="_blank" href="http://test1.xiaoniu88.com/debtDetail.do?id=26370">安企贷Z20141222-132</a>
+            	
+            	
+
+              <div class="icons">
+                
+              	
+	                <div title="<div class='forTransfer' ><p>持有3个月后可转让</p><a href='/callcenterAnswer.do?id=56&cid=7' target='_blank'>了解详情</a>" class="sytip zr">转
+	                </div>
+                
+                
+                
+					
+					
+						<div title="项目转让成功后10个工作日内，奖金直接发放到客户小牛在线账户中" class="sytip moreLabel">
+							0.70%
+						</div>
+					
+				
+              </div>
+            </div></td>
+          <td rowspan="2" class="c322"><div>
+              <p class="c322_1"><span><i style="width:0%"></i></span>
+                <label>
+                	0%
+                </label>
+              </p>
+              <p class="c322_2">
+              	
+	            	<a target='_blank' href="http://test1.xiaoniu88.com/debtDetail.do?id=26370">购买</a>
+            	
+            	
+
+              </p>
+              <p class="c322_3">
+              	
+              </p><!--如果是倒计时 显示倒计时-->
+              <p class="c322_4">
+             	  
+	              
+              </p>
+            </div></td>
+        </tr>
+        <tr>
+          <td><div class="c323">
+              
+               年化
+              	<i>
+              		
+              		
+              		14.20
+              		
+              	</i>% 
+            </div></td>
+          <td><div class="c324">
+
+          	  	
+          		
+          			<i>230</i>天
+          		
+
+            </div></td>
+          <td><div class="c325"> 借款金额:<i>
+          		
+	            	 105.63
+            	
+            	
+              </i>元 </div></td>
+          <td><div class="c326">
+              
+               一次性还款 
+            </div></td>
+        </tr>
+      </table>
+    
+    
+    
+    	
+	  	
+	  		<table class="c32 border active" cellpadding="0" cellspacing="0" border="0">
+	  	
+    
+    
+
+        <tr>
+          <td colspan="4"><div class="c321">
+
+          		
+	            	<a target="_blank" href="http://test1.xiaoniu88.com/debtDetail.do?id=26365">安企贷Z20141220-131</a>
+            	
+            	
+
+              <div class="icons">
+                
+              	
+	                <div title="<div class='forTransfer' ><p>持有3个月后可转让</p><a href='/callcenterAnswer.do?id=56&cid=7' target='_blank'>了解详情</a>" class="sytip zr">转
+	                </div>
+                
+                
+                
+					
+					
+						<div title="项目转让成功后10个工作日内，奖金直接发放到客户小牛在线账户中" class="sytip moreLabel">
+							0.60%
+						</div>
+					
+				
+              </div>
+            </div></td>
+          <td rowspan="2" class="c322"><div>
+              <p class="c322_1"><span><i style="width:19%"></i></span>
+                <label>
+                	19%
+                </label>
+              </p>
+              <p class="c322_2">
+              	
+	            	<a target='_blank' href="http://test1.xiaoniu88.com/debtDetail.do?id=26365">购买</a>
+            	
+            	
+
+              </p>
+              <p class="c322_3">
+              	
+              </p><!--如果是倒计时 显示倒计时-->
+              <p class="c322_4">
+             	  
+	              
+              </p>
+            </div></td>
+        </tr>
+        <tr>
+          <td><div class="c323">
+              
+               年化
+              	<i>
+              		
+              		
+              		14.30
+              		
+              	</i>% 
+            </div></td>
+          <td><div class="c324">
+
+          	  	
+          		
+          			<i>248</i>天
+          		
+
+            </div></td>
+          <td><div class="c325"> 借款金额:<i>
+          		
+	            	 1,048.75
+            	
+            	
+              </i>元 </div></td>
+          <td><div class="c326">
+              
+               一次性还款 
+            </div></td>
+        </tr>
+      </table>
+    
+    
+    
+    
+    	
+	  		<table class="c32 no_border late" cellpadding="0" cellspacing="0" border="0" >
+	  	
+	  	
+    
+
+        <tr>
+          <td colspan="4"><div class="c321">
+
+          		
+            	
+            		<a target="_blank" href="http://test1.xiaoniu88.com/financeDetail.do?id=26373">安商信-20141222-003</a>
+            	
+
+              <div class="icons">
+                
+              	
+	                <div title="<div class='forTransfer' ><p>持有3个月后可转让</p><a href='/callcenterAnswer.do?id=56&cid=7' target='_blank'>了解详情</a>" class="sytip zr">转
+	                </div>
+                
+                
+                
+              </div>
+            </div></td>
+          <td rowspan="2" class="c322"><div>
+              <p class="c322_1"><span><i style="width:100%"></i></span>
+                <label>
+                	100%
+                </label>
+              </p>
+              <p class="c322_2">
+              	
+            	
+            		<a target='_blank' href="http://test1.xiaoniu88.com/financeDetail.do?id=26373">购买</a>
+            	
+
+              </p>
+              <p class="c322_3">
+              	<!--如果如果满标  显示成功交易时间 其他不显示任何内容-->
+                	成功交易时间
+                
+              </p><!--如果是倒计时 显示倒计时-->
+              <p class="c322_4">
+             	  
+	              
+	              		2014-12-23 9:58:48
+	              
+              </p>
+            </div></td>
+        </tr>
+        <tr>
+          <td><div class="c323">
+              
+               年化
+              	<i>
+              		
+              		14.30
+              		
+              		
+              	</i>% 
+            </div></td>
+          <td><div class="c324">
+
+          	  	
+          			<i>12</i>
+              		
+              		 个月 
+          		
+          		
+
+            </div></td>
+          <td><div class="c325"> 借款金额:<i>
+          		
+            	
+            		 200,000
+            	
+              </i>元 </div></td>
+          <td><div class="c326">
+              
+               一次性还款 
+            </div></td>
+        </tr>
+      </table>
+    
+  </div>
+</div>
+
+  </div>
+  <div class="a5a8">
+
+    <!-- 导入网站资讯 -->
+    
+	
+<div class="a5">
+	<div class="b51">
+		<div class="c511">资讯中心</div>
+		<a class="c512" href="/portal/article/index" target="_blank">更多&gt;&gt;</a>
+	</div>
+	<div class="b52">		
+		
+			
+				<div class="c52 top1">
+					<div class="c521">
+						<a target="_blank" href="/portal/article/detail/337"><img src="http://172.20.20.102:9004/be/static/image_upload/1419385494272.jpg" onerror="this.src='/portal/css-0.0.1/project/portal/img/error_90_60.jpg';this.onerror=null;"  width="90" height="60"/></a>
+					</div>
+					<div class="c522c553">
+						<div class="c522">
+							<a target="_blank" href="/portal/article/detail/337" title="123456"><span>123456</span></a>
+						</div>
+						<div class="c523">
+							111111111111111111...
+							
+							<a target="_blank" href="/portal/article/detail/337"><span>详情>></span></a>
+						</div>
+					</div>
+				</div>
+				
+			
+		
+				
+				
+				<div class="c52">
+					<div class="c522">
+						<a target="_blank" href="/portal/article/detail/336"  title="2522222222222"><span>2522222222222</span></a>
+					</div>
+				</div>
+			
+		
+				
+				
+				<div class="c52">
+					<div class="c522">
+						<a target="_blank" href="/portal/article/detail/333"  title="junjun1"><span>junjun1</span></a>
+					</div>
+				</div>
+			
+		
+				
+				
+				<div class="c52">
+					<div class="c522">
+						<a target="_blank" href="/portal/article/detail/332"  title="junjun"><span>junjun</span></a>
+					</div>
+				</div>
+			
+		
+	</div>
+</div>
+
+
+
+
+    <!-- 导入网站公告 -->
+    
+<div class="a6 a5">
+	<div class="b51">
+		<div class="c511">网站公告</div>
+		<a class="c512" href="/portal/article/index/2" target="_blank">更多&gt;&gt;</a>
+	</div>
+	<div class="b52">
+		
+			<div class="c52">
+				<div class="c522">
+					<a target="_blank" href="/portal/article/detail/334" title="junjun2"><span>junjun2</span></a>
+				</div>
+			</div>
+		
+			<div class="c52">
+				<div class="c522">
+					<a target="_blank" href="/portal/article/detail/331" title="关于汇付天下11月7日20:00&mdash;11月8日6:00停止提现公告"><span>关于汇付天下11月7日20:00&mdash;11月8日6:00停止提现公告</span></a>
+				</div>
+			</div>
+		
+			<div class="c52">
+				<div class="c522">
+					<a target="_blank" href="/portal/article/detail/330" title="关于周四、周五秒标发布安排公告"><span>关于周四、周五秒标发布安排公告</span></a>
+				</div>
+			</div>
+		
+			<div class="c52">
+				<div class="c522">
+					<a target="_blank" href="/portal/article/detail/329" title="&ldquo;深度剖析互联网金融行业面试经&rdquo;--暨小牛在线首届见面会"><span>&ldquo;深度剖析互联网金融行业面试经&rdquo;--暨小牛在线首届见面会</span></a>
+				</div>
+			</div>
+		
+			<div class="c52">
+				<div class="c522">
+					<a target="_blank" href="/portal/article/detail/328" title="【活动】用爱点亮心灯&amp;发现之旅"><span>【活动】用爱点亮心灯&amp;发现之旅</span></a>
+				</div>
+			</div>
+		
+			<div class="c52">
+				<div class="c522">
+					<a target="_blank" href="/portal/article/detail/327" title="关于投资额年化2%活动结束公告"><span>关于投资额年化2%活动结束公告</span></a>
+				</div>
+			</div>
+		
+	</div>
+</div>
+    <div class="a7 a5">
+      <a target="_blank" href="http://test1.xiaoniu88.com/ccfpIndex.do"><img src="/portal/css-0.0.1/project/portal/img/licaishi.png"></a>
+    </div>
+
+    <!-- 导入3小时理财榜TOP5 -->
+    
+<div class="a5 a8">
+	<div class="b51 b81">
+		<div class="c511">最近<i>30天</i>购买金额排行</div>
+	</div>
+	<div class="b52 b82">
+		<table cellpadding="0" cellspacing="0" border="0">
+			<tr class="c82 row1">
+				<td><div class="c821">排名</div></td>
+				<td><div class="c822">用户名</div></td>
+				<td><div class="c823">投资金额</div></td>
+			</tr>
+			
+				<tr class="c82 row2">
+					<td><div class="c821"><span>1</span></div></td>
+					<td><div class="c822">l****ar</div></td>
+					<td>
+					<div class="c823">
+						￥5,331,909
+					</div>
+					</td>
+				</tr>
+			
+				<tr class="c82 row3">
+					<td><div class="c821"><span>2</span></div></td>
+					<td><div class="c822">z****cn</div></td>
+					<td>
+					<div class="c823">
+						￥3,605,178
+					</div>
+					</td>
+				</tr>
+			
+				<tr class="c82 row4">
+					<td><div class="c821"><span>3</span></div></td>
+					<td><div class="c822">p****02</div></td>
+					<td>
+					<div class="c823">
+						￥3,009,598
+					</div>
+					</td>
+				</tr>
+			
+				<tr class="c82 row5">
+					<td><div class="c821"><span>4</span></div></td>
+					<td><div class="c822">x****ei</div></td>
+					<td>
+					<div class="c823">
+						￥2,666,425
+					</div>
+					</td>
+				</tr>
+			
+				<tr class="c82 row6">
+					<td><div class="c821"><span>5</span></div></td>
+					<td><div class="c822">l****jv</div></td>
+					<td>
+					<div class="c823">
+						￥1,620,795
+					</div>
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+</div>
+    <div class="a7 a5">
+      <a href="http://test1.xiaoniu88.com/help/helpIndex.jsp" target="_blank"><img src="/portal/css-0.0.1/project/portal/img/help_center.png"></a>
+    </div>
+  </div>
+</div>
+<!-- 导入底部媒体报道  -->
+
+<div class="a9">
+  <div class="b21">
+    <div class="c211">媒体报道</div>
+  </div>
+  <div class="b92">
+    <div class="c921"></div>
+    <div class="c922">
+      <a href="http://www.eeo.com.cn/2014/1107/268413.shtml" target="_blank" title="经济观察报">
+      <img src="/portal/css-0.0.1/project/portal/img/media/meiti_03.jpg" alt="经济观察报">
+      </a>
+      <a href="http://finance.21cbh.com/2014/12-5/wNMDAzNzFfMTM1MDkwNQ.html" target="_blank" title="21世纪经济报道">
+      <img src="/portal/css-0.0.1/project/portal/img/media/meiti_04.jpg" alt="21世纪经济报道">
+      </a>
+      <a href="http://www.cs.com.cn/xwzx/jr/201409/t20140929_4525573.html" target="_blank" title="中国证券报">
+      <img src="/portal/css-0.0.1/project/portal/img/media/meiti_05.jpg" alt="中国证券报">
+      </a>
+      <a href="http://news.xinhuanet.com/expo/2014-12/17/c_127313554.htm" target="_blank" title="新华网">
+      <img src="/portal/css-0.0.1/project/portal/img/media/meiti_06.jpg" alt="新华网">
+      </a>
+      <a href="http://epaper.dfdaily.com/dfzb/html/2014-09/27/content_928340.htm" target="_blank" title="东方早报">
+      <img src="/portal/css-0.0.1/project/portal/img/media/meiti_07.jpg" alt="东方早报">
+      </a>
+      <a href="http://gd.sina.com.cn/szfinance/hlwjr/2014-08-20/10594668.html?qq-pf-to=pcqq.c2c" target="_blank" title="新浪网">
+      <img src="/portal/css-0.0.1/project/portal/img/media/meiti_09.jpg" alt="新浪网">
+      </a>
+      <a href="http://news.163.com/14/1013/16/A8EVG3LM00014SEH.html" target="_blank" title="网易">
+      <img src="/portal/css-0.0.1/project/portal/img/media/meiti_10.jpg" alt="网易">
+      </a>
+      <a href="http://finance.people.com.cn/money/GB/n/2014/0929/c42877-25756745.html" target="_blank" title="人民网">
+      <img src="/portal/css-0.0.1/project/portal/img/media/meiti_11.jpg" alt="人民网">
+      </a>
+      <a href="http://it.jinghua.cn/056676/304456264531b.shtml" target="_blank" title="京华网">
+      <img src="/portal/css-0.0.1/project/portal/img/media/meiti_12.jpg" alt="京华网">
+      </a>
+      <a href="http://v.youku.com/v_show/id_XODI1NTQ1NzY4.html" target="_blank" title="深圳财经生活频道">
+      <img src="/portal/css-0.0.1/project/portal/img/media/meiti_13.jpg" alt="深圳财经生活频道">
+      </a>
+    </div>
+  </div>
+</div>
+<!--end 内容-->
+
+<!--start 回到顶部-->
+<div class="rightTips">
+  <a title="返回顶部" class="go_top" target="_self" style="visibility: hidden;"></a>
+  <a class="calculator" href="javascript:void(0);" title="计算器" data-url="http://test1.xiaoniu88.com"></a>
+  <a class="feedback" href="javascript:gotoLogin('http://test1.xiaoniu88.com/questshow.do',1,'http://test1.xiaoniu88.com/questshow.do')" title="问卷调查"></a>
+</div>
+<!--end 回到顶部-->
+
+<!--start 尾部-->
+<!--引入尾部链接文件-->
+
+<div class="footer">
+	<div class="g-o">
+    	<ul>
+            <li>
+                <a target="_blank" href="http://test1.xiaoniu88.com/about/about_ptjj.jsp" class="til">关于我们</a>
+                <a target="_blank" href="http://test1.xiaoniu88.com/about/about_ptjj.jsp">平台简介</a>
+                <a target="_blank" href="http://test1.xiaoniu88.com/about/about_gltd.jsp">管理团队</a>
+                <a target="_blank" href="http://test1.xiaoniu88.com/about/about_hzhb.jsp">合作伙伴</a>
+                <a target="_blank" href="http://test1.xiaoniu88.com/about/about_lxwm.jsp">联系我们</a>
+            </li>
+            <li>
+                <a target="_blank" href="http://test1.xiaoniu88.com/help/helpIndex.jsp" class="til">帮助中心</a>
+                <a target="_blank" href="http://test1.xiaoniu88.com/queryQuestion.do?pageBean.pageNum=1&amp;paramMap.cid=1">常见问题</a>
+                <a target="_blank" href="http://test1.xiaoniu88.com/callcenterrecharge.do?cid=6">项目介绍</a>
+                <a target="_blank" href="http://test1.xiaoniu88.com/callcenterrecharge.do?cid=20">资费说明</a>
+                <a target="_blank" href="http://test1.xiaoniu88.com/sitemap.jsp">网站地图</a>
+            </li>
+            <li>
+                <a target="_blank" href="http://test1.xiaoniu88.com/queryQuestion.do?pageBean.pageNum=1&amp;paramMap.cid=1" class="til">新手指南</a>
+                <a target="_blank" href="http://test1.xiaoniu88.com/help/securityGuarantee.jsp">安全保障</a>
+                <a target="_blank" href="http://test1.xiaoniu88.com/callcenterrecharge.do?cid=2">投资流程</a>
+                <a target="_blank" href="http://test1.xiaoniu88.com/callcenterrecharge.do?cid=1">注册流程</a>
+                <a target="_blank" href="http://test1.xiaoniu88.com/callcenterrecharge.do?cid=3">充值流程</a>
+            </li>
+            <li class="last">
+            	<div>
+                <p>全国理财热线：</p>
+                <p class="bd">400 777 1268</p>
+                <p>周一到周五8:30-20:30</p>
+                <p>周六到周日9:00-17:00</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--引入版权信息文件-->
+
+<!--start 尾部-->
+<div class="foot-bt">
+	<p>Copyright &copy; 2014 小牛在线 版权所有    备案号：<a  target="_blank" rel="nofollow" href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备13089339号</a></p>
+	<p>法律顾问单位：国浩律师（深圳）事务所</p>
+    <span>
+    	<a class="lk01" href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1061427753" rel="nofollow" target="_blank" title="中国信用企业"></a>
+        <a class="lk02" href="http://www.miitbeian.gov.cn/" rel="nofollow"  title="经营性网站备案信息"  target="_blank"></a>
+        <a class="lk03" href="http://www.szeca.com.cn/html/fengcai/fhzdw/" rel="nofollow" target="_blank" title="深圳电子商务协会"></a>
+        <a class="lk04" href="http://www.ebs.gov.cn/EntCertificate.aspx?domainId=9d03bef0-03fd-491d-97a7-b96169b9e744" target="_blank" rel="nofollow"  title="深圳工商主体认证信息"></a>
+        <a class="lk05" href="https://ss.knet.cn/verifyseal.dll?sn=e13071711010041651ahdh000000&amp;ct=df&amp;a=1&amp;pa=784545" rel="nofollow" target="_blank" title="可信网站"></a>
+        <a class="lk06" title="安全联盟" target="_blank" key ="5420e71cefbfb0496364cce3" logo_size="83x30" logo_type="realname" href="http://www.anquan.org/authenticate/cert/?site=www.xiaoniu88.com&at=realname" ></a>
+    </span>
+</div>
+<!--end 尾部-->
+<!--end 尾部-->
+<div class='kf_container kf_hide' id='qqkf'>
+  <div class='kf_content'>
+    <a id='qqkefu_link' href='http://crm2.qq.com/page/portalpage/wpa.php?uin=938045033&amp;f=1&amp;ty=1&amp;ap=000011:400792:|f:Ggzpt1' target='_blank'><span id='ke_icon'></span></a>
+    <span class='size13'>周一到周五</span>
+    <span class='size15'>8:30-20:30</span>
+    <span class='size13'>周六到周日</span>
+    <span class='size15'>9:00-17:00</span>
+  </div>
+</div>
+<script>
+	window.g_stylePath="/portal/css-0.0.1";
+</script>
+<script src="/portal/css-0.0.1/plugIn/jquery/1.10.2/jquery.js"></script>
+<script src="/portal/css-0.0.1/plugIn/poshytip-1.2/src/jquery.poshytip.js"></script>
+<script src="/portal/css-0.0.1/plugIn/lhgdialog/lhgdialog.min.js"></script>
+<script src="/portal/css-0.0.1/plugIn/swfobject/swfobject.js"></script>
+<script>
+(function(){//2014-12-22至2014-12-26日启用圣诞节
+	var now=new Date();
+	var month=now.getMonth()+1;
+	var date=now.getDate();
+	var flashvars = {},params = {wmode:"transparent"},attributes = {};  
+	if(month==12&&date>=22&&date<=26){//如果是22日与26日之间 放出flash
+		var flash_con=document.getElementById("flash_con");
+		flash_con.style.display="block";
+		var flashvars = {},params = {wmode:'transparent'},attributes = {};
+		swfobject.embedSWF("/portal/css-0.0.1/images/flash/chrismas.swf", "flash", "300", "81", "9.0.0", "/portal/css-0.0.1/images/flash/expressInstall.swf", flashvars, params, attributes);  
+	}
+	
+	
+})();
+</script>
+<script src="/portal/css-0.0.1/project/portal/js/aio.js?v=2"></script>
+<div class="baidu_statistic" style="display:none"><!--统计代码  百度  测试期间暂不开启-->
+	<script src="http://hm.baidu.com/h.js?bfadffd6cb8f795e488eccaeb28cab61"></script>
+</div>
+</body>
+</html>

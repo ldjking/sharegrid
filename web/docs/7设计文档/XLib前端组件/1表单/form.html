@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单设计文档</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/css/doc.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css"/>
+</head>
+<body>
+
+ <div class="container"  id="doc">
+  <div class="doc" style="width:99%;" >
+    <div class="paper">
+      <div class="content">
+        <div class="h1 center">表单组件使用说明书</div>
+        <table cellpadding="0" cellspacing="0" border="1">
+          <tr class="thead">
+            <td colspan="8">文档编写记录</td>
+          </tr>
+          <tr>
+            <td width="80">编写人:</td>
+            <td width="80">刘东杰</td>
+            <td width="80">编写时间:</td>
+            <td width="80">2013-2-27</td>
+            <td width="80">审核人:</td>
+            <td width="80">&nbsp;</td>
+            <td width="80">审核时间:</td>
+            <td width="80">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="8"><div>1. 编写表单的结构组成</div>
+              <div>2. 编写表单的使用方法</div></td>
+          </tr>
+          <tr>
+            <td width="80">编写人:</td>
+            <td width="80">刘东杰</td>
+            <td width="80">编写时间:</td>
+            <td width="80">2013-2-28</td>
+            <td width="80">审核人:</td>
+            <td width="80">&nbsp;</td>
+            <td width="80">审核时间:</td>
+            <td width="80">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="8"><div>1. 制作并链接表单的使用示例</div>
+              <div>2. 修改说明书的目录结构</div></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="paper">
+      <div class="content">
+        <div class="h1">目录</div>
+        <ol class="rectangle-list">
+          <li><a href="#p1">表单的结构</a>
+            <ol>
+              <li><a href="#p11">表单的组成元素</a></li>
+              <li><a href="#p12">配置信息</a></li>
+              <li><a href="#p13">布局表格</a></li>
+              <li><a href="#p14">布局元素</a></li>
+              <li><a href="#p15">操作按钮</a></li>
+              <li><a href="#p16">自定义事件</a></li>
+            </ol>
+          </li>
+          <li><a href="#p2">表单组件的使用方式一</a><ol>
+              <li><a href="#p21">表单组件的依赖资源</a></li>
+              <li><a href="#p22">表单组件的使用方式</a></li>
+            </ol></li>
+          <li><a href="#p3">表单组件的使用方式二</a><ol>
+              <li><a href="#p31">表单组件的依赖资源</a></li>
+              <li><a href="#p32">表单组件的使用方式</a></li>
+            </ol></li>
+        </ol>
+      </div>
+    </div>
+    <div class="paper">
+      <div class="content">
+        <div class="p1" id="p1">第一章、表单的结构</div>
+        <div class="p2" id="p11">1. 表单的组成元素</div>
+        <div class="p">表单由配置信息、布局表格、布局元素、操作按钮、自定义事件组成.</div>
+        <div class="p2" id="p12">2. 配置信息</div>
+        <div class="p">配置信息主要包括以下属性</div>
+        <div class="part">
+          <table cellpadding="0" cellspacing="0" border="1">
+            <tr>
+              <td width="136">属性名</td>
+              <td width="205">意义</td>
+              <td width="220">值示例</td>
+            </tr>
+            <tr>
+              <td>id</td>
+              <td>表单主键</td>
+              <td>1001001</td>
+            </tr>
+            <tr>
+              <td>name</td>
+              <td>表单的名称</td>
+              <td>lixiang 表单的名称不允许重复</td>
+            </tr>
+            <tr>
+              <td>cname</td>
+              <td>表单的中文名称</td>
+              <td>立项申请</td>
+            </tr>
+            <tr>
+              <td>title</td>
+              <td>表单的标题</td>
+              <td>三峡高科立项申请审批表</td>
+            </tr>
+            <tr>
+              <td>paper</td>
+              <td>纸张大小</td>
+              <td>A4</td>
+            </tr>
+            <tr>
+              <td>hstyle</td>
+              <td>纸张横排样式</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>pk_attr</td>
+              <td>表单数据的主键</td>
+              <td>p0_id</td>
+            </tr>
+          </table>
+        </div>
+        <div class="p2" id="p13">3. 布局表格</div>
+        <div class="p">布局表格分为三类，隐藏类，布局类，子表类。其中子表类所需参数较多，需要子表属性名，获取数据方法，新增行数据方法，更新行数据方法，删除行数据方法。属性名称及其意义如下：</div>
+        <div class="part">
+          <table cellpadding="0" cellspacing="0" border="1">
+            <tr>
+              <td width="136">属性名</td>
+              <td width="205">意义</td>
+              <td width="220">值示例</td>
+            </tr>
+            <tr>
+              <td>id</td>
+              <td>表格主键</td>
+              <td>1002001</td>
+            </tr>
+            <tr>
+              <td>form</td>
+              <td>表单名称</td>
+              <td>lixiang</td>
+            </tr>
+            <tr>
+              <td>num</td>
+              <td>表格的序号</td>
+              <td>1 表格的呈现顺序 从0 开始编写</td>
+            </tr>
+            <tr>
+              <td>type</td>
+              <td>表格的类型</td>
+              <td>0代表隐藏、2代表布局，3代表子表</td>
+            </tr>
+            <tr>
+              <td>attr</td>
+              <td>属性名</td>
+              <td>students</td>
+            </tr>
+            <tr>
+              <td>pk_attr</td>
+              <td>主键字段</td>
+              <td>student_id</td>
+            </tr>
+            <tr>
+            <tr>
+              <td>data_method</td>
+              <td>取数方法</td>
+              <td>studentGetsByClass</td>
+            </tr>
+            <tr>
+              <td>add_method</td>
+              <td>新增行方法</td>
+              <td>stuAdd</td>
+            </tr>
+            <tr>
+              <td>update_method</td>
+              <td>更新行方法</td>
+              <td>stuUpdate</td>
+            </tr>
+            <tr>
+              <td>rm_method</td>
+              <td>删除行方法</td>
+              <td>stuRm</td>
+            </tr>
+            <tr>
+              <td>rows</td>
+              <td>行数</td>
+              <td>2代表2行</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="paper">
+      <div class="content">
+        <div class="p2" id="p14">4. 布局元素</div>
+        <div class="p">布局元素种类较多，常用的有标签，文本框，值列表，图像，单选列表、多选列表等组成。布局元素的属性信息如下：</div>
+        <div class="part">
+          <table cellpadding="0" cellspacing="0" border="1">
+            <tr>
+              <td width="136">属性名</td>
+              <td width="205">意义</td>
+              <td width="220">值示例</td>
+            </tr>
+            <tr>
+              <td>id</td>
+              <td>布局元素主键</td>
+              <td>1004001</td>
+            </tr>
+            <tr>
+              <td>form</td>
+              <td>表单</td>
+              <td>lixiang</td>
+            </tr>
+            <tr>
+              <td>table</td>
+              <td>表单中第几个表格</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>num</td>
+              <td>表格中的呈现顺序</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>rowspan</td>
+              <td>跨多少行</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>colspan</td>
+              <td>跨多少列</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>name</td>
+              <td>元素的名称</td>
+              <td>lbl_name</td>
+            </tr>
+            <tr>
+              <td>cname</td>
+              <td>元素的中文名称</td>
+              <td>姓名</td>
+            </tr>
+            <tr>
+              <td>type</td>
+              <td>元素的类型</td>
+              <td>lbl代表标签，txt代表文本输入、lov代表值列表等、img代表图片、radio代表单选列表、checkbox代表多选列表</td>
+            </tr>
+            <tr>
+              <td>lov</td>
+              <td>值列表名称</td>
+              <td>sex	如果是lov类型只需要填写lov属性</td>
+            </tr>
+            <tr>
+              <td>width</td>
+              <td>宽度</td>
+              <td>100 单位为像素</td>
+            </tr>
+            <tr>
+              <td>height</td>
+              <td>高度</td>
+              <td>32 单位为像素</td>
+            </tr>
+            <tr>
+              <td>align</td>
+              <td>对齐方式</td>
+              <td>left center right</td>
+            </tr>
+            <tr>
+              <td>padding</td>
+              <td>内补丁</td>
+              <td>10 10 按照空格分割，如果只有一项，代表左缩进</td>
+            </tr>
+            <tr>
+              <td>regtype</td>
+              <td>正则表达式类型校验</td>
+              <td>email 要求所填是数字、电话、邮政编码、金额、日期、邮箱等格式</td>
+            </tr>
+            <tr>
+              <td>regcheck</td>
+              <td>自定义正则表达式校验</td>
+              <td>/[1-9][\.]/g</td>
+            </tr>
+            <tr>
+              <td>handler</td>
+              <td>触发事件</td>
+              <td>fn_name_change</td>
+            </tr>
+            <tr>
+              <td>attr</td>
+              <td>属性名称</td>
+              <td>person_id</td>
+            </tr>
+            <tr>
+              <td>attr2</td>
+              <td>属性名称2</td>
+              <td>peron_name</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="paper">
+      <div class="content">
+        <div class="p2" id="p15">5. 操作按钮</div>
+        <div class="p">操作按钮分为系统按钮和自定义按钮，其中系统按钮为已经预定义好样式和行为的按钮，包括保存、更新、新增子项、删除子项、上一条、下一条等。操作按钮的属性如下：</div>
+        <div class="part">
+          <table cellpadding="0" cellspacing="0" border="1">
+            <tr>
+              <td width="136">属性名</td>
+              <td width="205">意义</td>
+              <td width="220">值示例</td>
+            </tr>
+            <tr>
+              <td>id</td>
+              <td>操作按钮主键</td>
+              <td>1003001</td>
+            </tr>
+            <tr>
+              <td>form</td>
+              <td>表单</td>
+              <td>lixiang</td>
+            </tr>
+            <tr>
+              <td>type</td>
+              <td>按钮的类型</td>
+              <td>add代表用于新增表单 update代表用于更新表单</td>
+            </tr>
+            <tr>
+              <td>name</td>
+              <td>按钮的名称</td>
+              <td>approve</td>
+            </tr>
+            <tr>
+              <td>cname</td>
+              <td>按钮的中文名称</td>
+              <td>批准</td>
+            </tr>
+            <tr>
+              <td>style</td>
+              <td>按钮的样式</td>
+              <td>save、update、addItem、rmItem等为系统按钮，btn为自定义按钮</td>
+            </tr>
+            <tr>
+              <td>check</td>
+              <td>按钮的校验方法</td>
+              <td>checkBtn1</td>
+            </tr>
+            <tr>
+              <td>checkfalse</td>
+              <td>校验失败的处理</td>
+              <td>hide代表隐藏，gray代表变灰</td>
+            </tr>
+            <tr>
+              <td>client_handler</td>
+              <td>触发客户端的事件</td>
+              <td>fn_btn_click</td>
+            </tr>
+            <tr>
+              <td>submit_method</td>
+              <td>提交给服务器端的处理方法</td>
+              <td>formSave</td>
+            </tr>
+          </table>
+        </div>
+        <div class="p2" id="p16">6. 自定义事件</div>
+        <div class="p">自定义事件</div>
+        <div class="part">
+          <table cellpadding="0" cellspacing="0" border="1">
+            <tr>
+              <td width="136">属性名</td>
+              <td width="205">意义</td>
+              <td width="220">值示例</td>
+            </tr>
+            <tr>
+              <td>id</td>
+              <td>操作按钮主键</td>
+              <td>1003001</td>
+            </tr>
+            <tr>
+              <td>app</td>
+              <td>应用程序</td>
+              <td>应用程序引用</td>
+            </tr>
+            <tr>
+              <td>form</td>
+              <td>表单</td>
+              <td>lixiang</td>
+            </tr>
+            <tr>
+              <td>grid</td>
+              <td>列表</td>
+              <td>lixiang</td>
+            </tr>
+            <tr>
+              <td>name</td>
+              <td>事件名称</td>
+              <td>fn_type_change</td>
+            </tr>
+            <tr>
+              <td>script</td>
+              <td>脚本内容</td>
+              <td>function fn_channge(o,e){<br/>
+                var cfg=sender.formCfg;<br/>
+                var domx=$("#"+id+"_attr2");<br/>
+                domx.innerHTML="10";<br/>
+                }</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="paper">
+      <div class="content">
+        <div class="p1" id="p2">第二章、表单组件的使用方式一</div>
+        <div class="p2" id="p21">1. 依赖资源</div>
+        <div class="part">
+          <table cellpadding="0" cellspacing="0" border="1">
+            <tr>
+              <td width="136">资源名</td>
+              <td width="205">路径</td>
+              <td width="220">功能</td>
+            </tr>
+            <tr>
+              <td>base.js</td>
+              <td>release/base.js</td>
+              <td>基础JavaScript函数</td>
+            </tr>
+            <tr>
+              <td>ui.js</td>
+              <td>release/ui.js</td>
+              <td>JavaScript交互函数，包含了日历控件等</td>
+            </tr>
+            <tr>
+              <td>form.js</td>
+              <td>relase/form.js</td>
+              <td>JavaScript表单辅助函数</td>
+            </tr>
+            <tr>
+              <td>lovdef.js</td>
+              <td>release/lovdef.js</td>
+              <td>JavaScript值列表定义</td>
+            </tr>
+            <tr>
+              <td>all.css</td>
+              <td>release/css/all.js</td>
+              <td>所有的样式集合</td>
+            </tr>
+          </table>
+        </div>
+        <div class="p2" id="p22">2. 使用方式</div>
+        <div class="p">下面介绍表单组件的第一种使用方式，genForm(cfg,tables,cmds),具有三个参数, </div>
+        <div class="p"> cfg是表单的配置对象，里面包含dom,title等配置信息，cfg里面还可以包含param参数信息和data数据对象。</div>
+        <div class="p">tables是布局表格定义，</div>
+        <div class="p"> cmds是操作按钮定义。</div>
+        <div class="p">代码示例:<a href="../../../../examples/5other/person/person.html" target="_blank">person.html</a><a href="../../../../examples/5other/person/person.html" target="_blank">pe查看脚本</a></div>
+      </div>
+    </div>
+    <div class="paper">
+      <div class="content">
+        <div class="p1" id="p3">第三章、表单组件的使用方式二</div>
+        <div class="p2" id="p31">1. 依赖资源</div>
+        <div class="part">
+          <table cellpadding="0" cellspacing="0" border="1">
+            <tr>
+              <td width="136">资源名</td>
+              <td width="205">路径</td>
+              <td width="220">功能</td>
+            </tr>
+            <tr>
+              <td>base.js</td>
+              <td>release/base.js</td>
+              <td>基础JavaScript函数</td>
+            </tr>
+            <tr>
+              <td>ui.js</td>
+              <td>release/ui.js</td>
+              <td>JavaScript交互函数，包含了日历控件等</td>
+            </tr>
+            <tr>
+              <td>form.js</td>
+              <td>relase/form.js</td>
+              <td>JavaScript表单辅助函数</td>
+            </tr>
+            <tr>
+              <td>lovdef.js</td>
+              <td>release/lovdef.js</td>
+              <td>JavaScript值列表定义</td>
+            </tr>
+            <tr>
+              <td>all.css</td>
+              <td>release/css/all.js</td>
+              <td>所有的样式集合</td>
+            </tr>
+          </table>
+        </div>
+        <div class="p2" id="p32">2. 使用方式</div>
+        <div class="p">下面介绍表单组件的第二种使用方式，genForm(cfg,tables,cmds),具有三个参数, </div>
+        <div class="p"> cfg是表单的配置对象，里面包含dom,title等配置信息，cfg里面还可以包含param参数信息和data数据对象。</div>
+        <div class="p">tables是布局表格定义，</div>
+        <div class="p"> cmds是操作按钮定义。</div>
+        <div class="p">代码示例:<a href="../../../../examples/5other/person/person.html" target="_blank">person.html</a><a href="../../../../examples/5other/person/person.html"  target="_blank">pe查看脚本</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="../../../../release/base.js"></script>
+<script type="text/javascript" src="../../../../src/2ui/21body.js"></script>
+<script type="text/javascript" src="../../../../src/2ui/23spliter.js"></script>
+<script type="text/javascript" src="../../../../src/2ui/25panel.js"></script>
+<script type="text/javascript">
+	//window.require([],init);
+	window.onload=init;
+	function init(){/*需要有一些自定义动画效果*/
+		uiscroll()
+		var as=document.getElementsByTagName('a');
+		for(var i=0;i<as.length;i++){
+			bind(as[i],'click',e_handler)
+		}
+	}
+	function e_handler(evt){
+		stopEvt(evt);
+		var target=evt.target;
+		var dom=$("#"+target.href.split("#")[1]);
+		panalScrollto(dom);
+	}
+	function panalScrollto(dom){
+		//out("dom",jsonStr(dom))
+		var doc=$("#doc");
+		scrollPanelTo(doc,dom);
+		//scrollPanelTo(doc,null,2500,2500);
+		/*var domTop	=getRect(dom).top;
+		var content		=$1(".scroll_content"	,doc,2);
+		var d=domTop-toNum(getStyle(content).marginTop);
+		height2=doc.scrollHeight;
+		height1=doc.clientHeight;
+		d=limitValue(d,0,height2-height1)
+		content.style.marginTop=-d+"px";
+	    content.style.marginBottom=d+"px";
+		uiScroll({dom:doc,color:"#e4a943",opacity:0.99});*/
+		
+	}
+	function uiscroll(){
+		var dom=$("#doc");
+		uiScroll({dom:dom,color:"#e4a943",opacity:0.99});
+	}
+</script>
+</body>
+</html>

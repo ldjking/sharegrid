@@ -1,0 +1,20 @@
+1、执行添加、修改、删除按钮的触发事件
+在页面对应的添加、修改、删除对应的按钮里面定义相应的触发事件函数
+editform.cmds=[
+   {cmd:"jiaoban",text:"交班",fn:e_cmdJiaoBan_handler,checkMethod:"cmdJiaoBanCheck",checkFalse:"hide"},
+   {cmd:"jiaoban_c",text:"撤销交班",fn:e_cmdJiaoBanc_handler,checkMethod:"cmdJiaoBancCheck",checkFalse:"hide"},
+   {cmd:"jieban",text:"接班",fn:e_cmdJieBan_handler,checkMethod:"cmdJieBanCheck",checkFalse:"hide"},
+   {cmd:"addItem",checkMethod:"cmdEditCheck",checkFalse:"hide"},
+   {cmd:"rmItem",checkMethod:"cmdEditCheck",checkFalse:"hide"},
+   {cmd:"update",checkMethod:"cmdEditCheck",checkFalse:"hide",fn:duty.e_refushEdit},/*在新系统中，我打算干掉复杂方法，一个复杂表单的提交，将分步骤实施，主id如果需要，提供一个getsid*/
+   {cmd:"pre",fn:duty.fn_showPre},
+   {cmd:"next",fn:duty.fn_showNext},
+   {cmd:"cancel",fn:duty.fn_cancel}
+];
+
+checkMethod是页面加载刷新的时候，按钮是否存在
+
+如：新增是addItem，在ui.js中查询addItem，得到js为else if(target.cmd.cmd=="addItem")	x.addFormRow(form);
+保存是update,在ui.js中查询update，得到else if(target.cmd.cmd=="update")	updateForm(form);
+
+

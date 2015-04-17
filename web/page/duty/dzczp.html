@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>温度测量管理</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<!--link rel="stylesheet" type="text/css" href="../../src/css/23form.css"/-->
+</head>
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">倒闸操作票</div>
+    <div class="tab hide" id="tab_add">新建倒闸操作票</div>
+  </div>
+  <div class="appContent">
+    <div class="content active"  id="c1"></div>
+    <div class="content normal"  id="c2"></div>
+    <div class="content normal"  id="c3"></div>
+  </div>
+  <div class="appBg"></div>
+</div>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../release/grid.js"></script>
+<script type="text/javascript" src="../../release/form.js"></script>
+<script type="text/javascript" src="../../release/lovdef.js"></script> 
+<script type="text/javascript">
+(function(){
+	var grid		    =$("#c1");
+	var editForm	    =$("#c2");
+	var addForm			=$("#c3");
+	var tabList			=$("#tab_list");
+	var tabEdit			=$("#tab_edit");
+	var tabAdd			=$("#tab_add");
+	
+		
+	var fn_showList     =function(evt){
+		//genGridContent(grid);/*要刷新内容*/
+		activeTab(tabList);
+	}
+	var fn_showkeyList  =function(evt){
+		activeTab(keyList);
+	}
+	var fn_showNext=	function(evt){
+		selectGridRow(grid,1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showPre=		function(evt){
+		selectGridRow(grid,-1);
+		refreshEditForm();/*重绘内容*/
+	}
+	var fn_showEditForm=function(evt){
+		activeTab(tabEdit);
+	}
+	var fn_showAddForm=function(evt){/*要把新增表单显示出来*/
+		activeTab(tabAdd);
+	}
+	var e_refushEdit =function(target){
+		genGridCmd(grid);
+		genGridContent(grid);
+		activeTab(tabList);
+	}
+	var e_refushAdd =function(target){
+		cssReplace(tabAdd,"active","hide");
+		cssReplace(tabAdd,"normal","hide");
+		genGridCmd(grid);
+		genGridContent(grid);/*重绘内容*/
+		activeTab(tabList);
+	}
+	var tabChange=function(target,p){
+		if(p==0)		fn_showList();
+		else if(p==1)	refreshEditForm();
+		else if(p==2)	refreshAddGrid();
+	}
+	var refreshAddGrid=function(){
+		 genFormContent(addForm);
+	}
+	var refreshEditForm =function(){
+		var obj=null;
+		var cfg=grid.gridCfg;
+		if(cfg.activeRow==null)			selectGridRow(grid,1);
+		obj=cfg.activeRow.obj;
+		if(editForm.formCfg.param==obj)	return;
+		else{
+			editForm.formCfg.param=obj;
+			var preCmd=$("#"+editForm.formCfg.id+"_cmdPre");
+			var nextCmd=$("#"+editForm.formCfg.id+"_cmdNext");
+			cssRm([preCmd,nextCmd],"gray");
+			if(obj.rownum==1)						cssAdd(preCmd,"gray");
+			else if(obj.rownum==cfg.totalNum)		cssAdd(nextCmd,"gray");
+			genFormContent(editForm);
+		}
+	}
+	var init=function(){
+		uiApp({dom:$("#app1"),fn:tabChange});
+		cfg={dom:grid,multiMode:0,toolbar:1,filterMode:0,data_method:"dzczpGets",rmMethod:'dzczpRm',pageFlag:false,pageSize:6,autoWidth:1,pkAttr:"ae_dzczpid"};
+		cfg.columns=[	
+						{text:"站点",attr:"site",align:"left",type:"str",width:80,asc:1},
+						{text:"编号",attr:"code",align:"left",width:60,type:"str",asc:1},
+						{text:"操作任务",attr:"cztask",align:"left",width:150,type:"str",asc:1},
+						{text:"运行状态",attr:"status",align:"left",width:60,type:"str",asc:1},
+						{text:"转至",attr:"assetstatus_h",align:"left",width:120,type:"str",asc:1},
+						{text:"操作人",attr:"per_czr_name",align:"left",width:60,type:"str",asc:1},
+						{text:"监护人",attr:"per_jhr_name",align:"left",width:60,type:"str",asc:1},
+						{text:"发令人",attr:"flr_name",align:"left",width:60,type:"str",asc:1},
+						{text:"受令人",attr:"per_fzr_name",align:"left",width:60,type:"str",asc:1},
+						{text:"开始时间",attr:"tm_start",align:"left",width:150,type:"str",asc:1},
+						{text:"结束时间",attr:"tm_end",align:"left",width:150,type:"str",asc:1}
+					];
+		cfg.cmds=[
+						{cmd:"cmdAdd"	,fn:fn_showAddForm},
+						{cmd:"cmdEdit"	,fn:fn_showEditForm},
+						{cmd:"cmdDelete"},
+						{cmd:"cmdFilter"},
+						{cmd:"cmdRefresh"}
+					]
+		genGrid(grid,cfg);		
+				//ae_dzczpid	description	code	dept	status	flr	per_fzr	tm_start	tm_end	cztask	assetstatus_q	assetstatus_h	per_czr	per_jhr	per_zz	tm_czr	tm_jhr	tm_zz	ischeck_q	ischeck_h	site	org
+	 	var cfg2={title:"倒闸操作票",formType:"update",bigPaper:1,dataMethod:"dzczpGet",updateMethod:"dzczpUpdate"};
+		cfg2.tables=[	
+							{type:0,rows:1,cells:[
+									{type:"sid",attr:"ae_dzczpid",sidType:"method",width:120,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"状态",width:80,align:"center",row:1},
+									{type:"txt",attr:"status",width:400,align:"left",row:1},
+									{type:"lbl",text:"电站",width:80,align:"center",row:1},
+									{type:"lbl",text:"化德风电",width:400,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"部门",width:80,align:"center",row:1},
+									{type:"txt",attr:"dept",width:240,align:"left",row:1},
+									{type:"lbl",text:"编号",width:80,align:"center",row:1},
+									{type:"txt",attr:"code",width:240,align:"left",row:1},
+									{type:"lbl",text:"开始时间",width:80,align:"center",row:1},
+									{type:"txt",attr:"tm_start",width:240,align:"left",row:1,lov:'datetime'}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"发令人",width:80,align:"center",row:1},
+									{type:"txt",attr:'flr_name',attr2:"flr",width:240,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"受令人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_fzr_name",attr2:"per_fzr",width:240,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"结束时间",width:80,align:"center",row:1},
+									{type:"txt",attr:"tm_end",width:240,align:"left",row:1,lov:'datetime'}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"操作任务",width:80,align:"center",row:1},
+									{type:"txt",attr:"cztask",width:880,align:"left",row:1,height:50}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"设备由",width:80,align:"center",row:1},
+									{type:"txt",attr:"assetstatus_q",width:400,align:"left",row:1},
+									{type:"lbl",text:"转化为",width:80,align:"center",row:1},
+									{type:"txt",attr:"assetstatus_h",width:400,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"操作人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_czr_name",attr2:"per_czr",width:240,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"监护人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_jhr_name",attr2:"per_jhr",width:240,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"值长",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_zz_name",attr2:"per_zz",width:240,align:"left",row:1,lov:'stuff'}
+								]
+							},
+							{type:3,rows:3,refAttr:[{name:"ae_dzczpid",name2:"ae_dzczpid"}],rmMethod:'dzczitemzRm',updateMethod:"dzczitemzUpdate",addMethod:"dzczitemzAdd",dataMethod:"dzczitemzGets",
+								columns:[
+									{type:"txt",attr:"stepnum",name:"序号",width:60,align:"center"},
+									{type:"txt",attr:"iszx",name:"是否执行",width:80,align:"center"},/*txt单行*/
+									{type:"txt",attr:"content",name:"操作项目",width:410,align:"left"},
+									{type:"txt",attr:"remark",name:"备注",width:410,align:"left"}
+								]
+							}
+						];
+							//ae_dzczitem_zid	ae_dzczpid	stepnum	iszx	content	tm_task	remark
+		cfg2.cmds=[
+					{cmd:"addItem"},
+					{cmd:"rmItem"},
+					{cmd:"update",fn:e_refushEdit},
+					{cmd:"pre",fn:fn_showPre},
+					{cmd:"next",fn:fn_showNext},
+					{cmd:"cancel",fn:fn_showList}
+				];
+		genForm(editForm,cfg2);
+		var cfg3={title:"新建倒闸操作票",bigPaper:1,formType:"add",addMethod:"dzczpAdd"};
+		cfg3.tables=[	
+							{type:0,rows:1,cells:[
+									{type:"sid",attr:"ae_dzczpid",sidType:"method",width:120,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"状态",width:80,align:"center",row:1},
+									{type:"txt",attr:"status",width:400,align:"left",row:1},
+									{type:"lbl",text:"电站",width:80,align:"center",row:1},
+									{type:"lbl",text:"化德风电",width:400,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"部门",width:80,align:"center",row:1},
+									{type:"txt",attr:"dept",width:240,align:"left",row:1},
+									{type:"lbl",text:"编号",width:80,align:"center",row:1},
+									{type:"txt",attr:"code",width:240,align:"left",row:1},
+									{type:"lbl",text:"开始时间",width:80,align:"center",row:1},
+									{type:"txt",attr:"tm_start",width:240,align:"left",row:1,lov:'datetime'}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"发令人",width:80,align:"center",row:1},
+									{type:"txt",attr:'flr_name',attr2:"flr",width:240,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"受令人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_fzr_name",attr2:"per_fzr",width:240,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"结束时间",width:80,align:"center",row:1},
+									{type:"txt",attr:"tm_end",width:240,align:"left",row:1,lov:'datetime'}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"操作任务",width:80,align:"center",row:1},
+									{type:"txt",attr:"cztask",width:880,align:"left",row:1,height:50}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"设备由",width:80,align:"center",row:1},
+									{type:"txt",attr:"assetstatus_q",width:400,align:"left",row:1},
+									{type:"lbl",text:"转化为",width:80,align:"center",row:1},
+									{type:"txt",attr:"assetstatus_h",width:400,align:"left",row:1}
+								]
+							},
+							{type:2,rows:1,cells:[
+									{type:"lbl",text:"操作人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_czr_name",attr2:"per_czr",width:240,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"监护人",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_jhr_name",attr2:"per_jhr",width:240,align:"left",row:1,lov:'stuff'},
+									{type:"lbl",text:"值长",width:80,align:"center",row:1},
+									{type:"txt",attr:"per_zz_name",attr2:"per_zz",width:240,align:"left",row:1,lov:'stuff'}
+								]
+							}
+					  ];
+		cfg3.cmds=[
+				{cmd:"save",fn:e_refushAdd},
+				{cmd:"cancel",fn:fn_showList}
+		];
+		genForm(addForm,cfg3);
+	}
+	
+	window.onload=init;
+})();
+</script>
+</body>
+</html>

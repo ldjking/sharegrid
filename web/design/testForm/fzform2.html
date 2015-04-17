@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="all.css"/>
+<style>
+.dd{
+	background-color:#FF66CC
+}
+</style>
+<title>避雷器放电记录</title>
+</head>
+
+<body>
+<div class="app" id="app1">
+  <div class="appTab">
+    <div class="tab active" id="tab_list">列表</div>
+    <div class="tab normal" id="tab_edit">避雷器放电记录</div>
+    <div class="tab hide" id="tab_add">新建避雷器放电记录</div>
+  	</div>
+        <div class="appContent">
+    <div class="content hide grid" id="c1" style="width: 1600px; height: 774px;">
+        <div class="cmdbar" id="grid_0_cmdbar">
+            <div class="cmd" id="grid_0_cmd">
+                <div class="add" id="grid_0_cmdAdd"></div>
+                <div class="edit" id="grid_0_cmdEdit"></div>
+                <div class="delete" id="grid_0_cmdDelete"></div>
+                <div class="filterData" id="grid_0_cmdFilter"></div>
+                <div class="refresh" id="grid_0_cmdRefresh"></div>
+            </div>
+        </div>
+    	<div class="gridContainer" id="grid_0_container" style="width: 1600px; height: 735px;">
+            <div class="top_right" id="grid_0_2" style="height: 60px;">
+            	<table id="grid_0_2table" border="0" cellspacing="0" cellpadding="0">
+                	<tbody>
+                    	<tr>
+                        	<td class="asc" ><div class="cell" style="width: 150px;">日期</div></td>
+                            <td class="asc" ><div class="cell" style="width: 200px;">避雷安装位置</div></td>
+                            <td class="asc" style="padding-left: 0px;padding-right: 0px;"><div class="cell" style="width: 150px;">上次记录数</div><div style="width: 150px;display:block;"><div style="width: 49px;float:left;border-top:1px solid #8a948c;border-right:1px solid #8a948c;">A项</div><div style="width:49px;float:left;border-right:1px solid #8a948c;border-top:1px solid #8a948c;">B项</div><div style="width: 49px;float:left;border-top:1px solid #8a948c;">C项</div></div></td>
+                            <td class="asc" style="padding-left: 0px;padding-right: 0px;"><div class="cell" style="width: 150px;">本次记录数</div><div style="width: 150px;display:block;"><div style="width: 49px;float:left;border-top:1px solid #8a948c;border-right:1px solid #8a948c;">A项</div><div style="width:49px;float:left;border-right:1px solid #8a948c;border-top:1px solid #8a948c;">B项</div><div style="width: 49px;float:left;border-top:1px solid #8a948c;">C项</div></div></td>
+                            <td class="asc" ><div class="cell" style="width: 300px;">避雷器及其他检测情况</div></td>
+                        </tr>
+                        <tr class="filter">
+                        	<td><input class=" query cell" style="width: 80px;" type="text"></td>
+                            <td><input class=" query cell" style="width: 80px;" type="text"></td>
+                            <td><input class=" query cell" style="width: 80px;" type="text"></td>
+                            <td><input class=" query cell" style="width: 150px;" type="text"></td>
+                            <td><input class=" query cell" style="width: 150px;" type="text"></td>
+                       </tr>
+                     </tbody>
+                 </table>
+            </div>
+            <div class="center_right" style="top:60px" id="grid_0_4" style="margin: 0px; left: 76px;">
+            	<table id="grid_0_4table" border="0" cellspacing="0" cellpadding="0"><tbody>
+                    	<script>document.write("<tr class=\"green\" style=\"height: 20px;\"><td><textarea class=\"cell text\" style=\"width: 150px; height: 20px; text-align: left;\" rows=\"1\" readonly=\"\">${tm_jc}</textarea></td><td style=\"width: 200px;\"><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\"><tbody><tr><td style=\"height: 36px; border-right-color: currentColor; border-right-width: 0px; border-right-style: none;\"><textarea class=\"cell text\" style=\"width: 200px; height: 36px; text-align: left;\" rows=\"1\" readonly=\"\">${gisposition}</textarea></td></tr><tr><td style=\"height: 36px; border-right-color: currentColor; border-right-width: 0px; border-right-style: none;\"><textarea class=\"cell text\" style=\"width: 200px; height: 36px; text-align: left;\" rows=\"1\" readonly=\"\">${banposition}</textarea></td></tr><tr><td style=\"height: 36px; border-right-color: currentColor; border-bottom-color: currentColor; border-right-width: 0px; border-bottom-width: 0px; border-right-style: none; border-bottom-style: none;\"><textarea class=\"cell text\" style=\"width: 200px; height: 36px; text-align: left;\" rows=\"1\" readonly=\"\">${hinposition}</textarea></td></tr></tbody></table></td><td style=\"width: 150px;\"><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\"><tbody><tr><td style=\"height: 36px;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${tgisa}</textarea></td><td style=\"height: 36px;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${tgisb}</textarea></td><td style=\"height: 36px; border-right-color: currentColor; border-right-width: 0px; border-right-style: none;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${tgisc}</textarea></td></tr><tr><td style=\"height: 36px;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${tbana}</textarea></td><td style=\"height: 36px;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${tbanb}</textarea></td><td style=\"height: 36px; border-right-color: currentColor; border-right-width: 0px; border-right-style: none;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${tbanc}</textarea></td></tr><tr><td style=\"height: 36px; border-bottom-color: currentColor; border-bottom-width: 0px; border-bottom-style: none;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${thina}</textarea></td><td style=\"height: 36px; border-bottom-color: currentColor; border-bottom-width: 0px; border-bottom-style: none;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${thinb}</textarea></td><td style=\"height: 36px; border-right-color: currentColor; border-bottom-color: currentColor; border-right-width: 0px; border-bottom-width: 0px; border-right-style: none; border-bottom-style: none;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${thinc}</textarea></td></tr></tbody></table></td><td style=\"width: 150px;\"><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\"><tbody><tr><td style=\"height: 36px;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${sgisa}</textarea></td><td style=\"height: 36px;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${sgisb}</textarea></td><td style=\"height: 36px; border-right-color: currentColor; border-right-width: 0px; border-right-style: none;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${sgisc}</textarea></td></tr><tr><td style=\"height: 36px;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${sbana}</textarea></td><td style=\"height: 36px;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${sbanb}</textarea></td><td style=\"height: 36px; border-right-color: currentColor; border-right-width: 0px; border-right-style: none;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${sbanc}</textarea></td></tr><tr><td style=\"height: 36px; border-bottom-color: currentColor; border-bottom-width: 0px; border-bottom-style: none;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${shina}</textarea></td><td style=\"height: 36px; border-bottom-color: currentColor; border-bottom-width: 0px; border-bottom-style: none;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${shinb}</textarea></td><td style=\"height: 36px; border-right-color: currentColor; border-bottom-color: currentColor; border-right-width: 0px; border-bottom-width: 0px; border-right-style: none; border-bottom-style: none;\"><textarea class=\"cell text\" style=\"width: 49px; text-align: left;\" rows=\"1\" readonly=\"\">${shinc}</textarea></td></tr></tbody></table></td><td style=\"width: 300px;\"><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\"><tbody><tr><td style=\"height: 72px; border-right-color: currentColor; border-right-width: 0px; border-right-style: none;\" colspan=\"4\"><textarea class=\"cell text\" style=\"width: 300px; height: 71px; text-align: left; overflow: auto;\" rows=\"1\" readonly=\"\">${result}</textarea></td></tr><tr><td style=\"height: 36px; border-bottom-color: currentColor; border-bottom-width: 0px; border-bottom-style: none;\"><textarea class=\"cell text\" style=\"width: 69px; text-align: center;\" rows=\"1\" readonly=\"\">记录人</textarea></td><td style=\"height: 36px; border-bottom-color: currentColor; border-bottom-width: 0px; border-bottom-style: none;\"><textarea class=\"cell text\" style=\"width: 79px; text-align: left;\" rows=\"1\" readonly=\"\">${per_enter_name}</textarea></td><td style=\"height: 36px; border-bottom-color: currentColor; border-bottom-width: 0px; border-bottom-style: none;\"><textarea class=\"cell text\" style=\"width: 69px; text-align: left;\" rows=\"1\" readonly=\"\">值班负责人</textarea></td><td style=\"height: 36px; border-right-color: currentColor; border-bottom-color: currentColor; border-right-width: 0px; border-bottom-width: 0px; border-right-style: none; border-bottom-style: none;\"><textarea class=\"cell text\" style=\"width: 79px; text-align: left;\" rows=\"1\" readonly=\"\">${per_zz_name}</textarea></td></tr></tbody></table></td></tr>"); </script>
+                    </tbody>
+                 </table>
+			</div>
+			<div class="header_bg" style="height:60px" id="grid_0_header"></div>
+			<div class="header_bg2" id="grid_0_header"></div>
+			<div class="pager" id="grid_0_pager">
+				<table class="pageInfo" border="0" cellspacing="0" cellpadding="0">
+                	<tbody>
+                     <tr>
+                     	<td class="rowNum" id="grid_0_rowNum"></td>
+                        <td class="pageNum" id="grid_0_pageNum"></td>
+                     </tr>
+                    </tbody>
+                </table>
+                <table class="pageTable" border="0" cellspacing="0" cellpadding="0">
+                	<tbody>
+                    	<tr>
+                        <td class="pagebtn" id="grid_0_firstPage" >首页</td>
+                        <td class="pagebtn" id="grid_0_prePage">上一页</td>
+                        <td class="pagebtn" id="grid_0_nextPage" >下一页</td>
+                        <td class="pagebtn" id="grid_0_lastPage" >尾页</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="footer_bg" id="grid_0_footer">
+                </div>
+                    <div class="scroll_h" id="grid_0_scroll_h" style="display: none;">
+                    </div>
+                    <div class="scrollbar_h" id="grid_0_scrollbar_h" style="display: none;">
+                    </div><div class="scroll_v" id="grid_0_scroll_v" style="display: none;">
+                    </div><div class="scrollbar_v" id="grid_0_scrollbar_v" style="display: none;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content active"  id="c2"></div>
+    	<div class="content normal"  id="c3"></div>
+ 	</div>
+  <div class="appBg"></div>
+</div>
+</body>
+</html>

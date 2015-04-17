@@ -1,0 +1,37 @@
+.editorContainer {
+	font-size: 12px;
+	line-height: 24px;
+}
+.editorContainer .top{
+	background-color: #999;
+	height: 50px;
+	line-height: 50px;
+}
+.editorContainer .left{
+	width: 500px;
+	background-color: #999;
+	float: left;
+}
+.editorContainer #editor{
+	width: 500px;
+	background-color: #999;
+	height: 500px;
+}
+.editorContainer .right{
+	width: 500px;
+	float: right;
+	background-color: #09F;
+}
+.editorContainer .panel{
+	width: 500px;
+	background-color: #999;
+	height: 500px;
+	position: absolute;
+	z-index: 1;
+	top: 0px;
+	right: 0px;
+}
+.editorContainer #iframe2{
+	z-index: 20;
+
+}

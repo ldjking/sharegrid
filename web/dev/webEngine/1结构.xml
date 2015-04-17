@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<webEngine><!--支持web调用-->
+	<engine><!--服务执行引擎-->
+		<dbHelper></dbHelper><!--数据库执行辅助 能执行数据库语句-->
+		<shellHelper></shellHelper><!--能执行java脚本-->
+		<reflectHelper></reflectHelper><!--反射调用java类-->
+		<wfproxy></wfproxy><!--服务代理，能代理其他服务的调用-->
+	</engine>
+	<engineHelper></engineHelper>
+</webEngine>

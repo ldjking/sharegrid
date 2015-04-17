@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <doc>
+    <section header="h1" footer="f1">
+      <paragraph style="s1">
+        <charactor></charactor>
+        <text>
+          <a></a>
+        </text>
+        <img></img>
+        <table>
+          <text></text>
+        </table>
+        <shape></shape>
+        <graphic></graphic>
+      </paragraph>
+      <textbox></textbox>
+    </section>
+  </doc>
+  <styles>
+    <style id="s1">
+      <font></font>
+    </style>
+  </styles>
+  <headers>
+    <header id="h1"></header>
+  </headers>
+  <footers></footers>
+</root>

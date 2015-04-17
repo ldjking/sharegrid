@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>前端性能测试</title>
+<link rel="stylesheet" type="text/css" href="../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../release/css/doc.css"/>
+</head>
+<body>
+<div class="container"  id="doc" style="background-color:#000" >
+<div class="doc scroll_content">
+  <div class="paper">
+    <div class="content" id="paperContent">
+      <div class="p1">第一章、前端性能测试</div>
+      <div class="p2">1. 页面加载</div>
+      <div class="z2">
+        <table cellpadding="0" cellspacing="0" border="0" class="t">
+          <tr class="thead">
+            <td width="200">规模</td>
+            <td width="200">复杂度</td>
+            <td width="200">结果（毫秒）</td>
+          </tr>
+          <tr>
+            <td width="200">100</td>
+            <td width="200">仅div</td>
+            <td width="200">1</td>
+          </tr>         
+           <tr>
+            <td width="200">100</td>
+            <td width="200">div带数据</td>
+            <td width="200">6</td>
+          </tr> 
+          <tr>
+            <td width="200">100</td>
+            <td width="200">table</td>
+            <td width="200">7</td>
+          </tr> 
+          <tr>
+            <td width="200">100</td>
+            <td width="200">table带数据</td>
+            <td width="200">13</td>
+          </tr>
+          <tr>
+            <td width="200">100</td>
+            <td width="200">table带textarea</td>
+            <td width="200">28</td>
+          </tr>
+          <tr>
+            <td width="200">1000</td>
+            <td width="200">仅div</td>
+            <td width="200">12</td>
+          </tr>         
+           <tr>
+            <td width="200">1000</td>
+            <td width="200">div带数据</td>
+            <td width="200">55</td>
+          </tr> 
+          <tr>
+            <td width="200">1000</td>
+            <td width="200">table</td>
+            <td width="200">67</td>
+          </tr> 
+          <tr>
+            <td width="200">1000</td>
+            <td width="200">table带数据</td>
+            <td width="200">257</td>
+          </tr>
+          <tr>
+            <td width="200">1000</td>
+            <td width="200">table带textarea</td>
+            <td width="200">405</td>
+          </tr>
+           <tr>
+            <td width="200">10000</td>
+            <td width="200">仅div</td>
+            <td width="200">117</td>
+          </tr>         
+           <tr>
+            <td width="200">10000</td>
+            <td width="200">div带数据</td>
+            <td width="200">522</td>
+          </tr> 
+          <tr>
+            <td width="200">10000</td>
+            <td width="200">table</td>
+            <td width="200">676</td>
+          </tr> 
+          <tr>
+            <td width="200">10000</td>
+            <td width="200">table带数据（静态）</td>
+            <td width="200">小于1秒</td>
+          </tr>
+          <tr>
+            <td width="200">10000</td>
+            <td width="200">table带textarea（静态）</td>
+            <td width="200">小于1秒</td>
+          </tr>
+          <tr>
+            <td width="200">10000</td>
+            <td width="200">table带textarea(脚本插入innerHTML方式)</td>
+            <td width="200">小于1秒</td>
+          </tr>
+             <tr>
+            <td width="200">10000</td>
+            <td width="200">table带textarea(脚本插入appendChild方式)</td>
+            <td width="200">大于10秒</td>
+          </tr>
+        </table>
+        
+      </div>
+      <div class="p2">1. 页面传输</div>
+       <div class="z2">
+        <table cellpadding="0" cellspacing="0" border="0" class="t">
+          <tr class="thead">
+            <td width="200">行数</td>
+            <td width="200">大小（kb）</td>
+            <td width="200">传输方式</td>
+            <td width="200">平均结果（毫秒）</td>
+          </tr>
+          <tr>
+            <td width="200">100</td>
+            <td width="200">4</td>
+            <td width="200">get</td>
+            <td width="200">16</td>
+          </tr>   
+           <tr>
+            <td width="200">100</td>
+            <td width="200">4</td>
+            <td width="200">post</td>
+            <td width="200">17</td>
+          </tr>   
+            <tr>
+           <td width="200">1000</td>
+            <td width="200">64</td>
+            <td width="200">get</td>
+            <td width="200">28</td>
+          </tr>     
+           <tr>
+           <td width="200">1000</td>
+            <td width="200">64</td>
+            <td width="200">post</td>
+            <td width="200">30</td>
+          </tr> 
+          <tr>
+           <td width="200">10000</td>
+            <td width="200">644</td>
+            <td width="200">get</td>
+            <td width="200">172</td>
+          </tr> 
+           <tr>
+           <td width="200">10000</td>
+            <td width="200">644</td>
+            <td width="200">post</td>
+            <td width="200">195</td>
+          </tr> 
+        </table>
+        
+      </div>
+      <div class="p2">1. 拼接字符</div>
+       <div class="z2">
+        <table cellpadding="0" cellspacing="0" border="0" class="t">
+          <tr class="thead">
+            <td width="200">方式</td>
+            <td width="200">次数</td>
+            <td width="200">平均结果（毫秒）</td>
+          </tr>
+          <tr>
+            <td width="200">连接字符</td>
+            <td width="200">100000</td>
+            <td width="200">47</td>
+          </tr>  
+          <tr>
+            <td width="200">存放数组</td>
+            <td width="200">100000</td>
+            <td width="200">53</td>
+          </tr>    
+          
+        </table>
+        
+      </div>
+     
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript" src="../../release/base.js"></script>
+<script type="text/javascript" src="../../release/ui.js"></script>
+<script type="text/javascript" src="../../src/other/docs.js"></script>
+</html>

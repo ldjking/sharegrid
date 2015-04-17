@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>单独grid全表编辑展示</title>
+<link rel="stylesheet" type="text/css" href="../../../../release/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/31grid.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../src/css/21app.css"/>
+
+</head>
+<body>
+<div id="c1" style="position:absolute; z-index:30; background-color:#FFFFFF"></div>
+<script type="text/javascript" src="../../../../release/base.js"></script> 
+<script type="text/javascript" src="../../../../release/ui.js"></script> 
+<script type="text/javascript" src="../../../../release/lovdef.js"></script> 
+<script type="text/javascript" src="../../../../src/3grid/31grid.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/32cmd.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/33header.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/34content.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/35page.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/36scroll.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/37fix.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/38ui.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/39op.js"></script>
+<script type="text/javascript" src="../../../../src/3grid/40nav.js"></script>
+
+
+<script type="text/javascript">	
+	window.onload=init;
+	var targetGrid;
+	function e_gridrow_select(grid,row){
+		//out("select row data",row.obj);
+	}
+	function e_gridrow_dbl(grid,row){
+		//out("dbl row data",row.obj);
+	}
+	function init(){/*需要有一些自定义动画效果*/	
+		var grid=$("#c1");
+		uiLayout({dom:grid,container:document.body,dx:0,dy:0,xdoms:[]});	
+		
+		var cfg={multiMode:0,selectHandler:e_gridrow_select,dblHandler:e_gridrow_dbl,toolbar:1,filterMode:0,data_method:"personGets",
+			rmMethod:'personRm',addMethod:"personAdd",updateMethod:"personUpdate",pageFlag:true,pageSize:20,pkAttr:"c0_id"};
+		//cfg.data_method=null;
+		cfg.datas=[	{c0_id:"100021",c0_name:"刘东杰"},
+					{c0_id:"100022",c0_name:"王智华"}];
+		cfg.columns=[	{text:"主键",attr:"c0_id",align:"center",width:80,frozen:1,type:"num",notEdit:0,asc:1},
+						{text:"姓名",attr:"c0_name",align:"center",frozen:0,width:160,type:"str",asc:1},
+						{text:"性别",attr:"sexname",attr2:"c0_sex",align:"center",width:60,type:"str",notEdit:1,lov:"sex",asc:1},
+						{text:"出生日期",attr:"c0_birthday",align:"center",type:"str",width:80,notEdit:1,lov:"date",asc:1},
+						{text:"账户",attr:"c0_account",align:"left",width:160,type:"str",asc:1},
+						{text:"密码",attr:"c0_pw",align:"center",width:100,type:"str",notEdit:0,asc:1},
+						{text:"测试",attr:"c0_test",align:"center",width:400,type:"str",notEdit:0,asc:1},
+						{text:"状态",attr:"c0_state",align:"center",width:100,type:"str",asc:1}
+					
+					];
+		cfg.cmds=[/*grid 默认有10个左右按钮*/
+					
+					{cmd:"cmdLock",		fn:e_cmdAddItem_handler},
+					{cmd:"cmdAddItem",	fn:e_cmdAddItem_handler},
+					{cmd:"cmdRmItem",	fn:e_cmdAddItem_handler},
+				  	{cmd:"cmdCommit",	fn:e_cmdAddItem_handler},
+				  	{cmd:"cmdFilter",	fn:e_cmdAddItem_handler},
+				  	{cmd:"cmdRefresh",	fn:e_cmdAddItem_handler}					
+				]
+		genGrid(grid,cfg);	
+	}
+	
+	function e_cmdPre_handler(evt){
+		//;////out("上一条数据");
+	}
+	function e_cmdAddItem_handler(evt){
+		//msg("用户自定义事件");
+	}
+</script>
+</body>
+</html>

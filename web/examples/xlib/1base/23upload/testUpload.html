@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>upload_new.html</title>
+
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+		<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+		<style type="text/css">
+.upload {
+	background-image:url(../../../../images/appIcon/caigou.png);
+	background-repeat:no-repeat;
+	overflow: hidden;
+	position:relative;
+	width:200px;
+	height:200px;
+	background-color:red
+}
+.upload input {
+	cursor:default;
+	opacity: 0;
+	filter:alpha(opacity=0);
+	height:200px;
+	right: 0px;
+	position: absolute;
+}
+        </style>
+
+	</head>
+
+	<body>
+		<div class="upload"><input type="file" id="file" name="filename"  /></div>
+		<script type="text/javascript" src="../../../../release/base.js"></script>
+        <!--<script type="text/javascript" src="../../../../src/1base/23upload.js"></script>onChange="ajaxUpload(this)"-->
+		<script type="text/javascript">
+			document.getElementById("file").cfg={url:"http://localhost/eam/upload",fn:callback};
+			bind($("#file"),"change",ajaxUpload);
+			function callback(result){
+				alert(result);
+				//out("result",result);
+			}
+			
+		</script>
+	</body>
+</html>

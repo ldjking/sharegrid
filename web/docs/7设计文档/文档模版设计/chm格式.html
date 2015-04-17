@@ -1,0 +1,18 @@
+chm格式模版结构 动态文档格式
+
+chm的布局分左右两部分
+左边是content
+content默认展示navdata顶层元素指向页面
+右边是nav，展示形式为树状列表
+nav的指向是其他的html页面
+nav的数据来源于页面上定义的navdata,Json格式
+nav导航后将更新content的内容，更新方式为iframe方式还是加载内容方式，
+iframe方式相对较简单
+
+content还是采用doc方式
+
+文档我们要解决的问题，
+段落的控制
+换行的控制
+缩进的控制
+段落里面

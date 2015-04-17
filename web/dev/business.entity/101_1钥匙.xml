@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<entity name="key" cname="钥匙" prefix="AE">
+	<attrs>
+		<attr>
+			<name>id</name>
+			<cname>主键</cname>
+			<type>number</type>
+			<length></length>
+			<des></des>
+		</attr>
+	</attrs>
+	<contraints>
+		<pk></pk>
+		<uks></uks>
+		<fks></fks>
+	</contraints>
+</entity>
